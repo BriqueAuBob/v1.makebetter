@@ -1,0 +1,48 @@
+<template>
+    <button class="rounded-full font-medium text-base flex items-center shadow-xl ease-in duration-300" :class="[colors, small ? 'px-6 py-4' : 'px-8 py-4', centerText && 'justify-center']">
+        <slot name="icon_left"></slot>
+        <span :class="['whitespace-pre-line', centerText ? 'text-center' : 'text-left']">{{ text }}</span>
+        <slot name="icon_right"></slot>
+        <slot></slot>
+    </button>
+</template>
+
+<script>
+export default {
+    data: () => ({
+        btnColors: {
+            transparent: "bg-transparent shadow-none",
+            primary: 'bg-primary-500 hover:bg-primary-600 text-white',
+            secondary: 'bg-secondary-500 hover:bg-secondary-600 text-black',
+            white: 'bg-white hover:bg-gray-100 text-black',
+            blurple: "bg-blurple text-white"
+        }
+    }),
+    props: {
+        color: {
+            type: String,
+            default: 'secondary',
+        },
+        text: {
+            type: String,
+            required: true
+        },
+        icon: {
+            type: String
+        },
+        small: {
+            type: Boolean,
+            default: false
+        },
+        centerText: {
+            type: Boolean,
+            default: false
+        }
+    },
+    computed: {
+        colors() {
+            return this.btnColors[this.color]
+        }
+    }
+};
+</script>
