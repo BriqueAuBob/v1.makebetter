@@ -149,9 +149,9 @@
                                             </ToolsDiscordEmbedCreatorCollapseCard>
                                             <ToolsDiscordEmbedCreatorCollapseCard class="bg-gray-100 dark:bg-dark-700 rounded-lg" name="Images">
                                                 <Input placeholder="Image de couverture..." v-model="embed.thumbnail.url" />
-                                                <div class="flex gap-2">
-                                                    <Input class="mt-3 w-full" placeholder="Image..." v-model="embed.image.url" />
-                                                    <Input class="mt-3" placeholder="Image..." />
+                                                <div class="flex gap-4 mt-3">
+                                                    <Input class="w-full" placeholder="Image..." v-model="embed.image.url" />
+                                                    <Button class="text-xs font-normal" color="transparent" text="Réduire la taille de l'embed" :small="true" @click="embed.image.url = 'https://i.imgur.com/kdJejsd.png'" style="padding: 0!important;" />
                                                 </div>
                                             </ToolsDiscordEmbedCreatorCollapseCard>
                                             <ToolsDiscordEmbedCreatorCollapseCard class="bg-gray-100 dark:bg-dark-700 rounded-lg" name="Footer">
@@ -169,7 +169,7 @@
                                     <div class="flex flex-col gap-4">
                                         <ToolsDiscordEmbedCreatorCollapseCard 
                                             class="bg-white dark:bg-dark-700 rounded-l-md rounded-r-lg shadow-xl" 
-                                            v-for="(button, id) in message.components[0].components" 
+                                            v-for="(button, id) in message?.components[0]?.components" 
                                             :key="id" 
                                             :name="`Bouton n°${ id + 1 }`" 
                                             :trash="() => message?.components[0]?.components?.splice(index, 1)"
@@ -319,7 +319,8 @@ import { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild,
 import { UploadIcon, CubeIcon, TrashIcon, EyeIcon } from '@heroicons/vue/outline';
 import { ColorPicker } from "vue3-colorpicker";
 import "vue3-colorpicker/style.css";
-import { sendMessage, checkWebhookValidity, fetchMessage } from "~~/composables/DiscordWebhook"
+import { sendMessage, checkWebhookValidity, fetchMessage } from "~~/composables/DiscordWebhook";
+import axios from 'axios';
 
 export default {
     components: { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle, UploadIcon, CubeIcon, ColorPicker, TrashIcon, EyeIcon },
@@ -335,9 +336,9 @@ export default {
         mobile_preview_open: false,
         messages: [
             {
-                username: 'Brique au bob',
-                avatar_url: 'https://cdn.discordapp.com/avatars/307531336388968458/2c8407ba4d3da729fe75a24b99e51bc2.png?size=4096',
-                content: 'Salut les copains',
+                username: 'UMaestro',
+                avatar_url: 'https://cdn.discordapp.com/avatars/988400676537249832/76f7a68e7c0da0fc8aebc7f0c08e5309.png?size=256',
+                content: '',
                 files: [],
                 components: [
                     {
@@ -346,33 +347,21 @@ export default {
                     }
                 ],
                 embeds: [{
-                    color: '#F20F20',
-                    title: 'Some title',
-                    url: 'https://discord.js.org',
+                    color: '#2F3136',
+                    title: '',
+                    url: '',
                     author: {
-                        name: 'Some name',
-                        icon_url: 'https://i.imgur.com/AfFp7pu.png',
-                        url: 'https://discord.js.org',
+                        name: 'Créateur d\'embeds & leur rédaction!',
+                        icon_url: 'https://cdn.discordapp.com/emojis/979107826578370680.webp?size=96&quality=lossless'
                     },
-                    description: 'Some description here',
-                    thumbnail: {
-                        url: 'https://i.imgur.com/AfFp7pu.png',
-                    },
-                    fields: [
-                        {
-                            name: 'Regular field title',
-                            value: 'Some value here',
-                            inline: false,
-                        },
-                    ],
+                    description: "<:um_item1:985493065504542740> Cet outil a été pensé pour vous, notamment pour les créateurs de serveurs. Le rédacteur d'embeds vous permet d'illustrer vos textes en les mettant en valeur, grâce à votre charte graphique qui peut y etre ajoutée (Images & Emojis) ou encore avec des Markdowns & Liens. \n\n <:um_item1:985493065504542740> Une complète personnalisation est possible. Avec cet outils, plusieurs nouvelles fonctionnalités sont disponibles, dont la possibilités de mettre plusieurs images et ajuster la taille de votre embed grace aux barres de séparations disponibles selon les couleurs de vos choix !\n\n<:um_item1:985493065504542740>  Vous avez le choix de customiser la dispositions de vos textes dans les embeds grâce aux fields, ils peuvent etre tous allignés et/ou superposés. \n\n<:um_item1:985493065504542740> Il existe aussi 2 parties qui font office d'introductions à vos textes : Auteur & Footer. L'auteur permet d'introduire un nom & une image pour réveler l'identité du rédacteur. Et le footer est utile pour signer vos créations !\n\n<:icons_dwhite:875710295253848144> En choisisant cet outil, vous avez la possibilité d'enregister, supprimer, combiner et retrouver vos messages ! Le code de l'embed vous est aussi fournit.\n\n<:icons_dblurple:875710295258046535> Enfin, la partie nécessaire à son envoie sur Discord est l'intrégration Webhook | Intégrations que vous retrouverez dans les paramètres d'un salon et dans les paramètres de serveur.\n\nBonne utilisation à vous ! <:copinou_coucou:878308800682147850>",
+                    thumbnail: {},
+                    fields: [],
                     image: {
-                        url: 'https://media.discordapp.net/attachments/810567613129556028/867035136662962197/image0.png?width=863&height=288',
+                        url: 'https://i.imgur.com/kdJejsd.png',
                     },
-                    timestamp: '1977-04-22T01:00:00-05:00',
-                    footer: {
-                        text: 'Some footer text here',
-                        icon_url: 'https://i.imgur.com/AfFp7pu.png'
-                    },
+                    timestamp: '',
+                    footer: {},
                 },]
             }
         ]
@@ -381,6 +370,14 @@ export default {
         webhook_url: async function (value) {
             this.updateWebhookState(await checkWebhookValidity(value));
         }
+    },
+    async mounted() {
+        const response = await axios.get('/umaestro_banner.png', {
+            responseType: 'blob'
+        })
+        this.messages[0].files[0] = new File([new Blob([response.data])], 'welcome.png', {
+            type: 'image/png'
+        })
     },
     methods: {
         toggleMobilePreview() {
@@ -451,11 +448,14 @@ export default {
         },
         uploadFile(e, message) {
             message.files = Array.from(e.target.files);
+            console.log(message.files)
         },
         save(message) {
             if(!this.savename) return;
+            const messageCopy = { ...message };
+            messageCopy.files = [];
             const messages = JSON.parse(localStorage.getItem('discord_embed_creator_messages')) || {}
-            messages[this.savename] = message
+            messages[this.savename] = messageCopy;
             localStorage.setItem('discord_embed_creator_messages', JSON.stringify(messages));
             this.setIsOpen();
         },

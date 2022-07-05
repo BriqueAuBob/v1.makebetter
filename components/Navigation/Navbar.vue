@@ -101,6 +101,9 @@ export default {
                     content.classList.remove('overflow-hidden')
                 }, 300)
             }
+        },
+        $t() {
+            return 'navigation';
         }
     }
 }

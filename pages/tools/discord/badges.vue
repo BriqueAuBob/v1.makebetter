@@ -63,18 +63,20 @@
                     <ToolsStep :step-id="3" name="Couleurs">
                         <div class="bg-white dark:bg-dark-800 p-8 rounded-lg shadow-lg grid lg:grid-cols-6 gap-12 items-center">
                             <ColorPicker v-model:pureColor="primaryColor" :disableAlpha="true" shape="circle" pickerType="chrome" format="hex"></ColorPicker>
-                            <ColorPicker v-model:pureColor="secondaryColor" :disableAlpha="true" shape="circle" pickerType="chrome" format="hex"></ColorPicker>
+                            <ColorPicker v-if="duo_tone" v-model:pureColor="secondaryColor" :disableAlpha="true" shape="circle" pickerType="chrome" format="hex"></ColorPicker>
+                            <Toggle v-model="duo_tone" />
                         </div>
                     </ToolsStep>
                 </div>
                 <div>
                     <div class="bg-white dark:bg-dark-800 shadow-xl lg:rounded-2xl p-8 w-full lg:sticky lg:top-12 flex-col gap-4 overflow-y-auto lg:max-h-screen-padding relative hidden lg:flex">
                         <svg width="250" height="250" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
-                            <mask id="mask">
+                            <mask id="mask" v-if="!duo_tone">
                                 <rect x="0" y="0" width="250" height="250" fill="white" />
-                                <g transform="translate(75,75) scale(2)" v-html="icons[icon](secondaryColor)"></g>
+                                <g style="transform: translate(23%, 24%) scale(2.5);" v-html="icons[icon]('#000')"></g>
                             </mask>
                             <g v-html="shapes[shape](primaryColor)"></g>
+                            <g v-if="duo_tone" transform="translate(125,125) scale(2)" v-html="icons[icon](secondaryColor)"></g>
                         </svg>
                     </div>
                 </div>
@@ -94,6 +96,7 @@ export default {
     data: () => ({
         shape: 0,
         icon: 0,
+        duo_tone: false,
         icons,
         shapes,
         primaryColor: '#f20f20',

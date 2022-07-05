@@ -27,8 +27,8 @@ export default {
     },
     methods: {
         handleInput (value) {
-            this.$emit('update:modelValue', value)
             this.$emit('change', value)
+            this.$emit('update:modelValue', value)
         }
     }
 }

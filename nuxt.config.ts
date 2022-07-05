@@ -2,7 +2,11 @@ import { defineNuxtConfig } from 'nuxt'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-    buildModules: ['@nuxtjs/tailwindcss', '@nuxtjs/color-mode', '@intlify/nuxt3'],
+    buildModules: [
+        '@nuxtjs/tailwindcss', 
+        '@nuxtjs/color-mode', 
+        // '@intlify/nuxt3'
+    ],
     
     app: {
         head: {
@@ -29,11 +33,12 @@ export default defineNuxtConfig({
     //     mode: 'out-in'
     // },
 
-    intlify: {
-        vueI18n: {
-            locale: 'fr',
-            fallbackLocale: 'fr',
-            localeDir: 'locales'
-        }
-    }
+    // intlify: {
+    //     vueI18n: {
+    //         locale: 'fr',
+    //         fallbackLocale: 'fr',
+    //         /*@ts-ignore*/
+    //         localeDir: 'locales'
+    //     }
+    // },
 })

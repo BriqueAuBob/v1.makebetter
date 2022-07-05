@@ -7,7 +7,8 @@ module.exports = {
     `layouts/**/*.vue`,
     `pages/**/*.vue`,
     `plugins/**/*.{js,ts}`,
-    `nuxt.config.{js,ts}`
+    `nuxt.config.{js,ts}`,
+    'node_modules/tv-*/dist/tv-*.umd.min.js',
   ],
   safelist: [
     'bg-background',

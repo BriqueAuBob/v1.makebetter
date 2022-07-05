@@ -1,5 +1,5 @@
 <template>
-    <div class="embed bg-[#F2F3F5] dark:bg-[#2F3136] border-l-4" :style="`border-color: ${data.color}; max-width: 432px;`">
+    <div class="embed bg-[#F2F3F5] dark:bg-[#2F3136] border-l-4" :style="`border-color: ${data.color}; max-width: ${data.image.url ? '432' : '516'}px;`">
         <ClientOnly>
             <div v-if="data.author?.name || data.title || data.description || data.fields.length > 0 || data.thumbnail?.url" class="flex justify-between">
                 <div class="py-2 mr-2">
@@ -11,8 +11,8 @@
                         {{ data.title }}
                     </a>
                     <div v-if="data.description" class="text-sm mt-2 box-border leading-snug whitespace-pre-wrap break-words" v-html="toHTML(data.description)"></div>
-                    <div class="grid grid-cols-3 gap-8">
-                        <div v-for="(field, key) in data.fields" :key="key" class="text-sm mt-2">
+                    <div class="grid gap-x-6 gap-y-2">
+                        <div v-for="(field, key) in data.fields" :key="key" class="text-sm mt-2" :style="`grid-column: ${getFieldColumn(field)};`">
                             <Markdown :content="field.name" class="font-semibold"/>
                             <Markdown :content="field.value" class="font-normal" />
                         </div>
@@ -48,6 +48,45 @@ export default {
         data: {
             type: Object,
             default: {},
+        }
+    },
+    methods: {
+        getFieldColumn(field) {
+            const MAX_FIELDS_PER_ROW = 3
+            const FIELD_GRID_SIZE = 12
+
+            const embed = this.data
+            const fieldIndex = embed.fields.indexOf(field)
+
+            if (!field.inline) return `1/${FIELD_GRID_SIZE + 1}`
+
+            let startingField = fieldIndex
+            while (startingField > 0 && embed.fields[startingField - 1].inline) {
+                startingField--
+            }
+
+            let totalInlineFields = 0
+            while (
+                embed.fields.length > startingField + totalInlineFields &&
+                embed.fields[startingField + totalInlineFields].inline
+            ) {
+                totalInlineFields++
+            }
+
+            const indexInSequence = fieldIndex - startingField
+            const currentRow = indexInSequence / MAX_FIELDS_PER_ROW
+            const indexOnRow = indexInSequence % MAX_FIELDS_PER_ROW
+            const totalOnLastRow =
+                totalInlineFields % MAX_FIELDS_PER_ROW || MAX_FIELDS_PER_ROW
+            const fullRows = (totalInlineFields - totalOnLastRow) / MAX_FIELDS_PER_ROW
+            const totalOnRow =
+                currentRow >= fullRows ? totalOnLastRow : MAX_FIELDS_PER_ROW
+
+            const columnSpan = FIELD_GRID_SIZE / totalOnRow
+            const start = indexOnRow * columnSpan + 1
+            const end = start + columnSpan
+
+            return `${start}/${end}`
         }
     }
 }
