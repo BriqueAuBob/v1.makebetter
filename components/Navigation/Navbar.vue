@@ -7,12 +7,12 @@
             <ul class="gap-12 items-center hidden lg:flex"> 
                 <NuxtLink v-for="(link, index) of navigation" :key="index" :to="{ path: link.href, hash: link.hash }" class="text-gray-400">
                     <li class="ease-in duration-300 hover:text-white">
-                        {{ $t('navigation.' + link.name) }}
+                        {{ link.name }}
                     </li>
                 </NuxtLink>
                 <li>
                     <NuxtLink to="/authentification" v-if="!authenticated">
-                        <Button class="bg-white text-black" icon="user" :text="$t('navigation.my_account')" :small="true" />
+                        <Button class="bg-white text-black" icon="user" :text="'Accéder à mon compte'" :small="true" />
                     </NuxtLink>
                     <div v-else class="flex rounded-xl border-2 border-white px-3 py-2 ease-in-out duration-300 hover:bg-white hover:text-black hover:-translate-y-1 hover:scale-105 hover:shadow-2xl">
                         <NuxtLink to="/" class="flex items-center font-medium text-md gap-2">
@@ -28,7 +28,7 @@
             </button>
             <div ref="menu" :class="[!menuOpen && '-z-1 opacity-0', 'ease-in duration-300 absolute top-0 left-0 w-full h-screen p-8 flex flex-col']">
                 <div class="flex justify-between">
-                    <Button v-if="!authenticated" class="bg-white text-black" icon="user" :text="$t('navigation.my_account')" :small="true" />
+                    <Button v-if="!authenticated" class="bg-white text-black" icon="user" :text="'Accéder à mon compte'" :small="true" />
                     <NuxtLink v-else to="/" class="flex items-center font-medium text-xl gap-2 px-3 py-2 border-2 border-dark-700 rounded-xl">
                         <img src="https://cdn.discordapp.com/avatars/307531336388968458/2c8407ba4d3da729fe75a24b99e51bc2.png?size=4096" class="w-8 h-8 rounded-full" />
                         Brique au bob
@@ -43,7 +43,7 @@
                     <ul>
                         <NuxtLink v-for="(link, index) of navigation" :key="index" :to="{ path: link.href, hash: link.hash }" class="text-gray-400 dark:text-gray-500" @click="toggleMobileMenu">
                             <li class="text-xl font-medium py-4 ease-in duration-300 hover:text-gray-900 dark:hover:text-dark-100">
-                                {{ $t('navigation.' + link.name) }}
+                                {{ link.name }}
                             </li>
                         </NuxtLink>
                     </ul>
@@ -60,15 +60,15 @@ export default {
         height: 70,
         navigation: [
             {
-                name: 'articles',
+                name: 'Articles',
                 href: '/articles'
             },
             {
-                name: 'apply',
+                name: 'Recrutements',
                 href: '/hire'
             },
             {
-                name: 'tools',
+                name: 'Outils',
                 href: '/',
                 hash: '#tools'
             },
