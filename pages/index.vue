@@ -23,9 +23,9 @@
                     <div class="w-full bottom-0 transform translate-y-56 lg:absolute lg:translate-y-96">
                         <img src="/characters/red_pink_group.png" alt="Red and pink group characters" class="w-full -translate-y-16" />
                         <div class="bg-white dark:bg-dark-800 px-12 py-12 rounded-3xl shadow-xl w-full -translate-y-64 flex flex-wrap gap-y-12 justify-between">
-                            <Stat icon="UserIcon" name="Utilisateurs" />
-                            <Stat icon="CubeIcon" name="Outils" />
-                            <Stat icon="LinkIcon" name="Partenaires" />
+                            <Stat icon="UserIcon" name="Utilisateurs" :value="count" />
+                            <Stat icon="CubeIcon" name="Outils" :value="1" />
+                            <Stat icon="LinkIcon" name="Partenaires" :value="2" />
                             <Stat icon="ChartPieIcon" name="Utilisations" />
                         </div>
                     </div>
@@ -96,10 +96,23 @@
 </template>
 
 <script>
+import axios from 'axios'
 import { EyeIcon, CubeIcon, CodeIcon, PencilIcon } from '@heroicons/vue/outline/esm/index.js'
 
 export default {
     components: { CubeIcon },
+    async setup() {
+        const count = await useAsyncData(async () => {
+            try {
+                const { data } = await axios.get('https://api.umaestro.fr/statistics')
+                return data.members
+            } catch (e) {
+                return 0
+            }
+        })
+
+        return { count: count.data }
+    },
     data: () => ({
         categories: [
             { color: '#0B0B0F', name: 'Général', icon: EyeIcon, disabled: true },
@@ -136,6 +149,7 @@ export default {
         disabledCategories() {
             return this.categories.filter(category => category.disabled);
         },
-    }
+    },
+
 }
 </script>
