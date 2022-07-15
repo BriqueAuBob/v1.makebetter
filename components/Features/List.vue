@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { CubeIcon } from '@heroicons/vue/outline';
+import { CubeIcon, EyeIcon, HeartIcon } from '@heroicons/vue/outline';
 
 export default {
     data() {
@@ -19,15 +19,15 @@ export default {
                 },
                 {
                     color: 'bg-primary-500',
-                    icon: CubeIcon,
-                    name: 'Outils',
-                    description: 'Nous sommes fier de pouvoir vous offrir des outils vous facilitant la gestion de votre projet',
+                    icon: HeartIcon,
+                    name: 'Moyens',
+                    description: 'Notre site développé par nos équipes vous donnes les moyens et connaissances nécessaires pour vous améliorer',
                 },
                 {
                     color: 'bg-red-500',
-                    icon: CubeIcon,
-                    name: 'Outils',
-                    description: 'Nous sommes fier de pouvoir vous offrir des outils vous facilitant la gestion de votre projet',
+                    icon: EyeIcon,
+                    name: 'Visibilité',
+                    description: 'En plus d\'outils et de connaissances, nous vous mettons en avant dès que votre travail le mérite',
                 },
             ]
         }

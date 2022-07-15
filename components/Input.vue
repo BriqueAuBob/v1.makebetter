@@ -3,8 +3,8 @@
         <input 
             :placeholder="placeholder" 
             type="text" 
-            :class="big ? 'px-6 py-5 text-md' : 'px-6 py-4 text-sm'" 
-            class="text-sm w-full bg-transparent focus:bg-white dark:focus:bg-dark-800 border border-dark-800 focus:outline-none focus:border-primary-500 rounded-lg"
+            :class="[big ? 'px-6 py-5 text-md' : 'px-6 py-4 text-sm', white ? 'bg-white text-black' : 'bg-transparent focus:bg-white dark:focus:bg-dark-800 border-dark-800 focus:border-primary-500']" 
+            class="text-sm w-full  border  focus:outline-none  rounded-lg"
             @input="handleInput"
             :value="modelValue" />
     </div>
@@ -22,6 +22,10 @@ export default {
             default: '',
         },
         big: {
+            type: Boolean,
+            default: false,
+        },
+        white: {
             type: Boolean,
             default: false,
         }

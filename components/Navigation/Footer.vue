@@ -4,14 +4,16 @@
             <div>
                 <div class="font-semibold text-lg">UMaestro</div>
                 <p class="text-md mt-2 max-w-md leading-relaxed">
-                    Petite description assez courte de 2/3 lignes,  c’est assez important pour montrer ce qu’on fait
+                    Nous sommes un groupe sur Internet, plus communément appelé Network, nous proposons plusieurs projets en rapport avec le net.
+                    <br/><br/>
+                    <span class="text-sm font-light text-gray-400">Nous ne sommes pas affiliés avec les services pour lesquels nous fournissons des outils.</span>
                 </p>
             </div>
             <div>
                 <div class="font-semibold text-lg">Liens utiles</div>
                 <ul class="mt-4 flex flex-col gap-2 text-gray-500">
                     <li><NuxtLink to="#">Nos partenaires</NuxtLink></li>
-                    <li><NuxtLink to="#">Articles</NuxtLink></li>
+                    <!-- <li><NuxtLink to="#">Articles</NuxtLink></li> -->
                 </ul>
             </div>
             <div>

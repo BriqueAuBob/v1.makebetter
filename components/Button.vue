@@ -15,7 +15,8 @@ export default {
             primary: 'bg-primary-500 hover:bg-primary-600 text-white',
             secondary: 'bg-secondary-500 hover:bg-secondary-600 text-black',
             white: 'bg-white hover:bg-gray-100 text-black',
-            blurple: "bg-blurple text-white"
+            blurple: "bg-blurple text-white",
+            disabled: 'bg-gray-200 text-black opacity-50'
         }
     }),
     props: {

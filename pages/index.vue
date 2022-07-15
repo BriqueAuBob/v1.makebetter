@@ -3,19 +3,21 @@
         <header class="relative pt-32 lg:py-56 before:content-[''] before:bg-primary-500 before:-z-1 before:w-full before:h-full before:transform before:skew-y-3 before:absolute before:-top-16">
             <div class="container mx-auto lg:flex justify-between px-4">
                 <div>
-                    <h1 class="font-extrabold text-5xl max-w-md leading-snug text-white">Lorem ipsum dolor sit amet</h1>
+                    <h1 class="font-bold text-5xl max-w-md leading-snug text-white"><span class="font-extrabold">Le</span> site utile pour <span class="font-extrabold">tous</span></h1>
                     <h2 class="leading-snug text-3xl max-w-lg text-white mt-4">
-                        Elit excepteur aliqua aute occaecat ullamco aliqua laborum aute duis incididunt.
+                        Affine tes projets et améliore les à l'aide des outils que l'on met à ta disposition !
                     </h2>
-                    <Button 
-                        class="mt-8"
-                        text="Voir les outils
-                        que l'on propose"
-                    >
-                        <template v-slot:icon_left>
-                            <CubeIcon class="mr-3 w-10 h-10" />
-                        </template>
-                    </Button>
+                    <NuxtLink to="#tools">
+                        <Button 
+                            class="mt-8"
+                            text="Voir les outils
+                            que l'on propose"
+                        >
+                            <template v-slot:icon_left>
+                                <CubeIcon class="mr-3 w-10 h-10" />
+                            </template>
+                        </Button>
+                    </NuxtLink>
                 </div>
                 <div class="relative w-3/4 mx-auto lg:mx-0 lg:w-1/2 lg:translate-y-24">
                     <div class="w-full bottom-0 transform translate-y-56 lg:absolute lg:translate-y-96">
@@ -68,19 +70,19 @@
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0 35L221 0H0V35Z" />
                 </svg>
             </div>
-            <div class="absolute bottom-0 flex -scale-x-100 -scale-y-100 overflow-x-hidden fill-secondary-500">
+            <div class="absolute bottom-0 flex -scale-x-100 -scale-y-100 overflow-x-hidden fill-background dark:fill-dark-900">
                 <svg v-for="i in 7" :key="i" width="323" height="51" viewBox="0 0 221 35" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 35L221 0H0V35Z" fill="#57EDD1"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 35L221 0H0V35Z" />
                 </svg>
             </div>
         </section>
-        <section class="bg-secondary-500 py-24 relative after:content-[''] after:absolute after:left-0 after:top-full after:bg-gradient-to-b after:from-secondary-500 after:to-transparent after:h-52 after:w-full after:-z-1">
+        <!-- <section class="bg-secondary-500 py-24 relative after:content-[''] after:absolute after:left-0 after:top-full after:bg-gradient-to-b after:from-secondary-500 after:to-transparent after:h-52 after:w-full after:-z-1">
             redesign le contenu de cette section car pas très beau mais faut que je réflechisse
-        </section>
-        <section class="container mx-auto px-4 py-16 mt-64">
+        </section> -->
+        <section class="container mx-auto px-4 py-16 mt-24">
             <div class="font-semibold text-2xl leading-relaxed max-w-xs text-center mx-auto">Ce que les gens disent de nous</div>
             <div class="grid lg:grid-cols-2 xl:grid-cols-3 mt-8 gap-8 relative">
-                <Testimonial v-for="i in 9" :key="i" :rate="rates[0]" />
+                <Testimonial v-for="(rate, id) in rates" :key="id" :rate="rate" />
                 <div class="absolute w-full h-96 bg-gradient-to-t from-background dark:from-dark-900 via-background dark:via-dark-900 to-transparent bottom-0 translate-y-16 flex items-center">
                     <Button color="white" class="mx-auto relative" text="Voir plus d'avis">
                         <img src="/objects/star.png" class="absolute -left-12 -top-12 w-32 h-32 -z-1" />
@@ -108,11 +110,23 @@ export default {
         ],
         rates: [
             {
-                avatar: 'https://cdn.discordapp.com/avatars/307531336388968458/2c8407ba4d3da729fe75a24b99e51bc2.png?size=4096',
+                avatar: 'https://cdn.discordapp.com/avatars/307531336388968458/3bc4e124a0b4fe01877256fd532a0f7c.png',
                 username: 'Brique au  bob',
                 rate: 5,
                 text: 'C\'est un site très sympa et très utile. Je recommande vivement !',
-            }
+            },
+            {
+                avatar: 'https://cdn.discordapp.com/avatars/307531336388968458/3bc4e124a0b4fe01877256fd532a0f7c.png',
+                username: 'Brique au  bob',
+                rate: 5,
+                text: 'C\'est un site très sympa et très utile. Je recommande vivement !',
+            },
+            {
+                avatar: 'https://cdn.discordapp.com/avatars/307531336388968458/3bc4e124a0b4fe01877256fd532a0f7c.png',
+                username: 'Brique au  bob',
+                rate: 5,
+                text: 'C\'est un site très sympa et très utile. Je recommande vivement !',
+            },
         ]
     }),
     computed: {

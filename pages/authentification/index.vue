@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="w-full flex flex-col gap-4">
-                <Button color="transparent" class="w-full border-2 border-dark-700 dark:text-white hover:border-dark-600" :centerText="true" text="Connexion via Discord">
+                <Button color="transparent" class="w-full border-2 border-dark-700 dark:text-white hover:border-dark-600" :centerText="true" text="Connexion via Discord" @click="login">
                     <template v-slot:icon_left>
                         <img src="/icons/discord.svg" alt="Discord" class="h-6 w-6 mr-4" />
                     </template>
@@ -38,7 +38,17 @@
 </template>
 
 <script>
+import axios from 'axios'
 definePageMeta({
     layout: 'footer'
 })
+
+export default {
+    methods: {
+        async login() {
+            const { data } = await axios.get('http://localhost:3333/auth/oauth2/discord')
+            window.location.href = data.redirect
+        }
+    }
+}
 </script>

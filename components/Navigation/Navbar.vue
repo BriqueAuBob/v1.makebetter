@@ -16,8 +16,8 @@
                     </NuxtLink>
                     <div v-else class="flex rounded-xl border-2 border-white px-3 py-2 ease-in-out duration-300 hover:bg-white hover:text-black hover:-translate-y-1 hover:scale-105 hover:shadow-2xl">
                         <NuxtLink to="/" class="flex items-center font-medium text-md gap-2">
-                            <img src="https://cdn.discordapp.com/avatars/307531336388968458/2c8407ba4d3da729fe75a24b99e51bc2.png?size=4096" class="w-6 h-6 rounded-full" />
-                            Brique au bob
+                            <img :src="user.avatar" class="w-6 h-6 rounded-full" />
+                            {{ user.username }}
                         </NuxtLink>
                     </div>
                 </li>
@@ -30,8 +30,8 @@
                 <div class="flex justify-between">
                     <Button v-if="!authenticated" class="bg-white text-black" icon="user" :text="'Accéder à mon compte'" :small="true" />
                     <NuxtLink v-else to="/" class="flex items-center font-medium text-xl gap-2 px-3 py-2 border-2 border-dark-700 rounded-xl">
-                        <img src="https://cdn.discordapp.com/avatars/307531336388968458/2c8407ba4d3da729fe75a24b99e51bc2.png?size=4096" class="w-8 h-8 rounded-full" />
-                        Brique au bob
+                        <img :src="user.avatar" class="w-8 h-8 rounded-full" />
+                        {{ user.username }}
                     </NuxtLink>
                     <button class="rounded-full border-2 border-dark-700 dark:border-dark-700 p-4 focus:bg-dark-700 focus:text-white flex items-center justify-center group" @click="toggleMobileMenu">
                         <svg class="fill-black dark:fill-dark-700 group-focus:fill-white w-5 h-5" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
@@ -54,15 +54,17 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     data: () => ({
         menuOpen: false,
         height: 70,
         navigation: [
-            {
-                name: 'Articles',
-                href: '/articles'
-            },
+            // {
+            //     name: 'Articles',
+            //     href: '/articles'
+            // },
             {
                 name: 'Recrutements',
                 href: '/hire'
@@ -73,9 +75,10 @@ export default {
                 hash: '#tools'
             },
         ],
-        authenticated: false
+        authenticated: false,
+        user: {}
     }),
-    mounted() {
+    async mounted() {
         const content = document.getElementById('content')
         content.classList.add('ease-in', 'duration-300')
         content.style.maxHeight = '100vh'
@@ -84,6 +87,18 @@ export default {
         const nuxt = document.getElementById('__nuxt')
         nuxt.classList.add('overflow-x-hidden')
         nuxt.appendChild(this.$refs.menu)
+
+        const token = localStorage.getItem('access_token')
+
+        if(token) {
+            const { data } = await axios.get('http://localhost:3333/auth/user', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            this.user = data.user
+            this.authenticated = data.user?.id ? true : false
+        }
     },
     methods: {
         toggleMobileMenu() {
