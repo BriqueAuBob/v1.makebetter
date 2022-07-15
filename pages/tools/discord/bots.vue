@@ -149,7 +149,7 @@
 
 <script>
 import { Switch } from '@headlessui/vue'
-import { BookmarkIcon, SortDescendingIcon, ChevronDownIcon, CubeIcon, ChipIcon } from "@heroicons/vue/outline"
+import { BookmarkIcon, SortDescendingIcon, ChevronDownIcon, CubeIcon, ChipIcon } from "@heroicons/vue/outline/esm/index.js"
 
 export default {
     components: { Switch, SortDescendingIcon, BookmarkIcon, ChevronDownIcon, CubeIcon, ChipIcon },

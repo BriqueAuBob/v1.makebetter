@@ -7,14 +7,15 @@ module.exports = {
     `layouts/**/*.vue`,
     `pages/**/*.vue`,
     `plugins/**/*.{js,ts}`,
-    `nuxt.config.{js,ts}`,
     'node_modules/tv-*/dist/tv-*.umd.min.js',
   ],
   safelist: [
     'bg-background',
-    // {
-    //   pattern: /./ 
-    // },
+    'dark:bg-dark-900',
+    'dark:text-white',
+    'transition',
+    'ease-in',
+    'duration-100'
   ],
   darkMode: 'class',
   theme: {

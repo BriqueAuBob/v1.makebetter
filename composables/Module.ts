@@ -1,4 +1,4 @@
-import { EyeIcon } from "@heroicons/vue/outline";
+import { EyeIcon } from "@heroicons/vue/outline/esm/index.js";
 import Badges from '~~/components/Tools/Cards/Badges.vue'
 import Bots from '~~/components/Tools/Cards/Bots.vue'
 import Embed from '~~/components/Tools/Cards/Embed.vue'

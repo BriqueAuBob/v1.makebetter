@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import * as Icons from '@heroicons/vue/outline'
+import * as Icons from '@heroicons/vue/outline/esm/index.js'
 
 export default {
     data: () =>  ({ Icons }),

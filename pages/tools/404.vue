@@ -19,7 +19,7 @@
 
 
 <script>
-import { LightBulbIcon } from "@heroicons/vue/outline"
+import { LightBulbIcon } from "@heroicons/vue/outline/esm/index.js"
 
 export default {
     components: { LightBulbIcon },

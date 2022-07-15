@@ -96,7 +96,7 @@
 </template>
 
 <script>
-import { EyeIcon, CubeIcon, CodeIcon, PencilIcon } from '@heroicons/vue/outline'
+import { EyeIcon, CubeIcon, CodeIcon, PencilIcon } from '@heroicons/vue/outline/esm/index.js'
 
 export default {
     components: { CubeIcon },

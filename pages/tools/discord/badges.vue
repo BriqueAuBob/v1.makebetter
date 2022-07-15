@@ -86,7 +86,7 @@
 </template>
 
 <script>
-import { CubeIcon } from "@heroicons/vue/outline";
+import { CubeIcon } from "@heroicons/vue/outline/esm/index.js";
 import { ColorPicker } from "vue3-colorpicker";
 import "vue3-colorpicker/style.css";
 import icons, { shapes } from '~~/composables/DiscordIcons';

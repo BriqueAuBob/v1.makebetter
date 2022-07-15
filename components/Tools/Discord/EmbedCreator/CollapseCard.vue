@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { ChevronDownIcon, TrashIcon } from '@heroicons/vue/outline';
+import { ChevronDownIcon, TrashIcon } from '@heroicons/vue/outline/esm/index.js';
 
 export default {
     components: { ChevronDownIcon, TrashIcon },

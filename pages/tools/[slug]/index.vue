@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import { CubeIcon, LightBulbIcon } from "@heroicons/vue/outline"
+import { CubeIcon, LightBulbIcon } from "@heroicons/vue/outline/esm/index.js"
 import { useModule, allCards, tools } from "~~/composables/Module"
 
 export default {

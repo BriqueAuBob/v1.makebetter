@@ -162,7 +162,7 @@
                                         </div>
                                     </ToolsDiscordEmbedCreatorCollapseCard>
                                 </div>
-                                <Button class="mx-auto mt-8" color="blurple" :text="`Ajouter un embed (${message.embeds?.length}/10)`" @click="message.embeds.length < 10 && createEmptyEmbed()" />
+                                <Button class="mx-auto mt-8" color="blurple" :text="`Ajouter un embed (${message.embeds?.length}/10)`" @click="message.embeds.length < 10 && createEmptyEmbed(message)" />
                             </ToolsDiscordEmbedCreatorStep>
                             <ToolsDiscordEmbedCreatorStep :step-id="msgIndex + 2 + '.5'" name="Boutons" class="relative">
                                 <div>
@@ -316,7 +316,7 @@
 
 <script>
 import { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
-import { UploadIcon, CubeIcon, TrashIcon, EyeIcon } from '@heroicons/vue/outline';
+import { UploadIcon, CubeIcon, TrashIcon, EyeIcon } from '@heroicons/vue/outline/esm/index.js';
 import { ColorPicker } from "vue3-colorpicker";
 import "vue3-colorpicker/style.css";
 import { sendMessage, checkWebhookValidity, fetchMessage } from "~~/composables/DiscordWebhook";

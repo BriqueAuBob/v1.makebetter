@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { CubeIcon, EyeIcon, HeartIcon } from '@heroicons/vue/outline';
+import { CubeIcon, EyeIcon, HeartIcon } from '@heroicons/vue/outline/esm/index.js';
 
 export default {
     data() {

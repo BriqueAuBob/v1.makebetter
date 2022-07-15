@@ -38,7 +38,8 @@
 </template>
 
 <script>
-import { toHTML } from 'discord-markdown'
+import pkg from 'discord-markdown'
+const { toHTML } = pkg
 
 export default {
     setup() {
