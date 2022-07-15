@@ -91,7 +91,7 @@ export default {
         const token = localStorage.getItem('access_token')
 
         if(token) {
-            const { data } = await axios.get('http://localhost:3333/auth/user', {
+            const { data } = await axios.get('https://api.umaestro.fr/auth/user', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

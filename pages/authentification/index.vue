@@ -46,7 +46,7 @@ definePageMeta({
 export default {
     methods: {
         async login() {
-            const { data } = await axios.get('http://localhost:3333/auth/oauth2/discord')
+            const { data } = await axios.get('https://api.umaestro.fr/auth/oauth2/discord')
             window.location.href = data.redirect
         }
     }
