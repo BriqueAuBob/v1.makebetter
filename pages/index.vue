@@ -84,7 +84,7 @@
             <div class="grid lg:grid-cols-2 xl:grid-cols-3 mt-8 gap-8 relative">
                 <Testimonial v-for="(rate, id) in rates" :key="id" :rate="rate" />
                 <div class="absolute w-full h-96 bg-gradient-to-t from-background dark:from-dark-900 via-background dark:via-dark-900 to-transparent bottom-0 translate-y-16 flex items-center">
-                    <Button color="white" class="mx-auto relative" text="Voir plus d'avis">
+                    <Button color="white" class="mx-auto relative" text="Bientôt disponible">
                         <img src="/objects/star.png" class="absolute -left-12 -top-12 w-32 h-32 -z-1" />
                         <img src="/objects/star2.png" class="absolute right-0 -top-6 w-14 h-14 -z-1" />
                         <img src="/objects/star3.png" class="absolute -right-8 -bottom-10 w-20 h-20" />
@@ -102,9 +102,9 @@ export default {
     components: { CubeIcon },
     data: () => ({
         categories: [
-            { color: '#0B0B0F', name: 'Général', icon: EyeIcon},
+            { color: '#0B0B0F', name: 'Général', icon: EyeIcon, disabled: true },
             { color: '#5865F2', name: 'Discord', icon: 'discord.svg' },
-            { color: '#15B79A', name: 'Développement', icon: CodeIcon },
+            { color: '#15B79A', name: 'Développement', icon: CodeIcon, disabled: true },
             { color: '#A970FF', name: 'Twitch', icon: CubeIcon, disabled: true },
             { color: '#EB3B5B', name: 'Graphisme', icon: PencilIcon, disabled: true },
         ],

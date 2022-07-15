@@ -66,6 +66,10 @@ export default {
             //     href: '/articles'
             // },
             {
+                name: 'Partenaires',
+                href: '/partners'
+            },
+            {
                 name: 'Recrutements',
                 href: '/hire'
             },

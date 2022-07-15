@@ -21,12 +21,12 @@
             </div>
             <div class="container mx-auto max-w-xl bg-primary-400 absolute -top-24 left-1/2 -translate-x-1/2 p-8 rounded-lg">
                 <div class="text-xl font-medium">Les avantages à collaborer avec nous?</div>
-                <div class="text-md font-medium mt-6">Mise en avant de votre projet</div>
-                <p class="text-sm mt-2">Lorem ipsum dolor sit amet bla bla bla bla bla bla bla bla bal bfz hbioggf gfz gfz gufzu hgfzh uygfzhyu gyhz yugfhz yugfz.</p>
-                <div class="text-md font-medium mt-8">Mise en avant de votre projet</div>
-                <p class="text-sm mt-2">Lorem ipsum dolor sit amet bla bla bla bla bla bla bla bla bal bfz hbioggf gfz gfz gufzu hgfzh uygfzhyu gyhz yugfhz yugfz.</p>
-                <div class="text-md font-medium mt-8">Mise en avant de votre projet</div>
-                <p class="text-sm mt-2">Lorem ipsum dolor sit amet bla bla bla bla bla bla bla bla bal bfz hbioggf gfz gfz gufzu hgfzh uygfzhyu gyhz yugfhz yugfz.</p>
+                <div class="text-md font-medium mt-6">Notre créativité</div>
+                <p class="text-sm mt-2">UMaestro est un groupe qui anticipe chacun de ses mouvements, et prévoit tout une suite de projets pour se construire un avenir</p>
+                <div class="text-md font-medium mt-8">Votre Visibilité</div>
+                <p class="text-sm mt-2">Nous vous proposons de la visibilité sur notre site et Discord</p>
+                <div class="text-md font-medium mt-8">Des Avantages</div>
+                <p class="text-sm mt-2">Vous pouvez obtenir des avantages concernant nos projets.</p>
             </div>
         </section>
     </div>
@@ -37,34 +37,14 @@ export default {
     data: () => ({
         partners: [
             {
-                name: 'Meta',
-                link: 'https://meta.com',
-                icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/2560px-Meta_Platforms_Inc._logo.svg.png'
+                name: 'Trouve Ton Staff',
+                link: 'https://discord.gg/gcWzeg7kQP',
+                icon: 'https://cdn.discordapp.com/attachments/932195461668950036/996444263955050516/App_Icon_3.png'
             },
             {
-                name: 'Meta',
-                link: 'https://meta.com',
-                icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/2560px-Meta_Platforms_Inc._logo.svg.png'
-            },
-            {
-                name: 'Meta',
-                link: 'https://meta.com',
-                icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/2560px-Meta_Platforms_Inc._logo.svg.png'
-            },
-            {
-                name: 'Meta',
-                link: 'https://meta.com',
-                icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/2560px-Meta_Platforms_Inc._logo.svg.png'
-            },
-            {
-                name: 'Meta',
-                link: 'https://meta.com',
-                icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/2560px-Meta_Platforms_Inc._logo.svg.png'
-            },
-            {
-                name: 'Meta',
-                link: 'https://meta.com',
-                icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/2560px-Meta_Platforms_Inc._logo.svg.png'
+                name: 'Discord Analytics',
+                link: 'https://discordanalytics.fr/',
+                icon: 'https://media.discordapp.net/attachments/717855648997441576/994001523065487360/imageonline-co-roundcorner_3.png?width=676&height=676'
             },
         ]
     })

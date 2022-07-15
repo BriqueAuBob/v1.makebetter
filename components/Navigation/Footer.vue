@@ -12,7 +12,7 @@
             <div>
                 <div class="font-semibold text-lg">Liens utiles</div>
                 <ul class="mt-4 flex flex-col gap-2 text-gray-500">
-                    <li><NuxtLink to="#">Nos partenaires</NuxtLink></li>
+                    <li><NuxtLink to="partners">Nos partenaires</NuxtLink></li>
                     <!-- <li><NuxtLink to="#">Articles</NuxtLink></li> -->
                 </ul>
             </div>

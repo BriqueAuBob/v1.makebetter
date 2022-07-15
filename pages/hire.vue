@@ -59,12 +59,12 @@
                 <div class="font-semibold text-lg">{{ category.title }}</div>
                 <div class="mt-2">{{ category.subtitle }}</div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
-                    <NuxtLink to="#" v-for="(job, index) of category.jobs" :key="index">
+                    <NuxtLink target="blank" to="https://docs.google.com/forms/d/e/1FAIpQLScCszcMFVbGvE5Y0bqNapkw1pcvm6fr7V_jvlVI48L87T81CA/viewform" v-for="(job, index) of category.jobs" :key="index">
                         <Card class="before:bg-white before:dark:bg-dark-800">
                             <div class="p-8 flex flex-col justify-between">
                                 <div>
                                     <div class="font-semibold text-xl">{{ job.name }}</div>
-                                    <div class="mt-2 text-lg">{{ job.description }}</div>
+                                    <!-- <div class="mt-2 text-lg">{{ job.description }}</div> -->
                                 </div>
                                 <span class="flex items-center gap-2 font-medium text-blurple mt-4">Postuler <img src="/icons/double_chevron.svg" class="w-5 h-5" alt="Double chevron" /></span>
                             </div>
@@ -90,21 +90,11 @@ export default {
                         description: 'You will interact with senior executives at our partner organizations and be a trusted evangelist for Discord’s products and priorities.'
                     },
                     {
-                        name: 'Concepteur',
+                        name: 'Community Manager',
                         description: 'You will interact with senior executives at our partner organizations and be a trusted evangelist for Discord’s products and priorities.'
                     },
                     {
-                        name: 'Evaluateur',
-                        description: 'You will interact with senior executives at our partner organizations and be a trusted evangelist for Discord’s products and priorities.'
-                    },
-                ] 
-            },
-            {
-                title: 'J’ai pas d’idée de phrase',
-                subtitle: 'Nous recrutons des personnes qui savent entuber les gens',
-                jobs: [
-                    {
-                        name: 'Marketing',
+                        name: 'Animateur',
                         description: 'You will interact with senior executives at our partner organizations and be a trusted evangelist for Discord’s products and priorities.'
                     },
                 ] 

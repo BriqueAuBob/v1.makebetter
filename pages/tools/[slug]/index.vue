@@ -39,9 +39,11 @@
             <div class="text-lg text-center mt-4">Dédiés à <span class="capitalize">{{ $route.params.slug }}</span></div>
             <ClientOnly>
                 <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mt-8">
-                    <NuxtLink :to="`/tools/${$route.params.slug}/${getModuleName(index).toLowerCase()}`" v-for="(tool, index) of moduleTools" :key="index">
-                        <component :is="{...getModuleCard(index)}" />
-                    </NuxtLink>
+                    <div v-for="(tool, index) of moduleTools" :key="index">
+                        <NuxtLink :to="`/tools/${$route.params.slug}/${getModuleName(index).toLowerCase()}`" v-if="getModuleName(index).toLowerCase() === 'embed'">
+                            <component :is="{...getModuleCard(index)}" />
+                        </NuxtLink>
+                    </div>
                 </div>
             </ClientOnly>
             <div class="text-lg text-center mt-12 max-w-md mx-auto">Les outils, que tu pourras retrouver ailleurs, qui te seront utiles pour <span class="capitalize">{{ $route.params.slug }}</span></div>
@@ -58,7 +60,7 @@
             <div class="text-xl text-center mt-4 leading-relaxed max-w-lg mx-auto">Nous acceptons toutes idées de nouvels outils, qu’ils soient liés à <span class="capitalize">{{ $route.params.slug }}</span> ou pas alors n’hésites pas à nous faire part de ta suggestion !</div>
             <Button 
                 color="white"
-                class="mt-8 mx-auto"
+                class="mt-8 mx-auto opacity-25"
                 text="Faire une suggestion"
             >
                 <template v-slot:icon_left>
