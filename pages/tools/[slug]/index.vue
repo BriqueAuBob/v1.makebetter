@@ -5,7 +5,8 @@
         </Head>
         <ToolsHeader>
             <h1 class="font-extrabold text-4xl leading-[3.5rem] text-center max-w-lg mx-auto">Et oui, on propose des outils pour <span class="capitalize">{{ $route.params.slug }}</span> !</h1>
-            <h2 class="text-2xl leading-relaxed mt-4 text-center max-w-lg mx-auto">Petite description assez courte de 2/3 lignes, c’est assez important pour montrer ce qu’on fait</h2>
+            <h2 class="text-2xl leading-relaxed mt-4 text-center max-w-lg mx-auto">Ici sont rassemblés nos outils qui intéragissent avec Discord ! 
+Nos outils sortent au fil du temps et en fonction de votre attente.</h2>
             <Button 
                 class="mt-8 bg-white mx-auto"
                 text="Voir les outils
@@ -39,6 +40,7 @@
             <div class="text-lg text-center mt-4">Dédiés à <span class="capitalize">{{ $route.params.slug }}</span></div>
             <ClientOnly>
                 <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mt-8">
+                    <div></div>
                     <div v-for="(tool, index) of moduleTools" :key="index">
                         <NuxtLink :to="`/tools/${$route.params.slug}/${getModuleName(index).toLowerCase()}`" v-if="getModuleName(index).toLowerCase() === 'embed'">
                             <component :is="{...getModuleCard(index)}" />

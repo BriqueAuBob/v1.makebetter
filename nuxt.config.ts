@@ -17,6 +17,22 @@ export default defineNuxtConfig({
         }
     },
 
+    meta: {
+        meta: [
+            { property: 'og:title', content: 'UMaestro - Créée ton meilleur projet avec nous !' },
+            { property: 'og:type', content: 'product' },
+            { property: 'og:description', content: 'Site regroupant une multitude d\'outils dans de multiples domaines différents.' },
+            { property: 'twitter:title', content: 'UMaestro - Créée ton meilleur projet avec nous !' },
+            { property: 'twitter:description', content: 'Site regroupant une multitude d\'outils dans de multiples domaines différents.' },
+            { property: 'og:title', content: 'UMaestro - Créée ton meilleur projet avec nous !' },
+            { property: 'description', content: 'Site regroupant une multitude d\'outils dans de multiples domaines différents.' },
+            { name: 'twitter:card', content: 'summary' }
+        ],
+        link: [
+            { rel: 'icon', type: 'image/png', href: '/favicon-32x32.png' }
+        ]
+    },
+
     colorMode: {
         preference: 'system',
         fallback: 'light',
