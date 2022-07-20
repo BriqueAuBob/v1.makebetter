@@ -28,6 +28,11 @@
                     </ToolsDiscordEmbedCreatorStep>
                     <div class="divide-y">
                         <ToolsDiscordEmbedCreatorStep v-for="(message, msgIndex) of messages" :key="msgIndex" :step-id="msgIndex + 2" :name="`Création du message n°${msgIndex + 1}`" :big-padding="true">
+                            <template #bin>
+                                <button @click="() => { messages.splice(msgIndex, 1) }" class="p-2">
+                                    <TrashIcon class="w-6 h-6" />
+                                </button>
+                            </template>
                             <div>
                                 <Menu as="div" class="relative inline-block text-left">
                                     <MenuButton class="bg-white dark:bg-dark-800 flex gap-6 items-center p-8 rounded-xl shadow-lg ease-in duration-200 hover:shadow-xl hover:-translate-y-1 dark:hover:bg-dark-700 cursor-pointer">
@@ -133,9 +138,14 @@
                                                 <Input placeholder="Titre..." v-model="embed.title" />
                                                 <Textarea class="mt-3" placeholder="Description..." v-model="embed.description" />
                                                 <Input class="mt-3" placeholder="URL..." v-model="embed.url" />
-                                                <div class="mt-3">
+                                                <div class="mt-3 flex">
                                                     <ClientOnly>
                                                         <ColorPicker v-model:pureColor="embed.color" :disableAlpha="true" shape="circle" pickerType="chrome" format="hex"></ColorPicker>
+                                                        <div class="grid grid-cols-10 gap-2">
+                                                            <div class="w-7 h-7 rounded-md flex items-center justify-center cursor-pointer" v-for="(color, index) in defaultColors" :key="index" :style="`background: ${color};`" @click="embed.color = color">
+                                                                <CheckIcon v-if="embed.color == color" class="w-6 h-6" />
+                                                            </div>
+                                                        </div>
                                                     </ClientOnly>
                                                 </div>
                                             </ToolsDiscordEmbedCreatorCollapseCard>
@@ -191,6 +201,68 @@
                             </ToolsDiscordEmbedCreatorStep>
                             <ToolsDiscordEmbedCreatorStep :step-id="msgIndex + 2 + '.6'" name="Finaliser le message">
                                 <div class="flex gap-4 justify-center">
+                                    <Button 
+                                        class="mt-8"
+                                        color="primary"
+                                        text="Voir le JSON"
+                                        @click="modalCode = true"
+                                    />
+                                    <TransitionRoot appear :show="modalCode" as="template">
+                                        <Dialog as="div" @close="modalCode = false" class="relative z-10">
+                                            <TransitionChild
+                                                as="template"
+                                                enter="duration-300 ease-out"
+                                                enter-from="opacity-0"
+                                                enter-to="opacity-100"
+                                                leave="duration-200 ease-in"
+                                                leave-from="opacity-100"
+                                                leave-to="opacity-0"
+                                            >
+                                                <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm" />
+                                            </TransitionChild>
+
+                                            <div class="fixed inset-0 overflow-y-auto">
+                                                <div
+                                                class="flex min-h-full items-center justify-center p-4 text-center"
+                                                >
+                                                <TransitionChild
+                                                    as="template"
+                                                    enter="duration-300 ease-out"
+                                                    enter-from="opacity-0 scale-95"
+                                                    enter-to="opacity-100 scale-100"
+                                                    leave="duration-200 ease-in"
+                                                    leave-from="opacity-100 scale-100"
+                                                    leave-to="opacity-0 scale-95"
+                                                >
+                                                    <DialogPanel
+                                                        class="w-full max-w-2xl max-h-screen-padding transform overflow-hidden rounded-2xl bg-white dark:bg-dark-900 p-6 text-left align-middle shadow-xl transition-all"
+                                                    >
+                                                        <DialogTitle
+                                                            as="h3"
+                                                            class="text-lg font-medium leading-6 text-gray-900 dark:text-white"
+                                                        >
+                                                            JSON du message
+                                                        </DialogTitle>
+                                                        <pre class="bg-dark-700 my-4 max-h-96 overflow-auto"><code>{{ message }}</code></pre>
+                                                        <div class="flex gap-2 items-center mt-4 justify-end">
+                                                            <Button
+                                                                color="transparent"
+                                                                text="Fermer"
+                                                                @click="modalCode = false"
+                                                            />
+                                                            <Button
+                                                                color="primary"
+                                                                text="Copier"
+                                                                @click="setClipboardText(message)"
+                                                            />
+                                                        </div>
+                                                    </DialogPanel>
+                                                </TransitionChild>
+                                                </div>
+                                            </div>
+                                        </Dialog>
+                                    </TransitionRoot>
+
                                     <Button 
                                         class="mt-8"
                                         color="secondary"
@@ -316,14 +388,15 @@
 
 <script>
 import { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
-import { UploadIcon, CubeIcon, TrashIcon, EyeIcon } from '@heroicons/vue/outline/esm/index.js';
+import { UploadIcon, CubeIcon, TrashIcon, EyeIcon, CheckIcon } from '@heroicons/vue/outline/esm/index.js';
 import { ColorPicker } from "vue3-colorpicker";
 import "vue3-colorpicker/style.css";
 import { sendMessage, checkWebhookValidity, fetchMessage } from "~~/composables/DiscordWebhook";
 import axios from 'axios';
+import axios2 from '@/composables/Axios';
 
 export default {
-    components: { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle, UploadIcon, CubeIcon, ColorPicker, TrashIcon, EyeIcon },
+    components: { CheckIcon, Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle, UploadIcon, CubeIcon, ColorPicker, TrashIcon, EyeIcon },
     head: {
         title: 'Créateur d\'embed',
     },
@@ -331,9 +404,14 @@ export default {
         is_application_webhook: false,
         valid_webhook: false,
         isOpen: false,
+        modalCode: false,
         webhook_url: '',
         savename: '',
         mobile_preview_open: false,
+        defaultColors: [
+            '#1ABC9C', '#2ECC71', '#3498DB', '#9B59B6', '#E91E63', '#F1C40F', '#E67E22', '#E74C3C', '#95A5A6', '#607D8B',
+            '#11806A', '#1F8B4C', '#206694', '#71368A', '#AD1457', '#C27C0E', '#A84300', '#992D22', '#979C9F', '#546E7A'
+        ],
         messages: [
             {
                 username: 'UMaestro',
@@ -389,8 +467,8 @@ export default {
         },
         createEmptyMessage() {
             this.messages.push({
-                username: this.messages[0].username,
-                avatar_url: this.messages[0].avatar_url,
+                username: this.messages[0] ? this.messages[0].username : 'UMaestro',
+                avatar_url: this.messages[0] ? this.messages[0].avatar_url : 'https://cdn.discordapp.com/avatars/995327553143312474/ac9586ba3f3b7a32428bbc751266a94e.webp?size=128',
                 files: [],
                 embeds: [],
                 components: [
@@ -442,6 +520,14 @@ export default {
         },
         sendMessage() {
             sendMessage(this.webhook_url, this.messages)
+
+            axios2.post('statistics', {
+                tool: 'discord_embed'
+            }, {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+                }
+            })
         },
         load(index, loadIndex) {
             this.messages[index] = (JSON.parse(localStorage.getItem('discord_embed_creator_messages')) || [])[loadIndex] || this.messages[index];
@@ -468,12 +554,21 @@ export default {
             fetchMessage(value).then(message => {
                 this.message = message;
             });
+        },
+        setClipboardText(message) {
+            navigator.clipboard.writeText(JSON.stringify(message));
         }
     },
 }
 </script>
 
 <style>
+.vc-color-wrap {
+    width: 64px!important;
+    height: 64px!important;
+    border-radius: 0.375rem!important;
+}
+
 .vc-hue-slider__bar {
     background: -webkit-linear-gradient(left,red 0%,yellow 16.66%,lime 33.33%,aqua 50%,blue 66.66%,fuchsia 83.33%,red 100%);
 }

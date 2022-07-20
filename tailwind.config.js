@@ -15,7 +15,8 @@ module.exports = {
     'dark:text-white',
     'transition',
     'ease-in',
-    'duration-100'
+    'duration-100',
+    'scroll-smooth'
   ],
   darkMode: 'class',
   theme: {

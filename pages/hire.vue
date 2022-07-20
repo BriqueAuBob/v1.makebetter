@@ -6,7 +6,9 @@
                     <div class="lg:col-span-2">
                         <h1 class="font-extrabold text-5xl">UMaestro recrute !</h1>
                         <h2 class="text-2xl leading-relaxed max-w-xl mt-6">On recrute des personnes compétentes dans divers domaines pour aider à la conception et la maintenance de nos différents projets</h2>
-                        <Button class="mt-10" text="Voir les postes disponible" />
+                        <NuxtLink href="#postes">
+                            <Button class="mt-10" text="Voir les postes disponible" />
+                        </NuxtLink>
                     </div>
                     <div class="relative hidden md:block">
                         <img src="/characters/wave_character.png" alt="3D Wave Character" class="w-full absolute -left-52 -bottom-32 scale-150 hidden xl:block" />
@@ -54,17 +56,18 @@
             <p class="text-xl leading-relaxed mt-4">
                 Nous voulons proposer à notre communauté des outils intéressants pour la conception de leurs communautés mais pour celà, nous avons besoin de personnes ayant différentes compétences.<br/>C’est pourquoi, nous recrutons constamment des personnes dans différents domaines afin d’aider à maintenir UMaestro.</p>
         </section>
-        <section class="py-8 container mx-auto px-4 pb-20">
+        <section class="py-8 container mx-auto px-4 pb-20" id="postes">
             <div v-for="(category, index) of categories" :key="index" class="mb-16">
                 <div class="font-semibold text-lg">{{ category.title }}</div>
                 <div class="mt-2">{{ category.subtitle }}</div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
                     <NuxtLink target="blank" to="https://docs.google.com/forms/d/e/1FAIpQLScCszcMFVbGvE5Y0bqNapkw1pcvm6fr7V_jvlVI48L87T81CA/viewform" v-for="(job, index) of category.jobs" :key="index">
                         <Card class="before:bg-white before:dark:bg-dark-800">
-                            <div class="p-8 flex flex-col justify-between">
+                            <div class="p-8 flex flex-col justify-between h-full">
                                 <div>
                                     <div class="font-semibold text-xl">{{ job.name }}</div>
-                                    <!-- <div class="mt-2 text-lg">{{ job.description }}</div> -->
+                                    <div class="mt-2 text-md">{{ job.description }}</div>
+                                    <div v-if="job.requirement" class="mt-2 text-sm text-gray-400 italic">{{ job.requirement }}</div>
                                 </div>
                                 <span class="flex items-center gap-2 font-medium text-blurple mt-4">Postuler <img src="/icons/double_chevron.svg" class="w-5 h-5" alt="Double chevron" /></span>
                             </div>
@@ -87,15 +90,16 @@ export default {
                 jobs: [
                     {
                         name: 'Modérateur',
-                        description: 'You will interact with senior executives at our partner organizations and be a trusted evangelist for Discord’s products and priorities.'
+                        description: "Poste visant à réguler la communauté et à faire de UMaestro un espace sain tout en créant de l'activité.",
+                        requirement: 'Expériences notables attendues'
                     },
                     {
                         name: 'Community Manager',
-                        description: 'You will interact with senior executives at our partner organizations and be a trusted evangelist for Discord’s products and priorities.'
+                        description: ''
                     },
                     {
                         name: 'Animateur',
-                        description: 'You will interact with senior executives at our partner organizations and be a trusted evangelist for Discord’s products and priorities.'
+                        description: 'Créateur d\'évènement visant à crée une activité sur le serveur afin de rassemblée la communauté de UMaestro à travers des évènements.'
                     },
                 ] 
             },
@@ -105,15 +109,15 @@ export default {
                 jobs: [
                     {
                         name: 'UI Designer',
-                        description: 'You will interact with senior executives at our partner organizations and be a trusted evangelist for Discord’s products and priorities.'
+                        description: 'Créateur d\'interface utilisateur pour les services de UMaestro.'
                     },
                     {
                         name: 'Illustrateur',
-                        description: 'You will interact with senior executives at our partner organizations and be a trusted evangelist for Discord’s products and priorities.'
+                        description: 'Créateur de logos, illustrations et images dans l\'objectif d\'embellir les informations et communiqués de UMaestro et Multid.'
                     },
                     {
                         name: 'Modélisateur 3D',
-                        description: 'You will interact with senior executives at our partner organizations and be a trusted evangelist for Discord’s products and priorities.'
+                        description: 'Créateur d\'objet 3D pour les illustrations de UMaestro'
                     },
                 ] 
             },
@@ -123,19 +127,23 @@ export default {
                 jobs: [
                     {
                         name: 'Développeur Back-End',
-                        description: 'You will interact with senior executives at our partner organizations and be a trusted evangelist for Discord’s products and priorities.'
+                        description: 'Développement de(s) API(s) de UMaestro',
+                        requirement: 'Autonomie et grandes connaissances'
                     },
                     {
                         name: 'Développeur Front-End',
-                        description: 'You will interact with senior executives at our partner organizations and be a trusted evangelist for Discord’s products and priorities.'
+                        description: 'Développement de(s) application(s) web de UMaestro',
+                        requirement: 'Autonomie et grandes connaissances'
                     },
                     {
                         name: 'Développeur Full-Stack',
-                        description: 'You will interact with senior executives at our partner organizations and be a trusted evangelist for Discord’s products and priorities.'
+                        description: 'Développement de(s) API(s) de UMaestro et le(s) application(s) web de UMaestro',
+                        requirement: 'Autonomie et grandes connaissances'
                     },
                     {
                         name: 'Développeur Bot',
-                        description: 'You will interact with senior executives at our partner organizations and be a trusted evangelist for Discord’s products and priorities.'
+                        description: 'Développement des bots Discord UMaestro et Multid',
+                        requirement: 'Autonomie et grandes connaissances'
                     },
                 ] 
             },

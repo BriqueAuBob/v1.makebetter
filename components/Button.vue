@@ -12,10 +12,11 @@ export default {
     data: () => ({
         btnColors: {
             transparent: "bg-transparent shadow-none",
-            primary: 'bg-primary-500 hover:bg-primary-600 text-white',
+            primary: 'bg-primary-500 hover:bg-primary-400 text-white',
             secondary: 'bg-secondary-500 hover:bg-secondary-600 text-black',
             white: 'bg-white hover:bg-gray-100 text-black',
             blurple: "bg-blurple text-white",
+            yellow: "bg-yellow-500 text-white hover:bg-white hover:text-black",
             disabled: 'bg-gray-200 text-black opacity-50'
         }
     }),

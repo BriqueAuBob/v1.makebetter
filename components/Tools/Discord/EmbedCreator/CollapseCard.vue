@@ -7,7 +7,7 @@
                     <TrashIcon class="w-6 h-6" />
                 </button>
                 <button @click="open = !open" class="p-2">
-                    <ChevronDownIcon class="w-6 h-6 ease-in-out duration-300" :class="!open && '-rotate-180'" />
+                    <ChevronDownIcon class="w-6 h-6 ease-in-out duration-300" :class="!open && 'rotate-90'" />
                 </button>
             </div>
         </div>

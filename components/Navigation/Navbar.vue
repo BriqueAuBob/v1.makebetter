@@ -16,7 +16,7 @@
                     </NuxtLink>
                     <div v-else class="flex rounded-xl border-2 border-white px-3 py-2 ease-in-out duration-300 hover:bg-white hover:text-black hover:-translate-y-1 hover:scale-105 hover:shadow-2xl">
                         <NuxtLink to="/" class="flex items-center font-medium text-md gap-2">
-                            <img :src="user.avatar" class="w-6 h-6 rounded-full" />
+                            <img :src="user?.avatar" class="w-6 h-6 rounded-full" />
                             {{ user.username }}
                         </NuxtLink>
                     </div>
@@ -28,9 +28,11 @@
             </button>
             <div ref="menu" :class="[!menuOpen && '-z-1 opacity-0', 'ease-in duration-300 absolute top-0 left-0 w-full h-screen p-8 flex flex-col']">
                 <div class="flex justify-between">
-                    <Button v-if="!authenticated" class="bg-white text-black" icon="user" :text="'Accéder à mon compte'" :small="true" />
+                    <NuxtLink to="/authentification" v-if="!authenticated">
+                        <Button class="bg-white text-black" icon="user" :text="'Accéder à mon compte'" :small="true" />
+                    </NuxtLink>
                     <NuxtLink v-else to="/" class="flex items-center font-medium text-xl gap-2 px-3 py-2 border-2 border-dark-700 rounded-xl">
-                        <img :src="user.avatar" class="w-8 h-8 rounded-full" />
+                        <img :src="user?.avatar" class="w-8 h-8 rounded-full" />
                         {{ user.username }}
                     </NuxtLink>
                     <button class="rounded-full border-2 border-dark-700 dark:border-dark-700 p-4 focus:bg-dark-700 focus:text-white flex items-center justify-center group" @click="toggleMobileMenu">
@@ -54,7 +56,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from '@/composables/Axios'
 
 export default {
     data: () => ({
@@ -85,23 +87,27 @@ export default {
     async mounted() {
         const content = document.getElementById('content')
         content.classList.add('ease-in', 'duration-300')
-        content.style.maxHeight = '100vh'
+        // content.style.maxHeight = '100vh'
         content.style.marginTop = '0vh'
 
         const nuxt = document.getElementById('__nuxt')
-        nuxt.classList.add('overflow-x-hidden')
+        // nuxt.classList.add('overflow-x-hidden')
         nuxt.appendChild(this.$refs.menu)
 
         const token = localStorage.getItem('access_token')
 
         if(token) {
-            const { data } = await axios.get('https://api.umaestro.fr/auth/user', {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            })
-            this.user = data.user
-            this.authenticated = data.user?.id ? true : false
+            try {
+                const { data } = await axios.get('auth/user', {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                })
+                this.user = data.user
+                this.authenticated = data.user?.id ? true : false
+            } catch(e) {
+                console.log(e)
+            }
         }
     },
     methods: {

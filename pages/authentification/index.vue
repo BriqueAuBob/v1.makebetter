@@ -38,7 +38,8 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from '@/composables/Axios'
+
 definePageMeta({
     layout: 'footer'
 })
@@ -46,7 +47,7 @@ definePageMeta({
 export default {
     methods: {
         async login() {
-            const { data } = await axios.get('https://api.umaestro.fr/auth/oauth2/discord')
+            const { data } = await axios.get('/auth/oauth2/discord')
             window.location.href = data.redirect
         }
     }

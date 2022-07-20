@@ -22,7 +22,6 @@ export default {
             default: 'Utilisateurs'
         },
         value: {
-            type: Number,
             default: 0
         }
     }
