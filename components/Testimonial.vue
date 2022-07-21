@@ -8,7 +8,7 @@
                 <Star class="w-6" :color="rate.star >= i ? '#BB900D' : '#9ca3af'" v-for="i in 5" :key="i" />
             </div>
         </div>
-        <p class="text-gray-800 dark:text-gray-300 mt-4">Je viens de tester le service d'évaluation je trouve ça super, je ne parle pas de ma note mais des aspects notés. Ce sont juste des  atouts donc si la personne ne veus pas utiliser cet atout il perds des points de notes.</p>
+        <p class="text-gray-800 dark:text-gray-300 mt-4">{{ rate.message }}</p>
         <span class="block mt-4 text-sm text-gray-400">le {{ new Date(rate.created_at).toLocaleDateString('fr-FR') }}</span>
     </div>
 </template>

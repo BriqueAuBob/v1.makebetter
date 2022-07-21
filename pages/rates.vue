@@ -1,7 +1,7 @@
 <template>
     <div>
         <header class="pt-48 pb-8">
-            <h1 class="font-extrabold text-5xl text-white text-center">Avis des utilisateurs</h1>
+            <h1 class="font-extrabold text-5xl text-black dark:text-white text-center">Avis des utilisateurs</h1>
             <Button text="Publier mon avis" class="mx-auto mt-8" color="yellow" @click="isOpen = !isOpen"></Button>
             <TransitionRoot appear :show="isOpen" as="template">
                 <Dialog as="div" @close="isOpen = false" class="relative z-10">
