@@ -9,3 +9,13 @@ export const transformFileIntoBlob = async(file: File): Promise<Blob|string> => 
         reader.readAsArrayBuffer(file);
     })
 }
+
+export const transformFileIntoBase64 = async(file: File): Promise<string|ArrayBuffer> => {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+            resolve(reader.result);
+        }
+        reader.readAsDataURL(file);
+    })
+}

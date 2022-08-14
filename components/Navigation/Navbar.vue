@@ -28,7 +28,7 @@
             </button>
             <div ref="menu" :class="[!menuOpen && '-z-1 opacity-0', 'ease-in duration-300 absolute top-0 left-0 w-full h-screen p-8 flex flex-col']">
                 <div class="flex justify-between">
-                    <NuxtLink to="/authentification" v-if="!authenticated">
+                    <NuxtLink to="/authentification" v-if="!authenticated" @click="toggleMobileMenu">
                         <Button class="bg-white text-black" icon="user" :text="'Accéder à mon compte'" :small="true" />
                     </NuxtLink>
                     <NuxtLink v-else to="/" class="flex items-center font-medium text-xl gap-2 px-3 py-2 border-2 border-dark-700 rounded-xl">

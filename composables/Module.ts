@@ -5,18 +5,18 @@ import Embed from '~~/components/Tools/Cards/Embed.vue'
 import Emojis from '~~/components/Tools/Cards/Emojis.vue'
 
 const modules = {
-    "general": {
-        "color": "#11141a",
-        "icon": EyeIcon,
-    },
+    // "general": {
+    //     "color": "#11141a",
+    //     "icon": EyeIcon,
+    // },
     "discord": {
         "color": "#5865F2",
         "icon": "discord.svg",
     },
-    "twitter": {
-        "color": "#1da1f2",
-        "icon": "discord.svg",
-    }
+    // "twitter": {
+    //     "color": "#1da1f2",
+    //     "icon": "discord.svg",
+    // }
 };
 
 export const useModule = (module: string) => {

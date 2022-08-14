@@ -45,6 +45,11 @@ definePageMeta({
 })
 
 export default {
+    setup() {
+        useHead({
+            title: 'Authentification',
+        })
+    },
     methods: {
         async login() {
             const { data } = await axios.get('/auth/oauth2/discord')

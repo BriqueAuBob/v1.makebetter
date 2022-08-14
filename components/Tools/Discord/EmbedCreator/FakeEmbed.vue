@@ -10,11 +10,11 @@
                     <a v-if="data.title" href="#" target="_blank" class="block font-semibold" :class="data.author.url && 'title hover:underline'">
                         {{ data.title }}
                     </a>
-                    <div v-if="data.description" class="text-sm mt-2 box-border leading-snug whitespace-pre-wrap break-words" v-html="toHTML(data.description)"></div>
+                    <div v-if="data.description" class="text-sm mt-2 box-border leading-snug whitespace-pre-wrap break-words" v-html="toHTML(data.description, { embed: true })"></div>
                     <div class="grid gap-x-6 gap-y-2">
                         <div v-for="(field, key) in data.fields" :key="key" class="text-sm mt-2" :style="`grid-column: ${getFieldColumn(field)};`">
-                            <Markdown :content="field.name" class="font-semibold"/>
-                            <Markdown :content="field.value" class="font-normal" />
+                            <Markdown :content="field.name" class="font-semibold" :embed="true" />
+                            <Markdown :content="field.value" class="font-normal" :embed="true" />
                         </div>
                     </div>
                 </div>
@@ -93,14 +93,125 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .embed {
     padding: .5rem 1rem 1rem .75rem;
     border-radius: 4px;
     max-width: 428px;
 }
 
-.title {
+.embed .title {
     color: #0897D1;
+}
+
+.embed a {
+    color: #0897D1;
+}
+
+.embed a:hover {
+    text-decoration: underline;
+}
+
+.embed blockquote {
+    border-left: 4px solid #747474;
+    padding-left: .5rem;
+}
+
+.embed code {
+    font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: .875rem;
+    border-radius: 3px;
+    padding: 0.2em;
+    margin: -0.2em 0;
+    border: none;
+    white-space: pre-wrap;
+    background: hsl(216,calc(var(--saturation-factor, 1)*7.2%),13.5%);
+}
+
+.theme-dark {
+  --header-secondary: #b9bbbe;
+  --interactive-muted: #4f545c;
+}
+
+.theme-light {
+  --header-secondary: #4f5660;
+  --interactive-muted: #c7ccd1;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  border-radius: 4px;
+  color: var(--header-secondary);
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: var(--interactive-muted);
+}
+
+.hljs-addition,
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #859900;
+}
+
+.hljs-doctag,
+.hljs-literal,
+.hljs-meta .hljs-meta-string,
+.hljs-number,
+.hljs-regexp,
+.hljs-string {
+  color: #2aa198;
+}
+
+.hljs-name,
+.hljs-section,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-title {
+  color: #268bd2;
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-class .hljs-title,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable {
+  color: #b58900;
+}
+
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-subst,
+.hljs-symbol {
+  color: #cb4b16;
+}
+
+.hljs-built_in,
+.hljs-deletion {
+  color: #dc322f;
+}
+
+.hljs-formula {
+  background: #073642;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: 700;
 }
 </style>

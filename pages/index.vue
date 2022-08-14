@@ -106,6 +106,10 @@ import { EyeIcon, CubeIcon, CodeIcon, PencilIcon } from '@heroicons/vue/outline/
 export default {
     components: { CubeIcon },
     async setup() {
+        useHead({
+            title: 'Accueil',
+        })
+        
         const requests = await useAsyncData('count', async () => {
             try {
                 const { data } = await axios.get('statistics')

@@ -1,5 +1,5 @@
 <template>
-    <div v-html="toHTML(content)"></div>
+    <div v-html="toHTML(content, { embed })"></div>
 </template>
 
 <script>
@@ -14,6 +14,10 @@ export default {
         content: {
             type: String,
             default: '',
+        },
+        embed: {
+            type: Boolean,
+            default: false,
         }
     }
 }

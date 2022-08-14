@@ -81,6 +81,11 @@
 
 <script>
 export default {
+    setup() {
+        useHead({
+            title: 'Recrutements',
+        })
+    },
     data: () => ({
         headerTall: "0px",
         categories: [

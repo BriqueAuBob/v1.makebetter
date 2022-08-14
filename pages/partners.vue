@@ -34,6 +34,11 @@
 
 <script>
 export default {
+    setup() {
+        useHead({
+            title: 'Partenaires',
+        })
+    },
     data: () => ({
         partners: [
             {
@@ -45,11 +50,6 @@ export default {
                 name: 'Discord Analytics',
                 link: 'https://discordanalytics.fr/',
                 icon: 'https://media.discordapp.net/attachments/717855648997441576/994001523065487360/imageonline-co-roundcorner_3.png?width=676&height=676'
-            },
-            {
-                name: '972',
-                link: 'https://discord.gg/972',
-                icon: 'https://cdn.discordapp.com/icons/619644399810379776/00eec63244206ef38e45d6b9c3ddf5a5.webp?size=1024'
             }
         ]
     })

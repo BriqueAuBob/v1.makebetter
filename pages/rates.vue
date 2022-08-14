@@ -83,6 +83,11 @@ import axios from '@/composables/Axios'
 import { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
 
 export default {
+    setup() {
+        useHead({
+            title: 'Avis',
+        })
+    },
     components: {
         Menu,
         MenuButton,

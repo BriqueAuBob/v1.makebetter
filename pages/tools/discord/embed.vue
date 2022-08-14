@@ -125,7 +125,7 @@
                                         v-for="(embed, id) in message.embeds" 
                                         :key="id" 
                                         :name="`Embed n°${ id + 1 }`" 
-                                        :trash="() => message.embeds.splice(index, 1)"
+                                        :trash="() => message.embeds.splice(id, 1)"
                                         :style="`border-color: ${embed.color}`"
                                     >
                                         <div class="flex flex-col gap-4">

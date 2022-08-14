@@ -13,7 +13,10 @@ export default defineNuxtConfig({
             titleTemplate: 'UMaestro - %s',
             bodyAttrs: {
                 class: 'bg-background dark:bg-dark-900 dark:text-white transition ease-in duration-100'
-            }
+            },
+            link: [
+                // { rel: 'stylesheet', href: 'https://unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/default.min.css' }
+            ]
         }
     },
 
