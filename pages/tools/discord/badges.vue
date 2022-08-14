@@ -243,8 +243,9 @@
 import { CubeIcon, CheckIcon } from "@heroicons/vue/outline/esm/index.js";
 import { ColorPicker } from "vue3-colorpicker";
 import "vue3-colorpicker/style.css";
+import pkg from 'save-svg-as-png'
 import icons, { shapes } from '~~/composables/DiscordIcons';
-import { saveSvgAsPng, svgAsPngUri } from 'save-svg-as-png';
+const { saveSvgAsPng, svgAsPngUri } = pkg
 import { transformFileIntoBase64 } from '~~/composables/Blob';
 
 export default {
