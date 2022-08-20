@@ -17,8 +17,8 @@ const _role__patch = defineEventHandler(async (event) => {
         Authorization: body.token
       }
     });
-    if (res.data.owner_id != auth.data.user.id)
-      return;
+    if (res.data.owner_id != auth.data.user.discord_id)
+      return { errors: ["Not owner of the guild"] };
     const { data } = await axios.patch(`https://discord.com/api/v8/guilds/${guild_id}/roles/${role_id}`, {
       icon: body.icon
     }, {

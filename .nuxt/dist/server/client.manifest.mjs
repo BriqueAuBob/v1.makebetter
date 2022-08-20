@@ -377,34 +377,34 @@ export default {
     "file": "badges.8903f354.css",
     "src": "pages/tools/discord/badges.css"
   },
-  "pages/tools/discord/embed.css": {
+  "Navbar.css": {
     "resourceType": "style",
-    "file": "embed.a608e693.css",
-    "src": "pages/tools/discord/embed.css"
-  },
-  "style.css": {
-    "resourceType": "style",
-    "file": "style.8118ace9.css",
-    "src": "style.css"
+    "file": "Navbar.cc971e04.css",
+    "src": "Navbar.css"
   },
   "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-500.css": {
     "resourceType": "style",
     "file": "error-500.df34e930.css",
     "src": "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-500.css"
   },
-  "Navbar.css": {
+  "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-404.css": {
     "resourceType": "style",
-    "file": "Navbar.cc971e04.css",
-    "src": "Navbar.css"
+    "file": "error-404.7ac8d696.css",
+    "src": "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-404.css"
+  },
+  "style.css": {
+    "resourceType": "style",
+    "file": "style.8118ace9.css",
+    "src": "style.css"
+  },
+  "pages/tools/discord/embed.css": {
+    "resourceType": "style",
+    "file": "embed.a608e693.css",
+    "src": "pages/tools/discord/embed.css"
   },
   "node_modules/nuxt/dist/app/entry.css": {
     "resourceType": "style",
     "file": "entry.10f70275.css",
     "src": "node_modules/nuxt/dist/app/entry.css"
-  },
-  "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-404.css": {
-    "resourceType": "style",
-    "file": "error-404.7ac8d696.css",
-    "src": "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-404.css"
   }
 }
