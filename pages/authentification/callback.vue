@@ -22,7 +22,7 @@ export default {
 
         localStorage.setItem('user_guilds', JSON.stringify(data.guilds))
 
-        // window.location = 'https://umaestro.fr'
+        window.location = 'https://umaestro.fr'
     }
 }
 </script>

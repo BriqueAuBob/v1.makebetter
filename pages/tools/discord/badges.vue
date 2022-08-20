@@ -287,6 +287,135 @@
                             </div>
                         </div>
                     </div>
+                    <TransitionRoot appear :show="mobile_preview_open" as="template">
+                        <TransitionChild
+                            as="template"
+                            enter="duration-300 ease-out"
+                            enter-from="opacity-0"
+                            enter-to="opacity-100"
+                            leave="duration-200 ease-in"
+                            leave-from="opacity-100"
+                            leave-to="opacity-0"
+                        >
+                            <div class="fixed top-0 left-0 h-screen w-full lg:relative lg:block z-10">
+                                <div class="bg-[#FAFAFA] dark:bg-[#36393F] shadow-xl lg:rounded-2xl p-8 w-full lg:sticky lg:top-12 flex flex-col gap-4 overflow-y-auto h-screen lg:max-h-screen-padding relative">
+                                    <div class="right-8 lg:hidden flex justify-end">
+                                        <button class="rounded-full border-2 border-dark-700 dark:border-white p-4 focus:bg-white focus:text-white flex items-center justify-center group opacity-50" @click="toggleMobilePreview">
+                                            <svg class="fill-black dark:fill-white group-focus:fill-black w-5 h-5" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.00001 1.00001C8.60001 0.600012 8.00001 0.600012 7.60001 1.00001L5.00001 3.60001L2.40001 1.00001C2.00001 0.600012 1.40001 0.600012 1.00001 1.00001C0.600012 1.40001 0.600012 2.00001 1.00001 2.40001L3.60001 5.00001L1.00001 7.60001C0.600012 8.00001 0.600012 8.60001 1.00001 9.00001C1.20001 9.20001 1.50001 9.30001 1.70001 9.30001C1.90001 9.30001 2.20001 9.20001 2.40001 9.00001L5.00001 6.40001L7.60001 9.00001C7.80001 9.20001 8.10001 9.30001 8.30001 9.30001C8.50001 9.30001 8.80001 9.20001 9.00001 9.00001C9.40001 8.60001 9.40001 8.00001 9.00001 7.60001L6.40001 5.00001L9.00001 2.40001C9.40001 2.00001 9.40001 1.40001 9.00001 1.00001Z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    
+
+                                    <!-- TODO BETTER IMPLEMENTATION OF THIS -->
+                                    <div class="bg-[#FAFAFA] dark:bg-[#36393F] lg:rounded-2xl p-2 flex gap-3">
+                                        <img class="w-10 h-10 rounded-full" :src="`https://cdn.discordapp.com/avatars/983094528791683182/1830fd86f024e70811c706de31961a15.webp?size=128`" />
+                                        <div class="flex items-center justify-between">
+                                            <div class="w-full whitney">
+                                                <div class="flex gap-1 text-base items-center">
+                                                    <span class="text-md leading-5 font-medium" :style="`color: ${primaryColor};`">Multid</span>
+
+                                                    <svg id="svg_icon" class="w-6 h-6 ml-1" :width="shapeWidth" :height="shapeHeight" :viewBox="`0 0 ${shapeWidth} ${shapeHeight}`" xmlns="http://www.w3.org/2000/svg">
+                                                        <mask id="mask" v-if="!duo_tone">
+                                                            <rect x="0" y="0" width="250" height="250" fill="white" />
+                                                            <g v-if="!uploadedIcon" :style="`filter: brightness(0); transform: translate(${shapeWidth / 2 - (icons[icon]().width * multiply) / 2 + Number(offset_x)}px, ${shapeHeight / 2 - (icons[icon]().height * multiply) / 2 + Number(offset_y)}px) scale(${multiply});`" v-html="icons[icon]('#000').svg"></g>
+                                                            <image v-else
+                                                                width="64" 
+                                                                height="64" 
+                                                                :href="uploadedIcon" 
+                                                                :style="`filter: brightness(0); transform: translate(${shapeWidth / 2 - (64 * multiply) / 2 + Number(offset_x)}px, ${shapeHeight / 2 - (64 * multiply) / 2 + Number(offset_y)}px) scale(${multiply});`"
+                                                            />
+                                                        </mask>
+                                                        <g v-html="shapes[shape](primaryColor)[0]" ref="shapeDraw"></g>
+                                                        <g v-if="duo_tone && !uploadedIcon" :style="`transform: translate(${shapeWidth / 2 - (icons[icon]().width * multiply) / 2 + Number(offset_x)}px, ${shapeHeight / 2 - (icons[icon]().height * multiply) / 2 + Number(offset_y)}px) scale(${multiply});`" v-html="icons[icon](secondaryColor).svg"></g>
+                                                        <image v-else-if="duo_tone && uploadedIcon"
+                                                            width="64" 
+                                                            height="64" 
+                                                            :href="uploadedIcon" 
+                                                            :style="`transform: translate(${shapeWidth / 2 - (64 * multiply) / 2 + Number(offset_x)}px, ${shapeHeight / 2 - (64 * multiply) / 2 + Number(offset_y)}px) scale(${multiply});`"
+                                                        />
+                                                    </svg>
+
+                                                    <span class="ml-1 rounded-md text-gray-600 dark:text-gray-200 text-xs self-end">Aujourd'hui à {{ new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute:'2-digit' }) }}</span>
+                                                </div>
+                                                <div class="flex flex-col gap-1 w-full mt-1">
+                                                    <Markdown class="font-normal text-base text-gray-300 whitespace-pre-line break-words leading-snug" content="Bienvenue sur umaestro.fr !"></Markdown>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="background-image: url(/transparent.svg);" class="bg-repeat bg-center p-12 rounded-lg flex items-center justify-center">
+                                        <svg id="svg_icon" :width="shapeWidth" :height="shapeHeight" :viewBox="`0 0 ${shapeWidth} ${shapeHeight}`" xmlns="http://www.w3.org/2000/svg">
+                                            <mask id="mask" v-if="!duo_tone">
+                                                <rect x="0" y="0" width="250" height="250" fill="white" />
+                                                <g v-if="!uploadedIcon" :style="`filter: brightness(0); transform: translate(${shapeWidth / 2 - (icons[icon]().width * multiply) / 2 + Number(offset_x)}px, ${shapeHeight / 2 - (icons[icon]().height * multiply) / 2 + Number(offset_y)}px) scale(${multiply});`" v-html="icons[icon]('#000').svg"></g>
+                                                <image v-else
+                                                    width="64" 
+                                                    height="64" 
+                                                    :href="uploadedIcon" 
+                                                    :style="`filter: brightness(0); transform: translate(${shapeWidth / 2 - (64 * multiply) / 2 + Number(offset_x)}px, ${shapeHeight / 2 - (64 * multiply) / 2 + Number(offset_y)}px) scale(${multiply});`"
+                                                />
+                                            </mask>
+                                            <g v-html="shapes[shape](primaryColor)[0]" ref="shapeDraw"></g>
+                                            <g v-if="duo_tone && !uploadedIcon" :style="`transform: translate(${shapeWidth / 2 - (icons[icon]().width * multiply) / 2 + Number(offset_x)}px, ${shapeHeight / 2 - (icons[icon]().height * multiply) / 2 + Number(offset_y)}px) scale(${multiply});`" v-html="icons[icon](secondaryColor).svg"></g>
+                                            <image v-else-if="duo_tone && uploadedIcon"
+                                                width="64" 
+                                                height="64" 
+                                                :href="uploadedIcon" 
+                                                :style="`transform: translate(${shapeWidth / 2 - (64 * multiply) / 2 + Number(offset_x)}px, ${shapeHeight / 2 - (64 * multiply) / 2 + Number(offset_y)}px) scale(${multiply});`"
+                                            />
+                                        </svg>
+                                    </div>
+                                    <Button text="Sauvegarder l'icone (PNG)" :center-text="true" @click="save" />
+                                    <div class="w-full">
+                                        <div class="relative flex items-center">
+                                            <div class="flex-grow border-t border-dark-700"></div>
+                                            <span class="flex-shrink mx-4 text-dark-700">OU</span>
+                                            <div class="flex-grow border-t border-dark-700"></div>
+                                        </div>
+                                    </div>
+                                    <div class="font-medium text-lg text-center">Mettre l'icone sur un rôle via Multid</div>
+                                    <div v-if="!guild && guilds">
+                                        <div class="font-medium text-md mt-3 mb-2">Mes serveurs avec Multid</div>
+                                        <div v-for="(guild, key) of guilds" :key="key" class="flex justify-between items-center gap-2 pl-4 pr-2 py-2 bg-gray-200 dark:bg-dark-700 rounded-lg mb-2">
+                                            <div class="flex items-center gap-4">
+                                                <img class="w-10 h-10 rounded-full" v-if="guild.icon" :src="`https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png`" />
+                                                <div class="font-medium text-md">{{ guild.name }}</div>
+                                            </div>
+                                            <Button text="Sélectionner ce serveur" color="primary" :small="true" class="text-sm font-regular" @click="selectGuild(key)" />
+                                        </div>
+                                        <div class="font-semibold text-md mt-6 mb-1">Ajouter Multid sur un {{ guilds.length > 0 && 'autre' || '' }} serveur</div>
+                                        <div class="font-regular text-sm text-italic text-gray-400 mb-4">Vous devrez vous reconnecter à UMaestro pour actualiser la liste.</div>
+                                        <div class="flex justify-between items-center gap-2 p-4 bg-gray-200 dark:bg-dark-700 rounded-lg">
+                                            <div class="flex items-center gap-4">
+                                                <img class="w-10 h-10 rounded-full" src="https://cdn.discordapp.com/avatars/983094528791683182/1830fd86f024e70811c706de31961a15.webp?size=128" />
+                                                <div class="font-medium text-md">Multid</div>
+                                            </div>
+                                            <NuxtLink to="https://discord.com/api/oauth2/authorize?client_id=983094528791683182&permissions=805432368&scope=bot%20applications.commands" target="_blank">
+                                                <Button text="Ajouter à mon serveur" color="blurple" />
+                                            </NuxtLink>
+                                        </div>
+                                    </div>
+                                    <div v-else-if="guild">
+                                        <div class="font-medium text-md mt-3 mb-2">Rôles sur {{ guild.name }}</div>
+                                        <div v-for="(role, id) of roles" :key="id" class="bg-gray-200 dark:bg-dark-700 p-4 mb-2 rounded-md flex items-center justify-between">
+                                            <div class="flex items-center gap-2">
+                                                <img v-if="role.icon" class="w-12 h-12" :src="`https://cdn.discordapp.com/role-icons/${role.id}/${role.icon}.png`" />
+                                                {{ role.unicode_emoji }} {{ role.name }}
+                                            </div>
+                                            <Button text="Appliquer l'icone à ce rôle" color="blurple" :small="true" class="text-sm font-regular" @click="setToRole(role.id, id)" />
+                                        </div>
+                                    </div>
+                                    <!--  END OF NEEDING BETTER IMPLEMENTATION -->
+
+                                </div>
+                            </div>
+                        </TransitionChild>
+                    </TransitionRoot>
+                    <div class="fixed bottom-8 right-12 w-24 h-24 bg-dark-800 rounded-full ease-in duration-200 hover:scale-125 hover:bg-dark-700 flex justify-center items-center lg:hidden" @click="toggleMobilePreview">
+                        <EyeIcon class="w-12 h-12" />
+                    </div>
                 </div>
             </div>
         </section>
@@ -294,7 +423,8 @@
 </template>
 
 <script>
-import { CubeIcon, CheckIcon } from "@heroicons/vue/outline/esm/index.js";
+import { TransitionRoot, TransitionChild } from '@headlessui/vue'
+import { CubeIcon, CheckIcon, EyeIcon } from "@heroicons/vue/outline/esm/index.js";
 import { ColorPicker } from "vue3-colorpicker";
 import "vue3-colorpicker/style.css";
 import pkg from 'save-svg-as-png'
@@ -304,7 +434,7 @@ import { transformFileIntoBase64 } from '~~/composables/Blob';
 import { useTool } from "~~/composables/Module";
 
 export default {
-    components: { CubeIcon, CheckIcon, ColorPicker },    
+    components: { TransitionRoot, TransitionChild, CubeIcon, CheckIcon, ColorPicker, EyeIcon },    
     head: {
         title: 'Créateur de badges',
     },
@@ -329,7 +459,8 @@ export default {
         shapeHeight: 200,
         offset_x: 0,
         offset_y: 0,
-        category: ''
+        category: '',
+        mobile_preview_open: false
     }),
     async mounted() {
         this.guilds = localStorage.getItem('user_guilds') ? JSON.parse(localStorage.getItem('user_guilds')) : []; // .filter(guild => guild.features.find(feature => feature == 'ROLE_ICONS'))
@@ -353,6 +484,11 @@ export default {
     //     }
     // },
     methods: {
+        toggleMobilePreview() {
+            this.mobile_preview_open = !this.mobile_preview_open;
+            document.body.classList.toggle('overflow-y-hidden');
+            this.selectShape(this.shape)
+        },
         async uploadFile(e) {
             this.icon = 0
             this.uploadedIcon = await transformFileIntoBase64(e.target.files[0]);

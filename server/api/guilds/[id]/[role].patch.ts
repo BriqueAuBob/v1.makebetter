@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
             },
         })
 
-        const auth = await axios.get('auth/user', {
+        const auth = await axios.get('https://api.umaestro.fr/auth/user', {
             headers: {
                 Authorization: body.token
             }
