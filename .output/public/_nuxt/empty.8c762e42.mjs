@@ -1,0 +1,1 @@
+import{a as t,o,b as s,l as c}from"./entry.4348c854.mjs";const n={},r={id:"content",class:"relative"};function a(e,l){return o(),s("div",r,[c(e.$slots,"default")])}const d=t(n,[["render",a]]);export{d as default};

@@ -11087,7 +11087,7 @@ function publicAssetsURL(...path) {
 
 const defineRenderHandler = defineRenderHandler$1;
 const getClientManifest = () => import('./client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
-const getServerEntry = () => import('./server.mjs').then(function (n) { return n.T; }).then((r) => r.default || r);
+const getServerEntry = () => import('./server.mjs').then(function (n) { return n.V; }).then((r) => r.default || r);
 const getSSRRenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();
   if (!manifest) {

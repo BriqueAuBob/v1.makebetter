@@ -3547,7 +3547,7 @@ _sfc_main$t.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Articles/Thumbnails/Small.vue");
   return _sfc_setup$t ? _sfc_setup$t(props, ctx) : void 0;
 };
-const __nuxt_component_1$3 = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["ssrRender", _sfc_ssrRender$r]]);
+const __nuxt_component_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["ssrRender", _sfc_ssrRender$r]]);
 const _sfc_main$s = {
   data: () => ({
     btnColors: {
@@ -3603,7 +3603,7 @@ _sfc_main$s.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Button.vue");
   return _sfc_setup$s ? _sfc_setup$s(props, ctx) : void 0;
 };
-const __nuxt_component_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["ssrRender", _sfc_ssrRender$q]]);
+const __nuxt_component_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["ssrRender", _sfc_ssrRender$q]]);
 const meta$b = void 0;
 const axios = axios$1.create({
   baseURL: "https://api.umaestro.fr/"
@@ -3869,7 +3869,7 @@ _sfc_main$l.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Star.vue");
   return _sfc_setup$l ? _sfc_setup$l(props, ctx) : void 0;
 };
-const __nuxt_component_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["ssrRender", _sfc_ssrRender$k]]);
+const __nuxt_component_1 = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["ssrRender", _sfc_ssrRender$k]]);
 const _sfc_main$k = {
   props: {
     rate: {
@@ -3880,7 +3880,7 @@ const _sfc_main$k = {
 };
 function _sfc_ssrRender$j(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   var _a, _b, _c, _d;
-  const _component_Star = __nuxt_component_1$1;
+  const _component_Star = __nuxt_component_1;
   _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "bg-white dark:bg-dark-800 rounded-2xl shadow-sm p-8" }, _attrs))}><div class="flex gap-2 items-center font-medium"><img${serverRenderer.exports.ssrRenderAttr("src", (_b = (_a = $props.rate) == null ? void 0 : _a.author) == null ? void 0 : _b.avatar)} class="w-8 h-8 rounded-full mr-2" alt="Avatar"> ${serverRenderer.exports.ssrInterpolate((_d = (_c = $props.rate) == null ? void 0 : _c.author) == null ? void 0 : _d.username)} <span>-</span><div class="flex items-center gap-1"><!--[-->`);
   serverRenderer.exports.ssrRenderList(5, (i) => {
     _push(serverRenderer.exports.ssrRenderComponent(_component_Star, {
@@ -4197,6 +4197,15 @@ const allCards = {
   Emojis,
   Embed
 };
+const useTool = (name) => {
+  axios.post("statistics", {
+    tool: name
+  }, {
+    headers: {
+      "Authorization": `Bearer ${localStorage.getItem("access_token")}`
+    }
+  });
+};
 const meta$3 = void 0;
 const _sfc_main$c = {};
 function _sfc_ssrRender$b(_ctx, _push, _parent, _attrs) {
@@ -4290,8 +4299,34 @@ _sfc_main$a.setup = (props, ctx) => {
   return _sfc_setup$a ? _sfc_setup$a(props, ctx) : void 0;
 };
 const __nuxt_component_10 = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["ssrRender", _sfc_ssrRender$9]]);
-const meta$1 = void 0;
+const { toHTML: toHTML$1 } = pkg;
 const _sfc_main$9 = {
+  setup() {
+    return { toHTML: toHTML$1 };
+  },
+  props: {
+    content: {
+      type: String,
+      default: ""
+    },
+    embed: {
+      type: Boolean,
+      default: false
+    }
+  }
+};
+function _sfc_ssrRender$8(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}>${$setup.toHTML($props.content, { embed: $props.embed })}</div>`);
+}
+const _sfc_setup$9 = _sfc_main$9.setup;
+_sfc_main$9.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Markdown.vue");
+  return _sfc_setup$9 ? _sfc_setup$9(props, ctx) : void 0;
+};
+const __nuxt_component_6$1 = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["ssrRender", _sfc_ssrRender$8]]);
+const meta$1 = void 0;
+const _sfc_main$8 = {
   props: {
     stepId: {
       required: true
@@ -4311,7 +4346,7 @@ const _sfc_main$9 = {
     }
   }
 };
-function _sfc_ssrRender$8(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$7(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({
     class: $props.bigPadding ? "py-16" : "py-6"
   }, _attrs))}><div class="flex justify-between items-center"><div class="flex gap-2 text-lg"><span class="font-bold">Etape ${serverRenderer.exports.ssrInterpolate($props.stepId)}</span><span class="font-semibold">-</span><span class="font-medium">${serverRenderer.exports.ssrInterpolate($props.name)}</span></div><div>`);
@@ -4320,14 +4355,14 @@ function _sfc_ssrRender$8(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   serverRenderer.exports.ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
   _push(`</div></div>`);
 }
-const _sfc_setup$9 = _sfc_main$9.setup;
-_sfc_main$9.setup = (props, ctx) => {
+const _sfc_setup$8 = _sfc_main$8.setup;
+_sfc_main$8.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Discord/EmbedCreator/Step.vue");
-  return _sfc_setup$9 ? _sfc_setup$9(props, ctx) : void 0;
+  return _sfc_setup$8 ? _sfc_setup$8(props, ctx) : void 0;
 };
-const __nuxt_component_3 = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["ssrRender", _sfc_ssrRender$8]]);
-const _sfc_main$8 = {
+const __nuxt_component_3 = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["ssrRender", _sfc_ssrRender$7]]);
+const _sfc_main$7 = {
   props: {
     modelValue: {
       type: [String, Number],
@@ -4349,17 +4384,17 @@ const _sfc_main$8 = {
     }
   }
 };
-function _sfc_ssrRender$7(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$6(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}><textarea${serverRenderer.exports.ssrRenderAttr("placeholder", $props.placeholder)} type="text" class="${serverRenderer.exports.ssrRenderClass([$props.big ? "px-6 py-5 text-md" : "px-6 py-4 text-sm", "text-sm w-full bg-transparent focus:bg-white dark:focus:bg-dark-800 border border-dark-800 focus:outline-none focus:border-primary-500 rounded-lg"])}">${serverRenderer.exports.ssrInterpolate($props.modelValue)}</textarea></div>`);
 }
-const _sfc_setup$8 = _sfc_main$8.setup;
-_sfc_main$8.setup = (props, ctx) => {
+const _sfc_setup$7 = _sfc_main$7.setup;
+_sfc_main$7.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Textarea.vue");
-  return _sfc_setup$8 ? _sfc_setup$8(props, ctx) : void 0;
+  return _sfc_setup$7 ? _sfc_setup$7(props, ctx) : void 0;
 };
-const __nuxt_component_5 = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["ssrRender", _sfc_ssrRender$7]]);
-const _sfc_main$7 = {
+const __nuxt_component_5 = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["ssrRender", _sfc_ssrRender$6]]);
+const _sfc_main$6 = {
   props: {
     file: {
       required: true
@@ -4371,21 +4406,21 @@ const _sfc_main$7 = {
     }
   }
 };
-function _sfc_ssrRender$6(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$5(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<img${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({
     class: "rounded-[4px]",
     src: $options.fileBlob,
     style: { "max-width": "400px", "max-height": "300px" }
   }, _attrs))}>`);
 }
-const _sfc_setup$7 = _sfc_main$7.setup;
-_sfc_main$7.setup = (props, ctx) => {
+const _sfc_setup$6 = _sfc_main$6.setup;
+_sfc_main$6.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Discord/EmbedCreator/Attachments/Image.vue");
-  return _sfc_setup$7 ? _sfc_setup$7(props, ctx) : void 0;
+  return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
 };
-const __nuxt_component_6 = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["ssrRender", _sfc_ssrRender$6]]);
-const _sfc_main$6 = {
+const __nuxt_component_6 = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["ssrRender", _sfc_ssrRender$5]]);
+const _sfc_main$5 = {
   props: {
     file: {
       required: true
@@ -4399,17 +4434,17 @@ const _sfc_main$6 = {
     }
   }
 };
-function _sfc_ssrRender$5(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$4(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "bg-[#2F3136] px-4 py-3 rounded-[4px] border border-[#292B2F] flex gap-4 justify-between items-center dark:fill-white" }, _attrs))} data-v-541bcdbd><div class="flex" data-v-541bcdbd><svg width="28" height="40" viewBox="0 0 28 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-v-541bcdbd><defs data-v-541bcdbd><filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter" data-v-541bcdbd><feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter" data-v-541bcdbd></feOffset><feGaussianBlur stdDeviation="0" in="shadowOffsetOuter" result="shadowBlurOuter" data-v-541bcdbd></feGaussianBlur><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.07 0" in="shadowBlurOuter" type="matrix" result="shadowMatrixOuter" data-v-541bcdbd></feColorMatrix><feMerge data-v-541bcdbd><feMergeNode in="shadowMatrixOuter" data-v-541bcdbd></feMergeNode><feMergeNode in="SourceGraphic" data-v-541bcdbd></feMergeNode></feMerge></filter></defs><g stroke="none" stroke-width="2" fill="none" fill-rule="evenodd" transform="translate(2, 2)" data-v-541bcdbd><path d="M0,3.00741988 C0,1.34646775 1.34252415,0 2.99998588,0 L15.1166483,0 C17.0807354,0 24,6.91885725 24,8.87457593 L24,33.0035574 C24,34.6584469 22.6582294,36 21.0089096,36 L2.99109042,36 C1.33915679,36 0,34.6544607 0,32.9925801 L0,3.00741988 Z" stroke="#7289da" fill="#f4f6fc" data-v-541bcdbd></path><path d="M17,1.09677336 C17,0.542040316 17.3147964,0.407097791 17.7133118,0.80556379 L23.1952031,6.28677654 C23.5891543,6.68067898 23.4552279,7 22.9039575,7 L18.0045574,7 C17.4497557,7 17,6.54676916 17,5.99556698 L17,1.09677336 Z" stroke="#7289da" fill="#f4f6fc" filter="url(#filter)" data-v-541bcdbd></path><path d="M13,3 L4.49710104,3 C3.67027497,3 3,3.66579723 3,4.5 L3,6" stroke="#c9d2f0" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" data-v-541bcdbd></path><text opacity="0.8" font-family="Source Code Pro" font-size="12" font-weight="420" letter-spacing="-0.3" fill="#697ec4" data-v-541bcdbd><tspan x="5.2690141" y="26.4705882" data-v-541bcdbd>||</tspan></text></g></svg><div class="ml-2 flex flex-col justify-between" data-v-541bcdbd><div class="text-md link hover:underline" data-v-541bcdbd>${serverRenderer.exports.ssrInterpolate($props.file.name)}</div><div class="text-xs text-gray-600" data-v-541bcdbd>${serverRenderer.exports.ssrInterpolate($options.fileSize)}</div></div></div><svg class="downloadButton-2HLFWN" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24" data-v-541bcdbd><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M16.293 9.293L17.707 10.707L12 16.414L6.29297 10.707L7.70697 9.293L11 12.586V2H13V12.586L16.293 9.293ZM18 20V18H20V20C20 21.102 19.104 22 18 22H6C4.896 22 4 21.102 4 20V18H6V20H18Z" data-v-541bcdbd></path></svg></div>`);
 }
-const _sfc_setup$6 = _sfc_main$6.setup;
-_sfc_main$6.setup = (props, ctx) => {
+const _sfc_setup$5 = _sfc_main$5.setup;
+_sfc_main$5.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Discord/EmbedCreator/Attachments/File.vue");
-  return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
+  return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
 };
-const __nuxt_component_7 = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["ssrRender", _sfc_ssrRender$5], ["__scopeId", "data-v-541bcdbd"]]);
-const _sfc_main$5 = {
+const __nuxt_component_7 = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["ssrRender", _sfc_ssrRender$4], ["__scopeId", "data-v-541bcdbd"]]);
+const _sfc_main$4 = {
   components: { ChevronDownIcon, TrashIcon },
   data: () => ({
     open: false
@@ -4423,7 +4458,7 @@ const _sfc_main$5 = {
     }
   }
 };
-function _sfc_ssrRender$4(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_TrashIcon = vue_cjs_prod.resolveComponent("TrashIcon");
   const _component_ChevronDownIcon = vue_cjs_prod.resolveComponent("ChevronDownIcon");
   _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "px-6 py-4" }, _attrs))}><div class="flex justify-between items-center font-semibold">${serverRenderer.exports.ssrInterpolate($props.name)} <div class="flex items-center gap-1">`);
@@ -4442,39 +4477,13 @@ function _sfc_ssrRender$4(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   serverRenderer.exports.ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
   _push(`</div></div>`);
 }
-const _sfc_setup$5 = _sfc_main$5.setup;
-_sfc_main$5.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Discord/EmbedCreator/CollapseCard.vue");
-  return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
-};
-const __nuxt_component_8 = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["ssrRender", _sfc_ssrRender$4]]);
-const { toHTML: toHTML$1 } = pkg;
-const _sfc_main$4 = {
-  setup() {
-    return { toHTML: toHTML$1 };
-  },
-  props: {
-    content: {
-      type: String,
-      default: ""
-    },
-    embed: {
-      type: Boolean,
-      default: false
-    }
-  }
-};
-function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}>${$setup.toHTML($props.content, { embed: $props.embed })}</div>`);
-}
 const _sfc_setup$4 = _sfc_main$4.setup;
 _sfc_main$4.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Markdown.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Discord/EmbedCreator/CollapseCard.vue");
   return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
 };
-const __nuxt_component_1 = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["ssrRender", _sfc_ssrRender$3]]);
+const __nuxt_component_8 = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["ssrRender", _sfc_ssrRender$3]]);
 const { toHTML } = pkg;
 const _sfc_main$3 = {
   setup() {
@@ -4517,7 +4526,7 @@ const _sfc_main$3 = {
 };
 function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_ClientOnly = __nuxt_component_9;
-  const _component_Markdown = __nuxt_component_1;
+  const _component_Markdown = __nuxt_component_6$1;
   _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({
     class: "embed bg-[#F2F3F5] dark:bg-[#2F3136] border-l-4",
     style: `border-color: ${$props.data.color}; max-width: ${$props.data.image.url ? "432" : "516"}px;`
@@ -4714,7 +4723,7 @@ const _sfc_main$2 = {
 };
 function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_ClientOnly = __nuxt_component_9;
-  const _component_Markdown = __nuxt_component_1;
+  const _component_Markdown = __nuxt_component_6$1;
   const _component_ToolsDiscordEmbedCreatorAttachmentsImage = __nuxt_component_6;
   const _component_ToolsDiscordEmbedCreatorAttachmentsFile = __nuxt_component_7;
   const _component_ToolsDiscordEmbedCreatorFakeEmbed = __nuxt_component_4;
@@ -4859,7 +4868,7 @@ const routes = [
     children: [],
     meta: meta$c,
     alias: [],
-    component: () => import('./_slug_.9d75cc61.mjs').then((m) => m.default || m)
+    component: () => import('./_slug_.fc37c843.mjs').then((m) => m.default || m)
   },
   {
     name: "articles",
@@ -4868,7 +4877,7 @@ const routes = [
     children: [],
     meta: meta$b,
     alias: [],
-    component: () => import('./index.16916dea.mjs').then((m) => m.default || m)
+    component: () => import('./index.0e20eee2.mjs').then((m) => m.default || m)
   },
   {
     name: "authentification-callback",
@@ -4877,7 +4886,7 @@ const routes = [
     children: [],
     meta: meta$a,
     alias: (meta$a == null ? void 0 : meta$a.alias) || [],
-    component: () => import('./callback.e52b5dcd.mjs').then((m) => m.default || m)
+    component: () => import('./callback.09904f0c.mjs').then((m) => m.default || m)
   },
   {
     name: "authentification",
@@ -4886,7 +4895,7 @@ const routes = [
     children: [],
     meta: meta$9,
     alias: (meta$9 == null ? void 0 : meta$9.alias) || [],
-    component: () => import('./index.99d42d0b.mjs').then((m) => m.default || m)
+    component: () => import('./index.d0bd89ae.mjs').then((m) => m.default || m)
   },
   {
     name: "hire",
@@ -4895,7 +4904,7 @@ const routes = [
     children: [],
     meta: meta$8,
     alias: [],
-    component: () => import('./hire.69a1e7ef.mjs').then((m) => m.default || m)
+    component: () => import('./hire.a5d6435b.mjs').then((m) => m.default || m)
   },
   {
     name: "index",
@@ -4904,7 +4913,7 @@ const routes = [
     children: [],
     meta: meta$7,
     alias: [],
-    component: () => import('./index.0aef0518.mjs').then((m) => m.default || m)
+    component: () => import('./index.b55927b2.mjs').then((m) => m.default || m)
   },
   {
     name: "partners",
@@ -4913,7 +4922,7 @@ const routes = [
     children: [],
     meta: meta$6,
     alias: [],
-    component: () => import('./partners.4d3c47bd.mjs').then((m) => m.default || m)
+    component: () => import('./partners.dc6358df.mjs').then((m) => m.default || m)
   },
   {
     name: "rates",
@@ -4922,7 +4931,7 @@ const routes = [
     children: [],
     meta: meta$5,
     alias: [],
-    component: () => import('./rates.c112d73b.mjs').then((m) => m.default || m)
+    component: () => import('./rates.220b2c39.mjs').then((m) => m.default || m)
   },
   {
     name: "tools-404",
@@ -4931,7 +4940,7 @@ const routes = [
     children: [],
     meta: meta$4,
     alias: [],
-    component: () => import('./404.13fb9cc5.mjs').then((m) => m.default || m)
+    component: () => import('./404.ab5c1e77.mjs').then((m) => m.default || m)
   },
   {
     name: "tools-slug",
@@ -4940,7 +4949,7 @@ const routes = [
     children: [],
     meta: meta$3,
     alias: [],
-    component: () => import('./index.42003ac4.mjs').then((m) => m.default || m)
+    component: () => import('./index.2dd4d62c.mjs').then((m) => m.default || m)
   },
   {
     name: "tools-bots",
@@ -4949,7 +4958,7 @@ const routes = [
     children: [],
     meta: meta$2,
     alias: [],
-    component: () => import('./bots.46833246.mjs').then((m) => m.default || m)
+    component: () => import('./bots.98131327.mjs').then((m) => m.default || m)
   },
   {
     name: "tools-discord-badges",
@@ -4958,7 +4967,7 @@ const routes = [
     children: [],
     meta: meta$1,
     alias: [],
-    component: () => import('./badges.6f6e5bc8.mjs').then((m) => m.default || m)
+    component: () => import('./badges.a357948a.mjs').then((m) => m.default || m)
   },
   {
     name: "tools-discord-embed",
@@ -4967,7 +4976,7 @@ const routes = [
     children: [],
     meta,
     alias: [],
-    component: () => import('./embed.12449bad.mjs').then((m) => m.default || m)
+    component: () => import('./embed.a1570ac6.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -5150,7 +5159,7 @@ const _sfc_main$1 = {
   __name: "nuxt-root",
   __ssrInlineRender: true,
   setup(__props) {
-    const ErrorComponent = vue_cjs_prod.defineAsyncComponent(() => import('./error-component.0241a439.mjs'));
+    const ErrorComponent = vue_cjs_prod.defineAsyncComponent(() => import('./error-component.b5141e17.mjs'));
     const nuxtApp = useNuxtApp();
     vue_cjs_prod.provide("_route", useRoute());
     nuxtApp.hooks.callHookWith((hooks) => hooks.map((hook) => hook()), "vue:setup");
@@ -5183,9 +5192,9 @@ _sfc_main$1.setup = (props, ctx) => {
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
 const layouts = {
-  default: vue_cjs_prod.defineAsyncComponent(() => import('./default.c7c064bc.mjs')),
-  empty: vue_cjs_prod.defineAsyncComponent(() => import('./empty.5cf5ca80.mjs')),
-  footer: vue_cjs_prod.defineAsyncComponent(() => import('./footer.baefd003.mjs'))
+  default: vue_cjs_prod.defineAsyncComponent(() => import('./default.51f42add.mjs')),
+  empty: vue_cjs_prod.defineAsyncComponent(() => import('./empty.2cd4d35c.mjs')),
+  footer: vue_cjs_prod.defineAsyncComponent(() => import('./footer.4474fc75.mjs'))
 };
 const defaultLayoutTransition = { name: "layout", mode: "out-in" };
 const __nuxt_component_0 = vue_cjs_prod.defineComponent({
@@ -5259,17 +5268,19 @@ const entry$1 = (ctx) => entry(ctx);
 
 const server = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  A: __nuxt_component_3,
-  B: __nuxt_component_5,
-  C: __nuxt_component_6,
-  D: __nuxt_component_7,
-  E: __nuxt_component_8,
-  F: __nuxt_component_11,
+  A: __nuxt_component_10,
+  B: __nuxt_component_6$1,
+  C: __nuxt_component_3,
+  D: __nuxt_component_5,
+  E: __nuxt_component_6,
+  F: __nuxt_component_7,
+  G: __nuxt_component_8,
+  H: __nuxt_component_11,
   _: _export_sfc,
   a: __nuxt_component_0$5,
   b: __nuxt_component_0$4,
-  c: __nuxt_component_1$3,
-  d: __nuxt_component_1$2,
+  c: __nuxt_component_1$2,
+  d: __nuxt_component_1$1,
   'default': entry$1,
   e: axios,
   f: __nuxt_component_0$6,
@@ -5282,7 +5293,7 @@ const server = /*#__PURE__*/Object.freeze({
   m: __nuxt_component_4$1,
   n: __nuxt_component_3$2,
   o: useNuxtApp,
-  p: __nuxt_component_1$1,
+  p: __nuxt_component_1,
   q: allCards,
   r: useModule,
   s: __nuxt_component_0$2,
@@ -5291,9 +5302,9 @@ const server = /*#__PURE__*/Object.freeze({
   v: vue_cjs_prod,
   w: __nuxt_component_5$1,
   x: __nuxt_component_2,
-  y: __nuxt_component_3$1,
-  z: __nuxt_component_10
+  y: useTool,
+  z: __nuxt_component_3$1
 });
 
-export { allCards as A, useModule as B, tools as C, __nuxt_component_0$2 as D, __nuxt_component_5$1 as E, __nuxt_component_2 as F, __nuxt_component_3$1 as G, __nuxt_component_10 as H, __nuxt_component_3 as I, __nuxt_component_5 as J, __nuxt_component_6 as K, __nuxt_component_7 as L, __nuxt_component_8 as M, N, O, P$2 as P, __nuxt_component_11 as Q, R, S, server as T, Y, _export_sfc as _, __nuxt_component_0$5 as a, __nuxt_component_0$4 as b, __nuxt_component_1$3 as c, __nuxt_component_1$2 as d, axios as e, __nuxt_component_0$6 as f, __nuxt_component_4$2 as g, __nuxt_component_2$2 as h, __nuxt_component_9 as i, __nuxt_component_4$3 as j, __nuxt_component_2$1 as k, __nuxt_component_3$3 as l, __nuxt_component_4$1 as m, __nuxt_component_3$2 as n, useNuxtApp as o, __nuxt_component_1$1 as p, u$2 as q, m as r, p$2 as s, o as t, useHead as u, vue_cjs_prod as v, P$1 as w, t as x, b$1 as y, o$1 as z };
+export { allCards as A, useModule as B, tools as C, __nuxt_component_0$2 as D, __nuxt_component_5$1 as E, __nuxt_component_2 as F, useTool as G, __nuxt_component_3$1 as H, __nuxt_component_10 as I, __nuxt_component_6$1 as J, __nuxt_component_3 as K, __nuxt_component_5 as L, __nuxt_component_6 as M, N, O, P$2 as P, __nuxt_component_7 as Q, R, S, __nuxt_component_8 as T, __nuxt_component_11 as U, server as V, Y, _export_sfc as _, __nuxt_component_0$5 as a, __nuxt_component_0$4 as b, __nuxt_component_1$2 as c, __nuxt_component_1$1 as d, axios as e, __nuxt_component_0$6 as f, __nuxt_component_4$2 as g, __nuxt_component_2$2 as h, __nuxt_component_9 as i, __nuxt_component_4$3 as j, __nuxt_component_2$1 as k, __nuxt_component_3$3 as l, __nuxt_component_4$1 as m, __nuxt_component_3$2 as n, useNuxtApp as o, __nuxt_component_1 as p, u$2 as q, m as r, p$2 as s, o as t, useHead as u, vue_cjs_prod as v, P$1 as w, t as x, b$1 as y, o$1 as z };
 //# sourceMappingURL=server.mjs.map
