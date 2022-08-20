@@ -25,11 +25,11 @@ const client_manifest = {
       "layouts/footer.vue"
     ],
     "css": [
-      "entry.49116476.css"
+      "entry.10f70275.css"
     ]
   },
-  "entry.49116476.css": {
-    "file": "entry.49116476.css",
+  "entry.10f70275.css": {
+    "file": "entry.10f70275.css",
     "resourceType": "style"
   },
   "virtual:nuxt:C:/laragon/www/maeyourdiscord/frontend/.nuxt/error-component.mjs": {
@@ -245,11 +245,11 @@ const client_manifest = {
       "_style.5991843d.mjs"
     ],
     "css": [
-      "badges.254d975b.css"
+      "badges.8903f354.css"
     ]
   },
-  "badges.254d975b.css": {
-    "file": "badges.254d975b.css",
+  "badges.8903f354.css": {
+    "file": "badges.8903f354.css",
     "resourceType": "style"
   },
   "_style.5991843d.mjs": {
@@ -374,38 +374,38 @@ const client_manifest = {
   },
   "pages/tools/discord/badges.css": {
     "resourceType": "style",
-    "file": "badges.254d975b.css",
+    "file": "badges.8903f354.css",
     "src": "pages/tools/discord/badges.css"
-  },
-  "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-500.css": {
-    "resourceType": "style",
-    "file": "error-500.df34e930.css",
-    "src": "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-500.css"
   },
   "pages/tools/discord/embed.css": {
     "resourceType": "style",
     "file": "embed.a608e693.css",
     "src": "pages/tools/discord/embed.css"
   },
-  "node_modules/nuxt/dist/app/entry.css": {
+  "style.css": {
     "resourceType": "style",
-    "file": "entry.49116476.css",
-    "src": "node_modules/nuxt/dist/app/entry.css"
+    "file": "style.8118ace9.css",
+    "src": "style.css"
   },
-  "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-404.css": {
+  "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-500.css": {
     "resourceType": "style",
-    "file": "error-404.7ac8d696.css",
-    "src": "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-404.css"
+    "file": "error-500.df34e930.css",
+    "src": "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-500.css"
   },
   "Navbar.css": {
     "resourceType": "style",
     "file": "Navbar.cc971e04.css",
     "src": "Navbar.css"
   },
-  "style.css": {
+  "node_modules/nuxt/dist/app/entry.css": {
     "resourceType": "style",
-    "file": "style.8118ace9.css",
-    "src": "style.css"
+    "file": "entry.10f70275.css",
+    "src": "node_modules/nuxt/dist/app/entry.css"
+  },
+  "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-404.css": {
+    "resourceType": "style",
+    "file": "error-404.7ac8d696.css",
+    "src": "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-404.css"
   }
 };
 
