@@ -195,7 +195,7 @@
                                     <div class="flex gap-1 text-base items-center">
                                         <span class="text-md leading-5 font-medium" :style="`color: ${primaryColor};`">Multid</span>
 
-                                        <svg id="svg_icon" class="w-6 h-6 ml-1" :width="shapeWidth" :height="shapeHeight" :viewBox="`0 0 ${shapeWidth} ${shapeHeight}`" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="w-6 h-6 ml-1" :width="shapeWidth" :height="shapeHeight" :viewBox="`0 0 ${shapeWidth} ${shapeHeight}`" xmlns="http://www.w3.org/2000/svg">
                                             <mask id="mask" v-if="!duo_tone">
                                                 <rect x="0" y="0" width="250" height="250" fill="white" />
                                                 <g v-if="!uploadedIcon" :style="`filter: brightness(0); transform: translate(${shapeWidth / 2 - (icons[icon]().width * multiply) / 2 + Number(offset_x)}px, ${shapeHeight / 2 - (icons[icon]().height * multiply) / 2 + Number(offset_y)}px) scale(${multiply});`" v-html="icons[icon]('#000').svg"></g>
@@ -316,7 +316,7 @@
                                                 <div class="flex gap-1 text-base items-center">
                                                     <span class="text-md leading-5 font-medium" :style="`color: ${primaryColor};`">Multid</span>
 
-                                                    <svg id="svg_icon" class="w-6 h-6 ml-1" :width="shapeWidth" :height="shapeHeight" :viewBox="`0 0 ${shapeWidth} ${shapeHeight}`" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg class="w-6 h-6 ml-1" :width="shapeWidth" :height="shapeHeight" :viewBox="`0 0 ${shapeWidth} ${shapeHeight}`" xmlns="http://www.w3.org/2000/svg">
                                                         <mask id="mask" v-if="!duo_tone">
                                                             <rect x="0" y="0" width="250" height="250" fill="white" />
                                                             <g v-if="!uploadedIcon" :style="`filter: brightness(0); transform: translate(${shapeWidth / 2 - (icons[icon]().width * multiply) / 2 + Number(offset_x)}px, ${shapeHeight / 2 - (icons[icon]().height * multiply) / 2 + Number(offset_y)}px) scale(${multiply});`" v-html="icons[icon]('#000').svg"></g>
@@ -346,7 +346,7 @@
                                         </div>
                                     </div>
                                     <div style="background-image: url(/transparent.svg);" class="bg-repeat bg-center p-12 rounded-lg flex items-center justify-center">
-                                        <svg id="svg_icon" :width="shapeWidth" :height="shapeHeight" :viewBox="`0 0 ${shapeWidth} ${shapeHeight}`" xmlns="http://www.w3.org/2000/svg">
+                                        <svg id="mobile_svg_icon" :width="shapeWidth" :height="shapeHeight" :viewBox="`0 0 ${shapeWidth} ${shapeHeight}`" xmlns="http://www.w3.org/2000/svg">
                                             <mask id="mask" v-if="!duo_tone">
                                                 <rect x="0" y="0" width="250" height="250" fill="white" />
                                                 <g v-if="!uploadedIcon" :style="`filter: brightness(0); transform: translate(${shapeWidth / 2 - (icons[icon]().width * multiply) / 2 + Number(offset_x)}px, ${shapeHeight / 2 - (icons[icon]().height * multiply) / 2 + Number(offset_y)}px) scale(${multiply});`" v-html="icons[icon]('#000').svg"></g>
@@ -494,7 +494,7 @@ export default {
             this.uploadedIcon = await transformFileIntoBase64(e.target.files[0]);
         },
         save() {
-            saveSvgAsPng(document.getElementById("svg_icon"), "discord_icon.png");
+            saveSvgAsPng(document.getElementById(this.mobile_preview_open ? 'mobile_svg_icon' : "svg_icon"), "discord_icon.png");
             useTool('badge');
         },
         selectShape(shape) {
@@ -514,7 +514,7 @@ export default {
             }
         },
         async setToRole(id, key) {
-            const uri = await svgAsPngUri(document.getElementById("svg_icon"));
+            const uri = await svgAsPngUri(document.getElementById(this.mobile_preview_open ? 'mobile_svg_icon' : "svg_icon"));
             const role = await $fetch(`/api/guilds/${this.guild.id}/${id}`, { method: 'PATCH', body: {
                 icon: uri,
                 token: 'Bearer ' + localStorage.getItem('access_token')
