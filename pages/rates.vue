@@ -47,6 +47,7 @@
                                     <Star class="w-12 cursor-pointer" :color="star >= i ? '#BB900D' : '#9ca3af'" v-for="i in 5" :key="i" @click="star = i" />
                                 </div>
                                 <Input class="mt-4" :placeholder="`Pourquoi ${star} étoiles?`" v-model="rate" />
+                                <div class="text-red-400 text-sm mt-1 mb-4" v-for="(error, id) of errors" :key="id"><i>{{ error }}</i></div>
                                 <p class="text-sm text-gray-500 mt-2">
                                     Ton avis nous aidera à améliorer notre service.
                                 </p>
@@ -113,7 +114,8 @@ export default {
     data: () => ({
         isOpen: false,
         rate: '',
-        star: 5
+        star: 5,
+        errors: []
     }),
     methods: {
         async addTestimonial() {
@@ -127,12 +129,11 @@ export default {
                         Authorization: `Bearer ${token}`
                     }
                 })
-            } catch (e) {
-                console.log(e)
-            } finally {
                 this.isOpen = false
                 const { data } = await axios.get('testimonials')
                 this.testimonials = data.testimonials
+            } catch (e) {
+                this.errors = e.response.data.errors.map((error) => error.message)
             }
         }
     }

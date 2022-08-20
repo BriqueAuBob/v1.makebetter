@@ -5,9 +5,9 @@ export { withCtx, withDirectives, withKeys, withMemo, withModifiers, withScopeId
 export { transformFileIntoBlob, transformFileIntoBase64 } from '../composables/Blob';
 export { default as discordIcons, shapes } from '../composables/DiscordIcons';
 export { useBackgroundColor } from '../composables/ColorsEnums';
-export { default as axios } from '../composables/Axios';
 export { checkWebhookValidity, sendMessage, fetchMessage } from '../composables/DiscordWebhook';
 export { useModule, tools, allCards, useTool } from '../composables/Module';
+export { default as axios } from '../composables/Axios';
 export { useColorMode } from '../node_modules/@nuxtjs/color-mode/dist/runtime/composables';
 export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composables';
 export { useLink } from 'vue-router';
