@@ -79,31 +79,49 @@
                                     <path d="M7.9999 182.25L109 240L109 9.49995L7.99991 66.7499L7.9999 182.25Z" fill="#B2BFC7"/>
                                 </svg>
                             </div>
+                            <div class="p-2 cursor-pointer" :class="shape === 10 && 'border-2 rounded-md border-dark-600 bg-dark-700 bg-opacity-25'" @click="selectShape(10)">
+                                <svg class="w-full" viewBox="0 0 250 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M244.233 240.145C156.061 227.235 102.57 226.462 6.03987 245.777C2.93659 246.397 0 244.036 0 240.871V8.71942C0 4.31564 5.28104 2.06252 8.46006 5.10999L68.3829 62.5533C70.5639 64.6441 74.0867 64.3377 75.8741 61.9019L119.688 2.19421C121.62 -0.438054 125.515 -0.542948 127.586 1.98155L177.001 62.2331C178.875 64.5185 182.312 64.6879 184.402 62.5979L241.464 5.53553C244.614 2.38571 250 4.61654 250 9.07107V235.195C250 238.252 247.257 240.588 244.233 240.145Z" fill="#99AAB5"/>
+                                </svg>
+                            </div>
+                            <div class="p-2 cursor-pointer" :class="shape === 11 && 'border-2 rounded-md border-dark-600 bg-dark-700 bg-opacity-25'" @click="selectShape(11)">
+                                <svg class="w-full" viewBox="0 0 170 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 241.867V5C0 2.23858 2.23858 0 5 0H165C167.761 0 170 2.23857 170 5V241.867C170 245.594 166.069 248.011 162.743 246.329L87.257 208.142C85.838 207.424 84.162 207.424 82.743 208.142L7.25704 246.329C3.93122 248.011 0 245.594 0 241.867Z" fill="#99AAB5"/>
+                                </svg>
+                            </div>
+                            <div class="p-2 cursor-pointer" :class="shape === 12 && 'border-2 rounded-md border-dark-600 bg-dark-700 bg-opacity-25'" @click="selectShape(12)">
+                                <svg class="w-full" viewBox="0 0 158 247" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M155.657 173.343L84.6569 244.343C81.5327 247.467 76.4673 247.467 73.3431 244.343L2.34314 173.343C0.842853 171.843 0 169.808 0 167.686V8C0 3.58172 3.58172 0 8 0H150C154.418 0 158 3.58172 158 8V167.686C158 169.808 157.157 171.843 155.657 173.343Z" fill="#99AAB5"/>
+                                </svg>
+                            </div>
+                            <div class="p-2 cursor-pointer" :class="shape === 13 && 'border-2 rounded-md border-dark-600 bg-dark-700 bg-opacity-25'" @click="selectShape(13)">
+                                <svg class="w-full" viewBox="0 0 207 205" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M122.571 3.36025C144.954 -5.00857 169.414 9.11367 173.358 32.6822L177.004 54.4685C178.067 60.826 180.731 66.8083 184.744 71.8528L198.495 89.14C213.371 107.841 207.498 135.468 186.302 146.502L166.708 156.702C160.991 159.678 156.124 164.06 152.567 169.435L140.375 187.855C127.186 207.782 99.0963 210.734 82.0524 193.985L66.2974 178.502C61.6999 173.984 56.0288 170.71 49.8174 168.988L28.5314 163.085C5.50426 156.699 -5.9838 130.896 4.67882 109.511L14.5352 89.7425C17.4113 83.9739 18.7728 77.5685 18.4916 71.1288L17.5279 49.0606C16.4854 25.1871 37.4751 6.2879 61.1088 9.82018L82.9554 13.0854C89.3304 14.0382 95.843 13.3537 101.881 11.0962L122.571 3.36025Z" fill="#99AAB5"/>
+                                    <path d="M142.886 121.817C129.908 144.297 101.163 151.999 78.683 139.02C56.2033 126.041 48.5011 97.2967 61.4798 74.817C74.4585 52.3372 103.203 44.6351 125.683 57.6138C148.163 70.5925 155.865 99.3372 142.886 121.817Z" fill="#B2BFC7"/>
+                                </svg>
+                            </div>
                         </div>
                     </ToolsStep>
                     <ToolsStep :step-id="2" name="Icone">
                         <div class="bg-white dark:bg-dark-800 p-8 rounded-lg shadow-lg">
                             <div class="flex flex-wrap gap-2 mb-8">
-                                <NuxtLink :href="`#${category}`" class="hover:bg-gray-400 dark:hover:bg-dark-700 transition ease-in duration-100 px-4 py-2 rounded-sm" v-for="(_, category) of categories" :key="category">
-                                    {{ category }}
-                                </NuxtLink>
+                                <button @click="category = cat" :class="[category === cat && 'bg-gray-400 dark:bg-dark-700']" class="hover:bg-gray-400 dark:hover:bg-dark-700 transition ease-in duration-100 px-4 py-2 rounded-sm" v-for="(_, cat) of categories" :key="cat">
+                                    {{ cat }}
+                                </button>
                                 <NuxtLink href="#custom_icon" class="hover:bg-gray-400 dark:hover:bg-dark-700 transition ease-in duration-100 px-4 py-2 rounded-sm">
                                     Icone personnalisée
                                 </NuxtLink>
                             </div>
-                            <div v-for="(iconList, category) of categories" :key="category">
-                                <div class="font-regular text-lg text-gray-500 mb-4" :id="category">{{ category }}</div>
-                                <div class="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-4 items-center mb-8">
-                                    <div 
-                                        class="p-2 cursor-pointer flex justify-center items-center h-24" 
-                                        :class="(icon === ico().index && !uploadedIcon) && 'border-2 rounded-md border-dark-600 bg-dark-700 bg-opacity-25'" 
-                                        v-for="(ico, key) of iconList" 
-                                        :key="key" 
-                                        @click="icon = ico().index; uploadedIcon = null"
-                                    >
-                                        <!-- {{ ico().index }} -->
-                                        <svg ref="__svg_icon" :width="ico('#99AAB5').width" :height="ico('#99AAB5').height" :style="`transform: scale(${ico().category === 'Icones Fluent 3D' ? 1.5 : ico().width <= 24 ? 1 : 0.5});`" v-html="ico('#99AAB5').svg"></svg>
-                                    </div>
+                            <div class="font-regular text-lg text-gray-500 mb-4">{{ category }}</div>
+                            <div class="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-4 items-center mb-8">
+                                <div 
+                                    class="p-2 cursor-pointer flex justify-center items-center h-24" 
+                                    :class="(icon === ico().index && !uploadedIcon) && 'border-2 rounded-md border-dark-600 bg-dark-700 bg-opacity-25'" 
+                                    v-for="(ico, key) of categories[category]" 
+                                    :key="key" 
+                                    @click="icon = ico().index; uploadedIcon = null"
+                                >
+                                    <svg ref="__svg_icon" :width="ico('#99AAB5').width" :height="ico('#99AAB5').height" :style="`transform: scale(${ico().category === 'Icones Fluent 3D' ? 1.5 : ico().width <= 24 ? 1 : 0.5});`" v-html="ico('#99AAB5').svg"></svg>
                                 </div>
                             </div>
                             <div id="custom_icon" class="w-full my-8">
@@ -122,7 +140,7 @@
                     <ToolsStep :step-id="3" name="Taille de l'icone">
                         <div class="bg-white dark:bg-dark-800 p-8 rounded-lg shadow-lg items-center">
                             <div class="flex flex-col space-y-2 p-2 w-full">
-                                <input v-model="multiply" type="range" class="w-full bg-gray-200 rounded-lg appearance-none cursor-pointer bg-gray-300 dark:bg-dark-700" min="1" max="6" step="0.1" />
+                                <input v-model="multiply" type="range" class="w-full rounded-lg appearance-none cursor-pointer bg-gray-300 dark:bg-dark-700" min="1" max="6" step="0.1" />
                             </div>
                         </div>
                     </ToolsStep>
@@ -131,9 +149,9 @@
                             <div class="flex flex-col p-2 w-full">
                                 <div class="flex items-center gap-2 justify-center mb-8">
                                     <label for="offset_x">X</label>
-                                    <input id="offset_x" v-model="offset_x" type="range" class="w-full bg-gray-200 rounded-lg appearance-none cursor-pointer bg-gray-300 dark:bg-dark-700" min="-100" max="100" step="0.1" />
+                                    <input id="offset_x" v-model="offset_x" type="range" class="w-full rounded-lg appearance-none cursor-pointer bg-gray-300 dark:bg-dark-700" min="-100" max="100" step="0.1" />
                                     <label for="offset_y">Y</label>
-                                    <input id="offset_y" v-model="offset_y" type="range" class="w-full bg-gray-200 rounded-lg appearance-none cursor-pointer bg-gray-300 dark:bg-dark-700" min="-100" max="100" step="0.1" />
+                                    <input id="offset_y" v-model="offset_y" type="range" class="w-full rounded-lg appearance-none cursor-pointer bg-gray-300 dark:bg-dark-700" min="-100" max="100" step="0.1" />
                                 </div>
                                 <Button text="Centrer l'icone" @click="offset_x = 0; offset_y = 0" color="primary" :centerText="true" />
                             </div>
@@ -170,11 +188,47 @@
                 </div>
                 <div>
                     <div class="bg-white dark:bg-dark-800 shadow-xl lg:rounded-2xl p-8 w-full lg:sticky lg:top-12 flex-col gap-4 overflow-y-auto lg:max-h-screen-padding relative hidden lg:flex">
+                        <div class="bg-[#FAFAFA] dark:bg-[#36393F] lg:rounded-2xl p-8 flex gap-3">
+                            <img class="w-10 h-10 rounded-full" :src="`https://cdn.discordapp.com/avatars/983094528791683182/1830fd86f024e70811c706de31961a15.webp?size=128`" />
+                            <div class="flex items-center justify-between">
+                                <div class="w-full whitney">
+                                    <div class="flex gap-1 text-base items-center">
+                                        <span class="text-md leading-5 font-medium" :style="`color: ${primaryColor};`">Multid</span>
+
+                                        <svg id="svg_icon" class="w-6 h-6 ml-1" :width="shapeWidth" :height="shapeHeight" :viewBox="`0 0 ${shapeWidth} ${shapeHeight}`" xmlns="http://www.w3.org/2000/svg">
+                                            <mask id="mask" v-if="!duo_tone">
+                                                <rect x="0" y="0" width="250" height="250" fill="white" />
+                                                <g v-if="!uploadedIcon" :style="`filter: brightness(0); transform: translate(${shapeWidth / 2 - (icons[icon]().width * multiply) / 2 + Number(offset_x)}px, ${shapeHeight / 2 - (icons[icon]().height * multiply) / 2 + Number(offset_y)}px) scale(${multiply});`" v-html="icons[icon]('#000').svg"></g>
+                                                <image v-else
+                                                    width="64" 
+                                                    height="64" 
+                                                    :href="uploadedIcon" 
+                                                    :style="`filter: brightness(0); transform: translate(${shapeWidth / 2 - (64 * multiply) / 2 + Number(offset_x)}px, ${shapeHeight / 2 - (64 * multiply) / 2 + Number(offset_y)}px) scale(${multiply});`"
+                                                />
+                                            </mask>
+                                            <g v-html="shapes[shape](primaryColor)[0]" ref="shapeDraw"></g>
+                                            <g v-if="duo_tone && !uploadedIcon" :style="`transform: translate(${shapeWidth / 2 - (icons[icon]().width * multiply) / 2 + Number(offset_x)}px, ${shapeHeight / 2 - (icons[icon]().height * multiply) / 2 + Number(offset_y)}px) scale(${multiply});`" v-html="icons[icon](secondaryColor).svg"></g>
+                                            <image v-else-if="duo_tone && uploadedIcon"
+                                                width="64" 
+                                                height="64" 
+                                                :href="uploadedIcon" 
+                                                :style="`transform: translate(${shapeWidth / 2 - (64 * multiply) / 2 + Number(offset_x)}px, ${shapeHeight / 2 - (64 * multiply) / 2 + Number(offset_y)}px) scale(${multiply});`"
+                                            />
+                                        </svg>
+
+                                        <span class="ml-1 rounded-md text-gray-600 dark:text-gray-200 text-xs self-end">Aujourd'hui à {{ new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute:'2-digit' }) }}</span>
+                                    </div>
+                                    <div class="flex flex-col gap-1 w-full mt-1">
+                                        <Markdown class="font-normal text-base text-gray-300 whitespace-pre-line break-words leading-snug" content="Bienvenue sur umaestro.fr !"></Markdown>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div style="background-image: url(/transparent.svg);" class="bg-repeat bg-center p-12 rounded-lg flex items-center justify-center">
                             <svg id="svg_icon" :width="shapeWidth" :height="shapeHeight" :viewBox="`0 0 ${shapeWidth} ${shapeHeight}`" xmlns="http://www.w3.org/2000/svg">
                                 <mask id="mask" v-if="!duo_tone">
                                     <rect x="0" y="0" width="250" height="250" fill="white" />
-                                    <g v-if="!uploadedIcon" :style="`transform: translate(${shapeWidth / 2 - (icons[icon]().width * multiply) / 2 + Number(offset_x)}px, ${shapeHeight / 2 - (icons[icon]().height * multiply) / 2 + Number(offset_y)}px) scale(${multiply});`" v-html="icons[icon]('#000').svg"></g>
+                                    <g v-if="!uploadedIcon" :style="`filter: brightness(0); transform: translate(${shapeWidth / 2 - (icons[icon]().width * multiply) / 2 + Number(offset_x)}px, ${shapeHeight / 2 - (icons[icon]().height * multiply) / 2 + Number(offset_y)}px) scale(${multiply});`" v-html="icons[icon]('#000').svg"></g>
                                     <image v-else
                                         width="64" 
                                         height="64" 
@@ -247,6 +301,7 @@ import pkg from 'save-svg-as-png'
 import icons, { shapes } from '~~/composables/DiscordIcons';
 const { saveSvgAsPng, svgAsPngUri } = pkg
 import { transformFileIntoBase64 } from '~~/composables/Blob';
+import { useTool } from "~~/composables/Module";
 
 export default {
     components: { CubeIcon, CheckIcon, ColorPicker },    
@@ -274,6 +329,7 @@ export default {
         shapeHeight: 200,
         offset_x: 0,
         offset_y: 0,
+        category: ''
     }),
     async mounted() {
         this.guilds = localStorage.getItem('user_guilds') ? JSON.parse(localStorage.getItem('user_guilds')) : []; // .filter(guild => guild.features.find(feature => feature == 'ROLE_ICONS'))
@@ -286,6 +342,7 @@ export default {
                 icons[icon().category] = icons[icon().category] || []
                 icons[icon().category].push(icon)
             };
+            this.category = Object.keys(icons)[0]
             return icons;
         }
     },
@@ -302,6 +359,7 @@ export default {
         },
         save() {
             saveSvgAsPng(document.getElementById("svg_icon"), "discord_icon.png");
+            useTool('badge');
         },
         selectShape(shape) {
             this.shape = shape
@@ -322,9 +380,11 @@ export default {
         async setToRole(id, key) {
             const uri = await svgAsPngUri(document.getElementById("svg_icon"));
             const role = await $fetch(`/api/guilds/${this.guild.id}/${id}`, { method: 'PATCH', body: {
-                icon: uri
+                icon: uri,
+                token: 'Bearer ' + localStorage.getItem('token')
             } });
             this.roles[key].icon = role.icon
+            useTool('badge');
         }
     }
 }
@@ -345,5 +405,44 @@ export default {
 
 .dark .vc-colorpicker {
     background: #36393F;
+}
+
+@font-face {
+    font-family: "Whitney";
+    src: url("/fonts/Whitney-300.woff2") format("woff2");
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Whitney";
+    src: url("/fonts/Whitney-400.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Whitney";
+    src: url("/fonts/Whitney-500.woff2") format("woff2");
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Whitney";
+    src: url("/fonts/Whitney-600.woff2") format("woff2");
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Whitney";
+    src: url("/fonts/Whitney-700.woff2") format("woff2");
+    font-weight: 700;
+    font-display: swap;
+}
+
+.whitney {
+    font-family: "Whitney", sans-serif;
 }
 </style>

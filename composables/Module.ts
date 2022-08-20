@@ -3,6 +3,7 @@ import Badges from '~~/components/Tools/Cards/Badges.vue'
 import Bots from '~~/components/Tools/Cards/Bots.vue'
 import Embed from '~~/components/Tools/Cards/Embed.vue'
 import Emojis from '~~/components/Tools/Cards/Emojis.vue'
+import axios from '~~/composables/Axios'
 
 const modules = {
     // "general": {
@@ -32,4 +33,14 @@ export const tools = {
 
 export const allCards = {
     Badges, Bots, Emojis, Embed,
+}
+
+export const useTool = (name) => {
+    axios.post('statistics', {
+        tool: name
+    }, {
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+        }
+    })
 }

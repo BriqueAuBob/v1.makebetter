@@ -7,6 +7,20 @@ export default defineEventHandler(async (event) => {
     const body = await useBody(event);
 
     try {
+        const res = await axios.get('https://discord.com/api/v8/guilds/${guild_id}', {
+            headers: {
+                Authorization: `Bot ${bot_token}`,
+            },
+        })
+
+        const auth = await axios.get('auth/user', {
+            headers: {
+                Authorization: body.token
+            }
+        })
+
+        if(res.data.owner_id != auth.data.user.id) return;
+
         const { data } = await axios.patch(`https://discord.com/api/v8/guilds/${guild_id}/roles/${role_id}`, {
             icon: body.icon,
         }, {

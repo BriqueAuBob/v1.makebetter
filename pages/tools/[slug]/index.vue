@@ -40,9 +40,8 @@ Nos outils sortent au fil du temps et en fonction de votre attente.</h2>
             <div class="text-lg text-center mt-4">Dédiés à <span class="capitalize">{{ $route.params.slug }}</span></div>
             <ClientOnly>
                 <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mt-8">
-                    <div></div>
                     <div v-for="(tool, index) of moduleTools" :key="index">
-                        <NuxtLink :to="`/tools/${$route.params.slug}/${getModuleName(index).toLowerCase()}`" v-if="getModuleName(index).toLowerCase() !== 'badges'">
+                        <NuxtLink :to="`/tools/${$route.params.slug}/${getModuleName(index).toLowerCase()}`">
                             <component :is="{...getModuleCard(index)}" />
                         </NuxtLink>
                     </div>
