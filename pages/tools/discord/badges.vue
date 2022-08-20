@@ -545,35 +545,35 @@ export default {
 
 @font-face {
     font-family: "Whitney";
-    src: url("/fonts/Whitney-300.woff2") format("woff2");
+    src: url("/fonts/whitney-300.woff2") format("woff2");
     font-weight: 300;
     font-display: swap;
 }
 
 @font-face {
     font-family: "Whitney";
-    src: url("/fonts/Whitney-400.woff2") format("woff2");
+    src: url("/fonts/whitney-400.woff2") format("woff2");
     font-weight: 400;
     font-display: swap;
 }
 
 @font-face {
     font-family: "Whitney";
-    src: url("/fonts/Whitney-500.woff2") format("woff2");
+    src: url("/fonts/whitney-500.woff2") format("woff2");
     font-weight: 500;
     font-display: swap;
 }
 
 @font-face {
     font-family: "Whitney";
-    src: url("/fonts/Whitney-600.woff2") format("woff2");
+    src: url("/fonts/whitney-600.woff2") format("woff2");
     font-weight: 600;
     font-display: swap;
 }
 
 @font-face {
     font-family: "Whitney";
-    src: url("/fonts/Whitney-700.woff2") format("woff2");
+    src: url("/fonts/whitney-700.woff2") format("woff2");
     font-weight: 700;
     font-display: swap;
 }
