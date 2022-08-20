@@ -7,7 +7,7 @@ const _role__patch = defineEventHandler(async (event) => {
   const role_id = event.context.params.role;
   const body = await useBody(event);
   try {
-    const res = await axios.get("https://discord.com/api/v8/guilds/${guild_id}", {
+    const res = await axios.get(`https://discord.com/api/v8/guilds/${guild_id}`, {
       headers: {
         Authorization: `Bot ${bot_token}`
       }

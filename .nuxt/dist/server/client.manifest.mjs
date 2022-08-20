@@ -395,16 +395,6 @@ export default {
     "file": "error-500.df34e930.css",
     "resourceType": "style"
   },
-  "pages/tools/discord/embed.css": {
-    "resourceType": "style",
-    "file": "embed.a608e693.css",
-    "src": "pages/tools/discord/embed.css"
-  },
-  "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-500.css": {
-    "resourceType": "style",
-    "file": "error-500.df34e930.css",
-    "src": "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-500.css"
-  },
   "pages/tools/discord/badges.css": {
     "resourceType": "style",
     "file": "badges.254d975b.css",
@@ -415,15 +405,25 @@ export default {
     "file": "Navbar.cc971e04.css",
     "src": "Navbar.css"
   },
-  "style.css": {
+  "pages/tools/discord/embed.css": {
     "resourceType": "style",
-    "file": "style.8118ace9.css",
-    "src": "style.css"
+    "file": "embed.a608e693.css",
+    "src": "pages/tools/discord/embed.css"
+  },
+  "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-500.css": {
+    "resourceType": "style",
+    "file": "error-500.df34e930.css",
+    "src": "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-500.css"
   },
   "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-404.css": {
     "resourceType": "style",
     "file": "error-404.7ac8d696.css",
     "src": "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-404.css"
+  },
+  "style.css": {
+    "resourceType": "style",
+    "file": "style.8118ace9.css",
+    "src": "style.css"
   },
   "node_modules/nuxt/dist/app/entry.css": {
     "resourceType": "style",

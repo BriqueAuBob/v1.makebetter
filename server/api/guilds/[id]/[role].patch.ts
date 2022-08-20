@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
     const body = await useBody(event);
 
     try {
-        const res = await axios.get('https://discord.com/api/v8/guilds/${guild_id}', {
+        const res = await axios.get(`https://discord.com/api/v8/guilds/${guild_id}`, {
             headers: {
                 Authorization: `Bot ${bot_token}`,
             },

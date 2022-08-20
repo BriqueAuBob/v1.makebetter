@@ -381,7 +381,7 @@ export default {
             const uri = await svgAsPngUri(document.getElementById("svg_icon"));
             const role = await $fetch(`/api/guilds/${this.guild.id}/${id}`, { method: 'PATCH', body: {
                 icon: uri,
-                token: 'Bearer ' + localStorage.getItem('token')
+                token: 'Bearer ' + localStorage.getItem('access_token')
             } });
             this.roles[key].icon = role.icon
             useTool('badge');
