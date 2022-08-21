@@ -4854,7 +4854,7 @@ const routes = [
     children: [],
     meta: meta$c,
     alias: (meta$c == null ? void 0 : meta$c.alias) || [],
-    component: () => import("./_nuxt/_slug_.3edf912e.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/_slug_.cb2ea0dc.js").then((m) => m.default || m)
   },
   {
     name: "articles",
@@ -4863,7 +4863,7 @@ const routes = [
     children: [],
     meta: meta$b,
     alias: (meta$b == null ? void 0 : meta$b.alias) || [],
-    component: () => import("./_nuxt/index.8a96bd37.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index.9c21981c.js").then((m) => m.default || m)
   },
   {
     name: "authentification-callback",
@@ -4872,7 +4872,7 @@ const routes = [
     children: [],
     meta: meta$a,
     alias: (meta$a == null ? void 0 : meta$a.alias) || [],
-    component: () => import("./_nuxt/callback.56527dd8.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/callback.e5192b98.js").then((m) => m.default || m)
   },
   {
     name: "authentification",
@@ -4881,7 +4881,7 @@ const routes = [
     children: [],
     meta: meta$9,
     alias: (meta$9 == null ? void 0 : meta$9.alias) || [],
-    component: () => import("./_nuxt/index.ae31fb6f.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index.a97a381b.js").then((m) => m.default || m)
   },
   {
     name: "hire",
@@ -4890,7 +4890,7 @@ const routes = [
     children: [],
     meta: meta$8,
     alias: (meta$8 == null ? void 0 : meta$8.alias) || [],
-    component: () => import("./_nuxt/hire.18a4e5e5.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/hire.6a848841.js").then((m) => m.default || m)
   },
   {
     name: "index",
@@ -4899,7 +4899,7 @@ const routes = [
     children: [],
     meta: meta$7,
     alias: (meta$7 == null ? void 0 : meta$7.alias) || [],
-    component: () => import("./_nuxt/index.1fc59238.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index.d1cfb0d6.js").then((m) => m.default || m)
   },
   {
     name: "partners",
@@ -4908,7 +4908,7 @@ const routes = [
     children: [],
     meta: meta$6,
     alias: (meta$6 == null ? void 0 : meta$6.alias) || [],
-    component: () => import("./_nuxt/partners.a5e8f309.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/partners.e47bbc15.js").then((m) => m.default || m)
   },
   {
     name: "rates",
@@ -4917,7 +4917,7 @@ const routes = [
     children: [],
     meta: meta$5,
     alias: (meta$5 == null ? void 0 : meta$5.alias) || [],
-    component: () => import("./_nuxt/rates.531c7b5e.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/rates.6ee104ea.js").then((m) => m.default || m)
   },
   {
     name: "tools-404",
@@ -4926,7 +4926,7 @@ const routes = [
     children: [],
     meta: meta$4,
     alias: (meta$4 == null ? void 0 : meta$4.alias) || [],
-    component: () => import("./_nuxt/404.8a046fbe.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/404.490814bb.js").then((m) => m.default || m)
   },
   {
     name: "tools-slug",
@@ -4935,7 +4935,7 @@ const routes = [
     children: [],
     meta: meta$3,
     alias: (meta$3 == null ? void 0 : meta$3.alias) || [],
-    component: () => import("./_nuxt/index.45bbc842.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index.aa4a586a.js").then((m) => m.default || m)
   },
   {
     name: "tools-bots",
@@ -4944,7 +4944,7 @@ const routes = [
     children: [],
     meta: meta$2,
     alias: (meta$2 == null ? void 0 : meta$2.alias) || [],
-    component: () => import("./_nuxt/bots.629e184d.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/bots.2732373d.js").then((m) => m.default || m)
   },
   {
     name: "tools-discord-badges",
@@ -4953,7 +4953,7 @@ const routes = [
     children: [],
     meta: meta$1,
     alias: (meta$1 == null ? void 0 : meta$1.alias) || [],
-    component: () => import("./_nuxt/badges.4561e0b1.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/badges.1720986f.js").then((m) => m.default || m)
   },
   {
     name: "tools-discord-embed",
@@ -4962,7 +4962,7 @@ const routes = [
     children: [],
     meta,
     alias: (meta == null ? void 0 : meta.alias) || [],
-    component: () => import("./_nuxt/embed.fd020f5b.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/embed.0fdba9d4.js").then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -5145,7 +5145,7 @@ const _sfc_main$1 = {
   __name: "nuxt-root",
   __ssrInlineRender: true,
   setup(__props) {
-    const ErrorComponent = vue_cjs_prod.defineAsyncComponent(() => import("./_nuxt/error-component.62be0b39.js"));
+    const ErrorComponent = vue_cjs_prod.defineAsyncComponent(() => import("./_nuxt/error-component.20ed56f4.js"));
     const nuxtApp = useNuxtApp();
     vue_cjs_prod.provide("_route", useRoute());
     nuxtApp.hooks.callHookWith((hooks) => hooks.map((hook) => hook()), "vue:setup");
@@ -5178,9 +5178,9 @@ _sfc_main$1.setup = (props, ctx) => {
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
 const layouts = {
-  default: vue_cjs_prod.defineAsyncComponent(() => import("./_nuxt/default.a8127562.js")),
-  empty: vue_cjs_prod.defineAsyncComponent(() => import("./_nuxt/empty.a77ddf8d.js")),
-  footer: vue_cjs_prod.defineAsyncComponent(() => import("./_nuxt/footer.29ee3f17.js"))
+  default: vue_cjs_prod.defineAsyncComponent(() => import("./_nuxt/default.ccc452ac.js")),
+  empty: vue_cjs_prod.defineAsyncComponent(() => import("./_nuxt/empty.7db09cb1.js")),
+  footer: vue_cjs_prod.defineAsyncComponent(() => import("./_nuxt/footer.9cb7a8a5.js"))
 };
 const defaultLayoutTransition = { name: "layout", mode: "out-in" };
 const __nuxt_component_0 = vue_cjs_prod.defineComponent({
