@@ -1,0 +1,1 @@
+import{a as n,o,b as c,a7 as s}from"./entry.64ef90e8.mjs";const{toHTML:r}=s,a={setup(){return{toHTML:r}},props:{content:{type:String,default:""},embed:{type:Boolean,default:!1}}},_=["innerHTML"];function d(i,l,e,t,p,f){return o(),c("div",{innerHTML:t.toHTML(e.content,{embed:e.embed})},null,8,_)}const u=n(a,[["render",d]]);export{u as _};

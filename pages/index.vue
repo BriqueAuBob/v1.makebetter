@@ -24,8 +24,8 @@
                         <img src="/characters/red_pink_group.png" alt="Red and pink group characters" class="w-full -translate-y-16" />
                         <div class="bg-white dark:bg-dark-800 px-12 py-12 rounded-3xl shadow-xl w-full -translate-y-64 flex flex-wrap gap-y-12 justify-between">
                             <Stat icon="UserIcon" name="Utilisateurs" :value="members" />
-                            <Stat icon="CubeIcon" name="Outils" :value="1" />
-                            <Stat icon="LinkIcon" name="Partenaires" :value="3" />
+                            <Stat icon="CubeIcon" name="Outils" :value="2" />
+                            <Stat icon="LinkIcon" name="Partenaires" :value="2" />
                             <Stat icon="ChartPieIcon" name="Utilisations" :value="tools" />
                         </div>
                     </div>
