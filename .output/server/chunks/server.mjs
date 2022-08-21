@@ -4868,7 +4868,7 @@ const routes = [
     children: [],
     meta: meta$c,
     alias: [],
-    component: () => import('./_slug_.e102253c.mjs').then((m) => m.default || m)
+    component: () => import('./_slug_.3edf912e.mjs').then((m) => m.default || m)
   },
   {
     name: "articles",
@@ -4877,7 +4877,7 @@ const routes = [
     children: [],
     meta: meta$b,
     alias: [],
-    component: () => import('./index.6f77249d.mjs').then((m) => m.default || m)
+    component: () => import('./index.8a96bd37.mjs').then((m) => m.default || m)
   },
   {
     name: "authentification-callback",
@@ -4886,7 +4886,7 @@ const routes = [
     children: [],
     meta: meta$a,
     alias: (meta$a == null ? void 0 : meta$a.alias) || [],
-    component: () => import('./callback.92ee8c78.mjs').then((m) => m.default || m)
+    component: () => import('./callback.56527dd8.mjs').then((m) => m.default || m)
   },
   {
     name: "authentification",
@@ -4895,7 +4895,7 @@ const routes = [
     children: [],
     meta: meta$9,
     alias: (meta$9 == null ? void 0 : meta$9.alias) || [],
-    component: () => import('./index.cf3c2837.mjs').then((m) => m.default || m)
+    component: () => import('./index.ae31fb6f.mjs').then((m) => m.default || m)
   },
   {
     name: "hire",
@@ -4904,7 +4904,7 @@ const routes = [
     children: [],
     meta: meta$8,
     alias: [],
-    component: () => import('./hire.37e0447c.mjs').then((m) => m.default || m)
+    component: () => import('./hire.18a4e5e5.mjs').then((m) => m.default || m)
   },
   {
     name: "index",
@@ -4913,7 +4913,7 @@ const routes = [
     children: [],
     meta: meta$7,
     alias: [],
-    component: () => import('./index.e3ac7750.mjs').then((m) => m.default || m)
+    component: () => import('./index.1fc59238.mjs').then((m) => m.default || m)
   },
   {
     name: "partners",
@@ -4922,7 +4922,7 @@ const routes = [
     children: [],
     meta: meta$6,
     alias: [],
-    component: () => import('./partners.0ccc1540.mjs').then((m) => m.default || m)
+    component: () => import('./partners.a5e8f309.mjs').then((m) => m.default || m)
   },
   {
     name: "rates",
@@ -4931,7 +4931,7 @@ const routes = [
     children: [],
     meta: meta$5,
     alias: [],
-    component: () => import('./rates.950915b9.mjs').then((m) => m.default || m)
+    component: () => import('./rates.531c7b5e.mjs').then((m) => m.default || m)
   },
   {
     name: "tools-404",
@@ -4940,7 +4940,7 @@ const routes = [
     children: [],
     meta: meta$4,
     alias: [],
-    component: () => import('./404.942a22ba.mjs').then((m) => m.default || m)
+    component: () => import('./404.8a046fbe.mjs').then((m) => m.default || m)
   },
   {
     name: "tools-slug",
@@ -4949,7 +4949,7 @@ const routes = [
     children: [],
     meta: meta$3,
     alias: [],
-    component: () => import('./index.40212996.mjs').then((m) => m.default || m)
+    component: () => import('./index.45bbc842.mjs').then((m) => m.default || m)
   },
   {
     name: "tools-bots",
@@ -4958,7 +4958,7 @@ const routes = [
     children: [],
     meta: meta$2,
     alias: [],
-    component: () => import('./bots.3d5cc892.mjs').then((m) => m.default || m)
+    component: () => import('./bots.629e184d.mjs').then((m) => m.default || m)
   },
   {
     name: "tools-discord-badges",
@@ -4967,7 +4967,7 @@ const routes = [
     children: [],
     meta: meta$1,
     alias: [],
-    component: () => import('./badges.549efbe2.mjs').then((m) => m.default || m)
+    component: () => import('./badges.4561e0b1.mjs').then((m) => m.default || m)
   },
   {
     name: "tools-discord-embed",
@@ -4976,7 +4976,7 @@ const routes = [
     children: [],
     meta,
     alias: [],
-    component: () => import('./embed.82e74a2a.mjs').then((m) => m.default || m)
+    component: () => import('./embed.fd020f5b.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -5159,7 +5159,7 @@ const _sfc_main$1 = {
   __name: "nuxt-root",
   __ssrInlineRender: true,
   setup(__props) {
-    const ErrorComponent = vue_cjs_prod.defineAsyncComponent(() => import('./error-component.48252838.mjs'));
+    const ErrorComponent = vue_cjs_prod.defineAsyncComponent(() => import('./error-component.62be0b39.mjs'));
     const nuxtApp = useNuxtApp();
     vue_cjs_prod.provide("_route", useRoute());
     nuxtApp.hooks.callHookWith((hooks) => hooks.map((hook) => hook()), "vue:setup");
@@ -5192,9 +5192,9 @@ _sfc_main$1.setup = (props, ctx) => {
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
 const layouts = {
-  default: vue_cjs_prod.defineAsyncComponent(() => import('./default.ff4c66cd.mjs')),
-  empty: vue_cjs_prod.defineAsyncComponent(() => import('./empty.46db76f4.mjs')),
-  footer: vue_cjs_prod.defineAsyncComponent(() => import('./footer.157d98d7.mjs'))
+  default: vue_cjs_prod.defineAsyncComponent(() => import('./default.a8127562.mjs')),
+  empty: vue_cjs_prod.defineAsyncComponent(() => import('./empty.a77ddf8d.mjs')),
+  footer: vue_cjs_prod.defineAsyncComponent(() => import('./footer.29ee3f17.mjs'))
 };
 const defaultLayoutTransition = { name: "layout", mode: "out-in" };
 const __nuxt_component_0 = vue_cjs_prod.defineComponent({
