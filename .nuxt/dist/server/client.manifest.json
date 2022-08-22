@@ -25,11 +25,11 @@
       "layouts/footer.vue"
     ],
     "css": [
-      "entry.1426a1aa.css"
+      "entry.78e60394.css"
     ]
   },
-  "entry.1426a1aa.css": {
-    "file": "entry.1426a1aa.css",
+  "entry.78e60394.css": {
+    "file": "entry.78e60394.css",
     "resourceType": "style"
   },
   "virtual:nuxt:C:/laragon/www/maeyourdiscord/frontend/.nuxt/error-component.mjs": {
@@ -377,25 +377,25 @@
     "file": "badges.8903f354.css",
     "src": "pages/tools/discord/badges.css"
   },
-  "Navbar.css": {
+  "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-404.css": {
     "resourceType": "style",
-    "file": "Navbar.cc971e04.css",
-    "src": "Navbar.css"
-  },
-  "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-500.css": {
-    "resourceType": "style",
-    "file": "error-500.df34e930.css",
-    "src": "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-500.css"
+    "file": "error-404.7ac8d696.css",
+    "src": "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-404.css"
   },
   "pages/tools/discord/embed.css": {
     "resourceType": "style",
     "file": "embed.a608e693.css",
     "src": "pages/tools/discord/embed.css"
   },
-  "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-404.css": {
+  "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-500.css": {
     "resourceType": "style",
-    "file": "error-404.7ac8d696.css",
-    "src": "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-404.css"
+    "file": "error-500.df34e930.css",
+    "src": "node_modules/nuxt/node_modules/@nuxt/ui-templates/dist/templates/error-500.css"
+  },
+  "Navbar.css": {
+    "resourceType": "style",
+    "file": "Navbar.cc971e04.css",
+    "src": "Navbar.css"
   },
   "style.css": {
     "resourceType": "style",
@@ -404,7 +404,7 @@
   },
   "node_modules/nuxt/dist/app/entry.css": {
     "resourceType": "style",
-    "file": "entry.1426a1aa.css",
+    "file": "entry.78e60394.css",
     "src": "node_modules/nuxt/dist/app/entry.css"
   }
 }
