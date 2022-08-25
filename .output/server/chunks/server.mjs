@@ -6,36 +6,74 @@ import { createHooks } from 'hookable';
 import { getContext, executeAsync } from 'unctx';
 import { createError as createError$1, sendRedirect } from 'h3';
 import defu from 'defu';
-import axios$1 from 'axios';
+import axios from 'axios';
 import * as Icons from '@heroicons/vue/outline/esm/index.js';
-import { CubeIcon, HeartIcon, EyeIcon, ChevronDownIcon, TrashIcon } from '@heroicons/vue/outline/esm/index.js';
+import { LightBulbIcon, ChevronDownIcon, TrashIcon } from '@heroicons/vue/outline/esm/index.js';
 import pkg from 'discord-markdown';
 import { a as useRuntimeConfig$1 } from './node-server.mjs';
 
-function u$2(r,n,...a){if(r in n){let e=n[r];return typeof e=="function"?e(...a):e}let t=new Error(`Tried to handle "${r}" but there is no handler defined. Only defined handlers are: ${Object.keys(n).map(e=>`"${e}"`).join(", ")}.`);throw Error.captureStackTrace&&Error.captureStackTrace(t,u$2),t}
+function u$4(r,n,...a){if(r in n){let e=n[r];return typeof e=="function"?e(...a):e}let t=new Error(`Tried to handle "${r}" but there is no handler defined. Only defined handlers are: ${Object.keys(n).map(e=>`"${e}"`).join(", ")}.`);throw Error.captureStackTrace&&Error.captureStackTrace(t,u$4),t}
 
-var R=(o=>(o[o.None=0]="None",o[o.RenderStrategy=1]="RenderStrategy",o[o.Static=2]="Static",o))(R||{}),O=(e=>(e[e.Unmount=0]="Unmount",e[e.Hidden=1]="Hidden",e))(O||{});function P$2({visible:r=!0,features:t=0,ourProps:e,theirProps:o,...i}){var a;let n=w(o,e),s=Object.assign(i,{props:n});if(r||t&2&&n.static)return u$1(s);if(t&1){let l=(a=n.unmount)==null||a?0:1;return u$2(l,{[0](){return null},[1](){return u$1({...i,props:{...n,hidden:!0,style:{display:"none"}}})}})}return u$1(s)}function u$1({props:r,attrs:t,slots:e,slot:o,name:i}){var f;let{as:n,...s}=N(r,["unmount","static"]),a=(f=e.default)==null?void 0:f.call(e,o),l={};if(n==="template"){if(a=y(a),Object.keys(s).length>0||Object.keys(t).length>0){let[c,...p]=a!=null?a:[];if(!k(c)||p.length>0)throw new Error(['Passing props on "template"!',"",`The current component <${i} /> is rendering a "template".`,"However we need to passthrough the following props:",Object.keys(s).concat(Object.keys(t)).sort((d,g)=>d.localeCompare(g)).map(d=>`  - ${d}`).join(`
+var R$2=(o=>(o[o.None=0]="None",o[o.RenderStrategy=1]="RenderStrategy",o[o.Static=2]="Static",o))(R$2||{}),O$1=(e=>(e[e.Unmount=0]="Unmount",e[e.Hidden=1]="Hidden",e))(O$1||{});function P$4({visible:r=!0,features:t=0,ourProps:e,theirProps:o,...i}){var a;let n=w$2(o,e),s=Object.assign(i,{props:n});if(r||t&2&&n.static)return u$3(s);if(t&1){let l=(a=n.unmount)==null||a?0:1;return u$4(l,{[0](){return null},[1](){return u$3({...i,props:{...n,hidden:!0,style:{display:"none"}}})}})}return u$3(s)}function u$3({props:r,attrs:t,slots:e,slot:o,name:i}){var f;let{as:n,...s}=N$2(r,["unmount","static"]),a=(f=e.default)==null?void 0:f.call(e,o),l={};if(n==="template"){if(a=y(a),Object.keys(s).length>0||Object.keys(t).length>0){let[c,...p]=a!=null?a:[];if(!k(c)||p.length>0)throw new Error(['Passing props on "template"!',"",`The current component <${i} /> is rendering a "template".`,"However we need to passthrough the following props:",Object.keys(s).concat(Object.keys(t)).sort((d,g)=>d.localeCompare(g)).map(d=>`  - ${d}`).join(`
 `),"","You can apply a few solutions:",['Add an `as="..."` prop, to ensure that we render an actual element instead of a "template".',"Render a single element as the child so that we can forward the props onto that element."].map(d=>`  - ${d}`).join(`
 `)].join(`
-`));return vue_cjs_prod$1.cloneVNode(c,Object.assign({},s,l))}return Array.isArray(a)&&a.length===1?a[0]:a}return vue_cjs_prod$1.h(n,Object.assign({},s,l),a)}function y(r){return r.flatMap(t=>t.type===vue_cjs_prod$1.Fragment?y(t.children):[t])}function w(...r){if(r.length===0)return {};if(r.length===1)return r[0];let t={},e={};for(let i of r)for(let n in i)n.startsWith("on")&&typeof i[n]=="function"?((e[n])!=null||(e[n]=[]),e[n].push(i[n])):t[n]=i[n];if(t.disabled||t["aria-disabled"])return Object.assign(t,Object.fromEntries(Object.keys(e).map(i=>[i,void 0])));for(let i in e)Object.assign(t,{[i](n,...s){let a=e[i];for(let l of a){if(n!=null&&n.defaultPrevented)return;l(n,...s);}}});return t}function A(r){let t=Object.assign({},r);for(let e in t)t[e]===void 0&&delete t[e];return t}function N(r,t=[]){let e=Object.assign({},r);for(let o of t)o in e&&delete e[o];return e}function k(r){return r==null?!1:typeof r.type=="string"||typeof r.type=="object"||typeof r.type=="function"}
+`));return vue_cjs_prod$1.cloneVNode(c,Object.assign({},s,l))}return Array.isArray(a)&&a.length===1?a[0]:a}return vue_cjs_prod$1.h(n,Object.assign({},s,l),a)}function y(r){return r.flatMap(t=>t.type===vue_cjs_prod$1.Fragment?y(t.children):[t])}function w$2(...r){if(r.length===0)return {};if(r.length===1)return r[0];let t={},e={};for(let i of r)for(let n in i)n.startsWith("on")&&typeof i[n]=="function"?((e[n])!=null||(e[n]=[]),e[n].push(i[n])):t[n]=i[n];if(t.disabled||t["aria-disabled"])return Object.assign(t,Object.fromEntries(Object.keys(e).map(i=>[i,void 0])));for(let i in e)Object.assign(t,{[i](n,...s){let a=e[i];for(let l of a){if(n!=null&&n.defaultPrevented)return;l(n,...s);}}});return t}function A$1(r){let t=Object.assign({},r);for(let e in t)t[e]===void 0&&delete t[e];return t}function N$2(r,t=[]){let e=Object.assign({},r);for(let o of t)o in e&&delete e[o];return e}function k(r){return r==null?!1:typeof r.type=="string"||typeof r.type=="object"||typeof r.type=="function"}
 
-let e=0;function n(){return ++e}function t(){return n()}
+let e$2=0;function n$2(){return ++e$2}function t(){return n$2()}
 
 var o$1=(r=>(r.Space=" ",r.Enter="Enter",r.Escape="Escape",r.Backspace="Backspace",r.Delete="Delete",r.ArrowLeft="ArrowLeft",r.ArrowUp="ArrowUp",r.ArrowRight="ArrowRight",r.ArrowDown="ArrowDown",r.Home="Home",r.End="End",r.PageUp="PageUp",r.PageDown="PageDown",r.Tab="Tab",r))(o$1||{});
 
+function f$1(r){throw new Error("Unexpected object: "+r)}var a$2=(e=>(e[e.First=0]="First",e[e.Previous=1]="Previous",e[e.Next=2]="Next",e[e.Last=3]="Last",e[e.Specific=4]="Specific",e[e.Nothing=5]="Nothing",e))(a$2||{});function x(r,n){let t=n.resolveItems();if(t.length<=0)return null;let l=n.resolveActiveIndex(),s=l!=null?l:-1,d=(()=>{switch(r.focus){case 0:return t.findIndex(e=>!n.resolveDisabled(e));case 1:{let e=t.slice().reverse().findIndex((i,c,u)=>s!==-1&&u.length-c-1>=s?!1:!n.resolveDisabled(i));return e===-1?e:t.length-1-e}case 2:return t.findIndex((e,i)=>i<=s?!1:!n.resolveDisabled(e));case 3:{let e=t.slice().reverse().findIndex(i=>!n.resolveDisabled(i));return e===-1?e:t.length-1-e}case 4:return t.findIndex(e=>n.resolveId(e)===r.id);case 5:return null;default:f$1(r);}})();return d===-1?l:d}
+
 function o(n){var l;return n==null||n.value==null?null:(l=n.value.$el)!=null?l:n.value}
 
-function r(t,e){if(t)return t;let n=e!=null?e:"button";if(typeof n=="string"&&n.toLowerCase()==="button")return "button"}function b$1(t,e){let n=vue_cjs_prod$1.ref(r(t.value.type,t.value.as));return vue_cjs_prod$1.onMounted(()=>{n.value=r(t.value.type,t.value.as);}),vue_cjs_prod$1.watchEffect(()=>{var o$1;n.value||!o(e)||o(e)instanceof HTMLButtonElement&&!((o$1=o(e))!=null&&o$1.hasAttribute("type"))&&(n.value="button");}),n}
+let n$1=Symbol("Context");var l$2=(e=>(e[e.Open=0]="Open",e[e.Closed=1]="Closed",e))(l$2||{});function f(){return p$4()!==null}function p$4(){return vue_cjs_prod$1.inject(n$1,null)}function c$3(o){vue_cjs_prod$1.provide(n$1,o);}
 
-var p$2=(e=>(e[e.None=1]="None",e[e.Focusable=2]="Focusable",e[e.Hidden=4]="Hidden",e))(p$2||{});let m=vue_cjs_prod$1.defineComponent({name:"Hidden",props:{as:{type:[Object,String],default:"div"},features:{type:Number,default:1}},setup(r,{slots:t,attrs:o}){return ()=>{let{features:e,...d}=r,n={"aria-hidden":(e&2)===2?!0:void 0,style:{position:"absolute",width:1,height:1,padding:0,margin:-1,overflow:"hidden",clip:"rect(0, 0, 0, 0)",whiteSpace:"nowrap",borderWidth:"0",...(e&4)===4&&(e&2)!==2&&{display:"none"}}};return P$2({ourProps:n,theirProps:d,slot:{},attrs:o,slots:t,name:"Hidden"})}}});
+function r$3(t,e){if(t)return t;let n=e!=null?e:"button";if(typeof n=="string"&&n.toLowerCase()==="button")return "button"}function b$2(t,e){let n=vue_cjs_prod$1.ref(r$3(t.value.type,t.value.as));return vue_cjs_prod$1.onMounted(()=>{n.value=r$3(t.value.type,t.value.as);}),vue_cjs_prod$1.watchEffect(()=>{var o$1;n.value||!o(e)||o(e)instanceof HTMLButtonElement&&!((o$1=o(e))!=null&&o$1.hasAttribute("type"))&&(n.value="button");}),n}
+
+function e$1(n){return null;}
+
+function p$3({container:e,accept:t,walk:d,enabled:o}){vue_cjs_prod$1.watchEffect(()=>{let r=e.value;if(!r||o!==void 0&&!o.value)return;let l=e$1();if(!l)return;let c=Object.assign(f=>t(f),{acceptNode:t}),n=l.createTreeWalker(r,NodeFilter.SHOW_ELEMENT,c,!1);for(;n.nextNode();)d(n.currentNode);});}
+
+let c$2=["[contentEditable=true]","[tabindex]","a[href]","area[href]","button:not([disabled])","iframe","input:not([disabled])","select:not([disabled])","textarea:not([disabled])"].map(e=>`${e}:not([tabindex='-1'])`).join(",");var L$2=(o=>(o[o.First=1]="First",o[o.Previous=2]="Previous",o[o.Next=4]="Next",o[o.Last=8]="Last",o[o.WrapAround=16]="WrapAround",o[o.NoScroll=32]="NoScroll",o))(L$2||{}),N$1=(n=>(n[n.Error=0]="Error",n[n.Overflow=1]="Overflow",n[n.Success=2]="Success",n[n.Underflow=3]="Underflow",n))(N$1||{}),T$2=(t=>(t[t.Previous=-1]="Previous",t[t.Next=1]="Next",t))(T$2||{});function b$1(e=document.body){return e==null?[]:Array.from(e.querySelectorAll(c$2))}var M$1=(t=>(t[t.Strict=0]="Strict",t[t.Loose=1]="Loose",t))(M$1||{});function F$2(e,r=0){var t;return e===((t=e$1())==null?void 0:t.body)?!1:u$4(r,{[0](){return e.matches(c$2)},[1](){let l=e;for(;l!==null;){if(l.matches(c$2))return !0;l=l.parentElement;}return !1}})}function H(e){e==null||e.focus({preventScroll:!0});}let h$1=["textarea","input"].join(",");function v(e){var r,t;return (t=(r=e==null?void 0:e.matches)==null?void 0:r.call(e,h$1))!=null?t:!1}function w$1(e,r=t=>t){return e.slice().sort((t,l)=>{let n=r(t),i=r(l);if(n===null||i===null)return 0;let o=n.compareDocumentPosition(i);return o&Node.DOCUMENT_POSITION_FOLLOWING?-1:o&Node.DOCUMENT_POSITION_PRECEDING?1:0})}function P$3(e,r,t=!0){var d;let l=(d=Array.isArray(e)?e.length>0?e[0].ownerDocument:document:e==null?void 0:e.ownerDocument)!=null?d:document,n=Array.isArray(e)?t?w$1(e):e:b$1(e),i=l.activeElement,o=(()=>{if(r&5)return 1;if(r&10)return -1;throw new Error("Missing Focus.First, Focus.Previous, Focus.Next or Focus.Last")})(),m=(()=>{if(r&1)return 0;if(r&2)return Math.max(0,n.indexOf(i))-1;if(r&4)return Math.max(0,n.indexOf(i))+1;if(r&8)return n.length-1;throw new Error("Missing Focus.First, Focus.Previous, Focus.Next or Focus.Last")})(),x=r&32?{preventScroll:!0}:{},f=0,s=n.length,u;do{if(f>=s||f+s<=0)return 0;let a=m+f;if(r&16)a=(a+s)%s;else {if(a<0)return 3;if(a>=s)return 1}u=n[a],u==null||u.focus(x),f+=o;}while(u!==l.activeElement);return u.hasAttribute("tabindex")||u.setAttribute("tabindex","0"),r&6&&v(u)&&u.select(),2}
+
+function T$1(l,f,a=vue_cjs_prod$1.computed(()=>!0)){}
+
+var p$2=(e=>(e[e.None=1]="None",e[e.Focusable=2]="Focusable",e[e.Hidden=4]="Hidden",e))(p$2||{});let m$1=vue_cjs_prod$1.defineComponent({name:"Hidden",props:{as:{type:[Object,String],default:"div"},features:{type:Number,default:1}},setup(r,{slots:t,attrs:o}){return ()=>{let{features:e,...d}=r,n={"aria-hidden":(e&2)===2?!0:void 0,style:{position:"absolute",width:1,height:1,padding:0,margin:-1,overflow:"hidden",clip:"rect(0, 0, 0, 0)",whiteSpace:"nowrap",borderWidth:"0",...(e&4)===4&&(e&2)!==2&&{display:"none"}}};return P$4({ourProps:n,theirProps:d,slot:{},attrs:o,slots:t,name:"Hidden"})}}});
 
 function p$1(n){var t;let r=(t=n==null?void 0:n.form)!=null?t:n.closest("form");if(!!r){for(let i of r.elements)if(i.tagName==="INPUT"&&i.type==="submit"||i.tagName==="BUTTON"&&i.type==="submit"||i.nodeName==="INPUT"&&i.type==="image"){i.click();return}}}
 
-let u=Symbol("DescriptionContext");function b(){let t=vue_cjs_prod$1.inject(u,null);if(t===null)throw new Error("Missing parent");return t}function P$1({slot:t=vue_cjs_prod$1.ref({}),name:o="Description",props:s={}}={}){let e=vue_cjs_prod$1.ref([]);function n(r){return e.value.push(r),()=>{let i=e.value.indexOf(r);i!==-1&&e.value.splice(i,1);}}return vue_cjs_prod$1.provide(u,{register:n,slot:t,name:o,props:s}),vue_cjs_prod$1.computed(()=>e.value.length>0?e.value.join(" "):void 0)}let S=vue_cjs_prod$1.defineComponent({name:"Description",props:{as:{type:[Object,String],default:"p"}},setup(t$1,{attrs:o,slots:s}){let e=b(),n=`headlessui-description-${t()}`;return vue_cjs_prod$1.onMounted(()=>vue_cjs_prod$1.onUnmounted(e.register(n))),()=>{let{name:r="Description",slot:i=vue_cjs_prod$1.ref({}),props:l={}}=e,c=t$1,d={...Object.entries(l).reduce((f,[a,g])=>Object.assign(f,{[a]:vue_cjs_prod$1.unref(g)}),{}),id:n};return P$2({ourProps:d,theirProps:c,slot:i.value,attrs:o,slots:s,name:r})}}});
+var d$2=(r=>(r[r.Forwards=0]="Forwards",r[r.Backwards=1]="Backwards",r))(d$2||{});function n(){let o=vue_cjs_prod$1.ref(0);return o}
 
-let a=Symbol("LabelContext");function p(){let t=vue_cjs_prod$1.inject(a,null);if(t===null){let n=new Error("You used a <Label /> component, but it is not inside a parent.");throw Error.captureStackTrace&&Error.captureStackTrace(n,p),n}return t}function K({slot:t={},name:n="Label",props:i={}}={}){let e=vue_cjs_prod$1.ref([]);function r(o){return e.value.push(o),()=>{let l=e.value.indexOf(o);l!==-1&&e.value.splice(l,1);}}return vue_cjs_prod$1.provide(a,{register:r,slot:t,name:n,props:i}),vue_cjs_prod$1.computed(()=>e.value.length>0?e.value.join(" "):void 0)}let P=vue_cjs_prod$1.defineComponent({name:"Label",props:{as:{type:[Object,String],default:"label"},passive:{type:[Boolean],default:!1}},setup(t$1,{slots:n,attrs:i}){let e=p(),r=`headlessui-label-${t()}`;return vue_cjs_prod$1.onMounted(()=>vue_cjs_prod$1.onUnmounted(e.register(r))),()=>{let{name:o="Label",slot:l={},props:d={}}=e,{passive:c,...s}=t$1,u={...Object.entries(d).reduce((f,[b,m])=>Object.assign(f,{[b]:vue_cjs_prod$1.unref(m)}),{}),id:r};return c&&(delete u.onClick,delete s.onClick),P$2({ourProps:u,theirProps:s,slot:l,attrs:i,slots:n,name:o})}}});
+function r$2(n,e,d,o){}
 
-let h=Symbol("GroupContext");vue_cjs_prod$1.defineComponent({name:"SwitchGroup",props:{as:{type:[Object,String],default:"template"}},setup(l,{slots:a,attrs:n}){let r=vue_cjs_prod$1.ref(null),u=K({name:"SwitchLabel",props:{onClick(){!r.value||(r.value.click(),r.value.focus({preventScroll:!0}));}}}),t=P$1({name:"SwitchDescription"});return vue_cjs_prod$1.provide(h,{switchRef:r,labelledby:u,describedby:t}),()=>P$2({theirProps:l,ourProps:{},slot:{},slots:a,attrs:n,name:"SwitchGroup"})}});let Y=vue_cjs_prod$1.defineComponent({name:"Switch",emits:{"update:modelValue":l=>!0},props:{as:{type:[Object,String],default:"button"},modelValue:{type:Boolean,default:!1},name:{type:String,optional:!0},value:{type:String,optional:!0}},inheritAttrs:!1,setup(l,{emit:a,attrs:n,slots:r,expose:u}){let t$1=vue_cjs_prod$1.inject(h,null),p=`headlessui-switch-${t()}`;function s(){a("update:modelValue",!l.modelValue);}let b=vue_cjs_prod$1.ref(null),i=t$1===null?b:t$1.switchRef,S=b$1(vue_cjs_prod$1.computed(()=>({as:l.as,type:n.type})),i);u({el:i,$el:i});function w(e){e.preventDefault(),s();}function v(e){e.key===o$1.Space?(e.preventDefault(),s()):e.key===o$1.Enter&&p$1(e.currentTarget);}function R(e){e.preventDefault();}return ()=>{let{name:e,value:g,modelValue:o,...k}=l,D={checked:o},K={id:p,ref:i,role:"switch",type:S.value,tabIndex:0,"aria-checked":o,"aria-labelledby":t$1==null?void 0:t$1.labelledby.value,"aria-describedby":t$1==null?void 0:t$1.describedby.value,onClick:w,onKeyup:v,onKeypress:R};return vue_cjs_prod$1.h(vue_cjs_prod$1.Fragment,[e!=null&&o!=null?vue_cjs_prod$1.h(m,A({features:p$2.Hidden,as:"input",type:"checkbox",hidden:!0,readOnly:!0,checked:o,name:e,value:g})):null,P$2({ourProps:K,theirProps:{...n,...k},slot:D,attrs:n,slots:r,name:"Switch"})])}}});P;S;
+var D$1=(e=>(e[e.None=1]="None",e[e.InitialFocus=2]="InitialFocus",e[e.TabLock=4]="TabLock",e[e.FocusLock=8]="FocusLock",e[e.RestoreFocus=16]="RestoreFocus",e[e.All=30]="All",e))(D$1||{});let V=Object.assign(vue_cjs_prod$1.defineComponent({name:"FocusTrap",props:{as:{type:[Object,String],default:"div"},initialFocus:{type:Object,default:null},features:{type:Number,default:30},containers:{type:Object,default:vue_cjs_prod$1.ref(new Set)}},inheritAttrs:!1,setup(o$1,{attrs:u,slots:l,expose:r}){let t=vue_cjs_prod$1.ref(null);r({el:t,$el:t});let a=vue_cjs_prod$1.computed(()=>e$1());O({ownerDocument:a},vue_cjs_prod$1.computed(()=>Boolean(o$1.features&16)));let e=A({ownerDocument:a,container:t,initialFocus:vue_cjs_prod$1.computed(()=>o$1.initialFocus)},vue_cjs_prod$1.computed(()=>Boolean(o$1.features&2)));N({ownerDocument:a,container:t,containers:o$1.containers,previousActiveElement:e},vue_cjs_prod$1.computed(()=>Boolean(o$1.features&8)));let s=n();function i(){let n=o(t);!n||u$4(s.value,{[d$2.Forwards]:()=>P$3(n,L$2.First),[d$2.Backwards]:()=>P$3(n,L$2.Last)});}return ()=>{let n={},T={ref:t},{features:c,initialFocus:C,containers:_,...w}=o$1;return vue_cjs_prod$1.h(vue_cjs_prod$1.Fragment,[Boolean(c&4)&&vue_cjs_prod$1.h(m$1,{as:"button",type:"button",onFocus:i,features:p$2.Focusable}),P$4({ourProps:T,theirProps:{...u,...w},slot:n,attrs:u,slots:l,name:"FocusTrap"}),Boolean(c&4)&&vue_cjs_prod$1.h(m$1,{as:"button",type:"button",onFocus:i,features:p$2.Focusable})])}}}),{features:D$1});function O({ownerDocument:o},u){let l=vue_cjs_prod$1.ref(null),r={value:!1};vue_cjs_prod$1.onMounted(()=>{vue_cjs_prod$1.watch(u,(t,a)=>{var e;t!==a&&(!u.value||(r.value=!0,l.value||(l.value=(e=o.value)==null?void 0:e.activeElement)));},{immediate:!0}),vue_cjs_prod$1.watch(u,(t,a,e)=>{t!==a&&(!u.value||e(()=>{r.value!==!1&&(r.value=!1,H(l.value),l.value=null);}));},{immediate:!0});});}function A({ownerDocument:o$1,container:u,initialFocus:l},r){let t=vue_cjs_prod$1.ref(null);return vue_cjs_prod$1.onMounted(()=>{vue_cjs_prod$1.watch([u,l,r],(a,e)=>{if(a.every((i,n)=>(e==null?void 0:e[n])===i)||!r.value)return;let s=o(u);!s||requestAnimationFrame(()=>{var T,c;let i=o(l),n=(T=o$1.value)==null?void 0:T.activeElement;if(i){if(i===n){t.value=n;return}}else if(s.contains(n)){t.value=n;return}i?H(i):P$3(s,L$2.First|L$2.NoScroll)===N$1.Error&&console.warn("There are no focusable elements inside the <FocusTrap />"),t.value=(c=o$1.value)==null?void 0:c.activeElement;});},{immediate:!0,flush:"post"});}),t}function N({ownerDocument:o,container:u,containers:l,previousActiveElement:r},t){var a;r$2((a=o.value)==null?void 0:a.defaultView);}
+
+let l$1="body > *",i$1=new Set,r$1=new Map;function u$2(t){t.setAttribute("aria-hidden","true"),t.inert=!0;}function s$1(t){let n=r$1.get(t);!n||(n["aria-hidden"]===null?t.removeAttribute("aria-hidden"):t.setAttribute("aria-hidden",n["aria-hidden"]),t.inert=n.inert);}function g$2(t,n=vue_cjs_prod$1.ref(!0)){vue_cjs_prod$1.watchEffect(d=>{if(!n.value||!t.value)return;let a=t.value,o=e$1();if(!!o){i$1.add(a);for(let e of r$1.keys())e.contains(a)&&(s$1(e),r$1.delete(e));o.querySelectorAll(l$1).forEach(e=>{if(e instanceof HTMLElement){for(let f of i$1)if(e.contains(f))return;i$1.size===1&&(r$1.set(e,{"aria-hidden":e.getAttribute("aria-hidden"),inert:e.inert}),u$2(e));}}),d(()=>{if(i$1.delete(a),i$1.size>0)o.querySelectorAll(l$1).forEach(e=>{if(e instanceof HTMLElement&&!r$1.has(e)){for(let f of i$1)if(e.contains(f))return;r$1.set(e,{"aria-hidden":e.getAttribute("aria-hidden"),inert:e.inert}),u$2(e);}});else for(let e of r$1.keys())s$1(e),r$1.delete(e);});}});}
+
+let e=Symbol("ForcePortalRootContext");function u$1(){return vue_cjs_prod$1.inject(e,!1)}let P$2=vue_cjs_prod$1.defineComponent({name:"ForcePortalRoot",props:{as:{type:[Object,String],default:"template"},force:{type:Boolean,default:!1}},setup(o,{slots:t,attrs:r}){return vue_cjs_prod$1.provide(e,o.force),()=>{let{force:f,...n}=o;return P$4({theirProps:n,ourProps:{},slot:{},slots:t,attrs:r,name:"ForcePortalRoot"})}}});
+
+function c$1(t){let r=e$1();if(!r){if(t===null)return null;throw new Error(`[Headless UI]: Cannot find ownerDocument for contextElement: ${t}`)}let o=r.getElementById("headlessui-portal-root");if(o)return o;let e=r.createElement("div");return e.setAttribute("id","headlessui-portal-root"),r.body.appendChild(e)}let R$1=vue_cjs_prod$1.defineComponent({name:"Portal",props:{as:{type:[Object,String],default:"div"}},setup(t,{slots:r,attrs:o}){let e=vue_cjs_prod$1.ref(null),p=vue_cjs_prod$1.computed(()=>e$1()),n=u$1(),u=vue_cjs_prod$1.inject(g$1,null),l=vue_cjs_prod$1.ref(n===!0||u==null?c$1(e.value):u.resolveTarget());return vue_cjs_prod$1.watchEffect(()=>{n||u!=null&&(l.value=u.resolveTarget());}),vue_cjs_prod$1.onUnmounted(()=>{var i,m;let a=(i=p.value)==null?void 0:i.getElementById("headlessui-portal-root");!a||l.value===a&&l.value.children.length<=0&&((m=l.value.parentElement)==null||m.removeChild(l.value));}),()=>{if(l.value===null)return null;let a={ref:e,"data-headlessui-portal":""};return vue_cjs_prod$1.h(vue_cjs_prod$1.Teleport,{to:l.value},P$4({ourProps:a,theirProps:t,slot:{},attrs:o,slots:r,name:"Portal"}))}}}),g$1=Symbol("PortalGroupContext"),L$1=vue_cjs_prod$1.defineComponent({name:"PortalGroup",props:{as:{type:[Object,String],default:"template"},target:{type:Object,default:null}},setup(t,{attrs:r,slots:o}){let e=vue_cjs_prod$1.reactive({resolveTarget(){return t.target}});return vue_cjs_prod$1.provide(g$1,e),()=>{let{target:p,...n}=t;return P$4({theirProps:n,ourProps:{},slot:{},attrs:r,slots:o,name:"PortalGroup"})}}});
+
+let i=Symbol("StackContext");var c=(e=>(e[e.Add=0]="Add",e[e.Remove=1]="Remove",e))(c||{});function a$1(){return vue_cjs_prod$1.inject(i,()=>{})}function s({type:n,element:o,onUpdate:e}){let m=a$1();function t(...r){e==null||e(...r),m(...r);}vue_cjs_prod$1.onMounted(()=>{t(0,n,o),vue_cjs_prod$1.onUnmounted(()=>{t(1,n,o);});}),vue_cjs_prod$1.provide(i,t);}
+
+let u=Symbol("DescriptionContext");function b(){let t=vue_cjs_prod$1.inject(u,null);if(t===null)throw new Error("Missing parent");return t}function P$1({slot:t=vue_cjs_prod$1.ref({}),name:o="Description",props:s={}}={}){let e=vue_cjs_prod$1.ref([]);function n(r){return e.value.push(r),()=>{let i=e.value.indexOf(r);i!==-1&&e.value.splice(i,1);}}return vue_cjs_prod$1.provide(u,{register:n,slot:t,name:o,props:s}),vue_cjs_prod$1.computed(()=>e.value.length>0?e.value.join(" "):void 0)}let S=vue_cjs_prod$1.defineComponent({name:"Description",props:{as:{type:[Object,String],default:"p"}},setup(t$1,{attrs:o,slots:s}){let e=b(),n=`headlessui-description-${t()}`;return vue_cjs_prod$1.onMounted(()=>vue_cjs_prod$1.onUnmounted(e.register(n))),()=>{let{name:r="Description",slot:i=vue_cjs_prod$1.ref({}),props:l={}}=e,c=t$1,d={...Object.entries(l).reduce((f,[a,g])=>Object.assign(f,{[a]:vue_cjs_prod$1.unref(g)}),{}),id:n};return P$4({ourProps:d,theirProps:c,slot:i.value,attrs:o,slots:s,name:r})}}});
+
+var ge=(t=>(t[t.Open=0]="Open",t[t.Closed=1]="Closed",t))(ge||{});let M=Symbol("DialogContext");function R(a){let n=vue_cjs_prod$1.inject(M,null);if(n===null){let t=new Error(`<${a} /> is missing a parent <Dialog /> component.`);throw Error.captureStackTrace&&Error.captureStackTrace(t,R),t}return n}let T="DC8F892D-2EBD-447C-A4C8-A03058436FF4",Ae=vue_cjs_prod$1.defineComponent({name:"Dialog",inheritAttrs:!1,props:{as:{type:[Object,String],default:"div"},static:{type:Boolean,default:!1},unmount:{type:Boolean,default:!0},open:{type:[Boolean,String],default:T},initialFocus:{type:Object,default:null}},emits:{close:a=>!0},setup(a,{emit:n,attrs:t$1,slots:u,expose:i}){var A;let d=vue_cjs_prod$1.ref(!1);vue_cjs_prod$1.onMounted(()=>{d.value=!0;});let r=vue_cjs_prod$1.ref(0),p=p$4(),h=vue_cjs_prod$1.computed(()=>a.open===T&&p!==null?u$4(p.value,{[l$2.Open]:!0,[l$2.Closed]:!1}):a.open),E=vue_cjs_prod$1.ref(new Set),f=vue_cjs_prod$1.ref(null),B=vue_cjs_prod$1.ref(null),k=vue_cjs_prod$1.computed(()=>e$1());if(i({el:f,$el:f}),!(a.open!==T||p!==null))throw new Error("You forgot to provide an `open` prop to the `Dialog`.");if(typeof h.value!="boolean")throw new Error(`You provided an \`open\` prop to the \`Dialog\`, but the value is not a boolean. Received: ${h.value===T?void 0:a.open}`);let c$1=vue_cjs_prod$1.computed(()=>d.value&&h.value?0:1),$=vue_cjs_prod$1.computed(()=>c$1.value===0),C=vue_cjs_prod$1.computed(()=>r.value>1),Y=vue_cjs_prod$1.inject(M,null)!==null,q=vue_cjs_prod$1.computed(()=>C.value?"parent":"leaf");g$2(f,vue_cjs_prod$1.computed(()=>C.value?$.value:!1)),s({type:"Dialog",element:f,onUpdate:(o,l,e)=>{if(l==="Dialog")return u$4(o,{[c.Add](){E.value.add(e),r.value+=1;},[c.Remove](){E.value.delete(e),r.value-=1;}})}});let G=P$1({name:"DialogDescription",slot:vue_cjs_prod$1.computed(()=>({open:h.value}))}),z=`headlessui-dialog-${t()}`,w=vue_cjs_prod$1.ref(null),y={titleId:w,panelRef:vue_cjs_prod$1.ref(null),dialogState:c$1,setTitleId(o){w.value!==o&&(w.value=o);},close(){n("close",!1);}};return vue_cjs_prod$1.provide(M,y),T$1(()=>{var l,e,m;return [...Array.from((e=(l=k.value)==null?void 0:l.querySelectorAll("body > *, [data-headlessui-portal]"))!=null?e:[]).filter(s=>!(!(s instanceof HTMLElement)||s.contains(o(B))||y.panelRef.value&&s.contains(y.panelRef.value))),(m=y.panelRef.value)!=null?m:f.value]},(o,l)=>{y.close(),vue_cjs_prod$1.nextTick(()=>l==null?void 0:l.focus());},vue_cjs_prod$1.computed(()=>c$1.value===0&&!C.value)),r$2((A=k.value)==null?void 0:A.defaultView),vue_cjs_prod$1.watchEffect(o=>{var j;if(c$1.value!==0||Y)return;let l=k.value;if(!l)return;let e=l==null?void 0:l.documentElement,m=(j=l.defaultView)!=null?j:window,s=e.style.overflow,J=e.style.paddingRight,H=m.innerWidth-e.clientWidth;if(e.style.overflow="hidden",H>0){let Q=e.clientWidth-e.offsetWidth,X=H-Q;e.style.paddingRight=`${X}px`;}o(()=>{e.style.overflow=s,e.style.paddingRight=J;});}),vue_cjs_prod$1.watchEffect(o$1=>{if(c$1.value!==0)return;let l=o(f);if(!l)return;let e=new IntersectionObserver(m=>{for(let s of m)s.boundingClientRect.x===0&&s.boundingClientRect.y===0&&s.boundingClientRect.width===0&&s.boundingClientRect.height===0&&y.close();});e.observe(l),o$1(()=>e.disconnect());}),()=>{let o={...t$1,ref:f,id:z,role:"dialog","aria-modal":c$1.value===0?!0:void 0,"aria-labelledby":w.value,"aria-describedby":G.value},{open:l,initialFocus:e,...m}=a,s={open:c$1.value===0};return vue_cjs_prod$1.h(P$2,{force:!0},()=>[vue_cjs_prod$1.h(R$1,()=>vue_cjs_prod$1.h(L$1,{target:f.value},()=>vue_cjs_prod$1.h(P$2,{force:!1},()=>vue_cjs_prod$1.h(V,{initialFocus:e,containers:E,features:$.value?u$4(q.value,{parent:V.features.RestoreFocus,leaf:V.features.All&~V.features.FocusLock}):V.features.None},()=>P$4({ourProps:o,theirProps:m,slot:s,attrs:t$1,slots:u,visible:c$1.value===0,features:R$2.RenderStrategy|R$2.Static,name:"Dialog"}))))),vue_cjs_prod$1.h(m$1,{features:p$2.Hidden,ref:B})])}}});vue_cjs_prod$1.defineComponent({name:"DialogOverlay",props:{as:{type:[Object,String],default:"div"}},setup(a,{attrs:n,slots:t$1}){let u=R("DialogOverlay"),i=`headlessui-dialog-overlay-${t()}`;function d(r){r.target===r.currentTarget&&(r.preventDefault(),r.stopPropagation(),u.close());}return ()=>P$4({ourProps:{id:i,"aria-hidden":!0,onClick:d},theirProps:a,slot:{open:u.dialogState.value===0},attrs:n,slots:t$1,name:"DialogOverlay"})}});vue_cjs_prod$1.defineComponent({name:"DialogBackdrop",props:{as:{type:[Object,String],default:"div"}},inheritAttrs:!1,setup(a,{attrs:n,slots:t$1,expose:u}){let i=R("DialogBackdrop"),d=`headlessui-dialog-backdrop-${t()}`,r=vue_cjs_prod$1.ref(null);return u({el:r,$el:r}),vue_cjs_prod$1.onMounted(()=>{if(i.panelRef.value===null)throw new Error("A <DialogBackdrop /> component is being used, but a <DialogPanel /> component is missing.")}),()=>{let p=a,h={id:d,ref:r,"aria-hidden":!0};return vue_cjs_prod$1.h(P$2,{force:!0},()=>vue_cjs_prod$1.h(R$1,()=>P$4({ourProps:h,theirProps:{...n,...p},slot:{open:i.dialogState.value===0},attrs:n,slots:t$1,name:"DialogBackdrop"})))}}});let Le=vue_cjs_prod$1.defineComponent({name:"DialogPanel",props:{as:{type:[Object,String],default:"div"}},setup(a,{attrs:n,slots:t$1,expose:u}){let i=R("DialogPanel"),d=`headlessui-dialog-panel-${t()}`;u({el:i.panelRef,$el:i.panelRef});function r(p){p.stopPropagation();}return ()=>{let p={id:d,ref:i.panelRef,onClick:r};return P$4({ourProps:p,theirProps:a,slot:{open:i.dialogState.value===0},attrs:n,slots:t$1,name:"DialogPanel"})}}}),We=vue_cjs_prod$1.defineComponent({name:"DialogTitle",props:{as:{type:[Object,String],default:"h2"}},setup(a,{attrs:n,slots:t$1}){let u=R("DialogTitle"),i=`headlessui-dialog-title-${t()}`;return vue_cjs_prod$1.onMounted(()=>{u.setTitleId(i),vue_cjs_prod$1.onUnmounted(()=>u.setTitleId(null));}),()=>P$4({ourProps:{id:i},theirProps:a,slot:{open:u.dialogState.value===0},attrs:n,slots:t$1,name:"DialogTitle"})}});S;
+
+var W=(i=>(i[i.Open=0]="Open",i[i.Closed=1]="Closed",i))(W||{}),J=(i=>(i[i.Pointer=0]="Pointer",i[i.Other=1]="Other",i))(J||{});function z(l){requestAnimationFrame(()=>requestAnimationFrame(l));}let E=Symbol("MenuContext");function D(l){let S=vue_cjs_prod$1.inject(E,null);if(S===null){let i=new Error(`<${l} /> is missing a parent <Menu /> component.`);throw Error.captureStackTrace&&Error.captureStackTrace(i,D),i}return S}let fe$1=vue_cjs_prod$1.defineComponent({name:"Menu",props:{as:{type:[Object,String],default:"template"}},setup(l,{slots:S,attrs:i}){let v=vue_cjs_prod$1.ref(1),e=vue_cjs_prod$1.ref(null),p=vue_cjs_prod$1.ref(null),u=vue_cjs_prod$1.ref([]),f=vue_cjs_prod$1.ref(""),d=vue_cjs_prod$1.ref(null),I=vue_cjs_prod$1.ref(1);function o$1(r=a=>a){let a=d.value!==null?u.value[d.value]:null,n=w$1(r(u.value.slice()),b=>o(b.dataRef.domRef)),s=a?n.indexOf(a):null;return s===-1&&(s=null),{items:n,activeItemIndex:s}}let t={menuState:v,buttonRef:e,itemsRef:p,items:u,searchQuery:f,activeItemIndex:d,activationTrigger:I,closeMenu:()=>{v.value=1,d.value=null;},openMenu:()=>v.value=0,goToItem(r,a,n){let s=o$1(),b=x(r===a$2.Specific?{focus:a$2.Specific,id:a}:{focus:r},{resolveItems:()=>s.items,resolveActiveIndex:()=>s.activeItemIndex,resolveId:h=>h.id,resolveDisabled:h=>h.dataRef.disabled});f.value="",d.value=b,I.value=n!=null?n:1,u.value=s.items;},search(r){let n=f.value!==""?0:1;f.value+=r.toLowerCase();let b=(d.value!==null?u.value.slice(d.value+n).concat(u.value.slice(0,d.value+n)):u.value).find(w=>w.dataRef.textValue.startsWith(f.value)&&!w.dataRef.disabled),h=b?u.value.indexOf(b):-1;h===-1||h===d.value||(d.value=h,I.value=1);},clearSearch(){f.value="";},registerItem(r,a){let n=o$1(s=>[...s,{id:r,dataRef:a}]);u.value=n.items,d.value=n.activeItemIndex,I.value=1;},unregisterItem(r){let a=o$1(n=>{let s=n.findIndex(b=>b.id===r);return s!==-1&&n.splice(s,1),n});u.value=a.items,d.value=a.activeItemIndex,I.value=1;}};return T$1([e,p],(r,a)=>{var n;t.closeMenu(),F$2(a,M$1.Loose)||(r.preventDefault(),(n=o(e))==null||n.focus());},vue_cjs_prod$1.computed(()=>v.value===0)),vue_cjs_prod$1.provide(E,t),c$3(vue_cjs_prod$1.computed(()=>u$4(v.value,{[0]:l$2.Open,[1]:l$2.Closed}))),()=>{let r={open:v.value===0};return P$4({ourProps:{},theirProps:l,slot:r,slots:S,attrs:i,name:"Menu"})}}}),me=vue_cjs_prod$1.defineComponent({name:"MenuButton",props:{disabled:{type:Boolean,default:!1},as:{type:[Object,String],default:"button"}},setup(l,{attrs:S,slots:i,expose:v}){let e=D("MenuButton"),p=`headlessui-menu-button-${t()}`;v({el:e.buttonRef,$el:e.buttonRef});function u(o$2){switch(o$2.key){case o$1.Space:case o$1.Enter:case o$1.ArrowDown:o$2.preventDefault(),o$2.stopPropagation(),e.openMenu(),vue_cjs_prod$1.nextTick(()=>{var t;(t=o(e.itemsRef))==null||t.focus({preventScroll:!0}),e.goToItem(a$2.First);});break;case o$1.ArrowUp:o$2.preventDefault(),o$2.stopPropagation(),e.openMenu(),vue_cjs_prod$1.nextTick(()=>{var t;(t=o(e.itemsRef))==null||t.focus({preventScroll:!0}),e.goToItem(a$2.Last);});break}}function f(o){switch(o.key){case o$1.Space:o.preventDefault();break}}function d(o$1){l.disabled||(e.menuState.value===0?(e.closeMenu(),vue_cjs_prod$1.nextTick(()=>{var t;return (t=o(e.buttonRef))==null?void 0:t.focus({preventScroll:!0})})):(o$1.preventDefault(),e.openMenu(),z(()=>{var t;return (t=o(e.itemsRef))==null?void 0:t.focus({preventScroll:!0})})));}let I=b$2(vue_cjs_prod$1.computed(()=>({as:l.as,type:S.type})),e.buttonRef);return ()=>{var a;let o$1={open:e.menuState.value===0},t={ref:e.buttonRef,id:p,type:I.value,"aria-haspopup":!0,"aria-controls":(a=o(e.itemsRef))==null?void 0:a.id,"aria-expanded":l.disabled?void 0:e.menuState.value===0,onKeydown:u,onKeyup:f,onClick:d};return P$4({ourProps:t,theirProps:l,slot:o$1,attrs:S,slots:i,name:"MenuButton"})}}}),pe=vue_cjs_prod$1.defineComponent({name:"MenuItems",props:{as:{type:[Object,String],default:"div"},static:{type:Boolean,default:!1},unmount:{type:Boolean,default:!0}},setup(l,{attrs:S,slots:i,expose:v}){let e=D("MenuItems"),p=`headlessui-menu-items-${t()}`,u=vue_cjs_prod$1.ref(null);v({el:e.itemsRef,$el:e.itemsRef}),p$3({container:vue_cjs_prod$1.computed(()=>o(e.itemsRef)),enabled:vue_cjs_prod$1.computed(()=>e.menuState.value===0),accept(t){return t.getAttribute("role")==="menuitem"?NodeFilter.FILTER_REJECT:t.hasAttribute("role")?NodeFilter.FILTER_SKIP:NodeFilter.FILTER_ACCEPT},walk(t){t.setAttribute("role","none");}});function f(t){var r;switch(u.value&&clearTimeout(u.value),t.key){case o$1.Space:if(e.searchQuery.value!=="")return t.preventDefault(),t.stopPropagation(),e.search(t.key);case o$1.Enter:if(t.preventDefault(),t.stopPropagation(),e.activeItemIndex.value!==null){let n=e.items.value[e.activeItemIndex.value];(r=o(n.dataRef.domRef))==null||r.click();}e.closeMenu(),vue_cjs_prod$1.nextTick(()=>{var a;return (a=o(e.buttonRef))==null?void 0:a.focus({preventScroll:!0})});break;case o$1.ArrowDown:return t.preventDefault(),t.stopPropagation(),e.goToItem(a$2.Next);case o$1.ArrowUp:return t.preventDefault(),t.stopPropagation(),e.goToItem(a$2.Previous);case o$1.Home:case o$1.PageUp:return t.preventDefault(),t.stopPropagation(),e.goToItem(a$2.First);case o$1.End:case o$1.PageDown:return t.preventDefault(),t.stopPropagation(),e.goToItem(a$2.Last);case o$1.Escape:t.preventDefault(),t.stopPropagation(),e.closeMenu(),vue_cjs_prod$1.nextTick(()=>{var a;return (a=o(e.buttonRef))==null?void 0:a.focus({preventScroll:!0})});break;case o$1.Tab:t.preventDefault(),t.stopPropagation();break;default:t.key.length===1&&(e.search(t.key),u.value=setTimeout(()=>e.clearSearch(),350));break}}function d(t){switch(t.key){case o$1.Space:t.preventDefault();break}}let I=p$4(),o$2=vue_cjs_prod$1.computed(()=>I!==null?I.value===l$2.Open:e.menuState.value===0);return ()=>{var n,s;let t={open:e.menuState.value===0},r={"aria-activedescendant":e.activeItemIndex.value===null||(n=e.items.value[e.activeItemIndex.value])==null?void 0:n.id,"aria-labelledby":(s=o(e.buttonRef))==null?void 0:s.id,id:p,onKeydown:f,onKeyup:d,role:"menu",tabIndex:0,ref:e.itemsRef};return P$4({ourProps:r,theirProps:l,slot:t,attrs:S,slots:i,features:R$2.RenderStrategy|R$2.Static,visible:o$2.value,name:"MenuItems"})}}}),ve=vue_cjs_prod$1.defineComponent({name:"MenuItem",props:{as:{type:[Object,String],default:"template"},disabled:{type:Boolean,default:!1}},setup(l,{slots:S,attrs:i,expose:v}){let e=D("MenuItem"),p=`headlessui-menu-item-${t()}`,u=vue_cjs_prod$1.ref(null);v({el:u,$el:u});let f=vue_cjs_prod$1.computed(()=>e.activeItemIndex.value!==null?e.items.value[e.activeItemIndex.value].id===p:!1),d=vue_cjs_prod$1.computed(()=>({disabled:l.disabled,textValue:"",domRef:u}));vue_cjs_prod$1.onMounted(()=>{var n,s;let a=(s=(n=o(u))==null?void 0:n.textContent)==null?void 0:s.toLowerCase().trim();a!==void 0&&(d.value.textValue=a);}),vue_cjs_prod$1.onMounted(()=>e.registerItem(p,d)),vue_cjs_prod$1.onUnmounted(()=>e.unregisterItem(p)),vue_cjs_prod$1.watchEffect(()=>{e.menuState.value===0&&(!f.value||e.activationTrigger.value!==0&&vue_cjs_prod$1.nextTick(()=>{var a,n;return (n=(a=o(u))==null?void 0:a.scrollIntoView)==null?void 0:n.call(a,{block:"nearest"})}));});function I(a){if(l.disabled)return a.preventDefault();e.closeMenu(),vue_cjs_prod$1.nextTick(()=>{var n;return (n=o(e.buttonRef))==null?void 0:n.focus({preventScroll:!0})});}function o$1(){if(l.disabled)return e.goToItem(a$2.Nothing);e.goToItem(a$2.Specific,p);}function t$1(){l.disabled||f.value||e.goToItem(a$2.Specific,p,0);}function r(){l.disabled||!f.value||e.goToItem(a$2.Nothing);}return ()=>{let{disabled:a}=l,n={active:f.value,disabled:a};return P$4({ourProps:{id:p,ref:u,role:"menuitem",tabIndex:a===!0?void 0:-1,"aria-disabled":a===!0?!0:void 0,onClick:I,onFocus:o$1,onPointermove:t$1,onMousemove:t$1,onPointerleave:r,onMouseleave:r},theirProps:l,slot:n,attrs:i,slots:S,name:"MenuItem"})}}});
+
+let a=Symbol("LabelContext");function p(){let t=vue_cjs_prod$1.inject(a,null);if(t===null){let n=new Error("You used a <Label /> component, but it is not inside a parent.");throw Error.captureStackTrace&&Error.captureStackTrace(n,p),n}return t}function K$1({slot:t={},name:n="Label",props:i={}}={}){let e=vue_cjs_prod$1.ref([]);function r(o){return e.value.push(o),()=>{let l=e.value.indexOf(o);l!==-1&&e.value.splice(l,1);}}return vue_cjs_prod$1.provide(a,{register:r,slot:t,name:n,props:i}),vue_cjs_prod$1.computed(()=>e.value.length>0?e.value.join(" "):void 0)}let P=vue_cjs_prod$1.defineComponent({name:"Label",props:{as:{type:[Object,String],default:"label"},passive:{type:[Boolean],default:!1}},setup(t$1,{slots:n,attrs:i}){let e=p(),r=`headlessui-label-${t()}`;return vue_cjs_prod$1.onMounted(()=>vue_cjs_prod$1.onUnmounted(e.register(r))),()=>{let{name:o="Label",slot:l={},props:d={}}=e,{passive:c,...s}=t$1,u={...Object.entries(d).reduce((f,[b,m])=>Object.assign(f,{[b]:vue_cjs_prod$1.unref(m)}),{}),id:r};return c&&(delete u.onClick,delete s.onClick),P$4({ourProps:u,theirProps:s,slot:l,attrs:i,slots:n,name:o})}}});
+
+let h=Symbol("GroupContext");vue_cjs_prod$1.defineComponent({name:"SwitchGroup",props:{as:{type:[Object,String],default:"template"}},setup(l,{slots:a,attrs:n}){let r=vue_cjs_prod$1.ref(null),u=K$1({name:"SwitchLabel",props:{onClick(){!r.value||(r.value.click(),r.value.focus({preventScroll:!0}));}}}),t=P$1({name:"SwitchDescription"});return vue_cjs_prod$1.provide(h,{switchRef:r,labelledby:u,describedby:t}),()=>P$4({theirProps:l,ourProps:{},slot:{},slots:a,attrs:n,name:"SwitchGroup"})}});let Y=vue_cjs_prod$1.defineComponent({name:"Switch",emits:{"update:modelValue":l=>!0},props:{as:{type:[Object,String],default:"button"},modelValue:{type:Boolean,default:!1},name:{type:String,optional:!0},value:{type:String,optional:!0}},inheritAttrs:!1,setup(l,{emit:a,attrs:n,slots:r,expose:u}){let t$1=vue_cjs_prod$1.inject(h,null),p=`headlessui-switch-${t()}`;function s(){a("update:modelValue",!l.modelValue);}let b=vue_cjs_prod$1.ref(null),i=t$1===null?b:t$1.switchRef,S=b$2(vue_cjs_prod$1.computed(()=>({as:l.as,type:n.type})),i);u({el:i,$el:i});function w(e){e.preventDefault(),s();}function v(e){e.key===o$1.Space?(e.preventDefault(),s()):e.key===o$1.Enter&&p$1(e.currentTarget);}function R(e){e.preventDefault();}return ()=>{let{name:e,value:g,modelValue:o,...k}=l,D={checked:o},K={id:p,ref:i,role:"switch",type:S.value,tabIndex:0,"aria-checked":o,"aria-labelledby":t$1==null?void 0:t$1.labelledby.value,"aria-describedby":t$1==null?void 0:t$1.describedby.value,onClick:w,onKeyup:v,onKeypress:R};return vue_cjs_prod$1.h(vue_cjs_prod$1.Fragment,[e!=null&&o!=null?vue_cjs_prod$1.h(m$1,A$1({features:p$2.Hidden,as:"input",type:"checkbox",hidden:!0,readOnly:!0,checked:o,name:e,value:g})):null,P$4({ourProps:K,theirProps:{...n,...k},slot:D,attrs:n,slots:r,name:"Switch"})])}}});P;S;
+
+function l(r){let e={called:!1};return (...t)=>{if(!e.called)return e.called=!0,r(...t)}}
+
+function r(){let i=[],o=[],t={enqueue(e){o.push(e);},requestAnimationFrame(...e){let a=requestAnimationFrame(...e);t.add(()=>cancelAnimationFrame(a));},nextFrame(...e){t.requestAnimationFrame(()=>{t.requestAnimationFrame(...e);});},setTimeout(...e){let a=setTimeout(...e);t.add(()=>clearTimeout(a));},add(e){i.push(e);},dispose(){for(let e of i.splice(0))e();},async workQueue(){for(let e of o.splice(0))await e();}};return t}
+
+function m(e,...t){e&&t.length>0&&e.classList.add(...t);}function d$1(e,...t){e&&t.length>0&&e.classList.remove(...t);}var g=(i=>(i.Finished="finished",i.Cancelled="cancelled",i))(g||{});function F$1(e,t){let i=r();if(!e)return i.dispose;let{transitionDuration:n,transitionDelay:a}=getComputedStyle(e),[l,s]=[n,a].map(o=>{let[u=0]=o.split(",").filter(Boolean).map(r=>r.includes("ms")?parseFloat(r):parseFloat(r)*1e3).sort((r,c)=>c-r);return u});return l!==0?i.setTimeout(()=>t("finished"),l+s):t("finished"),i.add(()=>t("cancelled")),i.dispose}function L(e,t,i,n,a,l$1){let s=r(),o=l$1!==void 0?l(l$1):()=>{};return d$1(e,...a),m(e,...t,...i),s.nextFrame(()=>{d$1(e,...i),m(e,...n),s.add(F$1(e,u=>(d$1(e,...n,...t),m(e,...a),o(u))));}),s.add(()=>d$1(e,...t,...i,...n,...a)),s.add(()=>o("cancelled")),s.dispose}
+
+function d(e=""){return e.split(" ").filter(t=>t.trim().length>1)}let B=Symbol("TransitionContext");var ae=(a=>(a.Visible="visible",a.Hidden="hidden",a))(ae||{});function le(){return vue_cjs_prod$1.inject(B,null)!==null}function ie(){let e=vue_cjs_prod$1.inject(B,null);if(e===null)throw new Error("A <TransitionChild /> is used but it is missing a parent <TransitionRoot />.");return e}function se(){let e=vue_cjs_prod$1.inject(F,null);if(e===null)throw new Error("A <TransitionChild /> is used but it is missing a parent <TransitionRoot />.");return e}let F=Symbol("NestingContext");function w(e){return "children"in e?w(e.children):e.value.filter(({state:t})=>t==="visible").length>0}function K(e){let t=vue_cjs_prod$1.ref([]),a=vue_cjs_prod$1.ref(!1);vue_cjs_prod$1.onMounted(()=>a.value=!0),vue_cjs_prod$1.onUnmounted(()=>a.value=!1);function s(r,n=O$1.Hidden){let l=t.value.findIndex(({id:i})=>i===r);l!==-1&&(u$4(n,{[O$1.Unmount](){t.value.splice(l,1);},[O$1.Hidden](){t.value[l].state="hidden";}}),!w(t)&&a.value&&(e==null||e()));}function v(r){let n=t.value.find(({id:l})=>l===r);return n?n.state!=="visible"&&(n.state="visible"):t.value.push({id:r,state:"visible"}),()=>s(r,O$1.Unmount)}return {children:t,register:v,unregister:s}}let _=R$2.RenderStrategy,oe=vue_cjs_prod$1.defineComponent({props:{as:{type:[Object,String],default:"div"},show:{type:[Boolean],default:null},unmount:{type:[Boolean],default:!0},appear:{type:[Boolean],default:!1},enter:{type:[String],default:""},enterFrom:{type:[String],default:""},enterTo:{type:[String],default:""},entered:{type:[String],default:""},leave:{type:[String],default:""},leaveFrom:{type:[String],default:""},leaveTo:{type:[String],default:""}},emits:{beforeEnter:()=>!0,afterEnter:()=>!0,beforeLeave:()=>!0,afterLeave:()=>!0},setup(e,{emit:t$1,attrs:a,slots:s,expose:v}){if(!le()&&f())return ()=>vue_cjs_prod$1.h(fe,{...e,onBeforeEnter:()=>t$1("beforeEnter"),onAfterEnter:()=>t$1("afterEnter"),onBeforeLeave:()=>t$1("beforeLeave"),onAfterLeave:()=>t$1("afterLeave")},s);let r=vue_cjs_prod$1.ref(null),n=vue_cjs_prod$1.ref("visible"),l=vue_cjs_prod$1.computed(()=>e.unmount?O$1.Unmount:O$1.Hidden);v({el:r,$el:r});let{show:i,appear:x}=ie(),{register:g$1,unregister:p}=se(),R={value:!0},m=t(),S={value:!1},N=K(()=>{S.value||(n.value="hidden",p(m),t$1("afterLeave"));});vue_cjs_prod$1.onMounted(()=>{let o=g$1(m);vue_cjs_prod$1.onUnmounted(o);}),vue_cjs_prod$1.watchEffect(()=>{if(l.value===O$1.Hidden&&!!m){if(i&&n.value!=="visible"){n.value="visible";return}u$4(n.value,{["hidden"]:()=>p(m),["visible"]:()=>g$1(m)});}});let k=d(e.enter),$=d(e.enterFrom),q=d(e.enterTo),O=d(e.entered),z=d(e.leave),G=d(e.leaveFrom),J=d(e.leaveTo);vue_cjs_prod$1.onMounted(()=>{vue_cjs_prod$1.watchEffect(()=>{if(n.value==="visible"){let o$1=o(r);if(o$1 instanceof Comment&&o$1.data==="")throw new Error("Did you forget to passthrough the `ref` to the actual DOM node?")}});});function Q(o$1){let c=R.value&&!x.value,u=o(r);!u||!(u instanceof HTMLElement)||c||(S.value=!0,i.value&&t$1("beforeEnter"),i.value||t$1("beforeLeave"),o$1(i.value?L(u,k,$,q,O,C=>{S.value=!1,C===g.Finished&&t$1("afterEnter");}):L(u,z,G,J,O,C=>{S.value=!1,C===g.Finished&&(w(N)||(n.value="hidden",p(m),t$1("afterLeave")));})));}return vue_cjs_prod$1.onMounted(()=>{vue_cjs_prod$1.watch([i],(o,c,u)=>{Q(u),R.value=!1;},{immediate:!0});}),vue_cjs_prod$1.provide(F,N),c$3(vue_cjs_prod$1.computed(()=>u$4(n.value,{["visible"]:l$2.Open,["hidden"]:l$2.Closed}))),()=>{let{appear:o,show:c,enter:u,enterFrom:C,enterTo:de,entered:ve,leave:pe,leaveFrom:me,leaveTo:Te,...W}=e;return P$4({theirProps:W,ourProps:{ref:r},slot:{},slots:s,attrs:a,features:_,visible:n.value==="visible",name:"TransitionChild"})}}}),ue=oe,fe=vue_cjs_prod$1.defineComponent({inheritAttrs:!1,props:{as:{type:[Object,String],default:"div"},show:{type:[Boolean],default:null},unmount:{type:[Boolean],default:!0},appear:{type:[Boolean],default:!1},enter:{type:[String],default:""},enterFrom:{type:[String],default:""},enterTo:{type:[String],default:""},entered:{type:[String],default:""},leave:{type:[String],default:""},leaveFrom:{type:[String],default:""},leaveTo:{type:[String],default:""}},emits:{beforeEnter:()=>!0,afterEnter:()=>!0,beforeLeave:()=>!0,afterLeave:()=>!0},setup(e,{emit:t,attrs:a,slots:s}){let v=p$4(),r=vue_cjs_prod$1.computed(()=>e.show===null&&v!==null?u$4(v.value,{[l$2.Open]:!0,[l$2.Closed]:!1}):e.show);vue_cjs_prod$1.watchEffect(()=>{if(![!0,!1].includes(r.value))throw new Error('A <Transition /> is used but it is missing a `:show="true | false"` prop.')});let n=vue_cjs_prod$1.ref(r.value?"visible":"hidden"),l=K(()=>{n.value="hidden";}),i=vue_cjs_prod$1.ref(!0),x={show:r,appear:vue_cjs_prod$1.computed(()=>e.appear||!i.value)};return vue_cjs_prod$1.onMounted(()=>{vue_cjs_prod$1.watchEffect(()=>{i.value=!1,r.value?n.value="visible":w(l)||(n.value="hidden");});}),vue_cjs_prod$1.provide(F,l),vue_cjs_prod$1.provide(B,x),()=>{let g=N$2(e,["show","appear","unmount","onBeforeEnter","onBeforeLeave","onAfterEnter","onAfterLeave"]),p={unmount:e.unmount};return P$4({ourProps:{...p,as:"template"},theirProps:{},slot:{},slots:{...s,default:()=>[vue_cjs_prod$1.h(ue,{onBeforeEnter:()=>t("beforeEnter"),onAfterEnter:()=>t("afterEnter"),onBeforeLeave:()=>t("beforeLeave"),onAfterLeave:()=>t("afterLeave"),...a,...p,...g},s.default)]},attrs:{},features:_,visible:n.value==="visible",name:"Transition"})}}});
 
 var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 var vue_cjs_prod = {};
@@ -327,7 +365,7 @@ const replacer = (_key, val) => {
     return {
       [`Set(${val.size})`]: [...val.values()]
     };
-  } else if (isObject(val) && !isArray(val) && !isPlainObject(val)) {
+  } else if (isObject(val) && !isArray(val) && !isPlainObject$1(val)) {
     return String(val);
   }
   return val;
@@ -365,7 +403,7 @@ const toTypeString = (value) => objectToString.call(value);
 const toRawType = (value) => {
   return toTypeString(value).slice(8, -1);
 };
-const isPlainObject = (val) => toTypeString(val) === "[object Object]";
+const isPlainObject$1 = (val) => toTypeString(val) === "[object Object]";
 const isIntegerKey = (key) => isString(key) && key !== "NaN" && key[0] !== "-" && "" + parseInt(key, 10) === key;
 const isReservedProp = /* @__PURE__ */ makeMap(
   ",key,ref,ref_for,ref_key,onVnodeBeforeMount,onVnodeMounted,onVnodeBeforeUpdate,onVnodeUpdated,onVnodeBeforeUnmount,onVnodeUnmounted"
@@ -445,7 +483,7 @@ shared_cjs_prod.isModelListener = isModelListener;
 shared_cjs_prod.isNoUnitNumericStyleProp = isNoUnitNumericStyleProp;
 shared_cjs_prod.isObject = isObject;
 shared_cjs_prod.isOn = isOn;
-shared_cjs_prod.isPlainObject = isPlainObject;
+shared_cjs_prod.isPlainObject = isPlainObject$1;
 shared_cjs_prod.isPromise = isPromise;
 shared_cjs_prod.isReservedProp = isReservedProp;
 shared_cjs_prod.isSSRSafeAttrName = isSSRSafeAttrName;
@@ -660,7 +698,7 @@ var vueRouter_prod = {};
   function isESModule(obj) {
     return obj.__esModule || obj[Symbol.toStringTag] === "Module";
   }
-  const assign = Object.assign;
+  const assign2 = Object.assign;
   function applyToParams(fn, params) {
     const newParams = {};
     for (const key in params) {
@@ -669,7 +707,7 @@ var vueRouter_prod = {};
     }
     return newParams;
   }
-  const noop = () => {
+  const noop2 = () => {
   };
   const isArray2 = Array.isArray;
   const TRAILING_SLASH_RE = /\/$/;
@@ -841,7 +879,7 @@ var vueRouter_prod = {};
       const { history: history2 } = window;
       if (!history2.state)
         return;
-      history2.replaceState(assign({}, history2.state, { scroll: computeScrollPosition() }), "");
+      history2.replaceState(assign2({}, history2.state, { scroll: computeScrollPosition() }), "");
     }
     function destroy() {
       for (const teardown of teardowns)
@@ -898,7 +936,7 @@ var vueRouter_prod = {};
       }
     }
     function replace(to, data) {
-      const state = assign({}, history2.state, buildState(
+      const state = assign2({}, history2.state, buildState(
         historyState.value.back,
         to,
         historyState.value.forward,
@@ -908,7 +946,7 @@ var vueRouter_prod = {};
       currentLocation.value = to;
     }
     function push(to, data) {
-      const currentState = assign(
+      const currentState = assign2(
         {},
         historyState.value,
         history2.state,
@@ -918,7 +956,7 @@ var vueRouter_prod = {};
         }
       );
       changeLocation(currentState.current, currentState, true);
-      const state = assign({}, buildState(currentLocation.value, to, null), { position: currentState.position + 1 }, data);
+      const state = assign2({}, buildState(currentLocation.value, to, null), { position: currentState.position + 1 }, data);
       changeLocation(to, state, false);
       currentLocation.value = to;
     }
@@ -938,7 +976,7 @@ var vueRouter_prod = {};
         historyListeners.pauseListeners();
       history.go(delta);
     }
-    const routerHistory = assign({
+    const routerHistory = assign2({
       location: "",
       base,
       go,
@@ -1071,7 +1109,7 @@ var vueRouter_prod = {};
   };
   function createRouterError(type, params) {
     {
-      return assign(new Error(ErrorTypeMessages[type](params)), {
+      return assign2(new Error(ErrorTypeMessages[type](params)), {
         type,
         [NavigationFailureSymbol]: true
       }, params);
@@ -1102,7 +1140,7 @@ var vueRouter_prod = {};
   };
   const REGEX_CHARS_RE = /[.+*?^${}()[\]/\\]/g;
   function tokensToParser(segments, extraOptions) {
-    const options = assign({}, BASE_PATH_PARSER_OPTIONS, extraOptions);
+    const options = assign2({}, BASE_PATH_PARSER_OPTIONS, extraOptions);
     const score = [];
     let pattern = options.start ? "^" : "";
     const keys = [];
@@ -1376,7 +1414,7 @@ var vueRouter_prod = {};
   }
   function createRouteRecordMatcher(record, parent, options) {
     const parser = tokensToParser(tokenizePath(record.path), options);
-    const matcher = assign(parser, {
+    const matcher = assign2(parser, {
       record,
       parent,
       children: [],
@@ -1406,7 +1444,7 @@ var vueRouter_prod = {};
       if ("alias" in record) {
         const aliases = typeof record.alias === "string" ? [record.alias] : record.alias;
         for (const alias of aliases) {
-          normalizedRecords.push(assign({}, mainNormalizedRecord, {
+          normalizedRecords.push(assign2({}, mainNormalizedRecord, {
             components: originalRecord ? originalRecord.record.components : mainNormalizedRecord.components,
             path: alias,
             aliasOf: originalRecord ? originalRecord.record : mainNormalizedRecord
@@ -1443,7 +1481,7 @@ var vueRouter_prod = {};
       }
       return originalMatcher ? () => {
         removeRoute(originalMatcher);
-      } : noop;
+      } : noop2;
     }
     function removeRoute(matcherRef) {
       if (isRouteName(matcherRef)) {
@@ -1488,7 +1526,7 @@ var vueRouter_prod = {};
             location: location2
           });
         name = matcher.record.name;
-        params = assign(
+        params = assign2(
           paramsFromLocation(
             currentLocation.params,
             matcher.keys.filter((k) => !k.optional).map((k) => k.name)
@@ -1511,7 +1549,7 @@ var vueRouter_prod = {};
             currentLocation
           });
         name = matcher.record.name;
-        params = assign({}, currentLocation.params, location2.params);
+        params = assign2({}, currentLocation.params, location2.params);
         path = matcher.stringify(params);
       }
       const matched = [];
@@ -1576,7 +1614,7 @@ var vueRouter_prod = {};
     return false;
   }
   function mergeMetaFields(matched) {
-    return matched.reduce((meta2, record) => assign(meta2, record.meta), {});
+    return matched.reduce((meta2, record) => assign2(meta2, record.meta), {});
   }
   function mergeOptions(defaults, partialOptions) {
     const options = {};
@@ -1835,7 +1873,7 @@ var vueRouter_prod = {};
       if (guardEvent(e)) {
         return router[vue.unref(props.replace) ? "replace" : "push"](
           vue.unref(props.to)
-        ).catch(noop);
+        ).catch(noop2);
       }
       return Promise.resolve();
     }
@@ -1978,7 +2016,7 @@ var vueRouter_prod = {};
             matchedRoute.instances[currentName] = null;
           }
         };
-        const component = vue.h(ViewComponent, assign({}, routeProps, attrs, {
+        const component = vue.h(ViewComponent, assign2({}, routeProps, attrs, {
           onVnodeUnmounted,
           ref: viewRef
         }));
@@ -2030,12 +2068,12 @@ var vueRouter_prod = {};
       return !!matcher.getRecordMatcher(name);
     }
     function resolve(rawLocation, currentLocation) {
-      currentLocation = assign({}, currentLocation || currentRoute.value);
+      currentLocation = assign2({}, currentLocation || currentRoute.value);
       if (typeof rawLocation === "string") {
         const locationNormalized = parseURL(parseQuery$1, rawLocation, currentLocation.path);
         const matchedRoute2 = matcher.resolve({ path: locationNormalized.path }, currentLocation);
         const href2 = routerHistory.createHref(locationNormalized.fullPath);
-        return assign(locationNormalized, matchedRoute2, {
+        return assign2(locationNormalized, matchedRoute2, {
           params: decodeParams(matchedRoute2.params),
           hash: decode(locationNormalized.hash),
           redirectedFrom: void 0,
@@ -2044,17 +2082,17 @@ var vueRouter_prod = {};
       }
       let matcherLocation;
       if ("path" in rawLocation) {
-        matcherLocation = assign({}, rawLocation, {
+        matcherLocation = assign2({}, rawLocation, {
           path: parseURL(parseQuery$1, rawLocation.path, currentLocation.path).path
         });
       } else {
-        const targetParams = assign({}, rawLocation.params);
+        const targetParams = assign2({}, rawLocation.params);
         for (const key in targetParams) {
           if (targetParams[key] == null) {
             delete targetParams[key];
           }
         }
-        matcherLocation = assign({}, rawLocation, {
+        matcherLocation = assign2({}, rawLocation, {
           params: encodeParams(rawLocation.params)
         });
         currentLocation.params = encodeParams(currentLocation.params);
@@ -2062,12 +2100,12 @@ var vueRouter_prod = {};
       const matchedRoute = matcher.resolve(matcherLocation, currentLocation);
       const hash = rawLocation.hash || "";
       matchedRoute.params = normalizeParams(decodeParams(matchedRoute.params));
-      const fullPath = stringifyURL(stringifyQuery$1, assign({}, rawLocation, {
+      const fullPath = stringifyURL(stringifyQuery$1, assign2({}, rawLocation, {
         hash: encodeHash(hash),
         path: matchedRoute.path
       }));
       const href = routerHistory.createHref(fullPath);
-      return assign({
+      return assign2({
         fullPath,
         hash,
         query: stringifyQuery$1 === stringifyQuery ? normalizeQuery(rawLocation.query) : rawLocation.query || {}
@@ -2077,7 +2115,7 @@ var vueRouter_prod = {};
       });
     }
     function locationAsObject(to) {
-      return typeof to === "string" ? parseURL(parseQuery$1, to, currentRoute.value.path) : assign({}, to);
+      return typeof to === "string" ? parseURL(parseQuery$1, to, currentRoute.value.path) : assign2({}, to);
     }
     function checkCanceledNavigation(to, from) {
       if (pendingLocation !== to) {
@@ -2091,7 +2129,7 @@ var vueRouter_prod = {};
       return pushWithRedirect(to);
     }
     function replace(to) {
-      return push(assign(locationAsObject(to), { replace: true }));
+      return push(assign2(locationAsObject(to), { replace: true }));
     }
     function handleRedirectRecord(to) {
       const lastMatched = to.matched[to.matched.length - 1];
@@ -2102,7 +2140,7 @@ var vueRouter_prod = {};
           newTargetLocation = newTargetLocation.includes("?") || newTargetLocation.includes("#") ? newTargetLocation = locationAsObject(newTargetLocation) : { path: newTargetLocation };
           newTargetLocation.params = {};
         }
-        return assign({
+        return assign2({
           query: to.query,
           hash: to.hash,
           params: "path" in newTargetLocation ? {} : to.params
@@ -2118,7 +2156,7 @@ var vueRouter_prod = {};
       const shouldRedirect = handleRedirectRecord(targetLocation);
       if (shouldRedirect)
         return pushWithRedirect(
-          assign(locationAsObject(shouldRedirect), {
+          assign2(locationAsObject(shouldRedirect), {
             state: data,
             force,
             replace: replace2
@@ -2136,7 +2174,7 @@ var vueRouter_prod = {};
         if (failure2) {
           if (isNavigationFailure(failure2, 2)) {
             return pushWithRedirect(
-              assign({
+              assign2({
                 replace: replace2
               }, locationAsObject(failure2.to), {
                 state: data,
@@ -2223,7 +2261,7 @@ var vueRouter_prod = {};
       const state = {};
       if (isPush) {
         if (replace2 || isFirstNavigation)
-          routerHistory.replace(toLocation.fullPath, assign({
+          routerHistory.replace(toLocation.fullPath, assign2({
             scroll: isFirstNavigation && state && state.scroll
           }, data));
         else
@@ -2243,7 +2281,7 @@ var vueRouter_prod = {};
         const toLocation = resolve(to);
         const shouldRedirect = handleRedirectRecord(toLocation);
         if (shouldRedirect) {
-          pushWithRedirect(assign(shouldRedirect, { replace: true }), toLocation).catch(noop);
+          pushWithRedirect(assign2(shouldRedirect, { replace: true }), toLocation).catch(noop2);
           return;
         }
         pendingLocation = toLocation;
@@ -2260,7 +2298,7 @@ var vueRouter_prod = {};
               if (isNavigationFailure(failure, 4 | 16) && !info.delta && info.type === NavigationType.pop) {
                 routerHistory.go(-1, false);
               }
-            }).catch(noop);
+            }).catch(noop2);
             return Promise.reject();
           }
           if (info.delta) {
@@ -2281,7 +2319,7 @@ var vueRouter_prod = {};
             }
           }
           triggerAfterEach(toLocation, from, failure);
-        }).catch(noop);
+        }).catch(noop2);
       });
     }
     let readyHandlers = useCallbacks();
@@ -2480,6 +2518,7 @@ const useRoute = () => {
   }
   return useNuxtApp()._route;
 };
+const defineNuxtRouteMiddleware = (middleware) => middleware;
 const navigateTo = (to, options = {}) => {
   if (!to) {
     to = "/";
@@ -2613,7 +2652,7 @@ function defineNuxtLink(options) {
     }
   });
 }
-const __nuxt_component_0$6 = defineNuxtLink({ componentName: "NuxtLink" });
+const __nuxt_component_0$5 = defineNuxtLink({ componentName: "NuxtLink" });
 function useHead(meta2) {
   const resolvedMeta = isFunction_1(meta2) ? vue_cjs_prod.computed(meta2) : meta2;
   useNuxtApp()._useHead(resolvedMeta);
@@ -3262,7 +3301,7 @@ const Components = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePr
   Html,
   Body
 }, Symbol.toStringTag, { value: "Module" }));
-const metaConfig = { "globalMeta": { "meta": [{ "property": "og:title", "content": "UMaestro - Cr\xE9er ton meilleur projet avec nous !" }, { "property": "og:type", "content": "product" }, { "property": "og:description", "content": "Site regroupant une multitude d'outils dans de multiples domaines diff\xE9rents." }, { "property": "twitter:title", "content": "UMaestro - Cr\xE9er ton meilleur projet avec nous !" }, { "property": "twitter:description", "content": "Site regroupant une multitude d'outils dans de multiples domaines diff\xE9rents." }, { "property": "og:title", "content": "UMaestro - Cr\xE9er ton meilleur projet avec nous !" }, { "property": "description", "content": "Site regroupant une multitude d'outils dans de multiples domaines diff\xE9rents." }, { "name": "twitter:card", "content": "summary" }], "link": [{ "rel": "icon", "type": "image/png", "href": "/favicon-32x32.png" }], "style": [], "script": [], "noscript": [], "titleTemplate": "UMaestro - %s", "bodyAttrs": { "class": "bg-background dark:bg-dark-900 dark:text-white transition ease-in duration-100" }, "charset": "utf-8", "viewport": "width=device-width, initial-scale=1" } };
+const metaConfig = { "globalMeta": { "meta": [{ "property": "og:title", "content": "UMaestro - Cr\xE9er ton meilleur projet avec nous !" }, { "property": "og:type", "content": "product" }, { "property": "og:description", "content": "Site regroupant une multitude d'outils dans de multiples domaines diff\xE9rents." }, { "property": "twitter:title", "content": "UMaestro - Cr\xE9er ton meilleur projet avec nous !" }, { "property": "twitter:description", "content": "Site regroupant une multitude d'outils dans de multiples domaines diff\xE9rents." }, { "property": "og:title", "content": "UMaestro - Cr\xE9er ton meilleur projet avec nous !" }, { "property": "description", "content": "Site regroupant une multitude d'outils dans de multiples domaines diff\xE9rents." }, { "name": "twitter:card", "content": "summary" }], "link": [{ "rel": "icon", "type": "image/png", "href": "/favicon-32x32.png" }], "style": [], "script": [], "noscript": [], "titleTemplate": "UMaestro - %s", "bodyAttrs": { "class": "bg-background dark:bg-dark-950 dark:text-white transition ease-in duration-100" }, "charset": "utf-8", "viewport": "width=device-width, initial-scale=1" } };
 const metaMixin = {
   created() {
     const instance = vue_cjs_prod.getCurrentInstance();
@@ -3376,7 +3415,489 @@ const _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$w = {
+const _sfc_main$u = {
+  props: {
+    modelValue: {
+      type: [String, Number],
+      default: ""
+    },
+    placeholder: {
+      type: String,
+      default: ""
+    },
+    big: {
+      type: Boolean,
+      default: false
+    },
+    white: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    classes: {
+      type: String,
+      default: ""
+    }
+  },
+  methods: {
+    handleInput(e) {
+      this.$emit("update:modelValue", e.target.value);
+      this.$emit("change", e.target.value);
+    }
+  }
+};
+function _sfc_ssrRender$s(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}><input${serverRenderer.exports.ssrRenderAttr("placeholder", $props.placeholder)} type="text" class="${serverRenderer.exports.ssrRenderClass([[$props.big ? "px-6 py-5 text-md" : "px-6 py-4 text-sm", $props.white ? "bg-white text-black" : "bg-transparent focus:bg-white dark:focus:bg-dark-900 border-dark-800 focus:border-primary-500", $props.classes], "text-sm w-full border focus:outline-none rounded-lg"])}"${serverRenderer.exports.ssrRenderAttr("value", $props.modelValue)}${serverRenderer.exports.ssrIncludeBooleanAttr($props.disabled) ? " disabled" : ""}></div>`);
+}
+const _sfc_setup$u = _sfc_main$u.setup;
+_sfc_main$u.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Input.vue");
+  return _sfc_setup$u ? _sfc_setup$u(props, ctx) : void 0;
+};
+const __nuxt_component_4$2 = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["ssrRender", _sfc_ssrRender$s]]);
+const _sfc_main$t = {
+  data: () => ({
+    btnColors: {
+      transparent: "bg-transparent shadow-none",
+      primary: "bg-primary-500 hover:bg-primary-400 text-white",
+      secondary: "bg-secondary-500 hover:bg-secondary-600 text-black",
+      white: "bg-white hover:bg-gray-100 text-black",
+      blurple: "bg-blurple text-white",
+      yellow: "bg-yellow-500 text-white hover:bg-white hover:text-black",
+      red: "bg-red-500 text-white",
+      disabled: "bg-gray-200 text-black opacity-50",
+      theme: "bg-white hover:bg-gray-100 dark:bg-dark-900 dark:hover:bg-dark-800"
+    }
+  }),
+  props: {
+    color: {
+      type: String,
+      default: "secondary"
+    },
+    text: {
+      type: String,
+      required: true
+    },
+    icon: {
+      type: String
+    },
+    small: {
+      type: Boolean,
+      default: false
+    },
+    centerText: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    colors() {
+      return this.disabled ? this.btnColors["disabled"] : this.btnColors[this.color];
+    }
+  }
+};
+function _sfc_ssrRender$r(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  _push(`<button${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({
+    class: ["rounded-md font-medium text-base flex items-center shadow-xl ease-in duration-300", [$options.colors, $props.small ? "px-5 py-3" : "px-6 py-4", $props.centerText && "justify-center"]]
+  }, _attrs))}>`);
+  serverRenderer.exports.ssrRenderSlot(_ctx.$slots, "icon_left", {}, null, _push, _parent);
+  _push(`<span class="${serverRenderer.exports.ssrRenderClass(["whitespace-pre-line", $props.centerText ? "text-center" : "text-left"])}">${serverRenderer.exports.ssrInterpolate($props.text)}</span>`);
+  serverRenderer.exports.ssrRenderSlot(_ctx.$slots, "icon_right", {}, null, _push, _parent);
+  serverRenderer.exports.ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
+  _push(`</button>`);
+}
+const _sfc_setup$t = _sfc_main$t.setup;
+_sfc_main$t.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Button.vue");
+  return _sfc_setup$t ? _sfc_setup$t(props, ctx) : void 0;
+};
+const __nuxt_component_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["ssrRender", _sfc_ssrRender$r]]);
+const axios2 = axios.create({
+  baseURL: "https://api.umaestro.fr/"
+});
+const isVue2 = false;
+/*!
+  * pinia v2.0.20
+  * (c) 2022 Eduardo San Martin Morote
+  * @license MIT
+  */
+let activePinia;
+const setActivePinia = (pinia) => activePinia = pinia;
+const piniaSymbol = Symbol();
+function isPlainObject(o) {
+  return o && typeof o === "object" && Object.prototype.toString.call(o) === "[object Object]" && typeof o.toJSON !== "function";
+}
+var MutationType;
+(function(MutationType2) {
+  MutationType2["direct"] = "direct";
+  MutationType2["patchObject"] = "patch object";
+  MutationType2["patchFunction"] = "patch function";
+})(MutationType || (MutationType = {}));
+function createPinia() {
+  const scope = vue_cjs_prod.effectScope(true);
+  const state = scope.run(() => vue_cjs_prod.ref({}));
+  let _p = [];
+  let toBeInstalled = [];
+  const pinia = vue_cjs_prod.markRaw({
+    install(app) {
+      setActivePinia(pinia);
+      {
+        pinia._a = app;
+        app.provide(piniaSymbol, pinia);
+        app.config.globalProperties.$pinia = pinia;
+        toBeInstalled.forEach((plugin) => _p.push(plugin));
+        toBeInstalled = [];
+      }
+    },
+    use(plugin) {
+      if (!this._a && !isVue2) {
+        toBeInstalled.push(plugin);
+      } else {
+        _p.push(plugin);
+      }
+      return this;
+    },
+    _p,
+    _a: null,
+    _e: scope,
+    _s: /* @__PURE__ */ new Map(),
+    state
+  });
+  return pinia;
+}
+const noop = () => {
+};
+function addSubscription(subscriptions, callback, detached, onCleanup = noop) {
+  subscriptions.push(callback);
+  const removeSubscription = () => {
+    const idx = subscriptions.indexOf(callback);
+    if (idx > -1) {
+      subscriptions.splice(idx, 1);
+      onCleanup();
+    }
+  };
+  if (!detached && vue_cjs_prod.getCurrentInstance()) {
+    vue_cjs_prod.onUnmounted(removeSubscription);
+  }
+  return removeSubscription;
+}
+function triggerSubscriptions(subscriptions, ...args) {
+  subscriptions.slice().forEach((callback) => {
+    callback(...args);
+  });
+}
+function mergeReactiveObjects(target, patchToApply) {
+  for (const key in patchToApply) {
+    if (!patchToApply.hasOwnProperty(key))
+      continue;
+    const subPatch = patchToApply[key];
+    const targetValue = target[key];
+    if (isPlainObject(targetValue) && isPlainObject(subPatch) && target.hasOwnProperty(key) && !vue_cjs_prod.isRef(subPatch) && !vue_cjs_prod.isReactive(subPatch)) {
+      target[key] = mergeReactiveObjects(targetValue, subPatch);
+    } else {
+      target[key] = subPatch;
+    }
+  }
+  return target;
+}
+const skipHydrateSymbol = Symbol();
+function shouldHydrate(obj) {
+  return !isPlainObject(obj) || !obj.hasOwnProperty(skipHydrateSymbol);
+}
+const { assign } = Object;
+function isComputed(o) {
+  return !!(vue_cjs_prod.isRef(o) && o.effect);
+}
+function createOptionsStore(id, options, pinia, hot) {
+  const { state, actions, getters } = options;
+  const initialState = pinia.state.value[id];
+  let store;
+  function setup() {
+    if (!initialState && (!("production" !== "production") )) {
+      {
+        pinia.state.value[id] = state ? state() : {};
+      }
+    }
+    const localState = vue_cjs_prod.toRefs(pinia.state.value[id]);
+    return assign(localState, actions, Object.keys(getters || {}).reduce((computedGetters, name) => {
+      computedGetters[name] = vue_cjs_prod.markRaw(vue_cjs_prod.computed(() => {
+        setActivePinia(pinia);
+        const store2 = pinia._s.get(id);
+        return getters[name].call(store2, store2);
+      }));
+      return computedGetters;
+    }, {}));
+  }
+  store = createSetupStore(id, setup, options, pinia, hot, true);
+  store.$reset = function $reset() {
+    const newState = state ? state() : {};
+    this.$patch(($state) => {
+      assign($state, newState);
+    });
+  };
+  return store;
+}
+function createSetupStore($id, setup, options = {}, pinia, hot, isOptionsStore) {
+  let scope;
+  const optionsForPlugin = assign({ actions: {} }, options);
+  const $subscribeOptions = {
+    deep: true
+  };
+  let isListening;
+  let isSyncListening;
+  let subscriptions = vue_cjs_prod.markRaw([]);
+  let actionSubscriptions = vue_cjs_prod.markRaw([]);
+  let debuggerEvents;
+  const initialState = pinia.state.value[$id];
+  if (!isOptionsStore && !initialState && (!("production" !== "production") )) {
+    {
+      pinia.state.value[$id] = {};
+    }
+  }
+  vue_cjs_prod.ref({});
+  let activeListener;
+  function $patch(partialStateOrMutator) {
+    let subscriptionMutation;
+    isListening = isSyncListening = false;
+    if (typeof partialStateOrMutator === "function") {
+      partialStateOrMutator(pinia.state.value[$id]);
+      subscriptionMutation = {
+        type: MutationType.patchFunction,
+        storeId: $id,
+        events: debuggerEvents
+      };
+    } else {
+      mergeReactiveObjects(pinia.state.value[$id], partialStateOrMutator);
+      subscriptionMutation = {
+        type: MutationType.patchObject,
+        payload: partialStateOrMutator,
+        storeId: $id,
+        events: debuggerEvents
+      };
+    }
+    const myListenerId = activeListener = Symbol();
+    vue_cjs_prod.nextTick().then(() => {
+      if (activeListener === myListenerId) {
+        isListening = true;
+      }
+    });
+    isSyncListening = true;
+    triggerSubscriptions(subscriptions, subscriptionMutation, pinia.state.value[$id]);
+  }
+  const $reset = noop;
+  function $dispose() {
+    scope.stop();
+    subscriptions = [];
+    actionSubscriptions = [];
+    pinia._s.delete($id);
+  }
+  function wrapAction(name, action) {
+    return function() {
+      setActivePinia(pinia);
+      const args = Array.from(arguments);
+      const afterCallbackList = [];
+      const onErrorCallbackList = [];
+      function after(callback) {
+        afterCallbackList.push(callback);
+      }
+      function onError(callback) {
+        onErrorCallbackList.push(callback);
+      }
+      triggerSubscriptions(actionSubscriptions, {
+        args,
+        name,
+        store,
+        after,
+        onError
+      });
+      let ret;
+      try {
+        ret = action.apply(this && this.$id === $id ? this : store, args);
+      } catch (error) {
+        triggerSubscriptions(onErrorCallbackList, error);
+        throw error;
+      }
+      if (ret instanceof Promise) {
+        return ret.then((value) => {
+          triggerSubscriptions(afterCallbackList, value);
+          return value;
+        }).catch((error) => {
+          triggerSubscriptions(onErrorCallbackList, error);
+          return Promise.reject(error);
+        });
+      }
+      triggerSubscriptions(afterCallbackList, ret);
+      return ret;
+    };
+  }
+  const partialStore = {
+    _p: pinia,
+    $id,
+    $onAction: addSubscription.bind(null, actionSubscriptions),
+    $patch,
+    $reset,
+    $subscribe(callback, options2 = {}) {
+      const removeSubscription = addSubscription(subscriptions, callback, options2.detached, () => stopWatcher());
+      const stopWatcher = scope.run(() => vue_cjs_prod.watch(() => pinia.state.value[$id], (state) => {
+        if (options2.flush === "sync" ? isSyncListening : isListening) {
+          callback({
+            storeId: $id,
+            type: MutationType.direct,
+            events: debuggerEvents
+          }, state);
+        }
+      }, assign({}, $subscribeOptions, options2)));
+      return removeSubscription;
+    },
+    $dispose
+  };
+  const store = vue_cjs_prod.reactive(assign(
+    {},
+    partialStore
+  ));
+  pinia._s.set($id, store);
+  const setupStore = pinia._e.run(() => {
+    scope = vue_cjs_prod.effectScope();
+    return scope.run(() => setup());
+  });
+  for (const key in setupStore) {
+    const prop = setupStore[key];
+    if (vue_cjs_prod.isRef(prop) && !isComputed(prop) || vue_cjs_prod.isReactive(prop)) {
+      if (!isOptionsStore) {
+        if (initialState && shouldHydrate(prop)) {
+          if (vue_cjs_prod.isRef(prop)) {
+            prop.value = initialState[key];
+          } else {
+            mergeReactiveObjects(prop, initialState[key]);
+          }
+        }
+        {
+          pinia.state.value[$id][key] = prop;
+        }
+      }
+    } else if (typeof prop === "function") {
+      const actionValue = wrapAction(key, prop);
+      {
+        setupStore[key] = actionValue;
+      }
+      optionsForPlugin.actions[key] = prop;
+    } else ;
+  }
+  {
+    assign(store, setupStore);
+    assign(vue_cjs_prod.toRaw(store), setupStore);
+  }
+  Object.defineProperty(store, "$state", {
+    get: () => pinia.state.value[$id],
+    set: (state) => {
+      $patch(($state) => {
+        assign($state, state);
+      });
+    }
+  });
+  pinia._p.forEach((extender) => {
+    {
+      assign(store, scope.run(() => extender({
+        store,
+        app: pinia._a,
+        pinia,
+        options: optionsForPlugin
+      })));
+    }
+  });
+  if (initialState && isOptionsStore && options.hydrate) {
+    options.hydrate(store.$state, initialState);
+  }
+  isListening = true;
+  isSyncListening = true;
+  return store;
+}
+function defineStore(idOrOptions, setup, setupOptions) {
+  let id;
+  let options;
+  const isSetupStore = typeof setup === "function";
+  if (typeof idOrOptions === "string") {
+    id = idOrOptions;
+    options = isSetupStore ? setupOptions : setup;
+  } else {
+    options = idOrOptions;
+    id = idOrOptions.id;
+  }
+  function useStore(pinia, hot) {
+    const currentInstance = vue_cjs_prod.getCurrentInstance();
+    pinia = (pinia) || currentInstance && vue_cjs_prod.inject(piniaSymbol);
+    if (pinia)
+      setActivePinia(pinia);
+    pinia = activePinia;
+    if (!pinia._s.has(id)) {
+      if (isSetupStore) {
+        createSetupStore(id, setup, options, pinia);
+      } else {
+        createOptionsStore(id, options, pinia);
+      }
+    }
+    const store = pinia._s.get(id);
+    return store;
+  }
+  useStore.$id = id;
+  return useStore;
+}
+const useAuthStore = defineStore("auth", {
+  state: () => ({
+    isAuthenticated: false,
+    user: null
+  }),
+  getters: {
+    getUser: async (state) => {
+      if (state.isAuthenticated && !state.user) {
+        try {
+          const { data } = await axios2.get("/auth/user", {
+            headers: {
+              Authorization: "Bearer " + localStorage.getItem("access_token")
+            }
+          });
+          state.user = data.user;
+        } catch (err) {
+          state.isAuthenticated = false;
+          localStorage.removeItem("access_token");
+          return;
+        }
+      }
+      return state.user;
+    }
+  },
+  actions: {
+    hasToken() {
+      this.isAuthenticated = localStorage.getItem("access_token") ? true : false;
+      return this.isAuthenticated;
+    },
+    login(user, token = null) {
+      this.isAuthenticated = true;
+      this.user = user;
+      if (token) {
+        localStorage.setItem("access_token", token);
+      }
+    },
+    logout() {
+      this.isAuthenticated = false;
+      this.user = null;
+      localStorage.removeItem("access_token");
+    }
+  }
+});
+const meta$e = {
+  middleware: ["auth"]
+};
+const _sfc_main$s = {
   props: {
     reaction: {
       type: String,
@@ -3384,18 +3905,18 @@ const _sfc_main$w = {
     }
   }
 };
-function _sfc_ssrRender$u(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "bg-gray-200 dark:bg-dark-700 px-4 py-3 rounded-full flex gap-2 items-center text-dark-900 dark:text-white text-md text-medium" }, _attrs))}><img class="w-6 h-6 object-contain"${serverRenderer.exports.ssrRenderAttr("src", `/objects/${$props.reaction}.png`)}> 54 </div>`);
 }
-const _sfc_setup$w = _sfc_main$w.setup;
-_sfc_main$w.setup = (props, ctx) => {
+const _sfc_setup$s = _sfc_main$s.setup;
+_sfc_main$s.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Articles/Reaction.vue");
-  return _sfc_setup$w ? _sfc_setup$w(props, ctx) : void 0;
+  return _sfc_setup$s ? _sfc_setup$s(props, ctx) : void 0;
 };
-const __nuxt_component_0$5 = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["ssrRender", _sfc_ssrRender$u]]);
-const meta$c = void 0;
-const _sfc_main$v = {
+const __nuxt_component_0$4 = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["ssrRender", _sfc_ssrRender$q]]);
+const meta$d = void 0;
+const _sfc_main$r = {
   props: {
     color: {
       type: Boolean,
@@ -3403,24 +3924,24 @@ const _sfc_main$v = {
     }
   }
 };
-function _sfc_ssrRender$t(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$p(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({
-    class: ["rounded-3xl shadow-lg cursor-pointer ease-in duration-300 hover:shadow-2xl hover:-translate-y-1 h-full", $props.color && "bg-white dark:bg-dark-800 hover:dark:bg-dark-700"]
+    class: ["rounded-3xl shadow-lg cursor-pointer ease-in duration-300 hover:shadow-2xl hover:-translate-y-1 h-full", $props.color && "bg-white dark:bg-dark-900 hover:dark:bg-dark-800"]
   }, _attrs))}>`);
   serverRenderer.exports.ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
   _push(`</div>`);
 }
-const _sfc_setup$v = _sfc_main$v.setup;
-_sfc_main$v.setup = (props, ctx) => {
+const _sfc_setup$r = _sfc_main$r.setup;
+_sfc_main$r.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Card.vue");
-  return _sfc_setup$v ? _sfc_setup$v(props, ctx) : void 0;
+  return _sfc_setup$r ? _sfc_setup$r(props, ctx) : void 0;
 };
-const __nuxt_component_4$3 = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["ssrRender", _sfc_ssrRender$t]]);
-const _sfc_main$u = {};
-function _sfc_ssrRender$s(_ctx, _push, _parent, _attrs) {
-  const _component_NuxtLink = __nuxt_component_0$6;
-  const _component_Card = __nuxt_component_4$3;
+const __nuxt_component_4$1 = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["ssrRender", _sfc_ssrRender$p]]);
+const _sfc_main$q = {};
+function _sfc_ssrRender$o(_ctx, _push, _parent, _attrs) {
+  const _component_NuxtLink = __nuxt_component_0$5;
+  const _component_Card = __nuxt_component_4$1;
   _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, vue_cjs_prod.mergeProps({ to: "/articles/slug" }, _attrs), {
     default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
@@ -3476,14 +3997,14 @@ function _sfc_ssrRender$s(_ctx, _push, _parent, _attrs) {
     _: 1
   }, _parent));
 }
-const _sfc_setup$u = _sfc_main$u.setup;
-_sfc_main$u.setup = (props, ctx) => {
+const _sfc_setup$q = _sfc_main$q.setup;
+_sfc_main$q.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Articles/Thumbnails/Big.vue");
-  return _sfc_setup$u ? _sfc_setup$u(props, ctx) : void 0;
+  return _sfc_setup$q ? _sfc_setup$q(props, ctx) : void 0;
 };
-const __nuxt_component_0$4 = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["ssrRender", _sfc_ssrRender$s]]);
-const _sfc_main$t = {
+const __nuxt_component_0$3 = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["ssrRender", _sfc_ssrRender$o]]);
+const _sfc_main$p = {
   props: {
     superSmall: {
       type: Boolean,
@@ -3491,9 +4012,9 @@ const _sfc_main$t = {
     }
   }
 };
-function _sfc_ssrRender$r(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_NuxtLink = __nuxt_component_0$6;
-  const _component_Card = __nuxt_component_4$3;
+function _sfc_ssrRender$n(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_NuxtLink = __nuxt_component_0$5;
+  const _component_Card = __nuxt_component_4$1;
   _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, vue_cjs_prod.mergeProps({ to: "/articles/slug" }, _attrs), {
     default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
@@ -3541,116 +4062,22 @@ function _sfc_ssrRender$r(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     _: 1
   }, _parent));
 }
-const _sfc_setup$t = _sfc_main$t.setup;
-_sfc_main$t.setup = (props, ctx) => {
+const _sfc_setup$p = _sfc_main$p.setup;
+_sfc_main$p.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Articles/Thumbnails/Small.vue");
-  return _sfc_setup$t ? _sfc_setup$t(props, ctx) : void 0;
+  return _sfc_setup$p ? _sfc_setup$p(props, ctx) : void 0;
 };
-const __nuxt_component_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["ssrRender", _sfc_ssrRender$r]]);
-const _sfc_main$s = {
-  data: () => ({
-    btnColors: {
-      transparent: "bg-transparent shadow-none",
-      primary: "bg-primary-500 hover:bg-primary-400 text-white",
-      secondary: "bg-secondary-500 hover:bg-secondary-600 text-black",
-      white: "bg-white hover:bg-gray-100 text-black",
-      blurple: "bg-blurple text-white",
-      yellow: "bg-yellow-500 text-white hover:bg-white hover:text-black",
-      disabled: "bg-gray-200 text-black opacity-50"
-    }
-  }),
-  props: {
-    color: {
-      type: String,
-      default: "secondary"
-    },
-    text: {
-      type: String,
-      required: true
-    },
-    icon: {
-      type: String
-    },
-    small: {
-      type: Boolean,
-      default: false
-    },
-    centerText: {
-      type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    colors() {
-      return this.btnColors[this.color];
-    }
-  }
-};
-function _sfc_ssrRender$q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<button${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({
-    class: ["rounded-full font-medium text-base flex items-center shadow-xl ease-in duration-300", [$options.colors, $props.small ? "px-6 py-4" : "px-8 py-4", $props.centerText && "justify-center"]]
-  }, _attrs))}>`);
-  serverRenderer.exports.ssrRenderSlot(_ctx.$slots, "icon_left", {}, null, _push, _parent);
-  _push(`<span class="${serverRenderer.exports.ssrRenderClass(["whitespace-pre-line", $props.centerText ? "text-center" : "text-left"])}">${serverRenderer.exports.ssrInterpolate($props.text)}</span>`);
-  serverRenderer.exports.ssrRenderSlot(_ctx.$slots, "icon_right", {}, null, _push, _parent);
-  serverRenderer.exports.ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
-  _push(`</button>`);
-}
-const _sfc_setup$s = _sfc_main$s.setup;
-_sfc_main$s.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Button.vue");
-  return _sfc_setup$s ? _sfc_setup$s(props, ctx) : void 0;
-};
-const __nuxt_component_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["ssrRender", _sfc_ssrRender$q]]);
-const meta$b = void 0;
-const axios = axios$1.create({
-  baseURL: "https://api.umaestro.fr/"
-});
-const meta$a = {
+const __nuxt_component_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["ssrRender", _sfc_ssrRender$n]]);
+const meta$c = void 0;
+const meta$b = {
   layout: "empty"
 };
-const _sfc_main$r = {
-  props: {
-    modelValue: {
-      type: [String, Number],
-      default: ""
-    },
-    placeholder: {
-      type: String,
-      default: ""
-    },
-    big: {
-      type: Boolean,
-      default: false
-    },
-    white: {
-      type: Boolean,
-      default: false
-    }
-  },
-  methods: {
-    handleInput(e) {
-      this.$emit("update:modelValue", e.target.value);
-      this.$emit("change", e.target.value);
-    }
-  }
-};
-function _sfc_ssrRender$p(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}><input${serverRenderer.exports.ssrRenderAttr("placeholder", $props.placeholder)} type="text" class="${serverRenderer.exports.ssrRenderClass([[$props.big ? "px-6 py-5 text-md" : "px-6 py-4 text-sm", $props.white ? "bg-white text-black" : "bg-transparent focus:bg-white dark:focus:bg-dark-800 border-dark-800 focus:border-primary-500"], "text-sm w-full border focus:outline-none rounded-lg"])}"${serverRenderer.exports.ssrRenderAttr("value", $props.modelValue)}></div>`);
-}
-const _sfc_setup$r = _sfc_main$r.setup;
-_sfc_main$r.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Input.vue");
-  return _sfc_setup$r ? _sfc_setup$r(props, ctx) : void 0;
-};
-const __nuxt_component_4$2 = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["ssrRender", _sfc_ssrRender$p]]);
-const meta$9 = {
+const meta$a = {
   layout: "footer"
 };
-const _sfc_main$q = {
+const meta$9 = void 0;
+const _sfc_main$o = {
   __name: "Slider",
   __ssrInlineRender: true,
   props: { barStyle: Object, duration: { type: String, default: "12s" }, direction: { type: String, default: "normal" }, delay: { type: String, default: "0s" } },
@@ -3672,13 +4099,13 @@ const _sfc_main$q = {
     };
   }
 };
-const _sfc_setup$q = _sfc_main$q.setup;
-_sfc_main$q.setup = (props, ctx) => {
+const _sfc_setup$o = _sfc_main$o.setup;
+_sfc_main$o.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Slider.vue");
-  return _sfc_setup$q ? _sfc_setup$q(props, ctx) : void 0;
+  return _sfc_setup$o ? _sfc_setup$o(props, ctx) : void 0;
 };
-const __nuxt_component_2$2 = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["__scopeId", "data-v-57332792"]]);
+const __nuxt_component_2$2 = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["__scopeId", "data-v-57332792"]]);
 const __nuxt_component_9 = vue_cjs_prod.defineComponent({
   name: "ClientOnly",
   props: ["fallback", "placeholder", "placeholderTag", "fallbackTag"],
@@ -3700,7 +4127,7 @@ const __nuxt_component_9 = vue_cjs_prod.defineComponent({
   }
 });
 const meta$8 = void 0;
-const _sfc_main$p = {
+const _sfc_main$n = {
   data: () => ({ Icons }),
   props: {
     icon: {
@@ -3716,140 +4143,19 @@ const _sfc_main$p = {
     }
   }
 };
-function _sfc_ssrRender$o(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "text-center" }, _attrs))}>`);
-  serverRenderer.exports.ssrRenderVNode(_push, vue_cjs_prod.createVNode(vue_cjs_prod.resolveDynamicComponent(_ctx.Icons[$props.icon]), { class: "mx-auto w-8 h-8 mb-4" }, null), _parent);
-  _push(`<div class="text-lg">${serverRenderer.exports.ssrInterpolate($props.name)}</div><div class="font-semibold text-2xl">${serverRenderer.exports.ssrInterpolate($props.value)}</div></div>`);
-}
-const _sfc_setup$p = _sfc_main$p.setup;
-_sfc_main$p.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Stat.vue");
-  return _sfc_setup$p ? _sfc_setup$p(props, ctx) : void 0;
-};
-const __nuxt_component_2$1 = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["ssrRender", _sfc_ssrRender$o]]);
-const _sfc_main$o = {
-  props: {
-    feature: {
-      type: Object,
-      required: true
-    }
-  }
-};
-function _sfc_ssrRender$n(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "flex gap-6" }, _attrs))}><div><div class="${serverRenderer.exports.ssrRenderClass(`rounded-3xl ${$props.feature.color} p-5 shadow-lg w-20 h-20 text-white`)}">`);
-  serverRenderer.exports.ssrRenderVNode(_push, vue_cjs_prod.createVNode(vue_cjs_prod.resolveDynamicComponent($props.feature.icon), { class: "w-10 h-10" }, null), _parent);
-  _push(`</div></div><div class="flex flex-col justify-center gap-1"><div class="font-semibold leading-relaxed">${serverRenderer.exports.ssrInterpolate($props.feature.name)}</div><div class="max-w-xl">${serverRenderer.exports.ssrInterpolate($props.feature.description)}</div></div></div>`);
-}
-const _sfc_setup$o = _sfc_main$o.setup;
-_sfc_main$o.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Features/Item.vue");
-  return _sfc_setup$o ? _sfc_setup$o(props, ctx) : void 0;
-};
-const __nuxt_component_0$3 = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["ssrRender", _sfc_ssrRender$n]]);
-const _sfc_main$n = {
-  data() {
-    return {
-      features: [
-        {
-          color: "bg-green-500",
-          icon: CubeIcon,
-          name: "Outils",
-          description: "Nous sommes fier de pouvoir vous offrir des outils vous facilitant la gestion de votre projet"
-        },
-        {
-          color: "bg-primary-500",
-          icon: HeartIcon,
-          name: "Moyens",
-          description: "Notre site d\xE9velopp\xE9 par nos \xE9quipes vous donnes les moyens et connaissances n\xE9cessaires pour vous am\xE9liorer"
-        },
-        {
-          color: "bg-red-500",
-          icon: EyeIcon,
-          name: "Visibilit\xE9",
-          description: "En plus d'outils et de connaissances, nous vous mettons en avant d\xE8s que votre travail le m\xE9rite"
-        }
-      ]
-    };
-  }
-};
 function _sfc_ssrRender$m(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_FeaturesItem = __nuxt_component_0$3;
-  _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "flex flex-col gap-8" }, _attrs))}><!--[-->`);
-  serverRenderer.exports.ssrRenderList($data.features, (feature, index) => {
-    _push(serverRenderer.exports.ssrRenderComponent(_component_FeaturesItem, {
-      key: index,
-      feature
-    }, null, _parent));
-  });
-  _push(`<!--]--></div>`);
+  _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "text-center" }, _attrs))}>`);
+  serverRenderer.exports.ssrRenderVNode(_push, vue_cjs_prod.createVNode(vue_cjs_prod.resolveDynamicComponent(_ctx.Icons[$props.icon]), { class: "mx-auto w-12 h-12 mb-4" }, null), _parent);
+  _push(`<div class="font-extrabold text-2xl">${serverRenderer.exports.ssrInterpolate($props.value)}</div><div class="text-lg">${serverRenderer.exports.ssrInterpolate($props.name)}</div></div>`);
 }
 const _sfc_setup$n = _sfc_main$n.setup;
 _sfc_main$n.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Features/List.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Stat.vue");
   return _sfc_setup$n ? _sfc_setup$n(props, ctx) : void 0;
 };
-const __nuxt_component_3$3 = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["ssrRender", _sfc_ssrRender$m]]);
+const __nuxt_component_2$1 = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["ssrRender", _sfc_ssrRender$m]]);
 const _sfc_main$m = {
-  props: {
-    category: {
-      type: Object,
-      required: true
-    }
-  }
-};
-function _sfc_ssrRender$l(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_NuxtLink = __nuxt_component_0$6;
-  _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, vue_cjs_prod.mergeProps({
-    to: `/tools/${$props.category.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`,
-    class: [`rounded-xl shadow-xl min-w-[10rem] cursor-pointer`, $props.category.disabled ? "p-5 opacity-25" : "p-6 transition ease-in duration-200 hover:shadow-2xl hover:-translate-y-1"],
-    style: `background-color: ${$props.category.color}`
-  }, _attrs), {
-    default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`<div class="${serverRenderer.exports.ssrRenderClass(["rounded-full bg-white", $props.category.disabled ? "p-2 w-10 h-10" : "p-4 w-16 h-16"])}" style="${serverRenderer.exports.ssrRenderStyle(`color: ${$props.category.color}`)}"${_scopeId}>`);
-        if (typeof $props.category.icon === "string") {
-          _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", `/icons/${$props.category.icon}`)} class="${serverRenderer.exports.ssrRenderClass([$props.category.disabled ? "w-6 h-6" : "w-8 h-8"])}"${_scopeId}>`);
-        } else {
-          serverRenderer.exports.ssrRenderVNode(_push2, vue_cjs_prod.createVNode(vue_cjs_prod.resolveDynamicComponent($props.category.icon), {
-            class: [$props.category.disabled ? "w-6 h-6" : "w-8 h-8"]
-          }, null), _parent2, _scopeId);
-        }
-        _push2(`</div><div class="${serverRenderer.exports.ssrRenderClass(["text-white font-semibold", $props.category.disabled ? "text-sm mt-2" : "mt-4"])}"${_scopeId}>${serverRenderer.exports.ssrInterpolate($props.category.name)}</div>`);
-      } else {
-        return [
-          vue_cjs_prod.createVNode("div", {
-            class: ["rounded-full bg-white", $props.category.disabled ? "p-2 w-10 h-10" : "p-4 w-16 h-16"],
-            style: `color: ${$props.category.color}`
-          }, [
-            typeof $props.category.icon === "string" ? (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("img", {
-              key: 0,
-              src: `/icons/${$props.category.icon}`,
-              class: [$props.category.disabled ? "w-6 h-6" : "w-8 h-8"]
-            }, null, 10, ["src"])) : (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock(vue_cjs_prod.resolveDynamicComponent($props.category.icon), {
-              key: 1,
-              class: [$props.category.disabled ? "w-6 h-6" : "w-8 h-8"]
-            }, null, 8, ["class"]))
-          ], 6),
-          vue_cjs_prod.createVNode("div", {
-            class: ["text-white font-semibold", $props.category.disabled ? "text-sm mt-2" : "mt-4"]
-          }, vue_cjs_prod.toDisplayString($props.category.name), 3)
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-}
-const _sfc_setup$m = _sfc_main$m.setup;
-_sfc_main$m.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/CategoryCard.vue");
-  return _sfc_setup$m ? _sfc_setup$m(props, ctx) : void 0;
-};
-const __nuxt_component_4$1 = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["ssrRender", _sfc_ssrRender$l]]);
-const _sfc_main$l = {
   props: {
     color: {
       type: String,
@@ -3857,20 +4163,20 @@ const _sfc_main$l = {
     }
   }
 };
-function _sfc_ssrRender$k(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$l(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<svg${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({
     viewBox: "0 0 21 20",
     xmlns: "http://www.w3.org/2000/svg"
   }, _attrs))}><path${serverRenderer.exports.ssrRenderAttr("fill", $props.color)} d="M20 8.09994C20.1 7.59994 19.7 6.99994 19.2 6.99994L13.5 6.19994L10.9 0.999938C10.8 0.799938 10.7 0.699938 10.5 0.599938C10 0.299938 9.4 0.499938 9.1 0.999938L6.6 6.19994L0.9 6.99994C0.6 6.99994 0.4 7.09994 0.3 7.29994C-0.1 7.69994 -0.1 8.29994 0.3 8.69994L4.4 12.6999L3.4 18.3999C3.4 18.5999 3.4 18.7999 3.5 18.9999C3.8 19.4999 4.4 19.6999 4.9 19.3999L10 16.6999L15.1 19.3999C15.2 19.4999 15.4 19.4999 15.6 19.4999C15.7 19.4999 15.7 19.4999 15.8 19.4999C16.3 19.3999 16.7 18.8999 16.6 18.2999L15.6 12.5999L19.7 8.59994C19.9 8.49994 20 8.29994 20 8.09994Z"></path></svg>`);
 }
-const _sfc_setup$l = _sfc_main$l.setup;
-_sfc_main$l.setup = (props, ctx) => {
+const _sfc_setup$m = _sfc_main$m.setup;
+_sfc_main$m.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Star.vue");
-  return _sfc_setup$l ? _sfc_setup$l(props, ctx) : void 0;
+  return _sfc_setup$m ? _sfc_setup$m(props, ctx) : void 0;
 };
-const __nuxt_component_1 = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["ssrRender", _sfc_ssrRender$k]]);
-const _sfc_main$k = {
+const __nuxt_component_1 = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["ssrRender", _sfc_ssrRender$l]]);
+const _sfc_main$l = {
   props: {
     rate: {
       type: Object,
@@ -3878,10 +4184,10 @@ const _sfc_main$k = {
     }
   }
 };
-function _sfc_ssrRender$j(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$k(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   var _a, _b, _c, _d;
   const _component_Star = __nuxt_component_1;
-  _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "bg-white dark:bg-dark-800 rounded-2xl shadow-sm p-8" }, _attrs))}><div class="flex gap-2 items-center font-medium"><img${serverRenderer.exports.ssrRenderAttr("src", (_b = (_a = $props.rate) == null ? void 0 : _a.author) == null ? void 0 : _b.avatar)} class="w-8 h-8 rounded-full mr-2" alt="Avatar"> ${serverRenderer.exports.ssrInterpolate((_d = (_c = $props.rate) == null ? void 0 : _c.author) == null ? void 0 : _d.username)} <span>-</span><div class="flex items-center gap-1"><!--[-->`);
+  _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "bg-white dark:bg-dark-900 rounded-2xl shadow-sm p-8" }, _attrs))}><div class="flex gap-2 items-center font-medium"><img${serverRenderer.exports.ssrRenderAttr("src", ((_b = (_a = $props.rate) == null ? void 0 : _a.author) == null ? void 0 : _b.avatar) || "/default_avatar.svg")} class="w-8 h-8 rounded-full mr-2" alt="Avatar"> ${serverRenderer.exports.ssrInterpolate(((_d = (_c = $props.rate) == null ? void 0 : _c.author) == null ? void 0 : _d.username) || "Utilisateur supprim\xE9")} <span>-</span><div class="flex items-center gap-1"><!--[-->`);
   serverRenderer.exports.ssrRenderList(5, (i) => {
     _push(serverRenderer.exports.ssrRenderComponent(_component_Star, {
       class: "w-6",
@@ -3891,19 +4197,552 @@ function _sfc_ssrRender$j(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   });
   _push(`<!--]--></div></div><p class="text-gray-800 dark:text-gray-300 mt-4">${serverRenderer.exports.ssrInterpolate($props.rate.message)}</p><span class="block mt-4 text-sm text-gray-400">le ${serverRenderer.exports.ssrInterpolate(new Date($props.rate.created_at).toLocaleDateString("fr-FR"))}</span></div>`);
 }
+const _sfc_setup$l = _sfc_main$l.setup;
+_sfc_main$l.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Testimonial.vue");
+  return _sfc_setup$l ? _sfc_setup$l(props, ctx) : void 0;
+};
+const __nuxt_component_3$2 = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["ssrRender", _sfc_ssrRender$k]]);
+const _sfc_main$k = {
+  props: {
+    tool: {
+      type: Object,
+      default: {
+        name: "Unknown",
+        description: "No",
+        uuid: "badges_discord"
+      }
+    }
+  }
+};
+function _sfc_ssrRender$j(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({
+    class: "relative transition ease-in duration-200 hover:-translate-y-4",
+    id: "card"
+  }, _attrs))}><img class="rounded-3xl w-full shadow-lg"${serverRenderer.exports.ssrRenderAttr("src", `/tools/${$props.tool.uuid}_${_ctx.$colorMode.value}.png`)}><div class="absolute rounded-3xl top-0 left-0 bg-gradient-to-t from-dark-950 to-dark-400 dark:to-dark-800 opacity-80 backdrop-blur-md h-full w-full flex flex-col justify-end p-8 gap-2"><div class="text-2xl font-semibold text-white">${serverRenderer.exports.ssrInterpolate($props.tool.name)}</div><div class="text-lg text-white">${serverRenderer.exports.ssrInterpolate($props.tool.description)}</div></div></div>`);
+}
 const _sfc_setup$k = _sfc_main$k.setup;
 _sfc_main$k.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Testimonial.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/DefaultCard.vue");
   return _sfc_setup$k ? _sfc_setup$k(props, ctx) : void 0;
 };
-const __nuxt_component_3$2 = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["ssrRender", _sfc_ssrRender$j]]);
+const __nuxt_component_0$2 = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["ssrRender", _sfc_ssrRender$j]]);
+const _sfc_main$j = {
+  name: "Badges"
+};
+function _sfc_ssrRender$i(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_ToolsDefaultCard = __nuxt_component_0$2;
+  _push(serverRenderer.exports.ssrRenderComponent(_component_ToolsDefaultCard, vue_cjs_prod.mergeProps({ tool: {
+    name: "Cr\xE9ateur de badges",
+    description: "Cr\xE9\xE9e les icones de tes r\xF4les Discord",
+    uuid: "badges_discord"
+  } }, _attrs), null, _parent));
+}
+const _sfc_setup$j = _sfc_main$j.setup;
+_sfc_main$j.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Cards/Badges.vue");
+  return _sfc_setup$j ? _sfc_setup$j(props, ctx) : void 0;
+};
+const Badges = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["ssrRender", _sfc_ssrRender$i]]);
+const _sfc_main$i = {
+  name: "Bots"
+};
+function _sfc_ssrRender$h(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_ToolsDefaultCard = __nuxt_component_0$2;
+  _push(serverRenderer.exports.ssrRenderComponent(_component_ToolsDefaultCard, vue_cjs_prod.mergeProps({ tool: {
+    name: "R\xE9f\xE9rencement de bots",
+    description: "R\xE9f\xE9rence ton bot",
+    uuid: "bots_discord"
+  } }, _attrs), null, _parent));
+}
+const _sfc_setup$i = _sfc_main$i.setup;
+_sfc_main$i.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Cards/Bots.vue");
+  return _sfc_setup$i ? _sfc_setup$i(props, ctx) : void 0;
+};
+const Bots = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["ssrRender", _sfc_ssrRender$h]]);
+const _sfc_main$h = {
+  name: "Embed"
+};
+function _sfc_ssrRender$g(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_ToolsDefaultCard = __nuxt_component_0$2;
+  _push(serverRenderer.exports.ssrRenderComponent(_component_ToolsDefaultCard, vue_cjs_prod.mergeProps({ tool: {
+    name: "Cr\xE9ateur d'embeds",
+    description: "Cr\xE9\xE9e et envoie tes embeds sur ton serveur Discord",
+    uuid: "embed_discord"
+  } }, _attrs), null, _parent));
+}
+const _sfc_setup$h = _sfc_main$h.setup;
+_sfc_main$h.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Cards/Embed.vue");
+  return _sfc_setup$h ? _sfc_setup$h(props, ctx) : void 0;
+};
+const Embed = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["ssrRender", _sfc_ssrRender$g]]);
+const _sfc_main$g = {
+  name: "Emojis"
+};
+function _sfc_ssrRender$f(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_ToolsDefaultCard = __nuxt_component_0$2;
+  _push(serverRenderer.exports.ssrRenderComponent(_component_ToolsDefaultCard, vue_cjs_prod.mergeProps({ tool: {
+    name: "R\xE9f\xE9rencement d'emojis",
+    description: "R\xE9f\xE9rence ton emoji",
+    uuid: "emojis_discord"
+  } }, _attrs), null, _parent));
+}
+const _sfc_setup$g = _sfc_main$g.setup;
+_sfc_main$g.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Cards/Emojis.vue");
+  return _sfc_setup$g ? _sfc_setup$g(props, ctx) : void 0;
+};
+const Emojis = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["ssrRender", _sfc_ssrRender$f]]);
 const meta$7 = void 0;
 const meta$6 = void 0;
 const meta$5 = void 0;
+const _sfc_main$f = {
+  components: {
+    LightBulbIcon,
+    Menu: fe$1,
+    MenuButton: me,
+    MenuItems: pe,
+    MenuItem: ve,
+    TransitionRoot: fe,
+    TransitionChild: oe,
+    Dialog: Ae,
+    DialogPanel: Le,
+    DialogTitle: We
+  },
+  data: () => ({
+    isOpen: false,
+    suggestion: "-",
+    errors: []
+  }),
+  methods: {
+    async sendSuggestion() {
+      try {
+        await axios2.post("/suggestions", {
+          content: this.suggestion
+        }, {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token")
+          }
+        });
+      } catch (e) {
+        this.errors = e.response.data.errors.map((error) => error.message);
+      }
+    }
+  }
+};
+function _sfc_ssrRender$e(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_Button = __nuxt_component_1$2;
+  const _component_LightBulbIcon = vue_cjs_prod.resolveComponent("LightBulbIcon");
+  const _component_TransitionRoot = vue_cjs_prod.resolveComponent("TransitionRoot");
+  const _component_Dialog = vue_cjs_prod.resolveComponent("Dialog");
+  const _component_TransitionChild = vue_cjs_prod.resolveComponent("TransitionChild");
+  const _component_DialogPanel = vue_cjs_prod.resolveComponent("DialogPanel");
+  const _component_DialogTitle = vue_cjs_prod.resolveComponent("DialogTitle");
+  const _component_Input = __nuxt_component_4$2;
+  _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}>`);
+  _push(serverRenderer.exports.ssrRenderComponent(_component_Button, {
+    class: "mx-auto",
+    text: "Faire une suggestion",
+    color: "white",
+    onClick: ($event) => _ctx.isOpen = true
+  }, {
+    icon_left: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(serverRenderer.exports.ssrRenderComponent(_component_LightBulbIcon, { class: "mr-3 w-8 h-8" }, null, _parent2, _scopeId));
+      } else {
+        return [
+          vue_cjs_prod.createVNode(_component_LightBulbIcon, { class: "mr-3 w-8 h-8" })
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
+  _push(serverRenderer.exports.ssrRenderComponent(_component_TransitionRoot, {
+    appear: "",
+    show: _ctx.isOpen,
+    as: "template"
+  }, {
+    default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(serverRenderer.exports.ssrRenderComponent(_component_Dialog, {
+          as: "div",
+          onClose: ($event) => _ctx.isOpen = false,
+          class: "relative z-10"
+        }, {
+          default: vue_cjs_prod.withCtx((_2, _push3, _parent3, _scopeId2) => {
+            if (_push3) {
+              _push3(serverRenderer.exports.ssrRenderComponent(_component_TransitionChild, {
+                as: "template",
+                enter: "duration-300 ease-out",
+                "enter-from": "opacity-0",
+                "enter-to": "opacity-100",
+                leave: "duration-200 ease-in",
+                "leave-from": "opacity-100",
+                "leave-to": "opacity-0"
+              }, {
+                default: vue_cjs_prod.withCtx((_3, _push4, _parent4, _scopeId3) => {
+                  if (_push4) {
+                    _push4(`<div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm"${_scopeId3}></div>`);
+                  } else {
+                    return [
+                      vue_cjs_prod.createVNode("div", { class: "fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm" })
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent3, _scopeId2));
+              _push3(`<div class="fixed inset-0 overflow-y-auto"${_scopeId2}><div class="flex min-h-full items-center justify-center p-4 text-center"${_scopeId2}>`);
+              _push3(serverRenderer.exports.ssrRenderComponent(_component_TransitionChild, {
+                as: "template",
+                enter: "duration-300 ease-out",
+                "enter-from": "opacity-0 scale-95",
+                "enter-to": "opacity-100 scale-100",
+                leave: "duration-200 ease-in",
+                "leave-from": "opacity-100 scale-100",
+                "leave-to": "opacity-0 scale-95"
+              }, {
+                default: vue_cjs_prod.withCtx((_3, _push4, _parent4, _scopeId3) => {
+                  if (_push4) {
+                    _push4(serverRenderer.exports.ssrRenderComponent(_component_DialogPanel, { class: "w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-dark-900 p-6 text-left align-middle shadow-xl transition-all" }, {
+                      default: vue_cjs_prod.withCtx((_4, _push5, _parent5, _scopeId4) => {
+                        if (_push5) {
+                          _push5(serverRenderer.exports.ssrRenderComponent(_component_DialogTitle, {
+                            as: "h3",
+                            class: "text-lg font-medium leading-6 text-gray-900 dark:text-white"
+                          }, {
+                            default: vue_cjs_prod.withCtx((_5, _push6, _parent6, _scopeId5) => {
+                              if (_push6) {
+                                _push6(` Cr\xE9er une suggestion `);
+                              } else {
+                                return [
+                                  vue_cjs_prod.createTextVNode(" Cr\xE9er une suggestion ")
+                                ];
+                              }
+                            }),
+                            _: 1
+                          }, _parent5, _scopeId4));
+                          _push5(`<div class="mt-2"${_scopeId4}>`);
+                          _push5(serverRenderer.exports.ssrRenderComponent(_component_Input, {
+                            class: "mt-4",
+                            placeholder: "Entrez votre suggestion...",
+                            modelValue: _ctx.suggestion,
+                            "onUpdate:modelValue": ($event) => _ctx.suggestion = $event
+                          }, null, _parent5, _scopeId4));
+                          _push5(`<!--[-->`);
+                          serverRenderer.exports.ssrRenderList(_ctx.errors, (error, id) => {
+                            _push5(`<div class="text-red-400 text-sm mt-1 mb-4"${_scopeId4}><i${_scopeId4}>${serverRenderer.exports.ssrInterpolate(error)}</i></div>`);
+                          });
+                          _push5(`<!--]--><p class="text-sm text-gray-500 mt-2 leading-loose"${_scopeId4}> Ta suggestion sera envoy\xE9e sur le serveur Discord dans le salon <span class="bg-dark-800 rounded-md p-1"${_scopeId4}>#suggestions</span></p></div><div class="flex gap-2 items-center mt-4 justify-end"${_scopeId4}>`);
+                          _push5(serverRenderer.exports.ssrRenderComponent(_component_Button, {
+                            color: "transparent",
+                            text: "Annuler",
+                            onClick: ($event) => _ctx.isOpen = false
+                          }, null, _parent5, _scopeId4));
+                          _push5(serverRenderer.exports.ssrRenderComponent(_component_Button, {
+                            color: "primary",
+                            text: "Envoyer ma suggestion",
+                            onClick: $options.sendSuggestion
+                          }, null, _parent5, _scopeId4));
+                          _push5(`</div>`);
+                        } else {
+                          return [
+                            vue_cjs_prod.createVNode(_component_DialogTitle, {
+                              as: "h3",
+                              class: "text-lg font-medium leading-6 text-gray-900 dark:text-white"
+                            }, {
+                              default: vue_cjs_prod.withCtx(() => [
+                                vue_cjs_prod.createTextVNode(" Cr\xE9er une suggestion ")
+                              ]),
+                              _: 1
+                            }),
+                            vue_cjs_prod.createVNode("div", { class: "mt-2" }, [
+                              vue_cjs_prod.createVNode(_component_Input, {
+                                class: "mt-4",
+                                placeholder: "Entrez votre suggestion...",
+                                modelValue: _ctx.suggestion,
+                                "onUpdate:modelValue": ($event) => _ctx.suggestion = $event
+                              }, null, 8, ["modelValue", "onUpdate:modelValue"]),
+                              (vue_cjs_prod.openBlock(true), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList(_ctx.errors, (error, id) => {
+                                return vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("div", {
+                                  class: "text-red-400 text-sm mt-1 mb-4",
+                                  key: id
+                                }, [
+                                  vue_cjs_prod.createVNode("i", null, vue_cjs_prod.toDisplayString(error), 1)
+                                ]);
+                              }), 128)),
+                              vue_cjs_prod.createVNode("p", { class: "text-sm text-gray-500 mt-2 leading-loose" }, [
+                                vue_cjs_prod.createTextVNode(" Ta suggestion sera envoy\xE9e sur le serveur Discord dans le salon "),
+                                vue_cjs_prod.createVNode("span", { class: "bg-dark-800 rounded-md p-1" }, "#suggestions")
+                              ])
+                            ]),
+                            vue_cjs_prod.createVNode("div", { class: "flex gap-2 items-center mt-4 justify-end" }, [
+                              vue_cjs_prod.createVNode(_component_Button, {
+                                color: "transparent",
+                                text: "Annuler",
+                                onClick: ($event) => _ctx.isOpen = false
+                              }, null, 8, ["onClick"]),
+                              vue_cjs_prod.createVNode(_component_Button, {
+                                color: "primary",
+                                text: "Envoyer ma suggestion",
+                                onClick: $options.sendSuggestion
+                              }, null, 8, ["onClick"])
+                            ])
+                          ];
+                        }
+                      }),
+                      _: 1
+                    }, _parent4, _scopeId3));
+                  } else {
+                    return [
+                      vue_cjs_prod.createVNode(_component_DialogPanel, { class: "w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-dark-900 p-6 text-left align-middle shadow-xl transition-all" }, {
+                        default: vue_cjs_prod.withCtx(() => [
+                          vue_cjs_prod.createVNode(_component_DialogTitle, {
+                            as: "h3",
+                            class: "text-lg font-medium leading-6 text-gray-900 dark:text-white"
+                          }, {
+                            default: vue_cjs_prod.withCtx(() => [
+                              vue_cjs_prod.createTextVNode(" Cr\xE9er une suggestion ")
+                            ]),
+                            _: 1
+                          }),
+                          vue_cjs_prod.createVNode("div", { class: "mt-2" }, [
+                            vue_cjs_prod.createVNode(_component_Input, {
+                              class: "mt-4",
+                              placeholder: "Entrez votre suggestion...",
+                              modelValue: _ctx.suggestion,
+                              "onUpdate:modelValue": ($event) => _ctx.suggestion = $event
+                            }, null, 8, ["modelValue", "onUpdate:modelValue"]),
+                            (vue_cjs_prod.openBlock(true), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList(_ctx.errors, (error, id) => {
+                              return vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("div", {
+                                class: "text-red-400 text-sm mt-1 mb-4",
+                                key: id
+                              }, [
+                                vue_cjs_prod.createVNode("i", null, vue_cjs_prod.toDisplayString(error), 1)
+                              ]);
+                            }), 128)),
+                            vue_cjs_prod.createVNode("p", { class: "text-sm text-gray-500 mt-2 leading-loose" }, [
+                              vue_cjs_prod.createTextVNode(" Ta suggestion sera envoy\xE9e sur le serveur Discord dans le salon "),
+                              vue_cjs_prod.createVNode("span", { class: "bg-dark-800 rounded-md p-1" }, "#suggestions")
+                            ])
+                          ]),
+                          vue_cjs_prod.createVNode("div", { class: "flex gap-2 items-center mt-4 justify-end" }, [
+                            vue_cjs_prod.createVNode(_component_Button, {
+                              color: "transparent",
+                              text: "Annuler",
+                              onClick: ($event) => _ctx.isOpen = false
+                            }, null, 8, ["onClick"]),
+                            vue_cjs_prod.createVNode(_component_Button, {
+                              color: "primary",
+                              text: "Envoyer ma suggestion",
+                              onClick: $options.sendSuggestion
+                            }, null, 8, ["onClick"])
+                          ])
+                        ]),
+                        _: 1
+                      })
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent3, _scopeId2));
+              _push3(`</div></div>`);
+            } else {
+              return [
+                vue_cjs_prod.createVNode(_component_TransitionChild, {
+                  as: "template",
+                  enter: "duration-300 ease-out",
+                  "enter-from": "opacity-0",
+                  "enter-to": "opacity-100",
+                  leave: "duration-200 ease-in",
+                  "leave-from": "opacity-100",
+                  "leave-to": "opacity-0"
+                }, {
+                  default: vue_cjs_prod.withCtx(() => [
+                    vue_cjs_prod.createVNode("div", { class: "fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm" })
+                  ]),
+                  _: 1
+                }),
+                vue_cjs_prod.createVNode("div", { class: "fixed inset-0 overflow-y-auto" }, [
+                  vue_cjs_prod.createVNode("div", { class: "flex min-h-full items-center justify-center p-4 text-center" }, [
+                    vue_cjs_prod.createVNode(_component_TransitionChild, {
+                      as: "template",
+                      enter: "duration-300 ease-out",
+                      "enter-from": "opacity-0 scale-95",
+                      "enter-to": "opacity-100 scale-100",
+                      leave: "duration-200 ease-in",
+                      "leave-from": "opacity-100 scale-100",
+                      "leave-to": "opacity-0 scale-95"
+                    }, {
+                      default: vue_cjs_prod.withCtx(() => [
+                        vue_cjs_prod.createVNode(_component_DialogPanel, { class: "w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-dark-900 p-6 text-left align-middle shadow-xl transition-all" }, {
+                          default: vue_cjs_prod.withCtx(() => [
+                            vue_cjs_prod.createVNode(_component_DialogTitle, {
+                              as: "h3",
+                              class: "text-lg font-medium leading-6 text-gray-900 dark:text-white"
+                            }, {
+                              default: vue_cjs_prod.withCtx(() => [
+                                vue_cjs_prod.createTextVNode(" Cr\xE9er une suggestion ")
+                              ]),
+                              _: 1
+                            }),
+                            vue_cjs_prod.createVNode("div", { class: "mt-2" }, [
+                              vue_cjs_prod.createVNode(_component_Input, {
+                                class: "mt-4",
+                                placeholder: "Entrez votre suggestion...",
+                                modelValue: _ctx.suggestion,
+                                "onUpdate:modelValue": ($event) => _ctx.suggestion = $event
+                              }, null, 8, ["modelValue", "onUpdate:modelValue"]),
+                              (vue_cjs_prod.openBlock(true), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList(_ctx.errors, (error, id) => {
+                                return vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("div", {
+                                  class: "text-red-400 text-sm mt-1 mb-4",
+                                  key: id
+                                }, [
+                                  vue_cjs_prod.createVNode("i", null, vue_cjs_prod.toDisplayString(error), 1)
+                                ]);
+                              }), 128)),
+                              vue_cjs_prod.createVNode("p", { class: "text-sm text-gray-500 mt-2 leading-loose" }, [
+                                vue_cjs_prod.createTextVNode(" Ta suggestion sera envoy\xE9e sur le serveur Discord dans le salon "),
+                                vue_cjs_prod.createVNode("span", { class: "bg-dark-800 rounded-md p-1" }, "#suggestions")
+                              ])
+                            ]),
+                            vue_cjs_prod.createVNode("div", { class: "flex gap-2 items-center mt-4 justify-end" }, [
+                              vue_cjs_prod.createVNode(_component_Button, {
+                                color: "transparent",
+                                text: "Annuler",
+                                onClick: ($event) => _ctx.isOpen = false
+                              }, null, 8, ["onClick"]),
+                              vue_cjs_prod.createVNode(_component_Button, {
+                                color: "primary",
+                                text: "Envoyer ma suggestion",
+                                onClick: $options.sendSuggestion
+                              }, null, 8, ["onClick"])
+                            ])
+                          ]),
+                          _: 1
+                        })
+                      ]),
+                      _: 1
+                    })
+                  ])
+                ])
+              ];
+            }
+          }),
+          _: 1
+        }, _parent2, _scopeId));
+      } else {
+        return [
+          vue_cjs_prod.createVNode(_component_Dialog, {
+            as: "div",
+            onClose: ($event) => _ctx.isOpen = false,
+            class: "relative z-10"
+          }, {
+            default: vue_cjs_prod.withCtx(() => [
+              vue_cjs_prod.createVNode(_component_TransitionChild, {
+                as: "template",
+                enter: "duration-300 ease-out",
+                "enter-from": "opacity-0",
+                "enter-to": "opacity-100",
+                leave: "duration-200 ease-in",
+                "leave-from": "opacity-100",
+                "leave-to": "opacity-0"
+              }, {
+                default: vue_cjs_prod.withCtx(() => [
+                  vue_cjs_prod.createVNode("div", { class: "fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm" })
+                ]),
+                _: 1
+              }),
+              vue_cjs_prod.createVNode("div", { class: "fixed inset-0 overflow-y-auto" }, [
+                vue_cjs_prod.createVNode("div", { class: "flex min-h-full items-center justify-center p-4 text-center" }, [
+                  vue_cjs_prod.createVNode(_component_TransitionChild, {
+                    as: "template",
+                    enter: "duration-300 ease-out",
+                    "enter-from": "opacity-0 scale-95",
+                    "enter-to": "opacity-100 scale-100",
+                    leave: "duration-200 ease-in",
+                    "leave-from": "opacity-100 scale-100",
+                    "leave-to": "opacity-0 scale-95"
+                  }, {
+                    default: vue_cjs_prod.withCtx(() => [
+                      vue_cjs_prod.createVNode(_component_DialogPanel, { class: "w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-dark-900 p-6 text-left align-middle shadow-xl transition-all" }, {
+                        default: vue_cjs_prod.withCtx(() => [
+                          vue_cjs_prod.createVNode(_component_DialogTitle, {
+                            as: "h3",
+                            class: "text-lg font-medium leading-6 text-gray-900 dark:text-white"
+                          }, {
+                            default: vue_cjs_prod.withCtx(() => [
+                              vue_cjs_prod.createTextVNode(" Cr\xE9er une suggestion ")
+                            ]),
+                            _: 1
+                          }),
+                          vue_cjs_prod.createVNode("div", { class: "mt-2" }, [
+                            vue_cjs_prod.createVNode(_component_Input, {
+                              class: "mt-4",
+                              placeholder: "Entrez votre suggestion...",
+                              modelValue: _ctx.suggestion,
+                              "onUpdate:modelValue": ($event) => _ctx.suggestion = $event
+                            }, null, 8, ["modelValue", "onUpdate:modelValue"]),
+                            (vue_cjs_prod.openBlock(true), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList(_ctx.errors, (error, id) => {
+                              return vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("div", {
+                                class: "text-red-400 text-sm mt-1 mb-4",
+                                key: id
+                              }, [
+                                vue_cjs_prod.createVNode("i", null, vue_cjs_prod.toDisplayString(error), 1)
+                              ]);
+                            }), 128)),
+                            vue_cjs_prod.createVNode("p", { class: "text-sm text-gray-500 mt-2 leading-loose" }, [
+                              vue_cjs_prod.createTextVNode(" Ta suggestion sera envoy\xE9e sur le serveur Discord dans le salon "),
+                              vue_cjs_prod.createVNode("span", { class: "bg-dark-800 rounded-md p-1" }, "#suggestions")
+                            ])
+                          ]),
+                          vue_cjs_prod.createVNode("div", { class: "flex gap-2 items-center mt-4 justify-end" }, [
+                            vue_cjs_prod.createVNode(_component_Button, {
+                              color: "transparent",
+                              text: "Annuler",
+                              onClick: ($event) => _ctx.isOpen = false
+                            }, null, 8, ["onClick"]),
+                            vue_cjs_prod.createVNode(_component_Button, {
+                              color: "primary",
+                              text: "Envoyer ma suggestion",
+                              onClick: $options.sendSuggestion
+                            }, null, 8, ["onClick"])
+                          ])
+                        ]),
+                        _: 1
+                      })
+                    ]),
+                    _: 1
+                  })
+                ])
+              ])
+            ]),
+            _: 1
+          }, 8, ["onClose"])
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
+  _push(`</div>`);
+}
+const _sfc_setup$f = _sfc_main$f.setup;
+_sfc_main$f.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/SuggestionButton.vue");
+  return _sfc_setup$f ? _sfc_setup$f(props, ctx) : void 0;
+};
+const __nuxt_component_6$2 = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["ssrRender", _sfc_ssrRender$e]]);
 const meta$4 = void 0;
-const _sfc_main$j = {};
-function _sfc_ssrRender$i(_ctx, _push, _parent, _attrs) {
+const _sfc_main$e = {};
+function _sfc_ssrRender$d(_ctx, _push, _parent, _attrs) {
   _push(`<header${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "py-48 relative text-white overflow-hidden" }, _attrs))}><div class="absolute top-full -translate-y-full w-full h-full bg-[#5C6AF6] -z-10"></div><div class="absolute left-1/2 -translate-x-1/2 top-full -translate-y-full w-1/2 rounded-full h-full -z-1" style="${serverRenderer.exports.ssrRenderStyle({ "background": "radial-gradient(50% 50% at 50% 50%, #5664F9 70.83%, transparent 100%)" })}"></div><svg id="squares" class="absolute -top-48 -left-12 rotate-12 min-h-screen h-[90rem] w-screen scale-125 -z-10"><!--[-->`);
   serverRenderer.exports.ssrRenderList(16, (n) => {
     _push(`<g><!--[-->`);
@@ -3916,15 +4755,15 @@ function _sfc_ssrRender$i(_ctx, _push, _parent, _attrs) {
   serverRenderer.exports.ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
   _push(`</div><div class="absolute top-0 w-full h-52" style="${serverRenderer.exports.ssrRenderStyle({ "background": "linear-gradient(to bottom, #5865F6, transparent)" })}"></div><div class="absolute top-full -translate-y-full w-full h-52" style="${serverRenderer.exports.ssrRenderStyle({ "background": "linear-gradient(to top, #5865F6, transparent)" })}"></div></header>`);
 }
-const _sfc_setup$j = _sfc_main$j.setup;
-_sfc_main$j.setup = (props, ctx) => {
+const _sfc_setup$e = _sfc_main$e.setup;
+_sfc_main$e.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Header.vue");
-  return _sfc_setup$j ? _sfc_setup$j(props, ctx) : void 0;
+  return _sfc_setup$e ? _sfc_setup$e(props, ctx) : void 0;
 };
-const __nuxt_component_0$2 = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["ssrRender", _sfc_ssrRender$i]]);
+const __nuxt_component_0$1 = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["ssrRender", _sfc_ssrRender$d]]);
 const _imports_0 = "" + globalThis.__publicAssetsURL("objects/sad.png");
-const _sfc_main$i = {
+const _sfc_main$d = {
   props: {
     text: {
       type: String,
@@ -3932,280 +4771,18 @@ const _sfc_main$i = {
     }
   }
 };
-function _sfc_ssrRender$h(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$c(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}><img class="w-12 h-12 mx-auto mb-4"${serverRenderer.exports.ssrRenderAttr("src", _imports_0)}><div class="text-sm mx-auto text-center max-w-xs leading-6">${serverRenderer.exports.ssrInterpolate($props.text)}</div>`);
   serverRenderer.exports.ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
   _push(`</div>`);
 }
-const _sfc_setup$i = _sfc_main$i.setup;
-_sfc_main$i.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Empty.vue");
-  return _sfc_setup$i ? _sfc_setup$i(props, ctx) : void 0;
-};
-const __nuxt_component_5$1 = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["ssrRender", _sfc_ssrRender$h]]);
-const _sfc_main$h = {
-  computed: {
-    name() {
-      var _a;
-      return (_a = tools[this.$parent.$options.name]) != null ? _a : "Nom inconnu";
-    }
-  }
-};
-function _sfc_ssrRender$g(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_Card = __nuxt_component_4$3;
-  _push(serverRenderer.exports.ssrRenderComponent(_component_Card, vue_cjs_prod.mergeProps({ color: false }, _attrs), {
-    default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`<div class="p-8 text-white flex flex-col"${_scopeId}><div class="font-semibold text-lg text-center"${_scopeId}>${serverRenderer.exports.ssrInterpolate($options.name)}</div><div class="bg-dark-900 text-4xl mt-5 rounded-3xl text-justify p-4 leading-loose h-full" style="${serverRenderer.exports.ssrRenderStyle({ "text-align-last": "center" })}"${_scopeId}>`);
-        serverRenderer.exports.ssrRenderSlot(_ctx.$slots, "illustration", {}, null, _push2, _parent2, _scopeId);
-        _push2(`</div></div>`);
-      } else {
-        return [
-          vue_cjs_prod.createVNode("div", { class: "p-8 text-white flex flex-col" }, [
-            vue_cjs_prod.createVNode("div", { class: "font-semibold text-lg text-center" }, vue_cjs_prod.toDisplayString($options.name), 1),
-            vue_cjs_prod.createVNode("div", {
-              class: "bg-dark-900 text-4xl mt-5 rounded-3xl text-justify p-4 leading-loose h-full",
-              style: { "text-align-last": "center" }
-            }, [
-              vue_cjs_prod.renderSlot(_ctx.$slots, "illustration")
-            ])
-          ])
-        ];
-      }
-    }),
-    _: 3
-  }, _parent));
-}
-const _sfc_setup$h = _sfc_main$h.setup;
-_sfc_main$h.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/DefaultCard.vue");
-  return _sfc_setup$h ? _sfc_setup$h(props, ctx) : void 0;
-};
-const __nuxt_component_0$1 = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["ssrRender", _sfc_ssrRender$g]]);
-const _sfc_main$g = {
-  name: "Badges"
-};
-function _sfc_ssrRender$f(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_ToolsDefaultCard = __nuxt_component_0$1;
-  _push(serverRenderer.exports.ssrRenderComponent(_component_ToolsDefaultCard, vue_cjs_prod.mergeProps({ class: "bg-teal-500" }, _attrs), {
-    illustration: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`<div class="grid grid-cols-2 gap-4 h-full"${_scopeId}><div class="flex flex-col justify-between gap-4"${_scopeId}><div class="bg-dark-800 rounded-2xl p-4 flex flex-wrap gap-2"${_scopeId}><!--[-->`);
-        serverRenderer.exports.ssrRenderList(4, (i) => {
-          _push2(`<div class="w-8 h-8 bg-dark-700 rounded-xl"${_scopeId}></div>`);
-        });
-        _push2(`<!--]--></div><div class="bg-dark-800 rounded-2xl p-4 flex flex-wrap gap-2 h-full"${_scopeId}><!--[-->`);
-        serverRenderer.exports.ssrRenderList(8, (i) => {
-          _push2(`<div class="w-8 h-8 bg-dark-700 rounded-xl"${_scopeId}></div>`);
-        });
-        _push2(`<!--]--></div></div><div class="flex flex-col justify-between gap-4"${_scopeId}><div class="bg-dark-800 rounded-2xl p-4 flex flex-wrap gap-2"${_scopeId}><div class="bg-red-500 p-4 w-full rounded-2xl"${_scopeId}></div><div class="bg-white p-4 w-full rounded-2xl"${_scopeId}></div></div><div class="bg-dark-800 rounded-2xl p-4 flex flex-wrap gap-2 h-full"${_scopeId}><div class="mx-auto relative"${_scopeId}><div class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 bg-red-500 w-12 h-12 rounded-2xl -rotate-45"${_scopeId}></div><div class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 bg-white w-8 h-8 rounded-full"${_scopeId}></div></div></div></div></div>`);
-      } else {
-        return [
-          vue_cjs_prod.createVNode("div", { class: "grid grid-cols-2 gap-4 h-full" }, [
-            vue_cjs_prod.createVNode("div", { class: "flex flex-col justify-between gap-4" }, [
-              vue_cjs_prod.createVNode("div", { class: "bg-dark-800 rounded-2xl p-4 flex flex-wrap gap-2" }, [
-                (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList(4, (i) => {
-                  return vue_cjs_prod.createVNode("div", {
-                    key: i,
-                    class: "w-8 h-8 bg-dark-700 rounded-xl"
-                  });
-                }), 64))
-              ]),
-              vue_cjs_prod.createVNode("div", { class: "bg-dark-800 rounded-2xl p-4 flex flex-wrap gap-2 h-full" }, [
-                (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList(8, (i) => {
-                  return vue_cjs_prod.createVNode("div", {
-                    key: i,
-                    class: "w-8 h-8 bg-dark-700 rounded-xl"
-                  });
-                }), 64))
-              ])
-            ]),
-            vue_cjs_prod.createVNode("div", { class: "flex flex-col justify-between gap-4" }, [
-              vue_cjs_prod.createVNode("div", { class: "bg-dark-800 rounded-2xl p-4 flex flex-wrap gap-2" }, [
-                vue_cjs_prod.createVNode("div", { class: "bg-red-500 p-4 w-full rounded-2xl" }),
-                vue_cjs_prod.createVNode("div", { class: "bg-white p-4 w-full rounded-2xl" })
-              ]),
-              vue_cjs_prod.createVNode("div", { class: "bg-dark-800 rounded-2xl p-4 flex flex-wrap gap-2 h-full" }, [
-                vue_cjs_prod.createVNode("div", { class: "mx-auto relative" }, [
-                  vue_cjs_prod.createVNode("div", { class: "absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 bg-red-500 w-12 h-12 rounded-2xl -rotate-45" }),
-                  vue_cjs_prod.createVNode("div", { class: "absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 bg-white w-8 h-8 rounded-full" })
-                ])
-              ])
-            ])
-          ])
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-}
-const _sfc_setup$g = _sfc_main$g.setup;
-_sfc_main$g.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Cards/Badges.vue");
-  return _sfc_setup$g ? _sfc_setup$g(props, ctx) : void 0;
-};
-const Badges = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["ssrRender", _sfc_ssrRender$f]]);
-const _sfc_main$f = {
-  name: "Bots"
-};
-function _sfc_ssrRender$e(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_ToolsDefaultCard = __nuxt_component_0$1;
-  _push(serverRenderer.exports.ssrRenderComponent(_component_ToolsDefaultCard, vue_cjs_prod.mergeProps({ class: "bg-blurple" }, _attrs), {
-    illustration: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`<div class="grid grid-cols-2 gap-4"${_scopeId}><!--[-->`);
-        serverRenderer.exports.ssrRenderList(2, (i) => {
-          _push2(`<div${_scopeId}><header class="${serverRenderer.exports.ssrRenderClass([[i == 1 ? "bg-teal-500" : "bg-blurple"], "h-12 rounded-t-2xl p-6 relative shadow-xl"])}"${_scopeId}><div class="${serverRenderer.exports.ssrRenderClass([[i == 1 ? "bg-teal-500" : "bg-blurple"], "absolute top-1/2 w-12 h-12 rounded-3xl border-4 border-dark-800"])}"${_scopeId}></div></header><div class="bg-dark-800 p-6 rounded-b-2xl shadow-xl"${_scopeId}><main${_scopeId}><div class="bg-dark-700 w-full mt-4 h-4 rounded-md"${_scopeId}></div><div class="bg-dark-700 w-3/4 mt-4 h-2 rounded-md"${_scopeId}></div><div class="bg-dark-700 w-3/4 mt-2 h-2 rounded-md"${_scopeId}></div></main><footer class="flex flex-wrap gap-2 mt-4"${_scopeId}><div class="w-24 h-4 bg-primary-500 bg-opacity-25 rounded-md"${_scopeId}></div></footer></div></div>`);
-        });
-        _push2(`<!--]--></div>`);
-      } else {
-        return [
-          vue_cjs_prod.createVNode("div", { class: "grid grid-cols-2 gap-4" }, [
-            (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList(2, (i) => {
-              return vue_cjs_prod.createVNode("div", { key: i }, [
-                vue_cjs_prod.createVNode("header", {
-                  class: [[i == 1 ? "bg-teal-500" : "bg-blurple"], "h-12 rounded-t-2xl p-6 relative shadow-xl"]
-                }, [
-                  vue_cjs_prod.createVNode("div", {
-                    class: [[i == 1 ? "bg-teal-500" : "bg-blurple"], "absolute top-1/2 w-12 h-12 rounded-3xl border-4 border-dark-800"]
-                  }, null, 2)
-                ], 2),
-                vue_cjs_prod.createVNode("div", { class: "bg-dark-800 p-6 rounded-b-2xl shadow-xl" }, [
-                  vue_cjs_prod.createVNode("main", null, [
-                    vue_cjs_prod.createVNode("div", { class: "bg-dark-700 w-full mt-4 h-4 rounded-md" }),
-                    vue_cjs_prod.createVNode("div", { class: "bg-dark-700 w-3/4 mt-4 h-2 rounded-md" }),
-                    vue_cjs_prod.createVNode("div", { class: "bg-dark-700 w-3/4 mt-2 h-2 rounded-md" })
-                  ]),
-                  vue_cjs_prod.createVNode("footer", { class: "flex flex-wrap gap-2 mt-4" }, [
-                    vue_cjs_prod.createVNode("div", { class: "w-24 h-4 bg-primary-500 bg-opacity-25 rounded-md" })
-                  ])
-                ])
-              ]);
-            }), 64))
-          ])
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-}
-const _sfc_setup$f = _sfc_main$f.setup;
-_sfc_main$f.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Cards/Bots.vue");
-  return _sfc_setup$f ? _sfc_setup$f(props, ctx) : void 0;
-};
-const Bots = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["ssrRender", _sfc_ssrRender$e]]);
-const _sfc_main$e = {
-  name: "Embed"
-};
-function _sfc_ssrRender$d(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_ToolsDefaultCard = __nuxt_component_0$1;
-  _push(serverRenderer.exports.ssrRenderComponent(_component_ToolsDefaultCard, vue_cjs_prod.mergeProps({ class: "bg-red-500" }, _attrs), {
-    illustration: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`<div class="flex gap-3 p-3"${_scopeId}><div${_scopeId}><div class="bg-blurple w-10 h-10 rounded-full"${_scopeId}></div></div><div class="w-full"${_scopeId}><div class="flex items-end gap-2 w-full"${_scopeId}><div class="bg-dark-700 w-1/3 h-4 rounded-sm"${_scopeId}></div><div class="bg-blurple w-8 h-4 rounded-sm"${_scopeId}></div><div class="bg-dark-800 w-24 h-3 rounded-sm"${_scopeId}></div></div><div class="mt-3 flex flex-col gap-1"${_scopeId}><div class="bg-dark-800 w-full h-2 rounded-sm"${_scopeId}></div><div class="bg-dark-800 w-1/3 h-2 rounded-sm"${_scopeId}></div><div class="bg-dark-800 w-3/4 h-2 rounded-sm"${_scopeId}></div><div class="bg-dark-800 border-l-2 border-blurple px-2 py-2 rounded-md mt-1"${_scopeId}><div class="flex justify-between gap-4"${_scopeId}><div class="flex flex-col gap-1 w-full"${_scopeId}><div class="bg-dark-700 w-full h-2 rounded-sm"${_scopeId}></div><div class="bg-dark-700 w-3/4 h-2 rounded-sm"${_scopeId}></div><div class="bg-dark-700 w-full h-2 rounded-sm"${_scopeId}></div><div class="bg-dark-700 w-1/2 h-2 rounded-sm"${_scopeId}></div></div><div class="w-3/4 h-12 rounded-md bg-dark-700"${_scopeId}></div></div></div></div></div></div>`);
-      } else {
-        return [
-          vue_cjs_prod.createVNode("div", { class: "flex gap-3 p-3" }, [
-            vue_cjs_prod.createVNode("div", null, [
-              vue_cjs_prod.createVNode("div", { class: "bg-blurple w-10 h-10 rounded-full" })
-            ]),
-            vue_cjs_prod.createVNode("div", { class: "w-full" }, [
-              vue_cjs_prod.createVNode("div", { class: "flex items-end gap-2 w-full" }, [
-                vue_cjs_prod.createVNode("div", { class: "bg-dark-700 w-1/3 h-4 rounded-sm" }),
-                vue_cjs_prod.createVNode("div", { class: "bg-blurple w-8 h-4 rounded-sm" }),
-                vue_cjs_prod.createVNode("div", { class: "bg-dark-800 w-24 h-3 rounded-sm" })
-              ]),
-              vue_cjs_prod.createVNode("div", { class: "mt-3 flex flex-col gap-1" }, [
-                vue_cjs_prod.createVNode("div", { class: "bg-dark-800 w-full h-2 rounded-sm" }),
-                vue_cjs_prod.createVNode("div", { class: "bg-dark-800 w-1/3 h-2 rounded-sm" }),
-                vue_cjs_prod.createVNode("div", { class: "bg-dark-800 w-3/4 h-2 rounded-sm" }),
-                vue_cjs_prod.createVNode("div", { class: "bg-dark-800 border-l-2 border-blurple px-2 py-2 rounded-md mt-1" }, [
-                  vue_cjs_prod.createVNode("div", { class: "flex justify-between gap-4" }, [
-                    vue_cjs_prod.createVNode("div", { class: "flex flex-col gap-1 w-full" }, [
-                      vue_cjs_prod.createVNode("div", { class: "bg-dark-700 w-full h-2 rounded-sm" }),
-                      vue_cjs_prod.createVNode("div", { class: "bg-dark-700 w-3/4 h-2 rounded-sm" }),
-                      vue_cjs_prod.createVNode("div", { class: "bg-dark-700 w-full h-2 rounded-sm" }),
-                      vue_cjs_prod.createVNode("div", { class: "bg-dark-700 w-1/2 h-2 rounded-sm" })
-                    ]),
-                    vue_cjs_prod.createVNode("div", { class: "w-3/4 h-12 rounded-md bg-dark-700" })
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-}
-const _sfc_setup$e = _sfc_main$e.setup;
-_sfc_main$e.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Cards/Embed.vue");
-  return _sfc_setup$e ? _sfc_setup$e(props, ctx) : void 0;
-};
-const Embed = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["ssrRender", _sfc_ssrRender$d]]);
-const _sfc_main$d = {
-  name: "Emojis"
-};
-function _sfc_ssrRender$c(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_ToolsDefaultCard = __nuxt_component_0$1;
-  _push(serverRenderer.exports.ssrRenderComponent(_component_ToolsDefaultCard, vue_cjs_prod.mergeProps({ class: "bg-black" }, _attrs), {
-    illustration: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(` \u{1F635}\u{1F620}\u{1F633}\u{1F621}\u{1F630}\u{1F62E}\u200D\u{1F4A8}\u{1F627}\u{1F47F}\u{1F43B}\u200D\u2744\uFE0F\u{1F42B}\u{1F416}\u{1F98C}\uFE0F\u{1F995}\u{1F41E} `);
-      } else {
-        return [
-          vue_cjs_prod.createTextVNode(" \u{1F635}\u{1F620}\u{1F633}\u{1F621}\u{1F630}\u{1F62E}\u200D\u{1F4A8}\u{1F627}\u{1F47F}\u{1F43B}\u200D\u2744\uFE0F\u{1F42B}\u{1F416}\u{1F98C}\uFE0F\u{1F995}\u{1F41E} ")
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-}
 const _sfc_setup$d = _sfc_main$d.setup;
 _sfc_main$d.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Cards/Emojis.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Empty.vue");
   return _sfc_setup$d ? _sfc_setup$d(props, ctx) : void 0;
 };
-const Emojis = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["ssrRender", _sfc_ssrRender$c]]);
-const modules = {
-  "discord": {
-    "color": "#5865F2",
-    "icon": "discord.svg"
-  }
-};
-const useModule = (module) => {
-  return modules[module];
-};
-const tools = {
-  Badges: "Cr\xE9ateur de badges",
-  Bots: "R\xE9f\xE9rencement de bots",
-  Embed: "Cr\xE9ateur d'embeds",
-  Emojis: "R\xE9f\xE9rencement d'emojis"
-};
-const allCards = {
-  Badges,
-  Bots,
-  Emojis,
-  Embed
-};
-const useTool = (name) => {
-  axios.post("statistics", {
-    tool: name
-  }, {
-    headers: {
-      "Authorization": `Bearer ${localStorage.getItem("access_token")}`
-    }
-  });
-};
+const __nuxt_component_5$1 = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["ssrRender", _sfc_ssrRender$c]]);
 const meta$3 = void 0;
 const _sfc_main$c = {};
 function _sfc_ssrRender$b(_ctx, _push, _parent, _attrs) {
@@ -4385,7 +4962,7 @@ const _sfc_main$7 = {
   }
 };
 function _sfc_ssrRender$6(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}><textarea${serverRenderer.exports.ssrRenderAttr("placeholder", $props.placeholder)} type="text" class="${serverRenderer.exports.ssrRenderClass([$props.big ? "px-6 py-5 text-md" : "px-6 py-4 text-sm", "text-sm w-full bg-transparent focus:bg-white dark:focus:bg-dark-800 border border-dark-800 focus:outline-none focus:border-primary-500 rounded-lg"])}">${serverRenderer.exports.ssrInterpolate($props.modelValue)}</textarea></div>`);
+  _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}><textarea${serverRenderer.exports.ssrRenderAttr("placeholder", $props.placeholder)} type="text" class="${serverRenderer.exports.ssrRenderClass([$props.big ? "px-6 py-5 text-md" : "px-6 py-4 text-sm", "text-sm w-full bg-transparent focus:bg-white dark:focus:bg-dark-900 border border-dark-900 focus:outline-none focus:border-primary-500 rounded-lg"])}">${serverRenderer.exports.ssrInterpolate($props.modelValue)}</textarea></div>`);
 }
 const _sfc_setup$7 = _sfc_main$7.setup;
 _sfc_main$7.setup = (props, ctx) => {
@@ -4862,40 +5439,58 @@ const __nuxt_component_11 = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["ssrRende
 const meta = void 0;
 const routes = [
   {
+    name: "account",
+    path: "/account",
+    file: "C:/laragon/www/maeyourdiscord/frontend/pages/account/index.vue",
+    children: [],
+    meta: meta$e,
+    alias: (meta$e == null ? void 0 : meta$e.alias) || [],
+    component: () => import('./index.f53b551a.mjs').then((m) => m.default || m)
+  },
+  {
     name: "articles-slug",
     path: "/articles/:slug",
     file: "C:/laragon/www/maeyourdiscord/frontend/pages/articles/[slug].vue",
     children: [],
-    meta: meta$c,
+    meta: meta$d,
     alias: [],
-    component: () => import('./_slug_.cb2ea0dc.mjs').then((m) => m.default || m)
+    component: () => import('./_slug_.25689ed0.mjs').then((m) => m.default || m)
   },
   {
     name: "articles",
     path: "/articles",
     file: "C:/laragon/www/maeyourdiscord/frontend/pages/articles/index.vue",
     children: [],
-    meta: meta$b,
+    meta: meta$c,
     alias: [],
-    component: () => import('./index.9c21981c.mjs').then((m) => m.default || m)
+    component: () => import('./index.5d396450.mjs').then((m) => m.default || m)
   },
   {
     name: "authentification-callback",
     path: "/authentification/callback",
     file: "C:/laragon/www/maeyourdiscord/frontend/pages/authentification/callback.vue",
     children: [],
-    meta: meta$a,
-    alias: (meta$a == null ? void 0 : meta$a.alias) || [],
-    component: () => import('./callback.e5192b98.mjs').then((m) => m.default || m)
+    meta: meta$b,
+    alias: (meta$b == null ? void 0 : meta$b.alias) || [],
+    component: () => import('./callback.e3c9df12.mjs').then((m) => m.default || m)
   },
   {
     name: "authentification",
     path: "/authentification",
     file: "C:/laragon/www/maeyourdiscord/frontend/pages/authentification/index.vue",
     children: [],
+    meta: meta$a,
+    alias: (meta$a == null ? void 0 : meta$a.alias) || [],
+    component: () => import('./index.275e282c.mjs').then((m) => m.default || m)
+  },
+  {
+    name: "cgu",
+    path: "/cgu",
+    file: "C:/laragon/www/maeyourdiscord/frontend/pages/cgu.vue",
+    children: [],
     meta: meta$9,
-    alias: (meta$9 == null ? void 0 : meta$9.alias) || [],
-    component: () => import('./index.a97a381b.mjs').then((m) => m.default || m)
+    alias: [],
+    component: () => import('./cgu.2893a761.mjs').then((m) => m.default || m)
   },
   {
     name: "hire",
@@ -4904,7 +5499,7 @@ const routes = [
     children: [],
     meta: meta$8,
     alias: [],
-    component: () => import('./hire.6a848841.mjs').then((m) => m.default || m)
+    component: () => import('./hire.18ece5b0.mjs').then((m) => m.default || m)
   },
   {
     name: "index",
@@ -4913,7 +5508,7 @@ const routes = [
     children: [],
     meta: meta$7,
     alias: [],
-    component: () => import('./index.d1cfb0d6.mjs').then((m) => m.default || m)
+    component: () => import('./index.c673fd9e.mjs').then((m) => m.default || m)
   },
   {
     name: "partners",
@@ -4922,7 +5517,7 @@ const routes = [
     children: [],
     meta: meta$6,
     alias: [],
-    component: () => import('./partners.e47bbc15.mjs').then((m) => m.default || m)
+    component: () => import('./partners.b4dab42e.mjs').then((m) => m.default || m)
   },
   {
     name: "rates",
@@ -4931,7 +5526,7 @@ const routes = [
     children: [],
     meta: meta$5,
     alias: [],
-    component: () => import('./rates.6ee104ea.mjs').then((m) => m.default || m)
+    component: () => import('./rates.f6049dea.mjs').then((m) => m.default || m)
   },
   {
     name: "tools-404",
@@ -4940,7 +5535,7 @@ const routes = [
     children: [],
     meta: meta$4,
     alias: [],
-    component: () => import('./404.490814bb.mjs').then((m) => m.default || m)
+    component: () => import('./404.c7d2a80f.mjs').then((m) => m.default || m)
   },
   {
     name: "tools-slug",
@@ -4949,7 +5544,7 @@ const routes = [
     children: [],
     meta: meta$3,
     alias: [],
-    component: () => import('./index.aa4a586a.mjs').then((m) => m.default || m)
+    component: () => import('./index.0ba597d2.mjs').then((m) => m.default || m)
   },
   {
     name: "tools-bots",
@@ -4958,7 +5553,7 @@ const routes = [
     children: [],
     meta: meta$2,
     alias: [],
-    component: () => import('./bots.2732373d.mjs').then((m) => m.default || m)
+    component: () => import('./bots.f569facc.mjs').then((m) => m.default || m)
   },
   {
     name: "tools-discord-badges",
@@ -4967,7 +5562,7 @@ const routes = [
     children: [],
     meta: meta$1,
     alias: [],
-    component: () => import('./badges.1720986f.mjs').then((m) => m.default || m)
+    component: () => import('./badges.633a02a4.mjs').then((m) => m.default || m)
   },
   {
     name: "tools-discord-embed",
@@ -4976,7 +5571,7 @@ const routes = [
     children: [],
     meta,
     alias: [],
-    component: () => import('./embed.0fdba9d4.mjs').then((m) => m.default || m)
+    component: () => import('./embed.f8d21bb1.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -4998,7 +5593,9 @@ const routerOptions = {
   ...routerOptions0
 };
 const globalMiddleware = [];
-const namedMiddleware = {};
+const namedMiddleware = {
+  auth: () => import('./auth.4908d073.mjs')
+};
 const node_modules_nuxt_dist_pages_runtime_router_mjs_qNv5Ky2ZmB = defineNuxtPlugin(async (nuxtApp) => {
   let __temp, __restore;
   nuxtApp.vueApp.component("NuxtPage", NuxtPage);
@@ -5120,6 +5717,19 @@ const node_modules_nuxt_dist_pages_runtime_router_mjs_qNv5Ky2ZmB = defineNuxtPlu
   });
   return { provide: { router } };
 });
+const node_modules__64pinia_nuxt_dist_runtime_plugin_vue3_mjs_A0OWXRrUgq = defineNuxtPlugin((nuxtApp) => {
+  const pinia = createPinia();
+  nuxtApp.vueApp.use(pinia);
+  setActivePinia(pinia);
+  {
+    nuxtApp.payload.pinia = pinia.state.value;
+  }
+  return {
+    provide: {
+      pinia
+    }
+  };
+});
 const preference = "system";
 const script = 'const w=window,de=document.documentElement,knownColorSchemes=["dark","light"],preference=window.localStorage.getItem("color_theme")||"system";let value=preference==="system"?getColorScheme():preference;const forcedColorMode=de.getAttribute("data-color-mode-forced");forcedColorMode&&(value=forcedColorMode),addColorScheme(value),w["__NUXT_COLOR_MODE__"]={preference,value,getColorScheme,addColorScheme,removeColorScheme};function addColorScheme(e){const o=""+e+"",t="";de.classList?de.classList.add(o):de.className+=" "+o,de.setAttribute("data-"+t,e)}function removeColorScheme(e){const o=""+e+"",t="";de.classList?de.classList.remove(o):de.className=de.className.replace(new RegExp(o,"g"),""),de.removeAttribute("data-"+t)}function prefersColorScheme(e){return w.matchMedia("(prefers-color-scheme"+e+")")}function getColorScheme(){if(w.matchMedia&&prefersColorScheme("").media!=="not all"){for(const e of knownColorSchemes)if(prefersColorScheme(":"+e).matches)return e}return"light"}\n';
 const node_modules__64nuxtjs_color_mode_dist_runtime_plugin_server_mjs_XNCxeHyTuP = defineNuxtPlugin((nuxtApp) => {
@@ -5153,13 +5763,14 @@ const _plugins = [
   node_modules_nuxt_dist_head_runtime_lib_vueuse_head_plugin_mjs_D7WGfuP1A0,
   node_modules_nuxt_dist_head_runtime_plugin_mjs_1QO0gqa6n2,
   node_modules_nuxt_dist_pages_runtime_router_mjs_qNv5Ky2ZmB,
+  node_modules__64pinia_nuxt_dist_runtime_plugin_vue3_mjs_A0OWXRrUgq,
   node_modules__64nuxtjs_color_mode_dist_runtime_plugin_server_mjs_XNCxeHyTuP
 ];
 const _sfc_main$1 = {
   __name: "nuxt-root",
   __ssrInlineRender: true,
   setup(__props) {
-    const ErrorComponent = vue_cjs_prod.defineAsyncComponent(() => import('./error-component.20ed56f4.mjs'));
+    const ErrorComponent = vue_cjs_prod.defineAsyncComponent(() => import('./error-component.23d4eced.mjs'));
     const nuxtApp = useNuxtApp();
     vue_cjs_prod.provide("_route", useRoute());
     nuxtApp.hooks.callHookWith((hooks) => hooks.map((hook) => hook()), "vue:setup");
@@ -5192,9 +5803,9 @@ _sfc_main$1.setup = (props, ctx) => {
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
 const layouts = {
-  default: vue_cjs_prod.defineAsyncComponent(() => import('./default.ccc452ac.mjs')),
-  empty: vue_cjs_prod.defineAsyncComponent(() => import('./empty.7db09cb1.mjs')),
-  footer: vue_cjs_prod.defineAsyncComponent(() => import('./footer.9cb7a8a5.mjs'))
+  default: vue_cjs_prod.defineAsyncComponent(() => import('./default.d70ce6ce.mjs')),
+  empty: vue_cjs_prod.defineAsyncComponent(() => import('./empty.d94d7764.mjs')),
+  footer: vue_cjs_prod.defineAsyncComponent(() => import('./footer.a393f306.mjs'))
 };
 const defaultLayoutTransition = { name: "layout", mode: "out-in" };
 const __nuxt_component_0 = vue_cjs_prod.defineComponent({
@@ -5268,43 +5879,44 @@ const entry$1 = (ctx) => entry(ctx);
 
 const server = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  A: __nuxt_component_10,
-  B: __nuxt_component_6$1,
-  C: __nuxt_component_3,
-  D: __nuxt_component_5,
-  E: __nuxt_component_6,
+  A: __nuxt_component_3,
+  B: Badges,
+  C: __nuxt_component_5,
+  D: __nuxt_component_6,
+  E: Emojis,
   F: __nuxt_component_7,
   G: __nuxt_component_8,
   H: __nuxt_component_11,
+  I: defineNuxtRouteMiddleware,
   _: _export_sfc,
-  a: __nuxt_component_0$5,
-  b: __nuxt_component_0$4,
+  a: axios2,
+  b: __nuxt_component_4$2,
   c: __nuxt_component_1$2,
-  d: __nuxt_component_1$1,
+  d: __nuxt_component_0$5,
   'default': entry$1,
-  e: axios,
-  f: __nuxt_component_0$6,
-  g: __nuxt_component_4$2,
-  h: __nuxt_component_2$2,
-  i: __nuxt_component_9,
-  j: __nuxt_component_4$3,
-  k: __nuxt_component_2$1,
-  l: __nuxt_component_3$3,
-  m: __nuxt_component_4$1,
-  n: __nuxt_component_3$2,
-  o: useNuxtApp,
-  p: __nuxt_component_1,
-  q: allCards,
-  r: useModule,
-  s: __nuxt_component_0$2,
-  t: tools,
-  u: useHead,
+  e: __nuxt_component_0$4,
+  f: __nuxt_component_0$3,
+  g: __nuxt_component_1$1,
+  h: useHead,
+  i: __nuxt_component_2$2,
+  j: __nuxt_component_9,
+  k: __nuxt_component_4$1,
+  l: __nuxt_component_2$1,
+  m: __nuxt_component_3$2,
+  n: useNuxtApp,
+  o: Bots,
+  p: Embed,
+  q: __nuxt_component_1,
+  r: __nuxt_component_6$2,
+  s: __nuxt_component_0$1,
+  t: __nuxt_component_5$1,
+  u: useAuthStore,
   v: vue_cjs_prod,
-  w: __nuxt_component_5$1,
-  x: __nuxt_component_2,
-  y: useTool,
-  z: __nuxt_component_3$1
+  w: __nuxt_component_2,
+  x: __nuxt_component_3$1,
+  y: __nuxt_component_10,
+  z: __nuxt_component_6$1
 });
 
-export { allCards as A, useModule as B, tools as C, __nuxt_component_0$2 as D, __nuxt_component_5$1 as E, __nuxt_component_2 as F, useTool as G, __nuxt_component_3$1 as H, __nuxt_component_10 as I, __nuxt_component_6$1 as J, __nuxt_component_3 as K, __nuxt_component_5 as L, __nuxt_component_6 as M, N, O, P$2 as P, __nuxt_component_7 as Q, R, S, __nuxt_component_8 as T, __nuxt_component_11 as U, server as V, Y, _export_sfc as _, __nuxt_component_0$5 as a, __nuxt_component_0$4 as b, __nuxt_component_1$2 as c, __nuxt_component_1$1 as d, axios as e, __nuxt_component_0$6 as f, __nuxt_component_4$2 as g, __nuxt_component_2$2 as h, __nuxt_component_9 as i, __nuxt_component_4$3 as j, __nuxt_component_2$1 as k, __nuxt_component_3$3 as l, __nuxt_component_4$1 as m, __nuxt_component_3$2 as n, useNuxtApp as o, __nuxt_component_1 as p, u$2 as q, m as r, p$2 as s, o as t, useHead as u, vue_cjs_prod as v, P$1 as w, t as x, b$1 as y, o$1 as z };
+export { Ae as A, Badges as B, __nuxt_component_0$1 as C, __nuxt_component_5$1 as D, Emojis as E, __nuxt_component_2 as F, __nuxt_component_3$1 as G, __nuxt_component_10 as H, __nuxt_component_6$1 as I, __nuxt_component_3 as J, __nuxt_component_5 as K, Le as L, __nuxt_component_6 as M, __nuxt_component_7 as N, __nuxt_component_8 as O, __nuxt_component_11 as P, defineNuxtRouteMiddleware as Q, server as R, We as W, Y, _export_sfc as _, fe as a, axios2 as b, vue_cjs_prod as c, __nuxt_component_4$2 as d, __nuxt_component_1$2 as e, fe$1 as f, __nuxt_component_0$5 as g, __nuxt_component_0$4 as h, __nuxt_component_0$3 as i, __nuxt_component_1$1 as j, useHead as k, __nuxt_component_2$2 as l, me as m, __nuxt_component_9 as n, oe as o, pe as p, __nuxt_component_4$1 as q, __nuxt_component_2$1 as r, __nuxt_component_3$2 as s, useNuxtApp as t, useAuthStore as u, ve as v, Bots as w, Embed as x, __nuxt_component_1 as y, __nuxt_component_6$2 as z };
 //# sourceMappingURL=server.mjs.map

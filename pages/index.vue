@@ -1,93 +1,68 @@
 <template>
     <div>
-        <header class="relative pt-32 lg:py-56 before:content-[''] before:bg-primary-500 before:-z-1 before:w-full before:h-full before:transform before:skew-y-3 before:absolute before:-top-16">
-            <div class="container mx-auto lg:flex justify-between px-4">
-                <div>
-                    <h1 class="font-bold text-5xl max-w-md leading-snug text-white"><span class="font-extrabold">Le</span> site utile pour <span class="font-extrabold">tous</span></h1>
-                    <h2 class="leading-snug text-3xl max-w-lg text-white mt-4">
-                        Affine tes projets et améliore les à l'aide des outils que l'on met à ta disposition !
-                    </h2>
-                    <NuxtLink href="#tools">
-                        <Button 
-                            class="mt-8"
-                            text="Voir les outils
-                            que l'on propose"
-                        >
-                            <template v-slot:icon_left>
-                                <CubeIcon class="mr-3 w-10 h-10" />
-                            </template>
-                        </Button>
-                    </NuxtLink>
-                </div>
-                <div class="relative w-3/4 mx-auto lg:mx-0 lg:w-1/2 lg:translate-y-24">
-                    <div class="w-full bottom-0 transform translate-y-56 lg:absolute lg:translate-y-96">
-                        <img src="/characters/red_pink_group.png" alt="Red and pink group characters" class="w-full -translate-y-16" />
-                        <div class="bg-white dark:bg-dark-800 px-12 py-12 rounded-3xl shadow-xl w-full -translate-y-64 flex flex-wrap gap-y-12 justify-between">
-                            <Stat icon="UserIcon" name="Utilisateurs" :value="members" />
-                            <Stat icon="CubeIcon" name="Outils" :value="2" />
-                            <Stat icon="LinkIcon" name="Partenaires" :value="2" />
-                            <Stat icon="ChartPieIcon" name="Utilisations" :value="tools" />
-                        </div>
+        <header class="relative py-48 bg-gradient-to-br from-primary-500 to-primary-800">
+            <div class="absolute left-0 bottom-0 hidden md:block">
+                <img class="w-full" src="/shapes/squares.svg" />
+            </div>
+            <div class="absolute right-0 bottom-0">
+                <img class="w-full -scale-x-100" src="/shapes/squares.svg" />
+            </div>
+            <div class="container mx-auto px-4">
+                <h1 class="font-extrabold text-5xl max-w-xl leading-snug text-white text-center mx-auto">Développe ton projet à l’aide de nos outils</h1>
+                <h2 class="leading-snug text-2xl leading-relaxed text-white font-medium mt-4 text-center mx-auto">
+                    Ils te serviront pour n’importe quel type de projet
+                </h2>
+                <svg class="w-full mx-auto mt-12 rounded-full" height="6" viewBox="0 0 360 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 3H357" stroke="#F9F9F9" stroke-width="5" stroke-linecap="round" stroke-dasharray="32 24"/>
+                </svg>
+                <h3 class="text-white text-center mx-auto font-medium mt-12">Sélectionne la plateforme sur laquelle tu souhaites trouver un outil</h3>
+                <div class="flex justify-center">
+                    <div class="inline-flex gap-4 justify-center mt-4 relative">
+                        <NuxtLink to="#tools">
+                            <img @click="currentCategory = 'discord'" class="w-12 cursor-pointer" src="/icons/discord.svg" />
+                        </NuxtLink>
+                        <img class="absolute -left-20 top-4" src="/shapes/arrow_l.svg" />
+                        <img class="absolute -right-20 top-2" src="/shapes/arrow_r.svg" />
                     </div>
                 </div>
             </div>
         </header>
-        <section class="container mx-auto px-4 py-24 grid lg:grid-cols-2">
-            <div>
-                <div class="font-semibold text-2xl leading-relaxed max-w-sm">Qu'est-ce qu'on fait sur UMaestro?</div>
-                <FeaturesList class="mt-8" />
+        <section id="tools" class="py-32 flex flex-col justify-center container mx-auto">
+            <div class="text-xl font-semibold text-center">Les outils que l'on propose sur UMaestro</div>
+            <div class="bg-white dark:bg-dark-900 p-2 rounded-full w-fit mt-8  mx-auto flex gap-2 shadow-sm">
+                <div @click="currentCategory = null" :class="currentCategory === null && 'bg-primary-500 text-white'" class="rounded-full px-4 py-2 text-sm font-semibold cursor-pointer flex gap-2 items-center transition ease-in duration-200">Tout les outils</div>
+                <div @click="currentCategory = category" v-for="(category, index) of categories" :class="currentCategory === category && 'bg-primary-500 text-white'" class="rounded-full px-4 py-2 text-sm font-semibold cursor-pointer flex gap-2 items-center dark:text-white capitalize transition ease-in duration-200">{{ category }}</div>
             </div>
-            <img src="/objects/tools.png" alt="Objects 3D" class="w-2/3 mx-auto mt-8 lg:mt-0" />
-        </section>
-        <section class="container mx-auto px-4 py-16" id="tools">
-            <div class="font-semibold text-2xl leading-relaxed max-w-sm text-center mx-auto">On propose déjà des outils dans ces catégories</div>
-            <div class="flex flex-wrap justify-center gap-6 mt-8 max-w-5xl mx-auto">
-                <ToolsCategoryCard v-for="(category, index) of activeCategories" :key="index" :category="category" />
-            </div>
-            <div class="font-medium text-sm text-center mx-auto mt-8">Et bientôt dans d'autres...</div>
-            <div class="flex flex-wrap justify-center gap-6 mt-4 max-w-5xl mx-auto">
-                <ToolsCategoryCard v-for="(category, index) of disabledCategories" :key="index" :category="category" />
-            </div>
-        </section>
-        <section class="bg-gradient-to-t from-primary-500 to-primary-500 pt-16 relative mt-20 overflow-x-hidden">
-            <div class="container mx-auto px-4 text-white">
-                <div class="grid lg:grid-cols-2 gap-16">
-                    <div class="py-16">
-                        <div class="font-semibold text-3xl leading-relaxed max-w-sm">Nous recrutons</div>
-                        <p class="text-xl leading-relaxed mt-4 text-gray-200">UMaestro est à la recherche de nouvelles têtes afin d’aider dans la conception des projets et garder les services proposés en ligne</p>
-                        <NuxtLink to="hire">
-                            <Button 
-                                color="white"
-                                class="mt-10"
-                                icon="Cube"
-                                text="Voir les postes disponibles"
-                            />
-                        </NuxtLink>
-                    </div>
-                    <img src="/characters/tchating_character.png" class="mx-auto lg:w-2/3" alt="Tchating 3D character web developer" />
+            <div class="grid lg:grid-cols-3 gap-8 mt-8 px-4 md:px-16 lg:px-24" id="__grid__cards">
+                <div v-for="(tool, index) in toolsGet.filter((tool) => !currentCategory || tool.category === currentCategory).slice(0, 3)" :key="index">
+                    <NuxtLink :to="`/tools/${tool.category}/${tool.tool}`" data-aos="zoom-in" data-aos-offset= "100">
+                        <component :is="{ ...cards[tool.tool] }" :key="index" />
+                    </NuxtLink>
                 </div>
             </div>
-            <div class="absolute top-0 flex overflow-x-hidden fill-background dark:fill-dark-900">
-                <svg v-for="i in 7" :key="i" width="323" height="51" viewBox="0 0 221 35" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 35L221 0H0V35Z" />
-                </svg>
-            </div>
-            <div class="absolute bottom-0 flex -scale-x-100 -scale-y-100 overflow-x-hidden fill-background dark:fill-dark-900">
-                <svg v-for="i in 7" :key="i" width="323" height="51" viewBox="0 0 221 35" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 35L221 0H0V35Z" />
-                </svg>
+            <NuxtLink to="/tools/discord" class="mt-12">
+                <Button class="mx-auto" color="primary" :small="true" text="Voir les autres outils" />
+            </NuxtLink>
+        </section>
+        <section class="py-24 flex flex-col justify-between bg-secondary-500">
+            <div class="container mx-auto">
+                <div class="text-xl font-semibold text-center text-dark-950" data-aos="fade-up" data-aos-delay="200">UMaestro, c'est</div>
+                <div class="gap-12 px-4 grid grid-cols-2 lg:grid-cols-4 md:px-16 lg:px-48 mt-16 text-dark-950">
+                    <Stat icon="UserIcon" name="Utilisateurs" :value="members || 0" data-aos="fade-up" data-aos-offset="200" data-aos-delay="300" />
+                    <Stat icon="LinkIcon" name="Partenaires" :value="2" data-aos="fade-up" data-aos-offset="200" data-aos-delay="400" />
+                    <Stat icon="CubeIcon" name="Outils" :value="toolsGet.length" data-aos="fade-up" data-aos-offset="200" data-aos-delay="500" />
+                    <Stat icon="ChartPieIcon" name="Utilisations de nos outils" :value="toolsStat || 0" data-aos="fade-up" data-aos-offset="200" data-aos-delay="600" />
+                </div>
             </div>
         </section>
-        <!-- <section class="bg-secondary-500 py-24 relative after:content-[''] after:absolute after:left-0 after:top-full after:bg-gradient-to-b after:from-secondary-500 after:to-transparent after:h-52 after:w-full after:-z-1">
-            redesign le contenu de cette section car pas très beau mais faut que je réflechisse
-        </section> -->
-        <section class="container mx-auto px-4 py-16 mt-24">
-            <div class="font-semibold text-2xl leading-relaxed max-w-xs text-center mx-auto">Ce que les gens disent de nous</div>
+        <section class="container mx-auto pt-32 pb-48">
+            <div class="font-semibold text-xl leading-relaxed text-center mx-auto mb-8">Ce que les gens disent de nous</div>
+            <div v-if="testimonials.length <= 0" class="text-lg mx-auto text-center mb-16">Il n'y a pas d'avis pour le moment... Poste le tiens !</div>
             <div class="grid lg:grid-cols-2 xl:grid-cols-3 mt-8 gap-8 relative">
-                <Testimonial v-for="(rate, id) in testimonials" :key="id" :rate="rate" />
-                <div class="absolute w-full h-96 bg-gradient-to-t from-background dark:from-dark-900 via-background dark:via-dark-900 to-transparent bottom-0 translate-y-16 flex items-center">
+                <Testimonial v-if="testimonials.length > 0" v-for="(rate, id) in testimonials" :key="id" :rate="rate" data-aos="fade-up" data-aos-offset="200" :data-aos-delay="200 + (id * 100)" />
+                <div class="absolute w-full" :class="testimonials.length > 0 && 'h-96 bg-gradient-to-t from-background dark:from-dark-950 via-background dark:via-dark-950 to-transparent bottom-0 translate-y-16 flex items-center'">
                     <NuxtLink to="rates" class="mx-auto">
-                        <Button color="white" class="mx-auto relative" text="Voir les avis">
+                        <Button color="theme" class="mx-auto relative text-yellow-500 px-16 py-4" text="Voir les avis">
                             <img src="/objects/star.png" class="absolute -left-12 -top-12 w-32 h-32 -z-1" />
                             <img src="/objects/star2.png" class="absolute right-0 -top-6 w-14 h-14 -z-1" />
                             <img src="/objects/star3.png" class="absolute -right-8 -bottom-10 w-20 h-20" />
@@ -102,6 +77,7 @@
 <script>
 import axios from '@/composables/Axios'
 import { EyeIcon, CubeIcon, CodeIcon, PencilIcon } from '@heroicons/vue/outline/esm/index.js'
+import { allCards } from "~~/composables/Module"
 
 export default {
     components: { CubeIcon },
@@ -128,25 +104,29 @@ export default {
             }
         })
 
-        return { members: requests.data.value.members, tools: requests.data.value.tools, testimonials: requests.data.value.testimonials }
+        return { members: requests.data.value.members, toolsStat: requests.data.value.tools, testimonials: requests.data.value.testimonials }
     },
     data: () => ({
-        categories: [
-            { color: '#0B0B0F', name: 'Général', icon: EyeIcon, disabled: true },
-            { color: '#5865F2', name: 'Discord', icon: 'discord.svg' },
-            { color: '#15B79A', name: 'Développement', icon: CodeIcon, disabled: true },
-            { color: '#A970FF', name: 'Twitch', icon: CubeIcon, disabled: true },
-            { color: '#EB3B5B', name: 'Graphisme', icon: PencilIcon, disabled: true },
-        ]
+        currentCategory: null,
+        categories: [],
+        toolsGet: [],
+        cards: allCards
     }),
-    computed: {
-        activeCategories() {
-            return this.categories.filter(category => !category.disabled)
-        },
-        disabledCategories() {
-            return this.categories.filter(category => category.disabled);
-        },
+    mounted() {
+        const routes = this.$router.options.routes.filter((route) => route.name.startsWith('tools-')).map((route) => {
+            const match = route.name.match(/tools-(.*)-(.*)/gm)
+            if (match) {
+                return match[0].split('-')
+            }
+        }).filter((route) => route !== null && route !== undefined);
+        
+        this.categories = routes.map((route) => route[1]).sort().filter(function(item, pos, ary) {
+            return !pos || item != ary[pos - 1];
+        });
+        this.toolsGet = routes.map((route) => ({
+            category: route[1],
+            tool: route[2]
+        }));
     },
-
 }
 </script>

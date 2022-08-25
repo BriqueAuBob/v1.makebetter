@@ -64,6 +64,9 @@
       "#color-mode-options": [
         ".nuxt/color-mode-options"
       ],
+      "pinia": [
+        "node_modules/pinia/dist/pinia"
+      ],
       "#head": [
         "node_modules/nuxt/dist/head/runtime"
       ],

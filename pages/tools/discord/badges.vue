@@ -482,12 +482,6 @@ export default {
             return icons;
         }
     },
-    // watch: {
-    //     multiply() {
-    //         this.multiply = (this.icons[this.icon]().width * this.multiply >= this.shapeWidth || this.icons[this.icon]().height * this.multiply >= this.shapeHeight) ? this.multiply - 1 : this.multiply
-    //         console.log(this.multiply)
-    //     }
-    // },
     methods: {
         toggleMobilePreview() {
             this.mobile_preview_open = !this.mobile_preview_open;

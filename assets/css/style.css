@@ -1,3 +1,25 @@
 html {
     scroll-behavior: smooth;
 }
+
+#__grid__cards:hover #card:not(:hover) {
+    filter: blur(2px);
+    opacity: 0.25;
+}
+
+footer > img {
+    animation: 60s linear 0s infinite running rotate;
+}
+
+footer > img:nth-last-child(even) {
+    animation: 120s linear 0s infinite running rotate;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,5 +1,5 @@
 <template>
-    <button class="rounded-full font-medium text-base flex items-center shadow-xl ease-in duration-300" :class="[colors, small ? 'px-6 py-4' : 'px-8 py-4', centerText && 'justify-center']">
+    <button class="rounded-md font-medium text-base flex items-center shadow-xl ease-in duration-300" :class="[colors, small ? 'px-5 py-3' : 'px-6 py-4', centerText && 'justify-center']">
         <slot name="icon_left"></slot>
         <span :class="['whitespace-pre-line', centerText ? 'text-center' : 'text-left']">{{ text }}</span>
         <slot name="icon_right"></slot>
@@ -17,7 +17,9 @@ export default {
             white: 'bg-white hover:bg-gray-100 text-black',
             blurple: "bg-blurple text-white",
             yellow: "bg-yellow-500 text-white hover:bg-white hover:text-black",
-            disabled: 'bg-gray-200 text-black opacity-50'
+            red: 'bg-red-500 text-white',
+            disabled: 'bg-gray-200 text-black opacity-50',
+            theme: 'bg-white hover:bg-gray-100 dark:bg-dark-900 dark:hover:bg-dark-800'
         }
     }),
     props: {
@@ -39,11 +41,15 @@ export default {
         centerText: {
             type: Boolean,
             default: false
+        },
+        disabled: {
+            type: Boolean,
+            default: false
         }
     },
     computed: {
         colors() {
-            return this.btnColors[this.color]
+            return this.disabled ? this.btnColors['disabled'] : this.btnColors[this.color]
         }
     }
 };

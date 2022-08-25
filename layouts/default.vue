@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import AOS from 'aos'
+
 export default {
     data() {
         return {
@@ -23,5 +25,10 @@ export default {
             this.banner = false;
         },
     },
+    mounted() {
+        AOS.init({ 
+            once : true,
+        });
+    }
 }
 </script>

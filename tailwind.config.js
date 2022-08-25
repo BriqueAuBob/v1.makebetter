@@ -11,7 +11,7 @@ module.exports = {
   ],
   safelist: [
     'bg-background',
-    'dark:bg-dark-900',
+    'dark:bg-dark-950',
     'dark:text-white',
     'transition',
     'ease-in',
@@ -28,7 +28,7 @@ module.exports = {
         xs: {'max': '550px'}
       },
       colors: {
-        "background": "#F8F6FF",
+        "background": "#EBF1FF",
         'blurple': '#5865F2',
         "black": "#161616",
         "white": "#f9f9f9",
@@ -98,17 +98,17 @@ module.exports = {
           "950": "#0d0d0d"
         },
         "dark": {
-          "50": "#f0f0f4",
+          "50": "#f1f1f4",
           "100": "#e2e2e9",
           "200": "#c5c5d3",
           "300": "#a8a8bd",
-          "400": "#8a8aa8",
-          "500": "#09090c",
-          "600": "#575775",
+          "400": "#8b8ba7",
+          "500": "#585874",
+          "600": "#585874",
           "700": "#424257",
           "800": "#2c2c3a",
           "900": "#16161d",
-          "950": "#0b0b0f"
+          "950": "#0b0b0e"
         }
       },
       zIndex: {

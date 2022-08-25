@@ -3,10 +3,11 @@
         <input 
             :placeholder="placeholder" 
             type="text" 
-            :class="[big ? 'px-6 py-5 text-md' : 'px-6 py-4 text-sm', white ? 'bg-white text-black' : 'bg-transparent focus:bg-white dark:focus:bg-dark-800 border-dark-800 focus:border-primary-500']" 
+            :class="[big ? 'px-6 py-5 text-md' : 'px-6 py-4 text-sm', white ? 'bg-white text-black' : 'bg-transparent focus:bg-white dark:focus:bg-dark-900 border-dark-800 focus:border-primary-500', classes]" 
             class="text-sm w-full  border  focus:outline-none  rounded-lg"
             @input="handleInput"
-            :value="modelValue" />
+            :value="modelValue"
+            :disabled="disabled" />
     </div>
 </template>
 
@@ -28,6 +29,14 @@ export default {
         white: {
             type: Boolean,
             default: false,
+        },
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+        classes: {
+            type: String,
+            default: ''
         }
     },
     methods: {

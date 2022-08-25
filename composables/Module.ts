@@ -32,7 +32,7 @@ export const tools = {
 }
 
 export const allCards = {
-    Badges, Bots, Emojis, Embed,
+    badges: Badges, bots: Bots, emojis: Emojis, embed: Embed,
 }
 
 export const useTool = (name) => {

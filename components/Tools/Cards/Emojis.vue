@@ -1,9 +1,9 @@
 <template>
-    <ToolsDefaultCard class="bg-black">
-        <template v-slot:illustration>
-            😵😠😳😡😰😮‍💨😧👿🐻‍❄️🐫🐖🦌️🦕🐞
-        </template>
-    </ToolsDefaultCard>
+    <ToolsDefaultCard :tool="{
+        name: 'Référencement d\'emojis',
+        description: 'Référence ton emoji',
+        uuid: 'emojis_discord'
+    }"></ToolsDefaultCard>
 </template>
 
 <script>

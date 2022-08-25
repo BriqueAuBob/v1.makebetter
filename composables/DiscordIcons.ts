@@ -1,4 +1,4 @@
-import icons from '~~/composables/Icons'
+import icons from '~~/composables/DiscordBadgeIcons'
 export default icons;
 
 function LightenDarkenColor(col, amt: number) {

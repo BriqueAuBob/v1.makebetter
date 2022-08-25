@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     buildModules: [
         '@nuxtjs/tailwindcss', 
         '@nuxtjs/color-mode', 
+        '@pinia/nuxt'
         // '@intlify/nuxt3'
     ],
     
@@ -12,7 +13,7 @@ export default defineNuxtConfig({
         head: {
             titleTemplate: 'UMaestro - %s',
             bodyAttrs: {
-                class: 'bg-background dark:bg-dark-900 dark:text-white transition ease-in duration-100'
+                class: 'bg-background dark:bg-dark-950 dark:text-white transition ease-in duration-100'
             },
             link: [
                 // { rel: 'stylesheet', href: 'https://unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/default.min.css' }
@@ -21,7 +22,8 @@ export default defineNuxtConfig({
     },
 
     css: [
-        '@/assets/css/style.css'
+        '@/assets/css/style.css',
+        'aos/dist/aos.css'
     ],
 
     meta: {

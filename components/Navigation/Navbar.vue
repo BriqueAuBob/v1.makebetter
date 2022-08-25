@@ -1,27 +1,34 @@
 <template>
     <nav class="absolute top-0 w-full z-10">
         <div class="container mx-auto flex items-center justify-between py-6 text-white px-4">
-            <NuxtLink to="/" class="flex items-center font-bold tracking-widest">
-                UMaestro
-            </NuxtLink>
-            <ul class="gap-12 items-center hidden lg:flex"> 
+            <div class="flex basis-0 grow">
+                <NuxtLink to="/" class="flex gap-4 items-center font-bold tracking-widest">
+                    <img class="h-10" src="/logo.svg" />
+                    umaestro.fr
+                </NuxtLink>
+            </div>
+            <ul class="gap-12 items-center hidden lg:flex">
                 <NuxtLink v-for="(link, index) of navigation" :key="index" :to="{ path: link.href, hash: link.hash }" class="text-gray-400">
                     <li class="ease-in duration-300 hover:text-white">
                         {{ link.name }}
                     </li>
                 </NuxtLink>
-                <li>
-                    <NuxtLink to="/authentification" v-if="!authenticated">
-                        <Button class="bg-white text-black" icon="user" :text="'Accéder à mon compte'" :small="true" />
-                    </NuxtLink>
-                    <div v-else class="flex rounded-xl border-2 border-white px-3 py-2 ease-in-out duration-300 hover:bg-white hover:text-black hover:-translate-y-1 hover:scale-105 hover:shadow-2xl">
-                        <NuxtLink to="/" class="flex items-center font-medium text-md gap-2">
-                            <img :src="user?.avatar" class="w-6 h-6 rounded-full" />
-                            {{ user.username }}
-                        </NuxtLink>
-                    </div>
-                </li>
             </ul>
+            <div class="gap-6 items-center hidden lg:flex basis-0 grow justify-end"> 
+                <span class="cursor-pointer" @click="$colorMode.preference = $colorMode.value === 'dark' ? 'light' : 'dark'" :small="true">
+                    <MoonIcon v-if="$colorMode.value === 'light'" class="w-8 h-8" />
+                    <SunIcon v-else class="w-8 h-8" />
+                </span>
+                <NuxtLink to="/authentification" v-if="!authenticated">
+                    <Button class="bg-white bg-opacity-75 hover:bg-opacity-100 hover:bg-white text-black" icon="user" :text="'Accéder à mon compte'" :small="true" />
+                </NuxtLink>
+                <div v-else class="flex rounded-xl border-2 border-white px-3 py-2 ease-in-out duration-300 text-white hover:bg-white hover:text-black hover:-translate-y-1 hover:scale-105 hover:shadow-2xl">
+                    <NuxtLink activeClass="profile" to="/account" class="flex items-center font-medium text-md gap-2">
+                        <img :src="user?.avatar" class="w-6 h-6 rounded-full" />
+                        {{ user?.username }}
+                    </NuxtLink>
+                </div>
+            </div>
             <!-- Mobile menu -->
             <button class="lg:hidden px-4 py-2" @click="toggleMobileMenu">
                 <img src="/icons/bars.svg" class="w-8 h-8" />
@@ -29,11 +36,11 @@
             <div ref="menu" :class="[!menuOpen && '-z-1 opacity-0', 'ease-in duration-300 absolute top-0 left-0 w-full h-screen p-8 flex flex-col']">
                 <div class="flex justify-between">
                     <NuxtLink to="/authentification" v-if="!authenticated" @click="toggleMobileMenu">
-                        <Button class="bg-white text-black" icon="user" :text="'Accéder à mon compte'" :small="true" />
+                        <Button class="bg-white hover:bg-white text-black" icon="user" :text="'Accéder à mon compte'" :small="true" />
                     </NuxtLink>
-                    <NuxtLink v-else to="/" class="flex items-center font-medium text-xl gap-2 px-3 py-2 border-2 border-dark-700 rounded-xl">
+                    <NuxtLink v-else to="/account" class="flex items-center font-medium text-xl gap-2 px-3 py-2 border-2 border-dark-700 rounded-xl">
                         <img :src="user?.avatar" class="w-8 h-8 rounded-full" />
-                        {{ user.username }}
+                        {{ user?.username }}
                     </NuxtLink>
                     <button class="rounded-full border-2 border-dark-700 dark:border-dark-700 p-4 focus:bg-dark-700 focus:text-white flex items-center justify-center group" @click="toggleMobileMenu">
                         <svg class="fill-black dark:fill-dark-700 group-focus:fill-white w-5 h-5" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
@@ -57,8 +64,14 @@
 
 <script>
 import axios from '@/composables/Axios'
+import { MoonIcon, SunIcon } from '@heroicons/vue/outline/esm/index.js'
+import { useAuthStore } from '@/store/auth';
 
 export default {
+    components: {
+        MoonIcon,
+        SunIcon
+    },
     data: () => ({
         menuOpen: false,
         height: 70,
@@ -94,21 +107,9 @@ export default {
         // nuxt.classList.add('overflow-x-hidden')
         nuxt.appendChild(this.$refs.menu)
 
-        const token = localStorage.getItem('access_token')
-
-        if(token) {
-            try {
-                const { data } = await axios.get('auth/user', {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                })
-                this.user = data.user
-                this.authenticated = data.user?.id ? true : false
-            } catch(e) {
-                console.log(e)
-            }
-        }
+        const store = useAuthStore()
+        this.authenticated = store.hasToken()
+        this.user = await store.getUser
     },
     methods: {
         toggleMobileMenu() {

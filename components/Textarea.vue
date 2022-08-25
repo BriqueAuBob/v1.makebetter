@@ -4,7 +4,7 @@
             :placeholder="placeholder" 
             type="text" 
             :class="big ? 'px-6 py-5 text-md' : 'px-6 py-4 text-sm'" 
-            class="text-sm w-full bg-transparent focus:bg-white dark:focus:bg-dark-800 border border-dark-800 focus:outline-none focus:border-primary-500 rounded-lg"
+            class="text-sm w-full bg-transparent focus:bg-white dark:focus:bg-dark-900 border border-dark-900 focus:outline-none focus:border-primary-500 rounded-lg"
             @input="handleInput"
             :value="modelValue" />
     </div>

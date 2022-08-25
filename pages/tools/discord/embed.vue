@@ -195,7 +195,7 @@
                                         url: '',
                                     })" />
                                 </div>
-                                <div v-if="!is_application_webhook" class="absolute w-full h-full top-0 bg-background dark:bg-dark-900 bg-opacity-95 dark:bg-opacity-95 flex justify-center items-center">
+                                <div v-if="!is_application_webhook" class="absolute w-full h-full top-0 bg-background dark:bg-dark-950 bg-opacity-95 dark:bg-opacity-95 flex justify-center items-center">
                                     <div class="text-md font-semibold">Tu dois utiliser un webhook créé par un bot pour ajouter des boutons.</div>
                                 </div>
                             </ToolsDiscordEmbedCreatorStep>

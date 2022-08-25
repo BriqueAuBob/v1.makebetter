@@ -21,51 +21,51 @@
                         <div
                         class="flex min-h-full items-center justify-center p-4 text-center"
                         >
-                        <TransitionChild
-                            as="template"
-                            enter="duration-300 ease-out"
-                            enter-from="opacity-0 scale-95"
-                            enter-to="opacity-100 scale-100"
-                            leave="duration-200 ease-in"
-                            leave-from="opacity-100 scale-100"
-                            leave-to="opacity-0 scale-95"
-                        >
-                            <DialogPanel
-                            class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-dark-900 p-6 text-left align-middle shadow-xl transition-all"
+                            <TransitionChild
+                                as="template"
+                                enter="duration-300 ease-out"
+                                enter-from="opacity-0 scale-95"
+                                enter-to="opacity-100 scale-100"
+                                leave="duration-200 ease-in"
+                                leave-from="opacity-100 scale-100"
+                                leave-to="opacity-0 scale-95"
                             >
-                            <DialogTitle
-                                as="h3"
-                                class="text-lg font-medium leading-6 text-gray-900 dark:text-white"
-                            >
-                                Mon avis
-                            </DialogTitle>
-                            <div class="mt-2">
-                                <p class="text-sm text-gray-500 mt-2">
-                                    Combien d'étoiles souhaites-tu nous attribuer?
-                                </p>
-                                <div class="flex gap-1 justify-between mt-4 mb-8">
-                                    <Star class="w-12 cursor-pointer" :color="star >= i ? '#BB900D' : '#9ca3af'" v-for="i in 5" :key="i" @click="star = i" />
+                                <DialogPanel
+                                class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-dark-900 p-6 text-left align-middle shadow-xl transition-all"
+                                >
+                                <DialogTitle
+                                    as="h3"
+                                    class="text-lg font-medium leading-6 text-gray-900 dark:text-white"
+                                >
+                                    Mon avis
+                                </DialogTitle>
+                                <div class="mt-2">
+                                    <p class="text-sm text-gray-500 mt-2">
+                                        Combien d'étoiles souhaites-tu nous attribuer?
+                                    </p>
+                                    <div class="flex gap-1 justify-between mt-4 mb-8">
+                                        <Star class="w-12 cursor-pointer" :color="star >= i ? '#BB900D' : '#9ca3af'" v-for="i in 5" :key="i" @click="star = i" />
+                                    </div>
+                                    <Input class="mt-4" :placeholder="`Pourquoi ${star} étoiles?`" v-model="rate" />
+                                    <div class="text-red-400 text-sm mt-1 mb-4" v-for="(error, id) of errors" :key="id"><i>{{ error }}</i></div>
+                                    <p class="text-sm text-gray-500 mt-2">
+                                        Ton avis nous aidera à améliorer notre service.
+                                    </p>
                                 </div>
-                                <Input class="mt-4" :placeholder="`Pourquoi ${star} étoiles?`" v-model="rate" />
-                                <div class="text-red-400 text-sm mt-1 mb-4" v-for="(error, id) of errors" :key="id"><i>{{ error }}</i></div>
-                                <p class="text-sm text-gray-500 mt-2">
-                                    Ton avis nous aidera à améliorer notre service.
-                                </p>
-                            </div>
-                            <div class="flex gap-2 items-center mt-4 justify-end">
-                                <Button
-                                    color="transparent"
-                                    text="Annuler"
-                                    @click="isOpen = false"
-                                />
-                                <Button
-                                    color="yellow"
-                                    text="Publier mon avis"
-                                    @click="addTestimonial"
-                                />
-                            </div>
-                            </DialogPanel>
-                        </TransitionChild>
+                                <div class="flex gap-2 items-center mt-4 justify-end">
+                                    <Button
+                                        color="transparent"
+                                        text="Annuler"
+                                        @click="isOpen = false"
+                                    />
+                                    <Button
+                                        color="yellow"
+                                        text="Publier mon avis"
+                                        @click="addTestimonial"
+                                    />
+                                </div>
+                                </DialogPanel>
+                            </TransitionChild>
                         </div>
                     </div>
                 </Dialog>
@@ -73,7 +73,7 @@
         </header>
         <section class="container mx-auto px-2 pt-16 pb-48">
             <div class="grid lg:grid-cols-2 xl:grid-cols-3 mt-8 gap-8">
-                <Testimonial v-for="(rate, id) in testimonials" :key="id" :rate="rate" />
+                <Testimonial v-for="(rate, id) in testimonials" :key="id" :rate="rate" data-aos="fade-up" :data-aos-delay="200 + (id * 100)" />
             </div>
         </section>
     </div>

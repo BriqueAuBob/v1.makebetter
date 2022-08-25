@@ -5,15 +5,15 @@ import { joinURL, hasProtocol, isEqual } from "ufo";
 import { useRuntimeConfig as useRuntimeConfig$1 } from "#internal/nitro";
 import { createHooks } from "hookable";
 import { getContext, executeAsync } from "unctx";
-import "@vue/devtools-api";
 import "destr";
 import { createError as createError$1, sendRedirect } from "h3";
 import defu from "defu";
-import { ssrRenderAttrs, ssrRenderAttr, ssrRenderSlot, ssrRenderComponent, ssrRenderClass, ssrInterpolate, ssrRenderStyle, ssrRenderList, ssrRenderVNode, ssrRenderSuspense } from "@vue/server-renderer";
-import axios$1 from "axios";
+import { ssrRenderAttrs, ssrRenderAttr, ssrRenderClass, ssrIncludeBooleanAttr, ssrRenderSlot, ssrInterpolate, ssrRenderComponent, ssrRenderStyle, ssrRenderList, ssrRenderVNode, ssrRenderSuspense } from "@vue/server-renderer";
+import axios from "axios";
+import { setupDevtoolsPlugin } from "@vue/devtools-api";
 import * as Icons from "@heroicons/vue/outline/esm/index.js";
-import { CubeIcon, HeartIcon, EyeIcon, ChevronDownIcon, TrashIcon } from "@heroicons/vue/outline/esm/index.js";
-import { Switch } from "@headlessui/vue";
+import { LightBulbIcon, ChevronDownIcon, TrashIcon } from "@heroicons/vue/outline/esm/index.js";
+import { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle, Switch } from "@headlessui/vue";
 import pkg from "discord-markdown";
 import "vue3-colorpicker";
 import "save-svg-as-png";
@@ -307,7 +307,7 @@ const replacer = (_key, val) => {
     return {
       [`Set(${val.size})`]: [...val.values()]
     };
-  } else if (isObject(val) && !isArray(val) && !isPlainObject(val)) {
+  } else if (isObject(val) && !isArray(val) && !isPlainObject$1(val)) {
     return String(val);
   }
   return val;
@@ -345,7 +345,7 @@ const toTypeString = (value) => objectToString.call(value);
 const toRawType = (value) => {
   return toTypeString(value).slice(8, -1);
 };
-const isPlainObject = (val) => toTypeString(val) === "[object Object]";
+const isPlainObject$1 = (val) => toTypeString(val) === "[object Object]";
 const isIntegerKey = (key) => isString(key) && key !== "NaN" && key[0] !== "-" && "" + parseInt(key, 10) === key;
 const isReservedProp = /* @__PURE__ */ makeMap(
   ",key,ref,ref_for,ref_key,onVnodeBeforeMount,onVnodeMounted,onVnodeBeforeUpdate,onVnodeUpdated,onVnodeBeforeUnmount,onVnodeUnmounted"
@@ -425,7 +425,7 @@ shared_cjs_prod.isModelListener = isModelListener;
 shared_cjs_prod.isNoUnitNumericStyleProp = isNoUnitNumericStyleProp;
 shared_cjs_prod.isObject = isObject;
 shared_cjs_prod.isOn = isOn;
-shared_cjs_prod.isPlainObject = isPlainObject;
+shared_cjs_prod.isPlainObject = isPlainObject$1;
 shared_cjs_prod.isPromise = isPromise;
 shared_cjs_prod.isReservedProp = isReservedProp;
 shared_cjs_prod.isSSRSafeAttrName = isSSRSafeAttrName;
@@ -640,7 +640,7 @@ var vueRouter_prod = {};
   function isESModule(obj) {
     return obj.__esModule || obj[Symbol.toStringTag] === "Module";
   }
-  const assign = Object.assign;
+  const assign2 = Object.assign;
   function applyToParams(fn, params) {
     const newParams = {};
     for (const key in params) {
@@ -649,7 +649,7 @@ var vueRouter_prod = {};
     }
     return newParams;
   }
-  const noop = () => {
+  const noop2 = () => {
   };
   const isArray2 = Array.isArray;
   const TRAILING_SLASH_RE = /\/$/;
@@ -821,7 +821,7 @@ var vueRouter_prod = {};
       const { history: history2 } = window;
       if (!history2.state)
         return;
-      history2.replaceState(assign({}, history2.state, { scroll: computeScrollPosition() }), "");
+      history2.replaceState(assign2({}, history2.state, { scroll: computeScrollPosition() }), "");
     }
     function destroy() {
       for (const teardown of teardowns)
@@ -878,7 +878,7 @@ var vueRouter_prod = {};
       }
     }
     function replace(to, data) {
-      const state = assign({}, history2.state, buildState(
+      const state = assign2({}, history2.state, buildState(
         historyState.value.back,
         to,
         historyState.value.forward,
@@ -888,7 +888,7 @@ var vueRouter_prod = {};
       currentLocation.value = to;
     }
     function push(to, data) {
-      const currentState = assign(
+      const currentState = assign2(
         {},
         historyState.value,
         history2.state,
@@ -898,7 +898,7 @@ var vueRouter_prod = {};
         }
       );
       changeLocation(currentState.current, currentState, true);
-      const state = assign({}, buildState(currentLocation.value, to, null), { position: currentState.position + 1 }, data);
+      const state = assign2({}, buildState(currentLocation.value, to, null), { position: currentState.position + 1 }, data);
       changeLocation(to, state, false);
       currentLocation.value = to;
     }
@@ -918,7 +918,7 @@ var vueRouter_prod = {};
         historyListeners.pauseListeners();
       history.go(delta);
     }
-    const routerHistory = assign({
+    const routerHistory = assign2({
       location: "",
       base,
       go,
@@ -1051,7 +1051,7 @@ var vueRouter_prod = {};
   };
   function createRouterError(type, params) {
     {
-      return assign(new Error(ErrorTypeMessages[type](params)), {
+      return assign2(new Error(ErrorTypeMessages[type](params)), {
         type,
         [NavigationFailureSymbol]: true
       }, params);
@@ -1082,7 +1082,7 @@ var vueRouter_prod = {};
   };
   const REGEX_CHARS_RE = /[.+*?^${}()[\]/\\]/g;
   function tokensToParser(segments, extraOptions) {
-    const options = assign({}, BASE_PATH_PARSER_OPTIONS, extraOptions);
+    const options = assign2({}, BASE_PATH_PARSER_OPTIONS, extraOptions);
     const score = [];
     let pattern = options.start ? "^" : "";
     const keys = [];
@@ -1356,7 +1356,7 @@ var vueRouter_prod = {};
   }
   function createRouteRecordMatcher(record, parent, options) {
     const parser = tokensToParser(tokenizePath(record.path), options);
-    const matcher = assign(parser, {
+    const matcher = assign2(parser, {
       record,
       parent,
       children: [],
@@ -1386,7 +1386,7 @@ var vueRouter_prod = {};
       if ("alias" in record) {
         const aliases = typeof record.alias === "string" ? [record.alias] : record.alias;
         for (const alias of aliases) {
-          normalizedRecords.push(assign({}, mainNormalizedRecord, {
+          normalizedRecords.push(assign2({}, mainNormalizedRecord, {
             components: originalRecord ? originalRecord.record.components : mainNormalizedRecord.components,
             path: alias,
             aliasOf: originalRecord ? originalRecord.record : mainNormalizedRecord
@@ -1423,7 +1423,7 @@ var vueRouter_prod = {};
       }
       return originalMatcher ? () => {
         removeRoute(originalMatcher);
-      } : noop;
+      } : noop2;
     }
     function removeRoute(matcherRef) {
       if (isRouteName(matcherRef)) {
@@ -1468,7 +1468,7 @@ var vueRouter_prod = {};
             location: location2
           });
         name = matcher.record.name;
-        params = assign(
+        params = assign2(
           paramsFromLocation(
             currentLocation.params,
             matcher.keys.filter((k) => !k.optional).map((k) => k.name)
@@ -1491,7 +1491,7 @@ var vueRouter_prod = {};
             currentLocation
           });
         name = matcher.record.name;
-        params = assign({}, currentLocation.params, location2.params);
+        params = assign2({}, currentLocation.params, location2.params);
         path = matcher.stringify(params);
       }
       const matched = [];
@@ -1556,7 +1556,7 @@ var vueRouter_prod = {};
     return false;
   }
   function mergeMetaFields(matched) {
-    return matched.reduce((meta2, record) => assign(meta2, record.meta), {});
+    return matched.reduce((meta2, record) => assign2(meta2, record.meta), {});
   }
   function mergeOptions(defaults, partialOptions) {
     const options = {};
@@ -1815,7 +1815,7 @@ var vueRouter_prod = {};
       if (guardEvent(e)) {
         return router[vue.unref(props.replace) ? "replace" : "push"](
           vue.unref(props.to)
-        ).catch(noop);
+        ).catch(noop2);
       }
       return Promise.resolve();
     }
@@ -1958,7 +1958,7 @@ var vueRouter_prod = {};
             matchedRoute.instances[currentName] = null;
           }
         };
-        const component = vue.h(ViewComponent, assign({}, routeProps, attrs, {
+        const component = vue.h(ViewComponent, assign2({}, routeProps, attrs, {
           onVnodeUnmounted,
           ref: viewRef
         }));
@@ -2010,12 +2010,12 @@ var vueRouter_prod = {};
       return !!matcher.getRecordMatcher(name);
     }
     function resolve(rawLocation, currentLocation) {
-      currentLocation = assign({}, currentLocation || currentRoute.value);
+      currentLocation = assign2({}, currentLocation || currentRoute.value);
       if (typeof rawLocation === "string") {
         const locationNormalized = parseURL(parseQuery$1, rawLocation, currentLocation.path);
         const matchedRoute2 = matcher.resolve({ path: locationNormalized.path }, currentLocation);
         const href2 = routerHistory.createHref(locationNormalized.fullPath);
-        return assign(locationNormalized, matchedRoute2, {
+        return assign2(locationNormalized, matchedRoute2, {
           params: decodeParams(matchedRoute2.params),
           hash: decode(locationNormalized.hash),
           redirectedFrom: void 0,
@@ -2024,17 +2024,17 @@ var vueRouter_prod = {};
       }
       let matcherLocation;
       if ("path" in rawLocation) {
-        matcherLocation = assign({}, rawLocation, {
+        matcherLocation = assign2({}, rawLocation, {
           path: parseURL(parseQuery$1, rawLocation.path, currentLocation.path).path
         });
       } else {
-        const targetParams = assign({}, rawLocation.params);
+        const targetParams = assign2({}, rawLocation.params);
         for (const key in targetParams) {
           if (targetParams[key] == null) {
             delete targetParams[key];
           }
         }
-        matcherLocation = assign({}, rawLocation, {
+        matcherLocation = assign2({}, rawLocation, {
           params: encodeParams(rawLocation.params)
         });
         currentLocation.params = encodeParams(currentLocation.params);
@@ -2042,12 +2042,12 @@ var vueRouter_prod = {};
       const matchedRoute = matcher.resolve(matcherLocation, currentLocation);
       const hash = rawLocation.hash || "";
       matchedRoute.params = normalizeParams(decodeParams(matchedRoute.params));
-      const fullPath = stringifyURL(stringifyQuery$1, assign({}, rawLocation, {
+      const fullPath = stringifyURL(stringifyQuery$1, assign2({}, rawLocation, {
         hash: encodeHash(hash),
         path: matchedRoute.path
       }));
       const href = routerHistory.createHref(fullPath);
-      return assign({
+      return assign2({
         fullPath,
         hash,
         query: stringifyQuery$1 === stringifyQuery ? normalizeQuery(rawLocation.query) : rawLocation.query || {}
@@ -2057,7 +2057,7 @@ var vueRouter_prod = {};
       });
     }
     function locationAsObject(to) {
-      return typeof to === "string" ? parseURL(parseQuery$1, to, currentRoute.value.path) : assign({}, to);
+      return typeof to === "string" ? parseURL(parseQuery$1, to, currentRoute.value.path) : assign2({}, to);
     }
     function checkCanceledNavigation(to, from) {
       if (pendingLocation !== to) {
@@ -2071,7 +2071,7 @@ var vueRouter_prod = {};
       return pushWithRedirect(to);
     }
     function replace(to) {
-      return push(assign(locationAsObject(to), { replace: true }));
+      return push(assign2(locationAsObject(to), { replace: true }));
     }
     function handleRedirectRecord(to) {
       const lastMatched = to.matched[to.matched.length - 1];
@@ -2082,7 +2082,7 @@ var vueRouter_prod = {};
           newTargetLocation = newTargetLocation.includes("?") || newTargetLocation.includes("#") ? newTargetLocation = locationAsObject(newTargetLocation) : { path: newTargetLocation };
           newTargetLocation.params = {};
         }
-        return assign({
+        return assign2({
           query: to.query,
           hash: to.hash,
           params: "path" in newTargetLocation ? {} : to.params
@@ -2098,7 +2098,7 @@ var vueRouter_prod = {};
       const shouldRedirect = handleRedirectRecord(targetLocation);
       if (shouldRedirect)
         return pushWithRedirect(
-          assign(locationAsObject(shouldRedirect), {
+          assign2(locationAsObject(shouldRedirect), {
             state: data,
             force,
             replace: replace2
@@ -2116,7 +2116,7 @@ var vueRouter_prod = {};
         if (failure2) {
           if (isNavigationFailure(failure2, 2)) {
             return pushWithRedirect(
-              assign({
+              assign2({
                 replace: replace2
               }, locationAsObject(failure2.to), {
                 state: data,
@@ -2203,7 +2203,7 @@ var vueRouter_prod = {};
       const state = {};
       if (isPush) {
         if (replace2 || isFirstNavigation)
-          routerHistory.replace(toLocation.fullPath, assign({
+          routerHistory.replace(toLocation.fullPath, assign2({
             scroll: isFirstNavigation && state && state.scroll
           }, data));
         else
@@ -2223,7 +2223,7 @@ var vueRouter_prod = {};
         const toLocation = resolve(to);
         const shouldRedirect = handleRedirectRecord(toLocation);
         if (shouldRedirect) {
-          pushWithRedirect(assign(shouldRedirect, { replace: true }), toLocation).catch(noop);
+          pushWithRedirect(assign2(shouldRedirect, { replace: true }), toLocation).catch(noop2);
           return;
         }
         pendingLocation = toLocation;
@@ -2240,7 +2240,7 @@ var vueRouter_prod = {};
               if (isNavigationFailure(failure, 4 | 16) && !info.delta && info.type === NavigationType.pop) {
                 routerHistory.go(-1, false);
               }
-            }).catch(noop);
+            }).catch(noop2);
             return Promise.reject();
           }
           if (info.delta) {
@@ -2261,7 +2261,7 @@ var vueRouter_prod = {};
             }
           }
           triggerAfterEach(toLocation, from, failure);
-        }).catch(noop);
+        }).catch(noop2);
       });
     }
     let readyHandlers = useCallbacks();
@@ -2460,6 +2460,7 @@ const useRoute = () => {
   }
   return useNuxtApp()._route;
 };
+const defineNuxtRouteMiddleware = (middleware) => middleware;
 const navigateTo = (to, options = {}) => {
   if (!to) {
     to = "/";
@@ -2593,13 +2594,14 @@ function defineNuxtLink(options) {
     }
   });
 }
-const __nuxt_component_0$6 = defineNuxtLink({ componentName: "NuxtLink" });
+const __nuxt_component_0$5 = defineNuxtLink({ componentName: "NuxtLink" });
 function useHead(meta2) {
   const resolvedMeta = isFunction_1(meta2) ? vue_cjs_prod.computed(meta2) : meta2;
   useNuxtApp()._useHead(resolvedMeta);
 }
 const tailwind = "";
 const style = "";
+const aos = "";
 const preload = defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.mixin({
     beforeCreate() {
@@ -3244,7 +3246,7 @@ const Components = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePr
   Html,
   Body
 }, Symbol.toStringTag, { value: "Module" }));
-const metaConfig = { "globalMeta": { "meta": [{ "property": "og:title", "content": "UMaestro - Cr\xE9er ton meilleur projet avec nous !" }, { "property": "og:type", "content": "product" }, { "property": "og:description", "content": "Site regroupant une multitude d'outils dans de multiples domaines diff\xE9rents." }, { "property": "twitter:title", "content": "UMaestro - Cr\xE9er ton meilleur projet avec nous !" }, { "property": "twitter:description", "content": "Site regroupant une multitude d'outils dans de multiples domaines diff\xE9rents." }, { "property": "og:title", "content": "UMaestro - Cr\xE9er ton meilleur projet avec nous !" }, { "property": "description", "content": "Site regroupant une multitude d'outils dans de multiples domaines diff\xE9rents." }, { "name": "twitter:card", "content": "summary" }], "link": [{ "rel": "icon", "type": "image/png", "href": "/favicon-32x32.png" }], "style": [], "script": [], "noscript": [], "titleTemplate": "UMaestro - %s", "bodyAttrs": { "class": "bg-background dark:bg-dark-900 dark:text-white transition ease-in duration-100" }, "charset": "utf-8", "viewport": "width=device-width, initial-scale=1" } };
+const metaConfig = { "globalMeta": { "meta": [{ "property": "og:title", "content": "UMaestro - Cr\xE9er ton meilleur projet avec nous !" }, { "property": "og:type", "content": "product" }, { "property": "og:description", "content": "Site regroupant une multitude d'outils dans de multiples domaines diff\xE9rents." }, { "property": "twitter:title", "content": "UMaestro - Cr\xE9er ton meilleur projet avec nous !" }, { "property": "twitter:description", "content": "Site regroupant une multitude d'outils dans de multiples domaines diff\xE9rents." }, { "property": "og:title", "content": "UMaestro - Cr\xE9er ton meilleur projet avec nous !" }, { "property": "description", "content": "Site regroupant une multitude d'outils dans de multiples domaines diff\xE9rents." }, { "name": "twitter:card", "content": "summary" }], "link": [{ "rel": "icon", "type": "image/png", "href": "/favicon-32x32.png" }], "style": [], "script": [], "noscript": [], "titleTemplate": "UMaestro - %s", "bodyAttrs": { "class": "bg-background dark:bg-dark-950 dark:text-white transition ease-in duration-100" }, "charset": "utf-8", "viewport": "width=device-width, initial-scale=1" } };
 const metaMixin = {
   created() {
     const instance = vue_cjs_prod.getCurrentInstance();
@@ -3358,7 +3360,1268 @@ const _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$w = {
+const _sfc_main$u = {
+  props: {
+    modelValue: {
+      type: [String, Number],
+      default: ""
+    },
+    placeholder: {
+      type: String,
+      default: ""
+    },
+    big: {
+      type: Boolean,
+      default: false
+    },
+    white: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    classes: {
+      type: String,
+      default: ""
+    }
+  },
+  methods: {
+    handleInput(e) {
+      this.$emit("update:modelValue", e.target.value);
+      this.$emit("change", e.target.value);
+    }
+  }
+};
+function _sfc_ssrRender$s(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  _push(`<div${ssrRenderAttrs(_attrs)}><input${ssrRenderAttr("placeholder", $props.placeholder)} type="text" class="${ssrRenderClass([[$props.big ? "px-6 py-5 text-md" : "px-6 py-4 text-sm", $props.white ? "bg-white text-black" : "bg-transparent focus:bg-white dark:focus:bg-dark-900 border-dark-800 focus:border-primary-500", $props.classes], "text-sm w-full border focus:outline-none rounded-lg"])}"${ssrRenderAttr("value", $props.modelValue)}${ssrIncludeBooleanAttr($props.disabled) ? " disabled" : ""}></div>`);
+}
+const _sfc_setup$u = _sfc_main$u.setup;
+_sfc_main$u.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Input.vue");
+  return _sfc_setup$u ? _sfc_setup$u(props, ctx) : void 0;
+};
+const __nuxt_component_4$2 = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["ssrRender", _sfc_ssrRender$s]]);
+const _sfc_main$t = {
+  data: () => ({
+    btnColors: {
+      transparent: "bg-transparent shadow-none",
+      primary: "bg-primary-500 hover:bg-primary-400 text-white",
+      secondary: "bg-secondary-500 hover:bg-secondary-600 text-black",
+      white: "bg-white hover:bg-gray-100 text-black",
+      blurple: "bg-blurple text-white",
+      yellow: "bg-yellow-500 text-white hover:bg-white hover:text-black",
+      red: "bg-red-500 text-white",
+      disabled: "bg-gray-200 text-black opacity-50",
+      theme: "bg-white hover:bg-gray-100 dark:bg-dark-900 dark:hover:bg-dark-800"
+    }
+  }),
+  props: {
+    color: {
+      type: String,
+      default: "secondary"
+    },
+    text: {
+      type: String,
+      required: true
+    },
+    icon: {
+      type: String
+    },
+    small: {
+      type: Boolean,
+      default: false
+    },
+    centerText: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    colors() {
+      return this.disabled ? this.btnColors["disabled"] : this.btnColors[this.color];
+    }
+  }
+};
+function _sfc_ssrRender$r(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  _push(`<button${ssrRenderAttrs(vue_cjs_prod.mergeProps({
+    class: ["rounded-md font-medium text-base flex items-center shadow-xl ease-in duration-300", [$options.colors, $props.small ? "px-5 py-3" : "px-6 py-4", $props.centerText && "justify-center"]]
+  }, _attrs))}>`);
+  ssrRenderSlot(_ctx.$slots, "icon_left", {}, null, _push, _parent);
+  _push(`<span class="${ssrRenderClass(["whitespace-pre-line", $props.centerText ? "text-center" : "text-left"])}">${ssrInterpolate($props.text)}</span>`);
+  ssrRenderSlot(_ctx.$slots, "icon_right", {}, null, _push, _parent);
+  ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
+  _push(`</button>`);
+}
+const _sfc_setup$t = _sfc_main$t.setup;
+_sfc_main$t.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Button.vue");
+  return _sfc_setup$t ? _sfc_setup$t(props, ctx) : void 0;
+};
+const __nuxt_component_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["ssrRender", _sfc_ssrRender$r]]);
+const axios2 = axios.create({
+  baseURL: "https://api.umaestro.fr/"
+});
+function set(target, key, val) {
+  if (Array.isArray(target)) {
+    target.length = Math.max(target.length, key);
+    target.splice(key, 1, val);
+    return val;
+  }
+  target[key] = val;
+  return val;
+}
+function del(target, key) {
+  if (Array.isArray(target)) {
+    target.splice(key, 1);
+    return;
+  }
+  delete target[key];
+}
+const isVue2 = false;
+/*!
+  * pinia v2.0.20
+  * (c) 2022 Eduardo San Martin Morote
+  * @license MIT
+  */
+let activePinia;
+const setActivePinia = (pinia) => activePinia = pinia;
+const piniaSymbol = process.env.NODE_ENV !== "production" ? Symbol("pinia") : Symbol();
+function isPlainObject(o) {
+  return o && typeof o === "object" && Object.prototype.toString.call(o) === "[object Object]" && typeof o.toJSON !== "function";
+}
+var MutationType;
+(function(MutationType2) {
+  MutationType2["direct"] = "direct";
+  MutationType2["patchObject"] = "patch object";
+  MutationType2["patchFunction"] = "patch function";
+})(MutationType || (MutationType = {}));
+const IS_CLIENT = false;
+const USE_DEVTOOLS = (process.env.NODE_ENV !== "production" || false) && !(process.env.NODE_ENV === "test") && IS_CLIENT;
+const saveAs = () => {
+};
+function toastMessage(message, type) {
+  const piniaMessage = "\u{1F34D} " + message;
+  if (typeof __VUE_DEVTOOLS_TOAST__ === "function") {
+    __VUE_DEVTOOLS_TOAST__(piniaMessage, type);
+  } else if (type === "error") {
+    console.error(piniaMessage);
+  } else if (type === "warn") {
+    console.warn(piniaMessage);
+  } else {
+    console.log(piniaMessage);
+  }
+}
+function isPinia(o) {
+  return "_a" in o && "install" in o;
+}
+function checkClipboardAccess() {
+  if (!("clipboard" in navigator)) {
+    toastMessage(`Your browser doesn't support the Clipboard API`, "error");
+    return true;
+  }
+}
+function checkNotFocusedError(error) {
+  if (error instanceof Error && error.message.toLowerCase().includes("document is not focused")) {
+    toastMessage('You need to activate the "Emulate a focused page" setting in the "Rendering" panel of devtools.', "warn");
+    return true;
+  }
+  return false;
+}
+async function actionGlobalCopyState(pinia) {
+  if (checkClipboardAccess())
+    return;
+  try {
+    await navigator.clipboard.writeText(JSON.stringify(pinia.state.value));
+    toastMessage("Global state copied to clipboard.");
+  } catch (error) {
+    if (checkNotFocusedError(error))
+      return;
+    toastMessage(`Failed to serialize the state. Check the console for more details.`, "error");
+    console.error(error);
+  }
+}
+async function actionGlobalPasteState(pinia) {
+  if (checkClipboardAccess())
+    return;
+  try {
+    pinia.state.value = JSON.parse(await navigator.clipboard.readText());
+    toastMessage("Global state pasted from clipboard.");
+  } catch (error) {
+    if (checkNotFocusedError(error))
+      return;
+    toastMessage(`Failed to deserialize the state from clipboard. Check the console for more details.`, "error");
+    console.error(error);
+  }
+}
+async function actionGlobalSaveState(pinia) {
+  try {
+    saveAs(new Blob([JSON.stringify(pinia.state.value)], {
+      type: "text/plain;charset=utf-8"
+    }), "pinia-state.json");
+  } catch (error) {
+    toastMessage(`Failed to export the state as JSON. Check the console for more details.`, "error");
+    console.error(error);
+  }
+}
+let fileInput;
+function getFileOpener() {
+  if (!fileInput) {
+    fileInput = document.createElement("input");
+    fileInput.type = "file";
+    fileInput.accept = ".json";
+  }
+  function openFile() {
+    return new Promise((resolve, reject) => {
+      fileInput.onchange = async () => {
+        const files = fileInput.files;
+        if (!files)
+          return resolve(null);
+        const file = files.item(0);
+        if (!file)
+          return resolve(null);
+        return resolve({ text: await file.text(), file });
+      };
+      fileInput.oncancel = () => resolve(null);
+      fileInput.onerror = reject;
+      fileInput.click();
+    });
+  }
+  return openFile;
+}
+async function actionGlobalOpenStateFile(pinia) {
+  try {
+    const open = await getFileOpener();
+    const result = await open();
+    if (!result)
+      return;
+    const { text, file } = result;
+    pinia.state.value = JSON.parse(text);
+    toastMessage(`Global state imported from "${file.name}".`);
+  } catch (error) {
+    toastMessage(`Failed to export the state as JSON. Check the console for more details.`, "error");
+    console.error(error);
+  }
+}
+function formatDisplay(display) {
+  return {
+    _custom: {
+      display
+    }
+  };
+}
+const PINIA_ROOT_LABEL = "\u{1F34D} Pinia (root)";
+const PINIA_ROOT_ID = "_root";
+function formatStoreForInspectorTree(store) {
+  return isPinia(store) ? {
+    id: PINIA_ROOT_ID,
+    label: PINIA_ROOT_LABEL
+  } : {
+    id: store.$id,
+    label: store.$id
+  };
+}
+function formatStoreForInspectorState(store) {
+  if (isPinia(store)) {
+    const storeNames = Array.from(store._s.keys());
+    const storeMap = store._s;
+    const state2 = {
+      state: storeNames.map((storeId) => ({
+        editable: true,
+        key: storeId,
+        value: store.state.value[storeId]
+      })),
+      getters: storeNames.filter((id) => storeMap.get(id)._getters).map((id) => {
+        const store2 = storeMap.get(id);
+        return {
+          editable: false,
+          key: id,
+          value: store2._getters.reduce((getters, key) => {
+            getters[key] = store2[key];
+            return getters;
+          }, {})
+        };
+      })
+    };
+    return state2;
+  }
+  const state = {
+    state: Object.keys(store.$state).map((key) => ({
+      editable: true,
+      key,
+      value: store.$state[key]
+    }))
+  };
+  if (store._getters && store._getters.length) {
+    state.getters = store._getters.map((getterName) => ({
+      editable: false,
+      key: getterName,
+      value: store[getterName]
+    }));
+  }
+  if (store._customProperties.size) {
+    state.customProperties = Array.from(store._customProperties).map((key) => ({
+      editable: true,
+      key,
+      value: store[key]
+    }));
+  }
+  return state;
+}
+function formatEventData(events) {
+  if (!events)
+    return {};
+  if (Array.isArray(events)) {
+    return events.reduce((data, event) => {
+      data.keys.push(event.key);
+      data.operations.push(event.type);
+      data.oldValue[event.key] = event.oldValue;
+      data.newValue[event.key] = event.newValue;
+      return data;
+    }, {
+      oldValue: {},
+      keys: [],
+      operations: [],
+      newValue: {}
+    });
+  } else {
+    return {
+      operation: formatDisplay(events.type),
+      key: formatDisplay(events.key),
+      oldValue: events.oldValue,
+      newValue: events.newValue
+    };
+  }
+}
+function formatMutationType(type) {
+  switch (type) {
+    case MutationType.direct:
+      return "mutation";
+    case MutationType.patchFunction:
+      return "$patch";
+    case MutationType.patchObject:
+      return "$patch";
+    default:
+      return "unknown";
+  }
+}
+let isTimelineActive = true;
+const componentStateTypes = [];
+const MUTATIONS_LAYER_ID = "pinia:mutations";
+const INSPECTOR_ID = "pinia";
+const getStoreType = (id) => "\u{1F34D} " + id;
+function registerPiniaDevtools(app, pinia) {
+  setupDevtoolsPlugin({
+    id: "dev.esm.pinia",
+    label: "Pinia \u{1F34D}",
+    logo: "https://pinia.vuejs.org/logo.svg",
+    packageName: "pinia",
+    homepage: "https://pinia.vuejs.org",
+    componentStateTypes,
+    app
+  }, (api) => {
+    if (typeof api.now !== "function") {
+      toastMessage("You seem to be using an outdated version of Vue Devtools. Are you still using the Beta release instead of the stable one? You can find the links at https://devtools.vuejs.org/guide/installation.html.");
+    }
+    api.addTimelineLayer({
+      id: MUTATIONS_LAYER_ID,
+      label: `Pinia \u{1F34D}`,
+      color: 15064968
+    });
+    api.addInspector({
+      id: INSPECTOR_ID,
+      label: "Pinia \u{1F34D}",
+      icon: "storage",
+      treeFilterPlaceholder: "Search stores",
+      actions: [
+        {
+          icon: "content_copy",
+          action: () => {
+            actionGlobalCopyState(pinia);
+          },
+          tooltip: "Serialize and copy the state"
+        },
+        {
+          icon: "content_paste",
+          action: async () => {
+            await actionGlobalPasteState(pinia);
+            api.sendInspectorTree(INSPECTOR_ID);
+            api.sendInspectorState(INSPECTOR_ID);
+          },
+          tooltip: "Replace the state with the content of your clipboard"
+        },
+        {
+          icon: "save",
+          action: () => {
+            actionGlobalSaveState(pinia);
+          },
+          tooltip: "Save the state as a JSON file"
+        },
+        {
+          icon: "folder_open",
+          action: async () => {
+            await actionGlobalOpenStateFile(pinia);
+            api.sendInspectorTree(INSPECTOR_ID);
+            api.sendInspectorState(INSPECTOR_ID);
+          },
+          tooltip: "Import the state from a JSON file"
+        }
+      ],
+      nodeActions: [
+        {
+          icon: "restore",
+          tooltip: "Reset the state (option store only)",
+          action: (nodeId) => {
+            const store = pinia._s.get(nodeId);
+            if (!store) {
+              toastMessage(`Cannot reset "${nodeId}" store because it wasn't found.`, "warn");
+            } else if (!store._isOptionsAPI) {
+              toastMessage(`Cannot reset "${nodeId}" store because it's a setup store.`, "warn");
+            } else {
+              store.$reset();
+              toastMessage(`Store "${nodeId}" reset.`);
+            }
+          }
+        }
+      ]
+    });
+    api.on.inspectComponent((payload, ctx) => {
+      const proxy = payload.componentInstance && payload.componentInstance.proxy;
+      if (proxy && proxy._pStores) {
+        const piniaStores = payload.componentInstance.proxy._pStores;
+        Object.values(piniaStores).forEach((store) => {
+          payload.instanceData.state.push({
+            type: getStoreType(store.$id),
+            key: "state",
+            editable: true,
+            value: store._isOptionsAPI ? {
+              _custom: {
+                value: vue_cjs_prod.toRaw(store.$state),
+                actions: [
+                  {
+                    icon: "restore",
+                    tooltip: "Reset the state of this store",
+                    action: () => store.$reset()
+                  }
+                ]
+              }
+            } : Object.keys(store.$state).reduce((state, key) => {
+              state[key] = store.$state[key];
+              return state;
+            }, {})
+          });
+          if (store._getters && store._getters.length) {
+            payload.instanceData.state.push({
+              type: getStoreType(store.$id),
+              key: "getters",
+              editable: false,
+              value: store._getters.reduce((getters, key) => {
+                try {
+                  getters[key] = store[key];
+                } catch (error) {
+                  getters[key] = error;
+                }
+                return getters;
+              }, {})
+            });
+          }
+        });
+      }
+    });
+    api.on.getInspectorTree((payload) => {
+      if (payload.app === app && payload.inspectorId === INSPECTOR_ID) {
+        let stores = [pinia];
+        stores = stores.concat(Array.from(pinia._s.values()));
+        payload.rootNodes = (payload.filter ? stores.filter((store) => "$id" in store ? store.$id.toLowerCase().includes(payload.filter.toLowerCase()) : PINIA_ROOT_LABEL.toLowerCase().includes(payload.filter.toLowerCase())) : stores).map(formatStoreForInspectorTree);
+      }
+    });
+    api.on.getInspectorState((payload) => {
+      if (payload.app === app && payload.inspectorId === INSPECTOR_ID) {
+        const inspectedStore = payload.nodeId === PINIA_ROOT_ID ? pinia : pinia._s.get(payload.nodeId);
+        if (!inspectedStore) {
+          return;
+        }
+        if (inspectedStore) {
+          payload.state = formatStoreForInspectorState(inspectedStore);
+        }
+      }
+    });
+    api.on.editInspectorState((payload, ctx) => {
+      if (payload.app === app && payload.inspectorId === INSPECTOR_ID) {
+        const inspectedStore = payload.nodeId === PINIA_ROOT_ID ? pinia : pinia._s.get(payload.nodeId);
+        if (!inspectedStore) {
+          return toastMessage(`store "${payload.nodeId}" not found`, "error");
+        }
+        const { path } = payload;
+        if (!isPinia(inspectedStore)) {
+          if (path.length !== 1 || !inspectedStore._customProperties.has(path[0]) || path[0] in inspectedStore.$state) {
+            path.unshift("$state");
+          }
+        } else {
+          path.unshift("state");
+        }
+        isTimelineActive = false;
+        payload.set(inspectedStore, path, payload.state.value);
+        isTimelineActive = true;
+      }
+    });
+    api.on.editComponentState((payload) => {
+      if (payload.type.startsWith("\u{1F34D}")) {
+        const storeId = payload.type.replace(/^🍍\s*/, "");
+        const store = pinia._s.get(storeId);
+        if (!store) {
+          return toastMessage(`store "${storeId}" not found`, "error");
+        }
+        const { path } = payload;
+        if (path[0] !== "state") {
+          return toastMessage(`Invalid path for store "${storeId}":
+${path}
+Only state can be modified.`);
+        }
+        path[0] = "$state";
+        isTimelineActive = false;
+        payload.set(store, path, payload.state.value);
+        isTimelineActive = true;
+      }
+    });
+  });
+}
+function addStoreToDevtools(app, store) {
+  if (!componentStateTypes.includes(getStoreType(store.$id))) {
+    componentStateTypes.push(getStoreType(store.$id));
+  }
+  setupDevtoolsPlugin({
+    id: "dev.esm.pinia",
+    label: "Pinia \u{1F34D}",
+    logo: "https://pinia.vuejs.org/logo.svg",
+    packageName: "pinia",
+    homepage: "https://pinia.vuejs.org",
+    componentStateTypes,
+    app,
+    settings: {
+      logStoreChanges: {
+        label: "Notify about new/deleted stores",
+        type: "boolean",
+        defaultValue: true
+      }
+    }
+  }, (api) => {
+    const now = typeof api.now === "function" ? api.now.bind(api) : Date.now;
+    store.$onAction(({ after, onError, name, args }) => {
+      const groupId = runningActionId++;
+      api.addTimelineEvent({
+        layerId: MUTATIONS_LAYER_ID,
+        event: {
+          time: now(),
+          title: "\u{1F6EB} " + name,
+          subtitle: "start",
+          data: {
+            store: formatDisplay(store.$id),
+            action: formatDisplay(name),
+            args
+          },
+          groupId
+        }
+      });
+      after((result) => {
+        activeAction = void 0;
+        api.addTimelineEvent({
+          layerId: MUTATIONS_LAYER_ID,
+          event: {
+            time: now(),
+            title: "\u{1F6EC} " + name,
+            subtitle: "end",
+            data: {
+              store: formatDisplay(store.$id),
+              action: formatDisplay(name),
+              args,
+              result
+            },
+            groupId
+          }
+        });
+      });
+      onError((error) => {
+        activeAction = void 0;
+        api.addTimelineEvent({
+          layerId: MUTATIONS_LAYER_ID,
+          event: {
+            time: now(),
+            logType: "error",
+            title: "\u{1F4A5} " + name,
+            subtitle: "end",
+            data: {
+              store: formatDisplay(store.$id),
+              action: formatDisplay(name),
+              args,
+              error
+            },
+            groupId
+          }
+        });
+      });
+    }, true);
+    store._customProperties.forEach((name) => {
+      vue_cjs_prod.watch(() => vue_cjs_prod.unref(store[name]), (newValue, oldValue) => {
+        api.notifyComponentUpdate();
+        api.sendInspectorState(INSPECTOR_ID);
+        if (isTimelineActive) {
+          api.addTimelineEvent({
+            layerId: MUTATIONS_LAYER_ID,
+            event: {
+              time: now(),
+              title: "Change",
+              subtitle: name,
+              data: {
+                newValue,
+                oldValue
+              },
+              groupId: activeAction
+            }
+          });
+        }
+      }, { deep: true });
+    });
+    store.$subscribe(({ events, type }, state) => {
+      api.notifyComponentUpdate();
+      api.sendInspectorState(INSPECTOR_ID);
+      if (!isTimelineActive)
+        return;
+      const eventData = {
+        time: now(),
+        title: formatMutationType(type),
+        data: {
+          store: formatDisplay(store.$id),
+          ...formatEventData(events)
+        },
+        groupId: activeAction
+      };
+      activeAction = void 0;
+      if (type === MutationType.patchFunction) {
+        eventData.subtitle = "\u2935\uFE0F";
+      } else if (type === MutationType.patchObject) {
+        eventData.subtitle = "\u{1F9E9}";
+      } else if (events && !Array.isArray(events)) {
+        eventData.subtitle = events.type;
+      }
+      if (events) {
+        eventData.data["rawEvent(s)"] = {
+          _custom: {
+            display: "DebuggerEvent",
+            type: "object",
+            tooltip: "raw DebuggerEvent[]",
+            value: events
+          }
+        };
+      }
+      api.addTimelineEvent({
+        layerId: MUTATIONS_LAYER_ID,
+        event: eventData
+      });
+    }, { detached: true, flush: "sync" });
+    const hotUpdate = store._hotUpdate;
+    store._hotUpdate = vue_cjs_prod.markRaw((newStore) => {
+      hotUpdate(newStore);
+      api.addTimelineEvent({
+        layerId: MUTATIONS_LAYER_ID,
+        event: {
+          time: now(),
+          title: "\u{1F525} " + store.$id,
+          subtitle: "HMR update",
+          data: {
+            store: formatDisplay(store.$id),
+            info: formatDisplay(`HMR update`)
+          }
+        }
+      });
+      api.notifyComponentUpdate();
+      api.sendInspectorTree(INSPECTOR_ID);
+      api.sendInspectorState(INSPECTOR_ID);
+    });
+    const { $dispose } = store;
+    store.$dispose = () => {
+      $dispose();
+      api.notifyComponentUpdate();
+      api.sendInspectorTree(INSPECTOR_ID);
+      api.sendInspectorState(INSPECTOR_ID);
+      api.getSettings().logStoreChanges && toastMessage(`Disposed "${store.$id}" store \u{1F5D1}`);
+    };
+    api.notifyComponentUpdate();
+    api.sendInspectorTree(INSPECTOR_ID);
+    api.sendInspectorState(INSPECTOR_ID);
+    api.getSettings().logStoreChanges && toastMessage(`"${store.$id}" store installed \u{1F195}`);
+  });
+}
+let runningActionId = 0;
+let activeAction;
+function patchActionForGrouping(store, actionNames) {
+  const actions = actionNames.reduce((storeActions, actionName) => {
+    storeActions[actionName] = vue_cjs_prod.toRaw(store)[actionName];
+    return storeActions;
+  }, {});
+  for (const actionName in actions) {
+    store[actionName] = function() {
+      const _actionId = runningActionId;
+      const trackedStore = new Proxy(store, {
+        get(...args) {
+          activeAction = _actionId;
+          return Reflect.get(...args);
+        },
+        set(...args) {
+          activeAction = _actionId;
+          return Reflect.set(...args);
+        }
+      });
+      return actions[actionName].apply(trackedStore, arguments);
+    };
+  }
+}
+function devtoolsPlugin({ app, store, options }) {
+  if (store.$id.startsWith("__hot:")) {
+    return;
+  }
+  if (options.state) {
+    store._isOptionsAPI = true;
+  }
+  if (typeof options.state === "function") {
+    patchActionForGrouping(
+      store,
+      Object.keys(options.actions)
+    );
+    const originalHotUpdate = store._hotUpdate;
+    vue_cjs_prod.toRaw(store)._hotUpdate = function(newStore) {
+      originalHotUpdate.apply(this, arguments);
+      patchActionForGrouping(store, Object.keys(newStore._hmrPayload.actions));
+    };
+  }
+  addStoreToDevtools(
+    app,
+    store
+  );
+}
+function createPinia() {
+  const scope = vue_cjs_prod.effectScope(true);
+  const state = scope.run(() => vue_cjs_prod.ref({}));
+  let _p = [];
+  let toBeInstalled = [];
+  const pinia = vue_cjs_prod.markRaw({
+    install(app) {
+      setActivePinia(pinia);
+      {
+        pinia._a = app;
+        app.provide(piniaSymbol, pinia);
+        app.config.globalProperties.$pinia = pinia;
+        if (USE_DEVTOOLS) {
+          registerPiniaDevtools(app, pinia);
+        }
+        toBeInstalled.forEach((plugin) => _p.push(plugin));
+        toBeInstalled = [];
+      }
+    },
+    use(plugin) {
+      if (!this._a && !isVue2) {
+        toBeInstalled.push(plugin);
+      } else {
+        _p.push(plugin);
+      }
+      return this;
+    },
+    _p,
+    _a: null,
+    _e: scope,
+    _s: /* @__PURE__ */ new Map(),
+    state
+  });
+  if (USE_DEVTOOLS && typeof Proxy !== "undefined") {
+    pinia.use(devtoolsPlugin);
+  }
+  return pinia;
+}
+function patchObject(newState, oldState) {
+  for (const key in oldState) {
+    const subPatch = oldState[key];
+    if (!(key in newState)) {
+      continue;
+    }
+    const targetValue = newState[key];
+    if (isPlainObject(targetValue) && isPlainObject(subPatch) && !vue_cjs_prod.isRef(subPatch) && !vue_cjs_prod.isReactive(subPatch)) {
+      newState[key] = patchObject(targetValue, subPatch);
+    } else {
+      {
+        newState[key] = subPatch;
+      }
+    }
+  }
+  return newState;
+}
+const noop = () => {
+};
+function addSubscription(subscriptions, callback, detached, onCleanup = noop) {
+  subscriptions.push(callback);
+  const removeSubscription = () => {
+    const idx = subscriptions.indexOf(callback);
+    if (idx > -1) {
+      subscriptions.splice(idx, 1);
+      onCleanup();
+    }
+  };
+  if (!detached && vue_cjs_prod.getCurrentInstance()) {
+    vue_cjs_prod.onUnmounted(removeSubscription);
+  }
+  return removeSubscription;
+}
+function triggerSubscriptions(subscriptions, ...args) {
+  subscriptions.slice().forEach((callback) => {
+    callback(...args);
+  });
+}
+function mergeReactiveObjects(target, patchToApply) {
+  for (const key in patchToApply) {
+    if (!patchToApply.hasOwnProperty(key))
+      continue;
+    const subPatch = patchToApply[key];
+    const targetValue = target[key];
+    if (isPlainObject(targetValue) && isPlainObject(subPatch) && target.hasOwnProperty(key) && !vue_cjs_prod.isRef(subPatch) && !vue_cjs_prod.isReactive(subPatch)) {
+      target[key] = mergeReactiveObjects(targetValue, subPatch);
+    } else {
+      target[key] = subPatch;
+    }
+  }
+  return target;
+}
+const skipHydrateSymbol = process.env.NODE_ENV !== "production" ? Symbol("pinia:skipHydration") : Symbol();
+function shouldHydrate(obj) {
+  return !isPlainObject(obj) || !obj.hasOwnProperty(skipHydrateSymbol);
+}
+const { assign } = Object;
+function isComputed(o) {
+  return !!(vue_cjs_prod.isRef(o) && o.effect);
+}
+function createOptionsStore(id, options, pinia, hot) {
+  const { state, actions, getters } = options;
+  const initialState = pinia.state.value[id];
+  let store;
+  function setup() {
+    if (!initialState && (!(process.env.NODE_ENV !== "production") || !hot)) {
+      {
+        pinia.state.value[id] = state ? state() : {};
+      }
+    }
+    const localState = process.env.NODE_ENV !== "production" && hot ? vue_cjs_prod.toRefs(vue_cjs_prod.ref(state ? state() : {}).value) : vue_cjs_prod.toRefs(pinia.state.value[id]);
+    return assign(localState, actions, Object.keys(getters || {}).reduce((computedGetters, name) => {
+      if (process.env.NODE_ENV !== "production" && name in localState) {
+        console.warn(`[\u{1F34D}]: A getter cannot have the same name as another state property. Rename one of them. Found with "${name}" in store "${id}".`);
+      }
+      computedGetters[name] = vue_cjs_prod.markRaw(vue_cjs_prod.computed(() => {
+        setActivePinia(pinia);
+        const store2 = pinia._s.get(id);
+        return getters[name].call(store2, store2);
+      }));
+      return computedGetters;
+    }, {}));
+  }
+  store = createSetupStore(id, setup, options, pinia, hot, true);
+  store.$reset = function $reset() {
+    const newState = state ? state() : {};
+    this.$patch(($state) => {
+      assign($state, newState);
+    });
+  };
+  return store;
+}
+function createSetupStore($id, setup, options = {}, pinia, hot, isOptionsStore) {
+  let scope;
+  const optionsForPlugin = assign({ actions: {} }, options);
+  if (process.env.NODE_ENV !== "production" && !pinia._e.active) {
+    throw new Error("Pinia destroyed");
+  }
+  const $subscribeOptions = {
+    deep: true
+  };
+  if (process.env.NODE_ENV !== "production" && !isVue2) {
+    $subscribeOptions.onTrigger = (event) => {
+      if (isListening) {
+        debuggerEvents = event;
+      } else if (isListening == false && !store._hotUpdating) {
+        if (Array.isArray(debuggerEvents)) {
+          debuggerEvents.push(event);
+        } else {
+          console.error("\u{1F34D} debuggerEvents should be an array. This is most likely an internal Pinia bug.");
+        }
+      }
+    };
+  }
+  let isListening;
+  let isSyncListening;
+  let subscriptions = vue_cjs_prod.markRaw([]);
+  let actionSubscriptions = vue_cjs_prod.markRaw([]);
+  let debuggerEvents;
+  const initialState = pinia.state.value[$id];
+  if (!isOptionsStore && !initialState && (!(process.env.NODE_ENV !== "production") || !hot)) {
+    {
+      pinia.state.value[$id] = {};
+    }
+  }
+  const hotState = vue_cjs_prod.ref({});
+  let activeListener;
+  function $patch(partialStateOrMutator) {
+    let subscriptionMutation;
+    isListening = isSyncListening = false;
+    if (process.env.NODE_ENV !== "production") {
+      debuggerEvents = [];
+    }
+    if (typeof partialStateOrMutator === "function") {
+      partialStateOrMutator(pinia.state.value[$id]);
+      subscriptionMutation = {
+        type: MutationType.patchFunction,
+        storeId: $id,
+        events: debuggerEvents
+      };
+    } else {
+      mergeReactiveObjects(pinia.state.value[$id], partialStateOrMutator);
+      subscriptionMutation = {
+        type: MutationType.patchObject,
+        payload: partialStateOrMutator,
+        storeId: $id,
+        events: debuggerEvents
+      };
+    }
+    const myListenerId = activeListener = Symbol();
+    vue_cjs_prod.nextTick().then(() => {
+      if (activeListener === myListenerId) {
+        isListening = true;
+      }
+    });
+    isSyncListening = true;
+    triggerSubscriptions(subscriptions, subscriptionMutation, pinia.state.value[$id]);
+  }
+  const $reset = process.env.NODE_ENV !== "production" ? () => {
+    throw new Error(`\u{1F34D}: Store "${$id}" is built using the setup syntax and does not implement $reset().`);
+  } : noop;
+  function $dispose() {
+    scope.stop();
+    subscriptions = [];
+    actionSubscriptions = [];
+    pinia._s.delete($id);
+  }
+  function wrapAction(name, action) {
+    return function() {
+      setActivePinia(pinia);
+      const args = Array.from(arguments);
+      const afterCallbackList = [];
+      const onErrorCallbackList = [];
+      function after(callback) {
+        afterCallbackList.push(callback);
+      }
+      function onError(callback) {
+        onErrorCallbackList.push(callback);
+      }
+      triggerSubscriptions(actionSubscriptions, {
+        args,
+        name,
+        store,
+        after,
+        onError
+      });
+      let ret;
+      try {
+        ret = action.apply(this && this.$id === $id ? this : store, args);
+      } catch (error) {
+        triggerSubscriptions(onErrorCallbackList, error);
+        throw error;
+      }
+      if (ret instanceof Promise) {
+        return ret.then((value) => {
+          triggerSubscriptions(afterCallbackList, value);
+          return value;
+        }).catch((error) => {
+          triggerSubscriptions(onErrorCallbackList, error);
+          return Promise.reject(error);
+        });
+      }
+      triggerSubscriptions(afterCallbackList, ret);
+      return ret;
+    };
+  }
+  const _hmrPayload = /* @__PURE__ */ vue_cjs_prod.markRaw({
+    actions: {},
+    getters: {},
+    state: [],
+    hotState
+  });
+  const partialStore = {
+    _p: pinia,
+    $id,
+    $onAction: addSubscription.bind(null, actionSubscriptions),
+    $patch,
+    $reset,
+    $subscribe(callback, options2 = {}) {
+      const removeSubscription = addSubscription(subscriptions, callback, options2.detached, () => stopWatcher());
+      const stopWatcher = scope.run(() => vue_cjs_prod.watch(() => pinia.state.value[$id], (state) => {
+        if (options2.flush === "sync" ? isSyncListening : isListening) {
+          callback({
+            storeId: $id,
+            type: MutationType.direct,
+            events: debuggerEvents
+          }, state);
+        }
+      }, assign({}, $subscribeOptions, options2)));
+      return removeSubscription;
+    },
+    $dispose
+  };
+  const store = vue_cjs_prod.reactive(assign(
+    process.env.NODE_ENV !== "production" && IS_CLIENT ? {
+      _customProperties: vue_cjs_prod.markRaw(/* @__PURE__ */ new Set()),
+      _hmrPayload
+    } : {},
+    partialStore
+  ));
+  pinia._s.set($id, store);
+  const setupStore = pinia._e.run(() => {
+    scope = vue_cjs_prod.effectScope();
+    return scope.run(() => setup());
+  });
+  for (const key in setupStore) {
+    const prop = setupStore[key];
+    if (vue_cjs_prod.isRef(prop) && !isComputed(prop) || vue_cjs_prod.isReactive(prop)) {
+      if (process.env.NODE_ENV !== "production" && hot) {
+        set(hotState.value, key, vue_cjs_prod.toRef(setupStore, key));
+      } else if (!isOptionsStore) {
+        if (initialState && shouldHydrate(prop)) {
+          if (vue_cjs_prod.isRef(prop)) {
+            prop.value = initialState[key];
+          } else {
+            mergeReactiveObjects(prop, initialState[key]);
+          }
+        }
+        {
+          pinia.state.value[$id][key] = prop;
+        }
+      }
+      if (process.env.NODE_ENV !== "production") {
+        _hmrPayload.state.push(key);
+      }
+    } else if (typeof prop === "function") {
+      const actionValue = process.env.NODE_ENV !== "production" && hot ? prop : wrapAction(key, prop);
+      {
+        setupStore[key] = actionValue;
+      }
+      if (process.env.NODE_ENV !== "production") {
+        _hmrPayload.actions[key] = prop;
+      }
+      optionsForPlugin.actions[key] = prop;
+    } else if (process.env.NODE_ENV !== "production") {
+      if (isComputed(prop)) {
+        _hmrPayload.getters[key] = isOptionsStore ? options.getters[key] : prop;
+      }
+    }
+  }
+  {
+    assign(store, setupStore);
+    assign(vue_cjs_prod.toRaw(store), setupStore);
+  }
+  Object.defineProperty(store, "$state", {
+    get: () => process.env.NODE_ENV !== "production" && hot ? hotState.value : pinia.state.value[$id],
+    set: (state) => {
+      if (process.env.NODE_ENV !== "production" && hot) {
+        throw new Error("cannot set hotState");
+      }
+      $patch(($state) => {
+        assign($state, state);
+      });
+    }
+  });
+  if (process.env.NODE_ENV !== "production") {
+    store._hotUpdate = vue_cjs_prod.markRaw((newStore) => {
+      store._hotUpdating = true;
+      newStore._hmrPayload.state.forEach((stateKey) => {
+        if (stateKey in store.$state) {
+          const newStateTarget = newStore.$state[stateKey];
+          const oldStateSource = store.$state[stateKey];
+          if (typeof newStateTarget === "object" && isPlainObject(newStateTarget) && isPlainObject(oldStateSource)) {
+            patchObject(newStateTarget, oldStateSource);
+          } else {
+            newStore.$state[stateKey] = oldStateSource;
+          }
+        }
+        set(store, stateKey, vue_cjs_prod.toRef(newStore.$state, stateKey));
+      });
+      Object.keys(store.$state).forEach((stateKey) => {
+        if (!(stateKey in newStore.$state)) {
+          del(store, stateKey);
+        }
+      });
+      isListening = false;
+      isSyncListening = false;
+      pinia.state.value[$id] = vue_cjs_prod.toRef(newStore._hmrPayload, "hotState");
+      isSyncListening = true;
+      vue_cjs_prod.nextTick().then(() => {
+        isListening = true;
+      });
+      for (const actionName in newStore._hmrPayload.actions) {
+        const action = newStore[actionName];
+        set(store, actionName, wrapAction(actionName, action));
+      }
+      for (const getterName in newStore._hmrPayload.getters) {
+        const getter = newStore._hmrPayload.getters[getterName];
+        const getterValue = isOptionsStore ? vue_cjs_prod.computed(() => {
+          setActivePinia(pinia);
+          return getter.call(store, store);
+        }) : getter;
+        set(store, getterName, getterValue);
+      }
+      Object.keys(store._hmrPayload.getters).forEach((key) => {
+        if (!(key in newStore._hmrPayload.getters)) {
+          del(store, key);
+        }
+      });
+      Object.keys(store._hmrPayload.actions).forEach((key) => {
+        if (!(key in newStore._hmrPayload.actions)) {
+          del(store, key);
+        }
+      });
+      store._hmrPayload = newStore._hmrPayload;
+      store._getters = newStore._getters;
+      store._hotUpdating = false;
+    });
+  }
+  pinia._p.forEach((extender) => {
+    if (process.env.NODE_ENV !== "production" && IS_CLIENT) {
+      const extensions = scope.run(() => extender({
+        store,
+        app: pinia._a,
+        pinia,
+        options: optionsForPlugin
+      }));
+      Object.keys(extensions || {}).forEach((key) => store._customProperties.add(key));
+      assign(store, extensions);
+    } else {
+      assign(store, scope.run(() => extender({
+        store,
+        app: pinia._a,
+        pinia,
+        options: optionsForPlugin
+      })));
+    }
+  });
+  if (process.env.NODE_ENV !== "production" && store.$state && typeof store.$state === "object" && typeof store.$state.constructor === "function" && !store.$state.constructor.toString().includes("[native code]")) {
+    console.warn(`[\u{1F34D}]: The "state" must be a plain object. It cannot be
+	state: () => new MyClass()
+Found in store "${store.$id}".`);
+  }
+  if (initialState && isOptionsStore && options.hydrate) {
+    options.hydrate(store.$state, initialState);
+  }
+  isListening = true;
+  isSyncListening = true;
+  return store;
+}
+function defineStore(idOrOptions, setup, setupOptions) {
+  let id;
+  let options;
+  const isSetupStore = typeof setup === "function";
+  if (typeof idOrOptions === "string") {
+    id = idOrOptions;
+    options = isSetupStore ? setupOptions : setup;
+  } else {
+    options = idOrOptions;
+    id = idOrOptions.id;
+  }
+  function useStore(pinia, hot) {
+    const currentInstance = vue_cjs_prod.getCurrentInstance();
+    pinia = (process.env.NODE_ENV === "test" && activePinia && activePinia._testing ? null : pinia) || currentInstance && vue_cjs_prod.inject(piniaSymbol);
+    if (pinia)
+      setActivePinia(pinia);
+    if (process.env.NODE_ENV !== "production" && !activePinia) {
+      throw new Error(`[\u{1F34D}]: getActivePinia was called with no active Pinia. Did you forget to install pinia?
+	const pinia = createPinia()
+	app.use(pinia)
+This will fail in production.`);
+    }
+    pinia = activePinia;
+    if (!pinia._s.has(id)) {
+      if (isSetupStore) {
+        createSetupStore(id, setup, options, pinia);
+      } else {
+        createOptionsStore(id, options, pinia);
+      }
+      if (process.env.NODE_ENV !== "production") {
+        useStore._pinia = pinia;
+      }
+    }
+    const store = pinia._s.get(id);
+    if (process.env.NODE_ENV !== "production" && hot) {
+      const hotId = "__hot:" + id;
+      const newStore = isSetupStore ? createSetupStore(hotId, setup, options, pinia, true) : createOptionsStore(hotId, assign({}, options), pinia, true);
+      hot._hotUpdate(newStore);
+      delete pinia.state.value[hotId];
+      pinia._s.delete(hotId);
+    }
+    if (process.env.NODE_ENV !== "production" && IS_CLIENT && currentInstance && currentInstance.proxy && !hot) {
+      const vm = currentInstance.proxy;
+      const cache = "_pStores" in vm ? vm._pStores : vm._pStores = {};
+      cache[id] = store;
+    }
+    return store;
+  }
+  useStore.$id = id;
+  return useStore;
+}
+const useAuthStore = defineStore("auth", {
+  state: () => ({
+    isAuthenticated: false,
+    user: null
+  }),
+  getters: {
+    getUser: async (state) => {
+      if (state.isAuthenticated && !state.user) {
+        try {
+          const { data } = await axios2.get("/auth/user", {
+            headers: {
+              Authorization: "Bearer " + localStorage.getItem("access_token")
+            }
+          });
+          state.user = data.user;
+        } catch (err) {
+          state.isAuthenticated = false;
+          localStorage.removeItem("access_token");
+          return;
+        }
+      }
+      return state.user;
+    }
+  },
+  actions: {
+    hasToken() {
+      this.isAuthenticated = localStorage.getItem("access_token") ? true : false;
+      return this.isAuthenticated;
+    },
+    login(user, token = null) {
+      this.isAuthenticated = true;
+      this.user = user;
+      if (token) {
+        localStorage.setItem("access_token", token);
+      }
+    },
+    logout() {
+      this.isAuthenticated = false;
+      this.user = null;
+      localStorage.removeItem("access_token");
+    }
+  }
+});
+const meta$e = {
+  middleware: ["auth"]
+};
+const _sfc_main$s = {
   props: {
     reaction: {
       type: String,
@@ -3366,18 +4629,18 @@ const _sfc_main$w = {
     }
   }
 };
-function _sfc_ssrRender$u(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<div${ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "bg-gray-200 dark:bg-dark-700 px-4 py-3 rounded-full flex gap-2 items-center text-dark-900 dark:text-white text-md text-medium" }, _attrs))}><img class="w-6 h-6 object-contain"${ssrRenderAttr("src", `/objects/${$props.reaction}.png`)}> 54 </div>`);
 }
-const _sfc_setup$w = _sfc_main$w.setup;
-_sfc_main$w.setup = (props, ctx) => {
+const _sfc_setup$s = _sfc_main$s.setup;
+_sfc_main$s.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Articles/Reaction.vue");
-  return _sfc_setup$w ? _sfc_setup$w(props, ctx) : void 0;
+  return _sfc_setup$s ? _sfc_setup$s(props, ctx) : void 0;
 };
-const __nuxt_component_0$5 = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["ssrRender", _sfc_ssrRender$u]]);
-const meta$c = void 0;
-const _sfc_main$v = {
+const __nuxt_component_0$4 = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["ssrRender", _sfc_ssrRender$q]]);
+const meta$d = void 0;
+const _sfc_main$r = {
   props: {
     color: {
       type: Boolean,
@@ -3385,24 +4648,24 @@ const _sfc_main$v = {
     }
   }
 };
-function _sfc_ssrRender$t(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$p(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<div${ssrRenderAttrs(vue_cjs_prod.mergeProps({
-    class: ["rounded-3xl shadow-lg cursor-pointer ease-in duration-300 hover:shadow-2xl hover:-translate-y-1 h-full", $props.color && "bg-white dark:bg-dark-800 hover:dark:bg-dark-700"]
+    class: ["rounded-3xl shadow-lg cursor-pointer ease-in duration-300 hover:shadow-2xl hover:-translate-y-1 h-full", $props.color && "bg-white dark:bg-dark-900 hover:dark:bg-dark-800"]
   }, _attrs))}>`);
   ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
   _push(`</div>`);
 }
-const _sfc_setup$v = _sfc_main$v.setup;
-_sfc_main$v.setup = (props, ctx) => {
+const _sfc_setup$r = _sfc_main$r.setup;
+_sfc_main$r.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Card.vue");
-  return _sfc_setup$v ? _sfc_setup$v(props, ctx) : void 0;
+  return _sfc_setup$r ? _sfc_setup$r(props, ctx) : void 0;
 };
-const __nuxt_component_4$3 = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["ssrRender", _sfc_ssrRender$t]]);
-const _sfc_main$u = {};
-function _sfc_ssrRender$s(_ctx, _push, _parent, _attrs) {
-  const _component_NuxtLink = __nuxt_component_0$6;
-  const _component_Card = __nuxt_component_4$3;
+const __nuxt_component_4$1 = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["ssrRender", _sfc_ssrRender$p]]);
+const _sfc_main$q = {};
+function _sfc_ssrRender$o(_ctx, _push, _parent, _attrs) {
+  const _component_NuxtLink = __nuxt_component_0$5;
+  const _component_Card = __nuxt_component_4$1;
   _push(ssrRenderComponent(_component_NuxtLink, vue_cjs_prod.mergeProps({ to: "/articles/slug" }, _attrs), {
     default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
@@ -3458,14 +4721,14 @@ function _sfc_ssrRender$s(_ctx, _push, _parent, _attrs) {
     _: 1
   }, _parent));
 }
-const _sfc_setup$u = _sfc_main$u.setup;
-_sfc_main$u.setup = (props, ctx) => {
+const _sfc_setup$q = _sfc_main$q.setup;
+_sfc_main$q.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Articles/Thumbnails/Big.vue");
-  return _sfc_setup$u ? _sfc_setup$u(props, ctx) : void 0;
+  return _sfc_setup$q ? _sfc_setup$q(props, ctx) : void 0;
 };
-const __nuxt_component_0$4 = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["ssrRender", _sfc_ssrRender$s]]);
-const _sfc_main$t = {
+const __nuxt_component_0$3 = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["ssrRender", _sfc_ssrRender$o]]);
+const _sfc_main$p = {
   props: {
     superSmall: {
       type: Boolean,
@@ -3473,9 +4736,9 @@ const _sfc_main$t = {
     }
   }
 };
-function _sfc_ssrRender$r(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_NuxtLink = __nuxt_component_0$6;
-  const _component_Card = __nuxt_component_4$3;
+function _sfc_ssrRender$n(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_NuxtLink = __nuxt_component_0$5;
+  const _component_Card = __nuxt_component_4$1;
   _push(ssrRenderComponent(_component_NuxtLink, vue_cjs_prod.mergeProps({ to: "/articles/slug" }, _attrs), {
     default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
@@ -3523,117 +4786,23 @@ function _sfc_ssrRender$r(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     _: 1
   }, _parent));
 }
-const _sfc_setup$t = _sfc_main$t.setup;
-_sfc_main$t.setup = (props, ctx) => {
+const _sfc_setup$p = _sfc_main$p.setup;
+_sfc_main$p.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Articles/Thumbnails/Small.vue");
-  return _sfc_setup$t ? _sfc_setup$t(props, ctx) : void 0;
+  return _sfc_setup$p ? _sfc_setup$p(props, ctx) : void 0;
 };
-const __nuxt_component_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["ssrRender", _sfc_ssrRender$r]]);
-const _sfc_main$s = {
-  data: () => ({
-    btnColors: {
-      transparent: "bg-transparent shadow-none",
-      primary: "bg-primary-500 hover:bg-primary-400 text-white",
-      secondary: "bg-secondary-500 hover:bg-secondary-600 text-black",
-      white: "bg-white hover:bg-gray-100 text-black",
-      blurple: "bg-blurple text-white",
-      yellow: "bg-yellow-500 text-white hover:bg-white hover:text-black",
-      disabled: "bg-gray-200 text-black opacity-50"
-    }
-  }),
-  props: {
-    color: {
-      type: String,
-      default: "secondary"
-    },
-    text: {
-      type: String,
-      required: true
-    },
-    icon: {
-      type: String
-    },
-    small: {
-      type: Boolean,
-      default: false
-    },
-    centerText: {
-      type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    colors() {
-      return this.btnColors[this.color];
-    }
-  }
-};
-function _sfc_ssrRender$q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<button${ssrRenderAttrs(vue_cjs_prod.mergeProps({
-    class: ["rounded-full font-medium text-base flex items-center shadow-xl ease-in duration-300", [$options.colors, $props.small ? "px-6 py-4" : "px-8 py-4", $props.centerText && "justify-center"]]
-  }, _attrs))}>`);
-  ssrRenderSlot(_ctx.$slots, "icon_left", {}, null, _push, _parent);
-  _push(`<span class="${ssrRenderClass(["whitespace-pre-line", $props.centerText ? "text-center" : "text-left"])}">${ssrInterpolate($props.text)}</span>`);
-  ssrRenderSlot(_ctx.$slots, "icon_right", {}, null, _push, _parent);
-  ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
-  _push(`</button>`);
-}
-const _sfc_setup$s = _sfc_main$s.setup;
-_sfc_main$s.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Button.vue");
-  return _sfc_setup$s ? _sfc_setup$s(props, ctx) : void 0;
-};
-const __nuxt_component_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["ssrRender", _sfc_ssrRender$q]]);
-const meta$b = void 0;
-const axios = axios$1.create({
-  baseURL: "https://api.umaestro.fr/"
-});
-const meta$a = {
+const __nuxt_component_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["ssrRender", _sfc_ssrRender$n]]);
+const meta$c = void 0;
+const meta$b = {
   layout: "empty"
 };
-const _sfc_main$r = {
-  props: {
-    modelValue: {
-      type: [String, Number],
-      default: ""
-    },
-    placeholder: {
-      type: String,
-      default: ""
-    },
-    big: {
-      type: Boolean,
-      default: false
-    },
-    white: {
-      type: Boolean,
-      default: false
-    }
-  },
-  methods: {
-    handleInput(e) {
-      this.$emit("update:modelValue", e.target.value);
-      this.$emit("change", e.target.value);
-    }
-  }
-};
-function _sfc_ssrRender$p(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<div${ssrRenderAttrs(_attrs)}><input${ssrRenderAttr("placeholder", $props.placeholder)} type="text" class="${ssrRenderClass([[$props.big ? "px-6 py-5 text-md" : "px-6 py-4 text-sm", $props.white ? "bg-white text-black" : "bg-transparent focus:bg-white dark:focus:bg-dark-800 border-dark-800 focus:border-primary-500"], "text-sm w-full border focus:outline-none rounded-lg"])}"${ssrRenderAttr("value", $props.modelValue)}></div>`);
-}
-const _sfc_setup$r = _sfc_main$r.setup;
-_sfc_main$r.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Input.vue");
-  return _sfc_setup$r ? _sfc_setup$r(props, ctx) : void 0;
-};
-const __nuxt_component_4$2 = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["ssrRender", _sfc_ssrRender$p]]);
-const meta$9 = {
+const meta$a = {
   layout: "footer"
 };
+const meta$9 = void 0;
 const Slider_vue_vue_type_style_index_0_scoped_57332792_lang = "";
-const _sfc_main$q = {
+const _sfc_main$o = {
   __name: "Slider",
   __ssrInlineRender: true,
   props: { barStyle: Object, duration: { type: String, default: "12s" }, direction: { type: String, default: "normal" }, delay: { type: String, default: "0s" } },
@@ -3655,13 +4824,13 @@ const _sfc_main$q = {
     };
   }
 };
-const _sfc_setup$q = _sfc_main$q.setup;
-_sfc_main$q.setup = (props, ctx) => {
+const _sfc_setup$o = _sfc_main$o.setup;
+_sfc_main$o.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Slider.vue");
-  return _sfc_setup$q ? _sfc_setup$q(props, ctx) : void 0;
+  return _sfc_setup$o ? _sfc_setup$o(props, ctx) : void 0;
 };
-const __nuxt_component_2$2 = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["__scopeId", "data-v-57332792"]]);
+const __nuxt_component_2$2 = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["__scopeId", "data-v-57332792"]]);
 const __nuxt_component_9 = vue_cjs_prod.defineComponent({
   name: "ClientOnly",
   props: ["fallback", "placeholder", "placeholderTag", "fallbackTag"],
@@ -3683,7 +4852,7 @@ const __nuxt_component_9 = vue_cjs_prod.defineComponent({
   }
 });
 const meta$8 = void 0;
-const _sfc_main$p = {
+const _sfc_main$n = {
   data: () => ({ Icons }),
   props: {
     icon: {
@@ -3699,140 +4868,19 @@ const _sfc_main$p = {
     }
   }
 };
-function _sfc_ssrRender$o(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<div${ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "text-center" }, _attrs))}>`);
-  ssrRenderVNode(_push, vue_cjs_prod.createVNode(vue_cjs_prod.resolveDynamicComponent(_ctx.Icons[$props.icon]), { class: "mx-auto w-8 h-8 mb-4" }, null), _parent);
-  _push(`<div class="text-lg">${ssrInterpolate($props.name)}</div><div class="font-semibold text-2xl">${ssrInterpolate($props.value)}</div></div>`);
-}
-const _sfc_setup$p = _sfc_main$p.setup;
-_sfc_main$p.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Stat.vue");
-  return _sfc_setup$p ? _sfc_setup$p(props, ctx) : void 0;
-};
-const __nuxt_component_2$1 = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["ssrRender", _sfc_ssrRender$o]]);
-const _sfc_main$o = {
-  props: {
-    feature: {
-      type: Object,
-      required: true
-    }
-  }
-};
-function _sfc_ssrRender$n(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<div${ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "flex gap-6" }, _attrs))}><div><div class="${ssrRenderClass(`rounded-3xl ${$props.feature.color} p-5 shadow-lg w-20 h-20 text-white`)}">`);
-  ssrRenderVNode(_push, vue_cjs_prod.createVNode(vue_cjs_prod.resolveDynamicComponent($props.feature.icon), { class: "w-10 h-10" }, null), _parent);
-  _push(`</div></div><div class="flex flex-col justify-center gap-1"><div class="font-semibold leading-relaxed">${ssrInterpolate($props.feature.name)}</div><div class="max-w-xl">${ssrInterpolate($props.feature.description)}</div></div></div>`);
-}
-const _sfc_setup$o = _sfc_main$o.setup;
-_sfc_main$o.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Features/Item.vue");
-  return _sfc_setup$o ? _sfc_setup$o(props, ctx) : void 0;
-};
-const __nuxt_component_0$3 = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["ssrRender", _sfc_ssrRender$n]]);
-const _sfc_main$n = {
-  data() {
-    return {
-      features: [
-        {
-          color: "bg-green-500",
-          icon: CubeIcon,
-          name: "Outils",
-          description: "Nous sommes fier de pouvoir vous offrir des outils vous facilitant la gestion de votre projet"
-        },
-        {
-          color: "bg-primary-500",
-          icon: HeartIcon,
-          name: "Moyens",
-          description: "Notre site d\xE9velopp\xE9 par nos \xE9quipes vous donnes les moyens et connaissances n\xE9cessaires pour vous am\xE9liorer"
-        },
-        {
-          color: "bg-red-500",
-          icon: EyeIcon,
-          name: "Visibilit\xE9",
-          description: "En plus d'outils et de connaissances, nous vous mettons en avant d\xE8s que votre travail le m\xE9rite"
-        }
-      ]
-    };
-  }
-};
 function _sfc_ssrRender$m(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_FeaturesItem = __nuxt_component_0$3;
-  _push(`<div${ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "flex flex-col gap-8" }, _attrs))}><!--[-->`);
-  ssrRenderList($data.features, (feature, index) => {
-    _push(ssrRenderComponent(_component_FeaturesItem, {
-      key: index,
-      feature
-    }, null, _parent));
-  });
-  _push(`<!--]--></div>`);
+  _push(`<div${ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "text-center" }, _attrs))}>`);
+  ssrRenderVNode(_push, vue_cjs_prod.createVNode(vue_cjs_prod.resolveDynamicComponent(_ctx.Icons[$props.icon]), { class: "mx-auto w-12 h-12 mb-4" }, null), _parent);
+  _push(`<div class="font-extrabold text-2xl">${ssrInterpolate($props.value)}</div><div class="text-lg">${ssrInterpolate($props.name)}</div></div>`);
 }
 const _sfc_setup$n = _sfc_main$n.setup;
 _sfc_main$n.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Features/List.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Stat.vue");
   return _sfc_setup$n ? _sfc_setup$n(props, ctx) : void 0;
 };
-const __nuxt_component_3$3 = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["ssrRender", _sfc_ssrRender$m]]);
+const __nuxt_component_2$1 = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["ssrRender", _sfc_ssrRender$m]]);
 const _sfc_main$m = {
-  props: {
-    category: {
-      type: Object,
-      required: true
-    }
-  }
-};
-function _sfc_ssrRender$l(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_NuxtLink = __nuxt_component_0$6;
-  _push(ssrRenderComponent(_component_NuxtLink, vue_cjs_prod.mergeProps({
-    to: `/tools/${$props.category.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`,
-    class: [`rounded-xl shadow-xl min-w-[10rem] cursor-pointer`, $props.category.disabled ? "p-5 opacity-25" : "p-6 transition ease-in duration-200 hover:shadow-2xl hover:-translate-y-1"],
-    style: `background-color: ${$props.category.color}`
-  }, _attrs), {
-    default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`<div class="${ssrRenderClass(["rounded-full bg-white", $props.category.disabled ? "p-2 w-10 h-10" : "p-4 w-16 h-16"])}" style="${ssrRenderStyle(`color: ${$props.category.color}`)}"${_scopeId}>`);
-        if (typeof $props.category.icon === "string") {
-          _push2(`<img${ssrRenderAttr("src", `/icons/${$props.category.icon}`)} class="${ssrRenderClass([$props.category.disabled ? "w-6 h-6" : "w-8 h-8"])}"${_scopeId}>`);
-        } else {
-          ssrRenderVNode(_push2, vue_cjs_prod.createVNode(vue_cjs_prod.resolveDynamicComponent($props.category.icon), {
-            class: [$props.category.disabled ? "w-6 h-6" : "w-8 h-8"]
-          }, null), _parent2, _scopeId);
-        }
-        _push2(`</div><div class="${ssrRenderClass(["text-white font-semibold", $props.category.disabled ? "text-sm mt-2" : "mt-4"])}"${_scopeId}>${ssrInterpolate($props.category.name)}</div>`);
-      } else {
-        return [
-          vue_cjs_prod.createVNode("div", {
-            class: ["rounded-full bg-white", $props.category.disabled ? "p-2 w-10 h-10" : "p-4 w-16 h-16"],
-            style: `color: ${$props.category.color}`
-          }, [
-            typeof $props.category.icon === "string" ? (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("img", {
-              key: 0,
-              src: `/icons/${$props.category.icon}`,
-              class: [$props.category.disabled ? "w-6 h-6" : "w-8 h-8"]
-            }, null, 10, ["src"])) : (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock(vue_cjs_prod.resolveDynamicComponent($props.category.icon), {
-              key: 1,
-              class: [$props.category.disabled ? "w-6 h-6" : "w-8 h-8"]
-            }, null, 8, ["class"]))
-          ], 6),
-          vue_cjs_prod.createVNode("div", {
-            class: ["text-white font-semibold", $props.category.disabled ? "text-sm mt-2" : "mt-4"]
-          }, vue_cjs_prod.toDisplayString($props.category.name), 3)
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-}
-const _sfc_setup$m = _sfc_main$m.setup;
-_sfc_main$m.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/CategoryCard.vue");
-  return _sfc_setup$m ? _sfc_setup$m(props, ctx) : void 0;
-};
-const __nuxt_component_4$1 = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["ssrRender", _sfc_ssrRender$l]]);
-const _sfc_main$l = {
   props: {
     color: {
       type: String,
@@ -3840,20 +4888,20 @@ const _sfc_main$l = {
     }
   }
 };
-function _sfc_ssrRender$k(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$l(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<svg${ssrRenderAttrs(vue_cjs_prod.mergeProps({
     viewBox: "0 0 21 20",
     xmlns: "http://www.w3.org/2000/svg"
   }, _attrs))}><path${ssrRenderAttr("fill", $props.color)} d="M20 8.09994C20.1 7.59994 19.7 6.99994 19.2 6.99994L13.5 6.19994L10.9 0.999938C10.8 0.799938 10.7 0.699938 10.5 0.599938C10 0.299938 9.4 0.499938 9.1 0.999938L6.6 6.19994L0.9 6.99994C0.6 6.99994 0.4 7.09994 0.3 7.29994C-0.1 7.69994 -0.1 8.29994 0.3 8.69994L4.4 12.6999L3.4 18.3999C3.4 18.5999 3.4 18.7999 3.5 18.9999C3.8 19.4999 4.4 19.6999 4.9 19.3999L10 16.6999L15.1 19.3999C15.2 19.4999 15.4 19.4999 15.6 19.4999C15.7 19.4999 15.7 19.4999 15.8 19.4999C16.3 19.3999 16.7 18.8999 16.6 18.2999L15.6 12.5999L19.7 8.59994C19.9 8.49994 20 8.29994 20 8.09994Z"></path></svg>`);
 }
-const _sfc_setup$l = _sfc_main$l.setup;
-_sfc_main$l.setup = (props, ctx) => {
+const _sfc_setup$m = _sfc_main$m.setup;
+_sfc_main$m.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Star.vue");
-  return _sfc_setup$l ? _sfc_setup$l(props, ctx) : void 0;
+  return _sfc_setup$m ? _sfc_setup$m(props, ctx) : void 0;
 };
-const __nuxt_component_1 = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["ssrRender", _sfc_ssrRender$k]]);
-const _sfc_main$k = {
+const __nuxt_component_1 = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["ssrRender", _sfc_ssrRender$l]]);
+const _sfc_main$l = {
   props: {
     rate: {
       type: Object,
@@ -3861,10 +4909,10 @@ const _sfc_main$k = {
     }
   }
 };
-function _sfc_ssrRender$j(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$k(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   var _a, _b, _c, _d;
   const _component_Star = __nuxt_component_1;
-  _push(`<div${ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "bg-white dark:bg-dark-800 rounded-2xl shadow-sm p-8" }, _attrs))}><div class="flex gap-2 items-center font-medium"><img${ssrRenderAttr("src", (_b = (_a = $props.rate) == null ? void 0 : _a.author) == null ? void 0 : _b.avatar)} class="w-8 h-8 rounded-full mr-2" alt="Avatar"> ${ssrInterpolate((_d = (_c = $props.rate) == null ? void 0 : _c.author) == null ? void 0 : _d.username)} <span>-</span><div class="flex items-center gap-1"><!--[-->`);
+  _push(`<div${ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "bg-white dark:bg-dark-900 rounded-2xl shadow-sm p-8" }, _attrs))}><div class="flex gap-2 items-center font-medium"><img${ssrRenderAttr("src", ((_b = (_a = $props.rate) == null ? void 0 : _a.author) == null ? void 0 : _b.avatar) || "/default_avatar.svg")} class="w-8 h-8 rounded-full mr-2" alt="Avatar"> ${ssrInterpolate(((_d = (_c = $props.rate) == null ? void 0 : _c.author) == null ? void 0 : _d.username) || "Utilisateur supprim\xE9")} <span>-</span><div class="flex items-center gap-1"><!--[-->`);
   ssrRenderList(5, (i) => {
     _push(ssrRenderComponent(_component_Star, {
       class: "w-6",
@@ -3874,19 +4922,552 @@ function _sfc_ssrRender$j(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   });
   _push(`<!--]--></div></div><p class="text-gray-800 dark:text-gray-300 mt-4">${ssrInterpolate($props.rate.message)}</p><span class="block mt-4 text-sm text-gray-400">le ${ssrInterpolate(new Date($props.rate.created_at).toLocaleDateString("fr-FR"))}</span></div>`);
 }
+const _sfc_setup$l = _sfc_main$l.setup;
+_sfc_main$l.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Testimonial.vue");
+  return _sfc_setup$l ? _sfc_setup$l(props, ctx) : void 0;
+};
+const __nuxt_component_3$2 = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["ssrRender", _sfc_ssrRender$k]]);
+const _sfc_main$k = {
+  props: {
+    tool: {
+      type: Object,
+      default: {
+        name: "Unknown",
+        description: "No",
+        uuid: "badges_discord"
+      }
+    }
+  }
+};
+function _sfc_ssrRender$j(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  _push(`<div${ssrRenderAttrs(vue_cjs_prod.mergeProps({
+    class: "relative transition ease-in duration-200 hover:-translate-y-4",
+    id: "card"
+  }, _attrs))}><img class="rounded-3xl w-full shadow-lg"${ssrRenderAttr("src", `/tools/${$props.tool.uuid}_${_ctx.$colorMode.value}.png`)}><div class="absolute rounded-3xl top-0 left-0 bg-gradient-to-t from-dark-950 to-dark-400 dark:to-dark-800 opacity-80 backdrop-blur-md h-full w-full flex flex-col justify-end p-8 gap-2"><div class="text-2xl font-semibold text-white">${ssrInterpolate($props.tool.name)}</div><div class="text-lg text-white">${ssrInterpolate($props.tool.description)}</div></div></div>`);
+}
 const _sfc_setup$k = _sfc_main$k.setup;
 _sfc_main$k.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Testimonial.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/DefaultCard.vue");
   return _sfc_setup$k ? _sfc_setup$k(props, ctx) : void 0;
 };
-const __nuxt_component_3$2 = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["ssrRender", _sfc_ssrRender$j]]);
+const __nuxt_component_0$2 = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["ssrRender", _sfc_ssrRender$j]]);
+const _sfc_main$j = {
+  name: "Badges"
+};
+function _sfc_ssrRender$i(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_ToolsDefaultCard = __nuxt_component_0$2;
+  _push(ssrRenderComponent(_component_ToolsDefaultCard, vue_cjs_prod.mergeProps({ tool: {
+    name: "Cr\xE9ateur de badges",
+    description: "Cr\xE9\xE9e les icones de tes r\xF4les Discord",
+    uuid: "badges_discord"
+  } }, _attrs), null, _parent));
+}
+const _sfc_setup$j = _sfc_main$j.setup;
+_sfc_main$j.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Cards/Badges.vue");
+  return _sfc_setup$j ? _sfc_setup$j(props, ctx) : void 0;
+};
+const Badges = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["ssrRender", _sfc_ssrRender$i]]);
+const _sfc_main$i = {
+  name: "Bots"
+};
+function _sfc_ssrRender$h(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_ToolsDefaultCard = __nuxt_component_0$2;
+  _push(ssrRenderComponent(_component_ToolsDefaultCard, vue_cjs_prod.mergeProps({ tool: {
+    name: "R\xE9f\xE9rencement de bots",
+    description: "R\xE9f\xE9rence ton bot",
+    uuid: "bots_discord"
+  } }, _attrs), null, _parent));
+}
+const _sfc_setup$i = _sfc_main$i.setup;
+_sfc_main$i.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Cards/Bots.vue");
+  return _sfc_setup$i ? _sfc_setup$i(props, ctx) : void 0;
+};
+const Bots = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["ssrRender", _sfc_ssrRender$h]]);
+const _sfc_main$h = {
+  name: "Embed"
+};
+function _sfc_ssrRender$g(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_ToolsDefaultCard = __nuxt_component_0$2;
+  _push(ssrRenderComponent(_component_ToolsDefaultCard, vue_cjs_prod.mergeProps({ tool: {
+    name: "Cr\xE9ateur d'embeds",
+    description: "Cr\xE9\xE9e et envoie tes embeds sur ton serveur Discord",
+    uuid: "embed_discord"
+  } }, _attrs), null, _parent));
+}
+const _sfc_setup$h = _sfc_main$h.setup;
+_sfc_main$h.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Cards/Embed.vue");
+  return _sfc_setup$h ? _sfc_setup$h(props, ctx) : void 0;
+};
+const Embed = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["ssrRender", _sfc_ssrRender$g]]);
+const _sfc_main$g = {
+  name: "Emojis"
+};
+function _sfc_ssrRender$f(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_ToolsDefaultCard = __nuxt_component_0$2;
+  _push(ssrRenderComponent(_component_ToolsDefaultCard, vue_cjs_prod.mergeProps({ tool: {
+    name: "R\xE9f\xE9rencement d'emojis",
+    description: "R\xE9f\xE9rence ton emoji",
+    uuid: "emojis_discord"
+  } }, _attrs), null, _parent));
+}
+const _sfc_setup$g = _sfc_main$g.setup;
+_sfc_main$g.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Cards/Emojis.vue");
+  return _sfc_setup$g ? _sfc_setup$g(props, ctx) : void 0;
+};
+const Emojis = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["ssrRender", _sfc_ssrRender$f]]);
 const meta$7 = void 0;
 const meta$6 = void 0;
 const meta$5 = void 0;
+const _sfc_main$f = {
+  components: {
+    LightBulbIcon,
+    Menu,
+    MenuButton,
+    MenuItems,
+    MenuItem,
+    TransitionRoot,
+    TransitionChild,
+    Dialog,
+    DialogPanel,
+    DialogTitle
+  },
+  data: () => ({
+    isOpen: false,
+    suggestion: "-",
+    errors: []
+  }),
+  methods: {
+    async sendSuggestion() {
+      try {
+        await axios2.post("/suggestions", {
+          content: this.suggestion
+        }, {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token")
+          }
+        });
+      } catch (e) {
+        this.errors = e.response.data.errors.map((error) => error.message);
+      }
+    }
+  }
+};
+function _sfc_ssrRender$e(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_Button = __nuxt_component_1$2;
+  const _component_LightBulbIcon = vue_cjs_prod.resolveComponent("LightBulbIcon");
+  const _component_TransitionRoot = vue_cjs_prod.resolveComponent("TransitionRoot");
+  const _component_Dialog = vue_cjs_prod.resolveComponent("Dialog");
+  const _component_TransitionChild = vue_cjs_prod.resolveComponent("TransitionChild");
+  const _component_DialogPanel = vue_cjs_prod.resolveComponent("DialogPanel");
+  const _component_DialogTitle = vue_cjs_prod.resolveComponent("DialogTitle");
+  const _component_Input = __nuxt_component_4$2;
+  _push(`<div${ssrRenderAttrs(_attrs)}>`);
+  _push(ssrRenderComponent(_component_Button, {
+    class: "mx-auto",
+    text: "Faire une suggestion",
+    color: "white",
+    onClick: ($event) => _ctx.isOpen = true
+  }, {
+    icon_left: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(ssrRenderComponent(_component_LightBulbIcon, { class: "mr-3 w-8 h-8" }, null, _parent2, _scopeId));
+      } else {
+        return [
+          vue_cjs_prod.createVNode(_component_LightBulbIcon, { class: "mr-3 w-8 h-8" })
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
+  _push(ssrRenderComponent(_component_TransitionRoot, {
+    appear: "",
+    show: _ctx.isOpen,
+    as: "template"
+  }, {
+    default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(ssrRenderComponent(_component_Dialog, {
+          as: "div",
+          onClose: ($event) => _ctx.isOpen = false,
+          class: "relative z-10"
+        }, {
+          default: vue_cjs_prod.withCtx((_2, _push3, _parent3, _scopeId2) => {
+            if (_push3) {
+              _push3(ssrRenderComponent(_component_TransitionChild, {
+                as: "template",
+                enter: "duration-300 ease-out",
+                "enter-from": "opacity-0",
+                "enter-to": "opacity-100",
+                leave: "duration-200 ease-in",
+                "leave-from": "opacity-100",
+                "leave-to": "opacity-0"
+              }, {
+                default: vue_cjs_prod.withCtx((_3, _push4, _parent4, _scopeId3) => {
+                  if (_push4) {
+                    _push4(`<div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm"${_scopeId3}></div>`);
+                  } else {
+                    return [
+                      vue_cjs_prod.createVNode("div", { class: "fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm" })
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent3, _scopeId2));
+              _push3(`<div class="fixed inset-0 overflow-y-auto"${_scopeId2}><div class="flex min-h-full items-center justify-center p-4 text-center"${_scopeId2}>`);
+              _push3(ssrRenderComponent(_component_TransitionChild, {
+                as: "template",
+                enter: "duration-300 ease-out",
+                "enter-from": "opacity-0 scale-95",
+                "enter-to": "opacity-100 scale-100",
+                leave: "duration-200 ease-in",
+                "leave-from": "opacity-100 scale-100",
+                "leave-to": "opacity-0 scale-95"
+              }, {
+                default: vue_cjs_prod.withCtx((_3, _push4, _parent4, _scopeId3) => {
+                  if (_push4) {
+                    _push4(ssrRenderComponent(_component_DialogPanel, { class: "w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-dark-900 p-6 text-left align-middle shadow-xl transition-all" }, {
+                      default: vue_cjs_prod.withCtx((_4, _push5, _parent5, _scopeId4) => {
+                        if (_push5) {
+                          _push5(ssrRenderComponent(_component_DialogTitle, {
+                            as: "h3",
+                            class: "text-lg font-medium leading-6 text-gray-900 dark:text-white"
+                          }, {
+                            default: vue_cjs_prod.withCtx((_5, _push6, _parent6, _scopeId5) => {
+                              if (_push6) {
+                                _push6(` Cr\xE9er une suggestion `);
+                              } else {
+                                return [
+                                  vue_cjs_prod.createTextVNode(" Cr\xE9er une suggestion ")
+                                ];
+                              }
+                            }),
+                            _: 1
+                          }, _parent5, _scopeId4));
+                          _push5(`<div class="mt-2"${_scopeId4}>`);
+                          _push5(ssrRenderComponent(_component_Input, {
+                            class: "mt-4",
+                            placeholder: "Entrez votre suggestion...",
+                            modelValue: _ctx.suggestion,
+                            "onUpdate:modelValue": ($event) => _ctx.suggestion = $event
+                          }, null, _parent5, _scopeId4));
+                          _push5(`<!--[-->`);
+                          ssrRenderList(_ctx.errors, (error, id) => {
+                            _push5(`<div class="text-red-400 text-sm mt-1 mb-4"${_scopeId4}><i${_scopeId4}>${ssrInterpolate(error)}</i></div>`);
+                          });
+                          _push5(`<!--]--><p class="text-sm text-gray-500 mt-2 leading-loose"${_scopeId4}> Ta suggestion sera envoy\xE9e sur le serveur Discord dans le salon <span class="bg-dark-800 rounded-md p-1"${_scopeId4}>#suggestions</span></p></div><div class="flex gap-2 items-center mt-4 justify-end"${_scopeId4}>`);
+                          _push5(ssrRenderComponent(_component_Button, {
+                            color: "transparent",
+                            text: "Annuler",
+                            onClick: ($event) => _ctx.isOpen = false
+                          }, null, _parent5, _scopeId4));
+                          _push5(ssrRenderComponent(_component_Button, {
+                            color: "primary",
+                            text: "Envoyer ma suggestion",
+                            onClick: $options.sendSuggestion
+                          }, null, _parent5, _scopeId4));
+                          _push5(`</div>`);
+                        } else {
+                          return [
+                            vue_cjs_prod.createVNode(_component_DialogTitle, {
+                              as: "h3",
+                              class: "text-lg font-medium leading-6 text-gray-900 dark:text-white"
+                            }, {
+                              default: vue_cjs_prod.withCtx(() => [
+                                vue_cjs_prod.createTextVNode(" Cr\xE9er une suggestion ")
+                              ]),
+                              _: 1
+                            }),
+                            vue_cjs_prod.createVNode("div", { class: "mt-2" }, [
+                              vue_cjs_prod.createVNode(_component_Input, {
+                                class: "mt-4",
+                                placeholder: "Entrez votre suggestion...",
+                                modelValue: _ctx.suggestion,
+                                "onUpdate:modelValue": ($event) => _ctx.suggestion = $event
+                              }, null, 8, ["modelValue", "onUpdate:modelValue"]),
+                              (vue_cjs_prod.openBlock(true), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList(_ctx.errors, (error, id) => {
+                                return vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("div", {
+                                  class: "text-red-400 text-sm mt-1 mb-4",
+                                  key: id
+                                }, [
+                                  vue_cjs_prod.createVNode("i", null, vue_cjs_prod.toDisplayString(error), 1)
+                                ]);
+                              }), 128)),
+                              vue_cjs_prod.createVNode("p", { class: "text-sm text-gray-500 mt-2 leading-loose" }, [
+                                vue_cjs_prod.createTextVNode(" Ta suggestion sera envoy\xE9e sur le serveur Discord dans le salon "),
+                                vue_cjs_prod.createVNode("span", { class: "bg-dark-800 rounded-md p-1" }, "#suggestions")
+                              ])
+                            ]),
+                            vue_cjs_prod.createVNode("div", { class: "flex gap-2 items-center mt-4 justify-end" }, [
+                              vue_cjs_prod.createVNode(_component_Button, {
+                                color: "transparent",
+                                text: "Annuler",
+                                onClick: ($event) => _ctx.isOpen = false
+                              }, null, 8, ["onClick"]),
+                              vue_cjs_prod.createVNode(_component_Button, {
+                                color: "primary",
+                                text: "Envoyer ma suggestion",
+                                onClick: $options.sendSuggestion
+                              }, null, 8, ["onClick"])
+                            ])
+                          ];
+                        }
+                      }),
+                      _: 1
+                    }, _parent4, _scopeId3));
+                  } else {
+                    return [
+                      vue_cjs_prod.createVNode(_component_DialogPanel, { class: "w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-dark-900 p-6 text-left align-middle shadow-xl transition-all" }, {
+                        default: vue_cjs_prod.withCtx(() => [
+                          vue_cjs_prod.createVNode(_component_DialogTitle, {
+                            as: "h3",
+                            class: "text-lg font-medium leading-6 text-gray-900 dark:text-white"
+                          }, {
+                            default: vue_cjs_prod.withCtx(() => [
+                              vue_cjs_prod.createTextVNode(" Cr\xE9er une suggestion ")
+                            ]),
+                            _: 1
+                          }),
+                          vue_cjs_prod.createVNode("div", { class: "mt-2" }, [
+                            vue_cjs_prod.createVNode(_component_Input, {
+                              class: "mt-4",
+                              placeholder: "Entrez votre suggestion...",
+                              modelValue: _ctx.suggestion,
+                              "onUpdate:modelValue": ($event) => _ctx.suggestion = $event
+                            }, null, 8, ["modelValue", "onUpdate:modelValue"]),
+                            (vue_cjs_prod.openBlock(true), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList(_ctx.errors, (error, id) => {
+                              return vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("div", {
+                                class: "text-red-400 text-sm mt-1 mb-4",
+                                key: id
+                              }, [
+                                vue_cjs_prod.createVNode("i", null, vue_cjs_prod.toDisplayString(error), 1)
+                              ]);
+                            }), 128)),
+                            vue_cjs_prod.createVNode("p", { class: "text-sm text-gray-500 mt-2 leading-loose" }, [
+                              vue_cjs_prod.createTextVNode(" Ta suggestion sera envoy\xE9e sur le serveur Discord dans le salon "),
+                              vue_cjs_prod.createVNode("span", { class: "bg-dark-800 rounded-md p-1" }, "#suggestions")
+                            ])
+                          ]),
+                          vue_cjs_prod.createVNode("div", { class: "flex gap-2 items-center mt-4 justify-end" }, [
+                            vue_cjs_prod.createVNode(_component_Button, {
+                              color: "transparent",
+                              text: "Annuler",
+                              onClick: ($event) => _ctx.isOpen = false
+                            }, null, 8, ["onClick"]),
+                            vue_cjs_prod.createVNode(_component_Button, {
+                              color: "primary",
+                              text: "Envoyer ma suggestion",
+                              onClick: $options.sendSuggestion
+                            }, null, 8, ["onClick"])
+                          ])
+                        ]),
+                        _: 1
+                      })
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent3, _scopeId2));
+              _push3(`</div></div>`);
+            } else {
+              return [
+                vue_cjs_prod.createVNode(_component_TransitionChild, {
+                  as: "template",
+                  enter: "duration-300 ease-out",
+                  "enter-from": "opacity-0",
+                  "enter-to": "opacity-100",
+                  leave: "duration-200 ease-in",
+                  "leave-from": "opacity-100",
+                  "leave-to": "opacity-0"
+                }, {
+                  default: vue_cjs_prod.withCtx(() => [
+                    vue_cjs_prod.createVNode("div", { class: "fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm" })
+                  ]),
+                  _: 1
+                }),
+                vue_cjs_prod.createVNode("div", { class: "fixed inset-0 overflow-y-auto" }, [
+                  vue_cjs_prod.createVNode("div", { class: "flex min-h-full items-center justify-center p-4 text-center" }, [
+                    vue_cjs_prod.createVNode(_component_TransitionChild, {
+                      as: "template",
+                      enter: "duration-300 ease-out",
+                      "enter-from": "opacity-0 scale-95",
+                      "enter-to": "opacity-100 scale-100",
+                      leave: "duration-200 ease-in",
+                      "leave-from": "opacity-100 scale-100",
+                      "leave-to": "opacity-0 scale-95"
+                    }, {
+                      default: vue_cjs_prod.withCtx(() => [
+                        vue_cjs_prod.createVNode(_component_DialogPanel, { class: "w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-dark-900 p-6 text-left align-middle shadow-xl transition-all" }, {
+                          default: vue_cjs_prod.withCtx(() => [
+                            vue_cjs_prod.createVNode(_component_DialogTitle, {
+                              as: "h3",
+                              class: "text-lg font-medium leading-6 text-gray-900 dark:text-white"
+                            }, {
+                              default: vue_cjs_prod.withCtx(() => [
+                                vue_cjs_prod.createTextVNode(" Cr\xE9er une suggestion ")
+                              ]),
+                              _: 1
+                            }),
+                            vue_cjs_prod.createVNode("div", { class: "mt-2" }, [
+                              vue_cjs_prod.createVNode(_component_Input, {
+                                class: "mt-4",
+                                placeholder: "Entrez votre suggestion...",
+                                modelValue: _ctx.suggestion,
+                                "onUpdate:modelValue": ($event) => _ctx.suggestion = $event
+                              }, null, 8, ["modelValue", "onUpdate:modelValue"]),
+                              (vue_cjs_prod.openBlock(true), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList(_ctx.errors, (error, id) => {
+                                return vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("div", {
+                                  class: "text-red-400 text-sm mt-1 mb-4",
+                                  key: id
+                                }, [
+                                  vue_cjs_prod.createVNode("i", null, vue_cjs_prod.toDisplayString(error), 1)
+                                ]);
+                              }), 128)),
+                              vue_cjs_prod.createVNode("p", { class: "text-sm text-gray-500 mt-2 leading-loose" }, [
+                                vue_cjs_prod.createTextVNode(" Ta suggestion sera envoy\xE9e sur le serveur Discord dans le salon "),
+                                vue_cjs_prod.createVNode("span", { class: "bg-dark-800 rounded-md p-1" }, "#suggestions")
+                              ])
+                            ]),
+                            vue_cjs_prod.createVNode("div", { class: "flex gap-2 items-center mt-4 justify-end" }, [
+                              vue_cjs_prod.createVNode(_component_Button, {
+                                color: "transparent",
+                                text: "Annuler",
+                                onClick: ($event) => _ctx.isOpen = false
+                              }, null, 8, ["onClick"]),
+                              vue_cjs_prod.createVNode(_component_Button, {
+                                color: "primary",
+                                text: "Envoyer ma suggestion",
+                                onClick: $options.sendSuggestion
+                              }, null, 8, ["onClick"])
+                            ])
+                          ]),
+                          _: 1
+                        })
+                      ]),
+                      _: 1
+                    })
+                  ])
+                ])
+              ];
+            }
+          }),
+          _: 1
+        }, _parent2, _scopeId));
+      } else {
+        return [
+          vue_cjs_prod.createVNode(_component_Dialog, {
+            as: "div",
+            onClose: ($event) => _ctx.isOpen = false,
+            class: "relative z-10"
+          }, {
+            default: vue_cjs_prod.withCtx(() => [
+              vue_cjs_prod.createVNode(_component_TransitionChild, {
+                as: "template",
+                enter: "duration-300 ease-out",
+                "enter-from": "opacity-0",
+                "enter-to": "opacity-100",
+                leave: "duration-200 ease-in",
+                "leave-from": "opacity-100",
+                "leave-to": "opacity-0"
+              }, {
+                default: vue_cjs_prod.withCtx(() => [
+                  vue_cjs_prod.createVNode("div", { class: "fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm" })
+                ]),
+                _: 1
+              }),
+              vue_cjs_prod.createVNode("div", { class: "fixed inset-0 overflow-y-auto" }, [
+                vue_cjs_prod.createVNode("div", { class: "flex min-h-full items-center justify-center p-4 text-center" }, [
+                  vue_cjs_prod.createVNode(_component_TransitionChild, {
+                    as: "template",
+                    enter: "duration-300 ease-out",
+                    "enter-from": "opacity-0 scale-95",
+                    "enter-to": "opacity-100 scale-100",
+                    leave: "duration-200 ease-in",
+                    "leave-from": "opacity-100 scale-100",
+                    "leave-to": "opacity-0 scale-95"
+                  }, {
+                    default: vue_cjs_prod.withCtx(() => [
+                      vue_cjs_prod.createVNode(_component_DialogPanel, { class: "w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-dark-900 p-6 text-left align-middle shadow-xl transition-all" }, {
+                        default: vue_cjs_prod.withCtx(() => [
+                          vue_cjs_prod.createVNode(_component_DialogTitle, {
+                            as: "h3",
+                            class: "text-lg font-medium leading-6 text-gray-900 dark:text-white"
+                          }, {
+                            default: vue_cjs_prod.withCtx(() => [
+                              vue_cjs_prod.createTextVNode(" Cr\xE9er une suggestion ")
+                            ]),
+                            _: 1
+                          }),
+                          vue_cjs_prod.createVNode("div", { class: "mt-2" }, [
+                            vue_cjs_prod.createVNode(_component_Input, {
+                              class: "mt-4",
+                              placeholder: "Entrez votre suggestion...",
+                              modelValue: _ctx.suggestion,
+                              "onUpdate:modelValue": ($event) => _ctx.suggestion = $event
+                            }, null, 8, ["modelValue", "onUpdate:modelValue"]),
+                            (vue_cjs_prod.openBlock(true), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList(_ctx.errors, (error, id) => {
+                              return vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("div", {
+                                class: "text-red-400 text-sm mt-1 mb-4",
+                                key: id
+                              }, [
+                                vue_cjs_prod.createVNode("i", null, vue_cjs_prod.toDisplayString(error), 1)
+                              ]);
+                            }), 128)),
+                            vue_cjs_prod.createVNode("p", { class: "text-sm text-gray-500 mt-2 leading-loose" }, [
+                              vue_cjs_prod.createTextVNode(" Ta suggestion sera envoy\xE9e sur le serveur Discord dans le salon "),
+                              vue_cjs_prod.createVNode("span", { class: "bg-dark-800 rounded-md p-1" }, "#suggestions")
+                            ])
+                          ]),
+                          vue_cjs_prod.createVNode("div", { class: "flex gap-2 items-center mt-4 justify-end" }, [
+                            vue_cjs_prod.createVNode(_component_Button, {
+                              color: "transparent",
+                              text: "Annuler",
+                              onClick: ($event) => _ctx.isOpen = false
+                            }, null, 8, ["onClick"]),
+                            vue_cjs_prod.createVNode(_component_Button, {
+                              color: "primary",
+                              text: "Envoyer ma suggestion",
+                              onClick: $options.sendSuggestion
+                            }, null, 8, ["onClick"])
+                          ])
+                        ]),
+                        _: 1
+                      })
+                    ]),
+                    _: 1
+                  })
+                ])
+              ])
+            ]),
+            _: 1
+          }, 8, ["onClose"])
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
+  _push(`</div>`);
+}
+const _sfc_setup$f = _sfc_main$f.setup;
+_sfc_main$f.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/SuggestionButton.vue");
+  return _sfc_setup$f ? _sfc_setup$f(props, ctx) : void 0;
+};
+const __nuxt_component_6$2 = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["ssrRender", _sfc_ssrRender$e]]);
 const meta$4 = void 0;
-const _sfc_main$j = {};
-function _sfc_ssrRender$i(_ctx, _push, _parent, _attrs) {
+const _sfc_main$e = {};
+function _sfc_ssrRender$d(_ctx, _push, _parent, _attrs) {
   _push(`<header${ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "py-48 relative text-white overflow-hidden" }, _attrs))}><div class="absolute top-full -translate-y-full w-full h-full bg-[#5C6AF6] -z-10"></div><div class="absolute left-1/2 -translate-x-1/2 top-full -translate-y-full w-1/2 rounded-full h-full -z-1" style="${ssrRenderStyle({ "background": "radial-gradient(50% 50% at 50% 50%, #5664F9 70.83%, transparent 100%)" })}"></div><svg id="squares" class="absolute -top-48 -left-12 rotate-12 min-h-screen h-[90rem] w-screen scale-125 -z-10"><!--[-->`);
   ssrRenderList(16, (n) => {
     _push(`<g><!--[-->`);
@@ -3899,15 +5480,15 @@ function _sfc_ssrRender$i(_ctx, _push, _parent, _attrs) {
   ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
   _push(`</div><div class="absolute top-0 w-full h-52" style="${ssrRenderStyle({ "background": "linear-gradient(to bottom, #5865F6, transparent)" })}"></div><div class="absolute top-full -translate-y-full w-full h-52" style="${ssrRenderStyle({ "background": "linear-gradient(to top, #5865F6, transparent)" })}"></div></header>`);
 }
-const _sfc_setup$j = _sfc_main$j.setup;
-_sfc_main$j.setup = (props, ctx) => {
+const _sfc_setup$e = _sfc_main$e.setup;
+_sfc_main$e.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Header.vue");
-  return _sfc_setup$j ? _sfc_setup$j(props, ctx) : void 0;
+  return _sfc_setup$e ? _sfc_setup$e(props, ctx) : void 0;
 };
-const __nuxt_component_0$2 = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["ssrRender", _sfc_ssrRender$i]]);
+const __nuxt_component_0$1 = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["ssrRender", _sfc_ssrRender$d]]);
 const _imports_0 = "" + globalThis.__publicAssetsURL("objects/sad.png");
-const _sfc_main$i = {
+const _sfc_main$d = {
   props: {
     text: {
       type: String,
@@ -3915,280 +5496,18 @@ const _sfc_main$i = {
     }
   }
 };
-function _sfc_ssrRender$h(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$c(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<div${ssrRenderAttrs(_attrs)}><img class="w-12 h-12 mx-auto mb-4"${ssrRenderAttr("src", _imports_0)}><div class="text-sm mx-auto text-center max-w-xs leading-6">${ssrInterpolate($props.text)}</div>`);
   ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
   _push(`</div>`);
 }
-const _sfc_setup$i = _sfc_main$i.setup;
-_sfc_main$i.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Empty.vue");
-  return _sfc_setup$i ? _sfc_setup$i(props, ctx) : void 0;
-};
-const __nuxt_component_5$1 = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["ssrRender", _sfc_ssrRender$h]]);
-const _sfc_main$h = {
-  computed: {
-    name() {
-      var _a;
-      return (_a = tools[this.$parent.$options.name]) != null ? _a : "Nom inconnu";
-    }
-  }
-};
-function _sfc_ssrRender$g(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_Card = __nuxt_component_4$3;
-  _push(ssrRenderComponent(_component_Card, vue_cjs_prod.mergeProps({ color: false }, _attrs), {
-    default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`<div class="p-8 text-white flex flex-col"${_scopeId}><div class="font-semibold text-lg text-center"${_scopeId}>${ssrInterpolate($options.name)}</div><div class="bg-dark-900 text-4xl mt-5 rounded-3xl text-justify p-4 leading-loose h-full" style="${ssrRenderStyle({ "text-align-last": "center" })}"${_scopeId}>`);
-        ssrRenderSlot(_ctx.$slots, "illustration", {}, null, _push2, _parent2, _scopeId);
-        _push2(`</div></div>`);
-      } else {
-        return [
-          vue_cjs_prod.createVNode("div", { class: "p-8 text-white flex flex-col" }, [
-            vue_cjs_prod.createVNode("div", { class: "font-semibold text-lg text-center" }, vue_cjs_prod.toDisplayString($options.name), 1),
-            vue_cjs_prod.createVNode("div", {
-              class: "bg-dark-900 text-4xl mt-5 rounded-3xl text-justify p-4 leading-loose h-full",
-              style: { "text-align-last": "center" }
-            }, [
-              vue_cjs_prod.renderSlot(_ctx.$slots, "illustration")
-            ])
-          ])
-        ];
-      }
-    }),
-    _: 3
-  }, _parent));
-}
-const _sfc_setup$h = _sfc_main$h.setup;
-_sfc_main$h.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/DefaultCard.vue");
-  return _sfc_setup$h ? _sfc_setup$h(props, ctx) : void 0;
-};
-const __nuxt_component_0$1 = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["ssrRender", _sfc_ssrRender$g]]);
-const _sfc_main$g = {
-  name: "Badges"
-};
-function _sfc_ssrRender$f(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_ToolsDefaultCard = __nuxt_component_0$1;
-  _push(ssrRenderComponent(_component_ToolsDefaultCard, vue_cjs_prod.mergeProps({ class: "bg-teal-500" }, _attrs), {
-    illustration: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`<div class="grid grid-cols-2 gap-4 h-full"${_scopeId}><div class="flex flex-col justify-between gap-4"${_scopeId}><div class="bg-dark-800 rounded-2xl p-4 flex flex-wrap gap-2"${_scopeId}><!--[-->`);
-        ssrRenderList(4, (i) => {
-          _push2(`<div class="w-8 h-8 bg-dark-700 rounded-xl"${_scopeId}></div>`);
-        });
-        _push2(`<!--]--></div><div class="bg-dark-800 rounded-2xl p-4 flex flex-wrap gap-2 h-full"${_scopeId}><!--[-->`);
-        ssrRenderList(8, (i) => {
-          _push2(`<div class="w-8 h-8 bg-dark-700 rounded-xl"${_scopeId}></div>`);
-        });
-        _push2(`<!--]--></div></div><div class="flex flex-col justify-between gap-4"${_scopeId}><div class="bg-dark-800 rounded-2xl p-4 flex flex-wrap gap-2"${_scopeId}><div class="bg-red-500 p-4 w-full rounded-2xl"${_scopeId}></div><div class="bg-white p-4 w-full rounded-2xl"${_scopeId}></div></div><div class="bg-dark-800 rounded-2xl p-4 flex flex-wrap gap-2 h-full"${_scopeId}><div class="mx-auto relative"${_scopeId}><div class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 bg-red-500 w-12 h-12 rounded-2xl -rotate-45"${_scopeId}></div><div class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 bg-white w-8 h-8 rounded-full"${_scopeId}></div></div></div></div></div>`);
-      } else {
-        return [
-          vue_cjs_prod.createVNode("div", { class: "grid grid-cols-2 gap-4 h-full" }, [
-            vue_cjs_prod.createVNode("div", { class: "flex flex-col justify-between gap-4" }, [
-              vue_cjs_prod.createVNode("div", { class: "bg-dark-800 rounded-2xl p-4 flex flex-wrap gap-2" }, [
-                (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList(4, (i) => {
-                  return vue_cjs_prod.createVNode("div", {
-                    key: i,
-                    class: "w-8 h-8 bg-dark-700 rounded-xl"
-                  });
-                }), 64))
-              ]),
-              vue_cjs_prod.createVNode("div", { class: "bg-dark-800 rounded-2xl p-4 flex flex-wrap gap-2 h-full" }, [
-                (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList(8, (i) => {
-                  return vue_cjs_prod.createVNode("div", {
-                    key: i,
-                    class: "w-8 h-8 bg-dark-700 rounded-xl"
-                  });
-                }), 64))
-              ])
-            ]),
-            vue_cjs_prod.createVNode("div", { class: "flex flex-col justify-between gap-4" }, [
-              vue_cjs_prod.createVNode("div", { class: "bg-dark-800 rounded-2xl p-4 flex flex-wrap gap-2" }, [
-                vue_cjs_prod.createVNode("div", { class: "bg-red-500 p-4 w-full rounded-2xl" }),
-                vue_cjs_prod.createVNode("div", { class: "bg-white p-4 w-full rounded-2xl" })
-              ]),
-              vue_cjs_prod.createVNode("div", { class: "bg-dark-800 rounded-2xl p-4 flex flex-wrap gap-2 h-full" }, [
-                vue_cjs_prod.createVNode("div", { class: "mx-auto relative" }, [
-                  vue_cjs_prod.createVNode("div", { class: "absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 bg-red-500 w-12 h-12 rounded-2xl -rotate-45" }),
-                  vue_cjs_prod.createVNode("div", { class: "absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 bg-white w-8 h-8 rounded-full" })
-                ])
-              ])
-            ])
-          ])
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-}
-const _sfc_setup$g = _sfc_main$g.setup;
-_sfc_main$g.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Cards/Badges.vue");
-  return _sfc_setup$g ? _sfc_setup$g(props, ctx) : void 0;
-};
-const Badges = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["ssrRender", _sfc_ssrRender$f]]);
-const _sfc_main$f = {
-  name: "Bots"
-};
-function _sfc_ssrRender$e(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_ToolsDefaultCard = __nuxt_component_0$1;
-  _push(ssrRenderComponent(_component_ToolsDefaultCard, vue_cjs_prod.mergeProps({ class: "bg-blurple" }, _attrs), {
-    illustration: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`<div class="grid grid-cols-2 gap-4"${_scopeId}><!--[-->`);
-        ssrRenderList(2, (i) => {
-          _push2(`<div${_scopeId}><header class="${ssrRenderClass([[i == 1 ? "bg-teal-500" : "bg-blurple"], "h-12 rounded-t-2xl p-6 relative shadow-xl"])}"${_scopeId}><div class="${ssrRenderClass([[i == 1 ? "bg-teal-500" : "bg-blurple"], "absolute top-1/2 w-12 h-12 rounded-3xl border-4 border-dark-800"])}"${_scopeId}></div></header><div class="bg-dark-800 p-6 rounded-b-2xl shadow-xl"${_scopeId}><main${_scopeId}><div class="bg-dark-700 w-full mt-4 h-4 rounded-md"${_scopeId}></div><div class="bg-dark-700 w-3/4 mt-4 h-2 rounded-md"${_scopeId}></div><div class="bg-dark-700 w-3/4 mt-2 h-2 rounded-md"${_scopeId}></div></main><footer class="flex flex-wrap gap-2 mt-4"${_scopeId}><div class="w-24 h-4 bg-primary-500 bg-opacity-25 rounded-md"${_scopeId}></div></footer></div></div>`);
-        });
-        _push2(`<!--]--></div>`);
-      } else {
-        return [
-          vue_cjs_prod.createVNode("div", { class: "grid grid-cols-2 gap-4" }, [
-            (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList(2, (i) => {
-              return vue_cjs_prod.createVNode("div", { key: i }, [
-                vue_cjs_prod.createVNode("header", {
-                  class: [[i == 1 ? "bg-teal-500" : "bg-blurple"], "h-12 rounded-t-2xl p-6 relative shadow-xl"]
-                }, [
-                  vue_cjs_prod.createVNode("div", {
-                    class: [[i == 1 ? "bg-teal-500" : "bg-blurple"], "absolute top-1/2 w-12 h-12 rounded-3xl border-4 border-dark-800"]
-                  }, null, 2)
-                ], 2),
-                vue_cjs_prod.createVNode("div", { class: "bg-dark-800 p-6 rounded-b-2xl shadow-xl" }, [
-                  vue_cjs_prod.createVNode("main", null, [
-                    vue_cjs_prod.createVNode("div", { class: "bg-dark-700 w-full mt-4 h-4 rounded-md" }),
-                    vue_cjs_prod.createVNode("div", { class: "bg-dark-700 w-3/4 mt-4 h-2 rounded-md" }),
-                    vue_cjs_prod.createVNode("div", { class: "bg-dark-700 w-3/4 mt-2 h-2 rounded-md" })
-                  ]),
-                  vue_cjs_prod.createVNode("footer", { class: "flex flex-wrap gap-2 mt-4" }, [
-                    vue_cjs_prod.createVNode("div", { class: "w-24 h-4 bg-primary-500 bg-opacity-25 rounded-md" })
-                  ])
-                ])
-              ]);
-            }), 64))
-          ])
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-}
-const _sfc_setup$f = _sfc_main$f.setup;
-_sfc_main$f.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Cards/Bots.vue");
-  return _sfc_setup$f ? _sfc_setup$f(props, ctx) : void 0;
-};
-const Bots = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["ssrRender", _sfc_ssrRender$e]]);
-const _sfc_main$e = {
-  name: "Embed"
-};
-function _sfc_ssrRender$d(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_ToolsDefaultCard = __nuxt_component_0$1;
-  _push(ssrRenderComponent(_component_ToolsDefaultCard, vue_cjs_prod.mergeProps({ class: "bg-red-500" }, _attrs), {
-    illustration: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`<div class="flex gap-3 p-3"${_scopeId}><div${_scopeId}><div class="bg-blurple w-10 h-10 rounded-full"${_scopeId}></div></div><div class="w-full"${_scopeId}><div class="flex items-end gap-2 w-full"${_scopeId}><div class="bg-dark-700 w-1/3 h-4 rounded-sm"${_scopeId}></div><div class="bg-blurple w-8 h-4 rounded-sm"${_scopeId}></div><div class="bg-dark-800 w-24 h-3 rounded-sm"${_scopeId}></div></div><div class="mt-3 flex flex-col gap-1"${_scopeId}><div class="bg-dark-800 w-full h-2 rounded-sm"${_scopeId}></div><div class="bg-dark-800 w-1/3 h-2 rounded-sm"${_scopeId}></div><div class="bg-dark-800 w-3/4 h-2 rounded-sm"${_scopeId}></div><div class="bg-dark-800 border-l-2 border-blurple px-2 py-2 rounded-md mt-1"${_scopeId}><div class="flex justify-between gap-4"${_scopeId}><div class="flex flex-col gap-1 w-full"${_scopeId}><div class="bg-dark-700 w-full h-2 rounded-sm"${_scopeId}></div><div class="bg-dark-700 w-3/4 h-2 rounded-sm"${_scopeId}></div><div class="bg-dark-700 w-full h-2 rounded-sm"${_scopeId}></div><div class="bg-dark-700 w-1/2 h-2 rounded-sm"${_scopeId}></div></div><div class="w-3/4 h-12 rounded-md bg-dark-700"${_scopeId}></div></div></div></div></div></div>`);
-      } else {
-        return [
-          vue_cjs_prod.createVNode("div", { class: "flex gap-3 p-3" }, [
-            vue_cjs_prod.createVNode("div", null, [
-              vue_cjs_prod.createVNode("div", { class: "bg-blurple w-10 h-10 rounded-full" })
-            ]),
-            vue_cjs_prod.createVNode("div", { class: "w-full" }, [
-              vue_cjs_prod.createVNode("div", { class: "flex items-end gap-2 w-full" }, [
-                vue_cjs_prod.createVNode("div", { class: "bg-dark-700 w-1/3 h-4 rounded-sm" }),
-                vue_cjs_prod.createVNode("div", { class: "bg-blurple w-8 h-4 rounded-sm" }),
-                vue_cjs_prod.createVNode("div", { class: "bg-dark-800 w-24 h-3 rounded-sm" })
-              ]),
-              vue_cjs_prod.createVNode("div", { class: "mt-3 flex flex-col gap-1" }, [
-                vue_cjs_prod.createVNode("div", { class: "bg-dark-800 w-full h-2 rounded-sm" }),
-                vue_cjs_prod.createVNode("div", { class: "bg-dark-800 w-1/3 h-2 rounded-sm" }),
-                vue_cjs_prod.createVNode("div", { class: "bg-dark-800 w-3/4 h-2 rounded-sm" }),
-                vue_cjs_prod.createVNode("div", { class: "bg-dark-800 border-l-2 border-blurple px-2 py-2 rounded-md mt-1" }, [
-                  vue_cjs_prod.createVNode("div", { class: "flex justify-between gap-4" }, [
-                    vue_cjs_prod.createVNode("div", { class: "flex flex-col gap-1 w-full" }, [
-                      vue_cjs_prod.createVNode("div", { class: "bg-dark-700 w-full h-2 rounded-sm" }),
-                      vue_cjs_prod.createVNode("div", { class: "bg-dark-700 w-3/4 h-2 rounded-sm" }),
-                      vue_cjs_prod.createVNode("div", { class: "bg-dark-700 w-full h-2 rounded-sm" }),
-                      vue_cjs_prod.createVNode("div", { class: "bg-dark-700 w-1/2 h-2 rounded-sm" })
-                    ]),
-                    vue_cjs_prod.createVNode("div", { class: "w-3/4 h-12 rounded-md bg-dark-700" })
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-}
-const _sfc_setup$e = _sfc_main$e.setup;
-_sfc_main$e.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Cards/Embed.vue");
-  return _sfc_setup$e ? _sfc_setup$e(props, ctx) : void 0;
-};
-const Embed = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["ssrRender", _sfc_ssrRender$d]]);
-const _sfc_main$d = {
-  name: "Emojis"
-};
-function _sfc_ssrRender$c(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_ToolsDefaultCard = __nuxt_component_0$1;
-  _push(ssrRenderComponent(_component_ToolsDefaultCard, vue_cjs_prod.mergeProps({ class: "bg-black" }, _attrs), {
-    illustration: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(` \u{1F635}\u{1F620}\u{1F633}\u{1F621}\u{1F630}\u{1F62E}\u200D\u{1F4A8}\u{1F627}\u{1F47F}\u{1F43B}\u200D\u2744\uFE0F\u{1F42B}\u{1F416}\u{1F98C}\uFE0F\u{1F995}\u{1F41E} `);
-      } else {
-        return [
-          vue_cjs_prod.createTextVNode(" \u{1F635}\u{1F620}\u{1F633}\u{1F621}\u{1F630}\u{1F62E}\u200D\u{1F4A8}\u{1F627}\u{1F47F}\u{1F43B}\u200D\u2744\uFE0F\u{1F42B}\u{1F416}\u{1F98C}\uFE0F\u{1F995}\u{1F41E} ")
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-}
 const _sfc_setup$d = _sfc_main$d.setup;
 _sfc_main$d.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Cards/Emojis.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Empty.vue");
   return _sfc_setup$d ? _sfc_setup$d(props, ctx) : void 0;
 };
-const Emojis = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["ssrRender", _sfc_ssrRender$c]]);
-const modules = {
-  "discord": {
-    "color": "#5865F2",
-    "icon": "discord.svg"
-  }
-};
-const useModule = (module) => {
-  return modules[module];
-};
-const tools = {
-  Badges: "Cr\xE9ateur de badges",
-  Bots: "R\xE9f\xE9rencement de bots",
-  Embed: "Cr\xE9ateur d'embeds",
-  Emojis: "R\xE9f\xE9rencement d'emojis"
-};
-const allCards = {
-  Badges,
-  Bots,
-  Emojis,
-  Embed
-};
-const useTool = (name) => {
-  axios.post("statistics", {
-    tool: name
-  }, {
-    headers: {
-      "Authorization": `Bearer ${localStorage.getItem("access_token")}`
-    }
-  });
-};
+const __nuxt_component_5$1 = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["ssrRender", _sfc_ssrRender$c]]);
 const meta$3 = void 0;
 const _sfc_main$c = {};
 function _sfc_ssrRender$b(_ctx, _push, _parent, _attrs) {
@@ -4368,7 +5687,7 @@ const _sfc_main$7 = {
   }
 };
 function _sfc_ssrRender$6(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<div${ssrRenderAttrs(_attrs)}><textarea${ssrRenderAttr("placeholder", $props.placeholder)} type="text" class="${ssrRenderClass([$props.big ? "px-6 py-5 text-md" : "px-6 py-4 text-sm", "text-sm w-full bg-transparent focus:bg-white dark:focus:bg-dark-800 border border-dark-800 focus:outline-none focus:border-primary-500 rounded-lg"])}">${ssrInterpolate($props.modelValue)}</textarea></div>`);
+  _push(`<div${ssrRenderAttrs(_attrs)}><textarea${ssrRenderAttr("placeholder", $props.placeholder)} type="text" class="${ssrRenderClass([$props.big ? "px-6 py-5 text-md" : "px-6 py-4 text-sm", "text-sm w-full bg-transparent focus:bg-white dark:focus:bg-dark-900 border border-dark-900 focus:outline-none focus:border-primary-500 rounded-lg"])}">${ssrInterpolate($props.modelValue)}</textarea></div>`);
 }
 const _sfc_setup$7 = _sfc_main$7.setup;
 _sfc_main$7.setup = (props, ctx) => {
@@ -4848,40 +6167,58 @@ const __nuxt_component_11 = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["ssrRende
 const meta = void 0;
 const routes = [
   {
+    name: "account",
+    path: "/account",
+    file: "C:/laragon/www/maeyourdiscord/frontend/pages/account/index.vue",
+    children: [],
+    meta: meta$e,
+    alias: (meta$e == null ? void 0 : meta$e.alias) || [],
+    component: () => import("./_nuxt/index.f53b551a.js").then((m) => m.default || m)
+  },
+  {
     name: "articles-slug",
     path: "/articles/:slug",
     file: "C:/laragon/www/maeyourdiscord/frontend/pages/articles/[slug].vue",
     children: [],
-    meta: meta$c,
-    alias: (meta$c == null ? void 0 : meta$c.alias) || [],
-    component: () => import("./_nuxt/_slug_.cb2ea0dc.js").then((m) => m.default || m)
+    meta: meta$d,
+    alias: (meta$d == null ? void 0 : meta$d.alias) || [],
+    component: () => import("./_nuxt/_slug_.25689ed0.js").then((m) => m.default || m)
   },
   {
     name: "articles",
     path: "/articles",
     file: "C:/laragon/www/maeyourdiscord/frontend/pages/articles/index.vue",
     children: [],
-    meta: meta$b,
-    alias: (meta$b == null ? void 0 : meta$b.alias) || [],
-    component: () => import("./_nuxt/index.9c21981c.js").then((m) => m.default || m)
+    meta: meta$c,
+    alias: (meta$c == null ? void 0 : meta$c.alias) || [],
+    component: () => import("./_nuxt/index.5d396450.js").then((m) => m.default || m)
   },
   {
     name: "authentification-callback",
     path: "/authentification/callback",
     file: "C:/laragon/www/maeyourdiscord/frontend/pages/authentification/callback.vue",
     children: [],
-    meta: meta$a,
-    alias: (meta$a == null ? void 0 : meta$a.alias) || [],
-    component: () => import("./_nuxt/callback.e5192b98.js").then((m) => m.default || m)
+    meta: meta$b,
+    alias: (meta$b == null ? void 0 : meta$b.alias) || [],
+    component: () => import("./_nuxt/callback.e3c9df12.js").then((m) => m.default || m)
   },
   {
     name: "authentification",
     path: "/authentification",
     file: "C:/laragon/www/maeyourdiscord/frontend/pages/authentification/index.vue",
     children: [],
+    meta: meta$a,
+    alias: (meta$a == null ? void 0 : meta$a.alias) || [],
+    component: () => import("./_nuxt/index.275e282c.js").then((m) => m.default || m)
+  },
+  {
+    name: "cgu",
+    path: "/cgu",
+    file: "C:/laragon/www/maeyourdiscord/frontend/pages/cgu.vue",
+    children: [],
     meta: meta$9,
     alias: (meta$9 == null ? void 0 : meta$9.alias) || [],
-    component: () => import("./_nuxt/index.a97a381b.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/cgu.2893a761.js").then((m) => m.default || m)
   },
   {
     name: "hire",
@@ -4890,7 +6227,7 @@ const routes = [
     children: [],
     meta: meta$8,
     alias: (meta$8 == null ? void 0 : meta$8.alias) || [],
-    component: () => import("./_nuxt/hire.6a848841.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/hire.18ece5b0.js").then((m) => m.default || m)
   },
   {
     name: "index",
@@ -4899,7 +6236,7 @@ const routes = [
     children: [],
     meta: meta$7,
     alias: (meta$7 == null ? void 0 : meta$7.alias) || [],
-    component: () => import("./_nuxt/index.d1cfb0d6.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index.c673fd9e.js").then((m) => m.default || m)
   },
   {
     name: "partners",
@@ -4908,7 +6245,7 @@ const routes = [
     children: [],
     meta: meta$6,
     alias: (meta$6 == null ? void 0 : meta$6.alias) || [],
-    component: () => import("./_nuxt/partners.e47bbc15.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/partners.b4dab42e.js").then((m) => m.default || m)
   },
   {
     name: "rates",
@@ -4917,7 +6254,7 @@ const routes = [
     children: [],
     meta: meta$5,
     alias: (meta$5 == null ? void 0 : meta$5.alias) || [],
-    component: () => import("./_nuxt/rates.6ee104ea.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/rates.f6049dea.js").then((m) => m.default || m)
   },
   {
     name: "tools-404",
@@ -4926,7 +6263,7 @@ const routes = [
     children: [],
     meta: meta$4,
     alias: (meta$4 == null ? void 0 : meta$4.alias) || [],
-    component: () => import("./_nuxt/404.490814bb.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/404.c7d2a80f.js").then((m) => m.default || m)
   },
   {
     name: "tools-slug",
@@ -4935,7 +6272,7 @@ const routes = [
     children: [],
     meta: meta$3,
     alias: (meta$3 == null ? void 0 : meta$3.alias) || [],
-    component: () => import("./_nuxt/index.aa4a586a.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index.0ba597d2.js").then((m) => m.default || m)
   },
   {
     name: "tools-bots",
@@ -4944,7 +6281,7 @@ const routes = [
     children: [],
     meta: meta$2,
     alias: (meta$2 == null ? void 0 : meta$2.alias) || [],
-    component: () => import("./_nuxt/bots.2732373d.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/bots.f569facc.js").then((m) => m.default || m)
   },
   {
     name: "tools-discord-badges",
@@ -4953,7 +6290,7 @@ const routes = [
     children: [],
     meta: meta$1,
     alias: (meta$1 == null ? void 0 : meta$1.alias) || [],
-    component: () => import("./_nuxt/badges.1720986f.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/badges.633a02a4.js").then((m) => m.default || m)
   },
   {
     name: "tools-discord-embed",
@@ -4962,7 +6299,7 @@ const routes = [
     children: [],
     meta,
     alias: (meta == null ? void 0 : meta.alias) || [],
-    component: () => import("./_nuxt/embed.0fdba9d4.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/embed.f8d21bb1.js").then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -4984,7 +6321,9 @@ const routerOptions = {
   ...routerOptions0
 };
 const globalMiddleware = [];
-const namedMiddleware = {};
+const namedMiddleware = {
+  auth: () => import("./_nuxt/auth.4908d073.js")
+};
 const node_modules_nuxt_dist_pages_runtime_router_mjs_qNv5Ky2ZmB = defineNuxtPlugin(async (nuxtApp) => {
   let __temp, __restore;
   nuxtApp.vueApp.component("NuxtPage", NuxtPage);
@@ -5106,6 +6445,19 @@ const node_modules_nuxt_dist_pages_runtime_router_mjs_qNv5Ky2ZmB = defineNuxtPlu
   });
   return { provide: { router } };
 });
+const node_modules__64pinia_nuxt_dist_runtime_plugin_vue3_mjs_A0OWXRrUgq = defineNuxtPlugin((nuxtApp) => {
+  const pinia = createPinia();
+  nuxtApp.vueApp.use(pinia);
+  setActivePinia(pinia);
+  {
+    nuxtApp.payload.pinia = pinia.state.value;
+  }
+  return {
+    provide: {
+      pinia
+    }
+  };
+});
 const preference = "system";
 const script = 'const w=window,de=document.documentElement,knownColorSchemes=["dark","light"],preference=window.localStorage.getItem("color_theme")||"system";let value=preference==="system"?getColorScheme():preference;const forcedColorMode=de.getAttribute("data-color-mode-forced");forcedColorMode&&(value=forcedColorMode),addColorScheme(value),w["__NUXT_COLOR_MODE__"]={preference,value,getColorScheme,addColorScheme,removeColorScheme};function addColorScheme(e){const o=""+e+"",t="";de.classList?de.classList.add(o):de.className+=" "+o,de.setAttribute("data-"+t,e)}function removeColorScheme(e){const o=""+e+"",t="";de.classList?de.classList.remove(o):de.className=de.className.replace(new RegExp(o,"g"),""),de.removeAttribute("data-"+t)}function prefersColorScheme(e){return w.matchMedia("(prefers-color-scheme"+e+")")}function getColorScheme(){if(w.matchMedia&&prefersColorScheme("").media!=="not all"){for(const e of knownColorSchemes)if(prefersColorScheme(":"+e).matches)return e}return"light"}\n';
 const node_modules__64nuxtjs_color_mode_dist_runtime_plugin_server_mjs_XNCxeHyTuP = defineNuxtPlugin((nuxtApp) => {
@@ -5139,13 +6491,14 @@ const _plugins = [
   node_modules_nuxt_dist_head_runtime_lib_vueuse_head_plugin_mjs_D7WGfuP1A0,
   node_modules_nuxt_dist_head_runtime_plugin_mjs_1QO0gqa6n2,
   node_modules_nuxt_dist_pages_runtime_router_mjs_qNv5Ky2ZmB,
+  node_modules__64pinia_nuxt_dist_runtime_plugin_vue3_mjs_A0OWXRrUgq,
   node_modules__64nuxtjs_color_mode_dist_runtime_plugin_server_mjs_XNCxeHyTuP
 ];
 const _sfc_main$1 = {
   __name: "nuxt-root",
   __ssrInlineRender: true,
   setup(__props) {
-    const ErrorComponent = vue_cjs_prod.defineAsyncComponent(() => import("./_nuxt/error-component.20ed56f4.js"));
+    const ErrorComponent = vue_cjs_prod.defineAsyncComponent(() => import("./_nuxt/error-component.23d4eced.js"));
     const nuxtApp = useNuxtApp();
     vue_cjs_prod.provide("_route", useRoute());
     nuxtApp.hooks.callHookWith((hooks) => hooks.map((hook) => hook()), "vue:setup");
@@ -5178,9 +6531,9 @@ _sfc_main$1.setup = (props, ctx) => {
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
 const layouts = {
-  default: vue_cjs_prod.defineAsyncComponent(() => import("./_nuxt/default.ccc452ac.js")),
-  empty: vue_cjs_prod.defineAsyncComponent(() => import("./_nuxt/empty.7db09cb1.js")),
-  footer: vue_cjs_prod.defineAsyncComponent(() => import("./_nuxt/footer.9cb7a8a5.js"))
+  default: vue_cjs_prod.defineAsyncComponent(() => import("./_nuxt/default.d70ce6ce.js")),
+  empty: vue_cjs_prod.defineAsyncComponent(() => import("./_nuxt/empty.d94d7764.js")),
+  footer: vue_cjs_prod.defineAsyncComponent(() => import("./_nuxt/footer.a393f306.js"))
 };
 const defaultLayoutTransition = { name: "layout", mode: "out-in" };
 const __nuxt_component_0 = vue_cjs_prod.defineComponent({
@@ -5252,40 +6605,41 @@ const plugins = normalizePlugins(_plugins);
 }
 const entry$1 = (ctx) => entry(ctx);
 export {
-  __nuxt_component_10 as A,
-  __nuxt_component_6$1 as B,
-  __nuxt_component_3 as C,
-  __nuxt_component_5 as D,
-  __nuxt_component_6 as E,
+  __nuxt_component_3 as A,
+  Badges as B,
+  __nuxt_component_5 as C,
+  __nuxt_component_6 as D,
+  Emojis as E,
   __nuxt_component_7 as F,
   __nuxt_component_8 as G,
   __nuxt_component_11 as H,
+  defineNuxtRouteMiddleware as I,
   _export_sfc as _,
-  __nuxt_component_0$5 as a,
-  __nuxt_component_0$4 as b,
+  axios2 as a,
+  __nuxt_component_4$2 as b,
   __nuxt_component_1$2 as c,
-  __nuxt_component_1$1 as d,
+  __nuxt_component_0$5 as d,
   entry$1 as default,
-  axios as e,
-  __nuxt_component_0$6 as f,
-  __nuxt_component_4$2 as g,
-  __nuxt_component_2$2 as h,
-  __nuxt_component_9 as i,
-  __nuxt_component_4$3 as j,
-  __nuxt_component_2$1 as k,
-  __nuxt_component_3$3 as l,
-  __nuxt_component_4$1 as m,
-  __nuxt_component_3$2 as n,
-  useNuxtApp as o,
-  __nuxt_component_1 as p,
-  allCards as q,
-  useModule as r,
-  __nuxt_component_0$2 as s,
-  tools as t,
-  useHead as u,
+  __nuxt_component_0$4 as e,
+  __nuxt_component_0$3 as f,
+  __nuxt_component_1$1 as g,
+  useHead as h,
+  __nuxt_component_2$2 as i,
+  __nuxt_component_9 as j,
+  __nuxt_component_4$1 as k,
+  __nuxt_component_2$1 as l,
+  __nuxt_component_3$2 as m,
+  useNuxtApp as n,
+  Bots as o,
+  Embed as p,
+  __nuxt_component_1 as q,
+  __nuxt_component_6$2 as r,
+  __nuxt_component_0$1 as s,
+  __nuxt_component_5$1 as t,
+  useAuthStore as u,
   vue_cjs_prod as v,
-  __nuxt_component_5$1 as w,
-  __nuxt_component_2 as x,
-  useTool as y,
-  __nuxt_component_3$1 as z
+  __nuxt_component_2 as w,
+  __nuxt_component_3$1 as x,
+  __nuxt_component_10 as y,
+  __nuxt_component_6$1 as z
 };

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <header class="bg-primary-500 border-b-8 border-primary-400 py-48">
+        <header class="bg-gradient-to-br from-primary-500 to-primary-700 border-b-8 border-primary-600 py-48">
             <h1 class="font-extrabold text-5xl text-white text-center">Partenaires</h1>
             <h2 class="text-3xl max-w-2xl text-center mx-auto mt-6 leading-relaxed text-white">Découvre nos partenaires et découvre comment en faire partie</h2>
             <Button class="mx-auto mt-6" text="Devenir un partenaire"></Button>
@@ -13,7 +13,7 @@
                 </NuxtLink>
             </div>
         </section>
-        <section class="bg-primary-500 pb-48 mt-24 pt-96 relative px-2">
+        <section class="bg-primary-500 pb-48 mt-24 pt-96 relative px-2 text-white container mx-auto mb-24 rounded-2xl shadow-md">
             <div class="container mx-auto max-w-xl">
                 <h4 class="mx-auto text-center font-semibold text-3xl mb-16">Devenir partenaire</h4>
                 <Input placeholder="Bientôt disponible..." :white="true" />
