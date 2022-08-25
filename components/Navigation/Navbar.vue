@@ -38,7 +38,7 @@
                     <NuxtLink to="/authentification" v-if="!authenticated" @click="toggleMobileMenu">
                         <Button class="bg-white hover:bg-white text-black" icon="user" :text="'Accéder à mon compte'" :small="true" />
                     </NuxtLink>
-                    <NuxtLink v-else to="/account" class="flex items-center font-medium text-xl gap-2 px-3 py-2 border-2 border-dark-700 rounded-xl">
+                    <NuxtLink v-else to="/account" class="flex items-center font-medium text-xl gap-2 px-3 py-2 border-2 border-dark-700 rounded-xl" @click="toggleMobileMenu">
                         <img :src="user?.avatar" class="w-8 h-8 rounded-full" />
                         {{ user?.username }}
                     </NuxtLink>

@@ -89,7 +89,7 @@ export default {
     },
     data: () => ({
         isOpen: false,
-        suggestion: '-',
+        suggestion: '',
         errors: []
     }),
     methods: {

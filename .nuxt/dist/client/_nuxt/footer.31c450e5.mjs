@@ -1,0 +1,1 @@
+import{_ as e}from"./Navbar.42bc42da.mjs";import{a as n,o as r,j as a,q as s,G as c}from"./entry.afccd85e.mjs";import"./logo.a1814e05.mjs";import"./SunIcon.fb635a08.mjs";const _={},i={id:"content",class:"relative"};function m(o,d){const t=e;return r(),a("div",i,[s(t),c(o.$slots,"default")])}const v=n(_,[["render",m]]);export{v as default};
