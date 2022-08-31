@@ -1,18 +1,18 @@
 <template>
-    <div>
-        <img class="w-12 h-12 mx-auto mb-4" src="/objects/sad.png" />
-        <div class="text-sm mx-auto text-center max-w-xs leading-6">{{ text }}</div>
-        <slot></slot>
-    </div>
+  <div>
+    <img class="mx-auto mb-4 h-12 w-12" src="/objects/sad.png" />
+    <div class="mx-auto max-w-xs text-center text-sm leading-6">{{ text }}</div>
+    <slot></slot>
+  </div>
 </template>
 
 <script>
 export default {
-    props: {
-        text: {
-            type: String,
-            default: 'Nous n\'avons pas trouvé de résultats...'
-        }
-    }
-}
+  props: {
+    text: {
+      type: String,
+      default: "Nous n'avons pas trouvé de résultats...",
+    },
+  },
+};
 </script>

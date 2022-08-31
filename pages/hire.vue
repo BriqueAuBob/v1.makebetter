@@ -1,168 +1,262 @@
 <template>
-    <div>
-        <header class="bg-gradient-to-br from-primary-500 to-primary-800 relative text-white overflow-x-hidden" ref="header">
-            <div class="container mx-auto px-4 pt-48 pb-48">
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="lg:col-span-2">
-                        <h1 class="font-extrabold text-5xl">UMaestro recrute !</h1>
-                        <h2 class="text-2xl leading-relaxed max-w-xl mt-6">On recrute des personnes compétentes dans divers domaines pour aider à la conception et la maintenance de nos différents projets</h2>
-                        <NuxtLink href="#postes">
-                            <Button class="mt-10" text="Voir les postes disponible" />
-                        </NuxtLink>
-                    </div>
-                    <div class="relative hidden md:block">
-                        <Slider direction="vertical" class="absolute -top-48 w-full" duration="60s" :style="`height: ${headerTall}`">
-                            <div>
-                                <div v-for="(color, index) in colors.sort((a, b) => 0.5 - Math.random())" :key="index" class="my-12 flex shadow-xl">
-                                    <aside :class="`${color} p-8 w-1/3 rounded-l-3xl`">
-                                        <div class="bg-gray-200 rounded-full w-24 h-24 mx-auto pt-full"></div>
-                                        <div class="bg-gray-200 rounded-sm w-full h-4 mt-4 mx-auto pt-full"></div>
-                                        <div class="bg-gray-200 rounded-sm w-1/3 h-4 mt-2 pt-full"></div>
-                                    </aside>
-                                    <ClientOnly>
-                                        <main class="bg-white pl-4 pr-8 py-8 w-2/3 rounded-r-3xl">
-                                            <div class="bg-dark-800 rounded-sm w-full h-4 mt-4 mx-auto pt-full"></div>
-                                            <div class="bg-dark-700 rounded-sm w-1/3 h-4 mt-2 mb-2 pt-full"></div>
-                                            <div 
-                                                v-for="i in Math.max(2, Math.floor(Math.random() * 4))" 
-                                                :key="i" 
-                                                :class="['bg-dark-600 rounded-sm h-2 mt-2 pt-full', ['w-1/3', 'w-1/4', 'w-full', 'w-1/2', 'w-3/4', 'w-2/3'][Math.floor(Math.random() * 6)]]"
-                                            ></div>
-                                            <div v-for="i in 4" :key="i">
-                                                <div class="bg-dark-700 rounded-sm w-1/3 h-4 mt-8 pt-full"></div>
-                                                <div 
-                                                    v-for="i in Math.max(2, Math.floor(Math.random() * 4))" 
-                                                    :key="i" 
-                                                    :class="['bg-dark-600 rounded-sm h-2 mt-2 pt-full', ['w-1/3', 'w-1/4', 'w-full', 'w-1/2', 'w-3/4', 'w-2/3'][Math.floor(Math.random() * 6)]]"
-                                                ></div>
-                                            </div>
-                                        </main>
-                                    </ClientOnly>
-                                </div>
-                            </div>
-                        </Slider>
-                    </div>
-                    <div class="absolute left-0 top-0 w-full h-64 from-primary-500 to-transparent bg-gradient-to-b"></div>
-                    <div class="absolute left-0 scale-x-150 bottom-0 w-full h-52 from-primary-800 to-transparent bg-gradient-to-t"></div>
+  <div>
+    <header
+      class="relative overflow-x-hidden bg-gradient-to-br from-primary-500 to-primary-800 text-white"
+      ref="header"
+    >
+      <div class="container mx-auto px-4 pt-48 pb-48">
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div class="lg:col-span-2">
+            <h1 class="text-5xl font-extrabold">UMaestro recrute !</h1>
+            <h2 class="mt-6 max-w-xl text-2xl leading-relaxed">
+              On recrute des personnes compétentes dans divers domaines pour
+              aider à la conception et la maintenance de nos différents projets
+            </h2>
+            <NuxtLink href="#postes">
+              <Button class="mt-10" text="Voir les postes disponible" />
+            </NuxtLink>
+          </div>
+          <div class="relative hidden md:block">
+            <Slider
+              direction="vertical"
+              class="absolute -top-48 w-full"
+              duration="60s"
+              :style="`height: ${headerTall}`"
+            >
+              <div>
+                <div
+                  v-for="(color, index) in colors.sort(
+                    (a, b) => 0.5 - Math.random()
+                  )"
+                  :key="index"
+                  class="my-12 flex shadow-xl"
+                >
+                  <aside :class="`${color} w-1/3 rounded-l-3xl p-8`">
+                    <div
+                      class="pt-full mx-auto h-24 w-24 rounded-full bg-gray-200"
+                    ></div>
+                    <div
+                      class="pt-full mx-auto mt-4 h-4 w-full rounded-sm bg-gray-200"
+                    ></div>
+                    <div
+                      class="pt-full mt-2 h-4 w-1/3 rounded-sm bg-gray-200"
+                    ></div>
+                  </aside>
+                  <ClientOnly>
+                    <main class="w-2/3 rounded-r-3xl bg-white py-8 pl-4 pr-8">
+                      <div
+                        class="pt-full mx-auto mt-4 h-4 w-full rounded-sm bg-dark-800"
+                      ></div>
+                      <div
+                        class="pt-full mt-2 mb-2 h-4 w-1/3 rounded-sm bg-dark-700"
+                      ></div>
+                      <div
+                        v-for="i in Math.max(2, Math.floor(Math.random() * 4))"
+                        :key="i"
+                        :class="[
+                          'pt-full mt-2 h-2 rounded-sm bg-dark-600',
+                          [
+                            'w-1/3',
+                            'w-1/4',
+                            'w-full',
+                            'w-1/2',
+                            'w-3/4',
+                            'w-2/3',
+                          ][Math.floor(Math.random() * 6)],
+                        ]"
+                      ></div>
+                      <div v-for="i in 4" :key="i">
+                        <div
+                          class="pt-full mt-8 h-4 w-1/3 rounded-sm bg-dark-700"
+                        ></div>
+                        <div
+                          v-for="i in Math.max(
+                            2,
+                            Math.floor(Math.random() * 4)
+                          )"
+                          :key="i"
+                          :class="[
+                            'pt-full mt-2 h-2 rounded-sm bg-dark-600',
+                            [
+                              'w-1/3',
+                              'w-1/4',
+                              'w-full',
+                              'w-1/2',
+                              'w-3/4',
+                              'w-2/3',
+                            ][Math.floor(Math.random() * 6)],
+                          ]"
+                        ></div>
+                      </div>
+                    </main>
+                  </ClientOnly>
                 </div>
-            </div>
-        </header>
-        <section class="mt-24 py-8 container mx-auto px-4">
-            <h3 class="text-3xl max-w-3xl"><span class="font-bold">Nous recrutons</span> et il se peut que <span class="font-bold">ton profil</span> nous corresponde!</h3>
-            <p class="text-xl leading-relaxed mt-4">
-                Nous voulons proposer à notre communauté des outils intéressants pour la conception de leurs communautés mais pour celà, nous avons besoin de personnes ayant différentes compétences.<br/>C’est pourquoi, nous recrutons constamment des personnes dans différents domaines afin d’aider à maintenir UMaestro.</p>
-        </section>
-        <section class="py-8 container mx-auto px-4 pb-20" id="postes">
-            <div v-for="(category, index) of categories" :key="index" class="mb-16">
-                <div class="font-semibold text-lg">{{ category.title }}</div>
-                <div class="mt-2">{{ category.subtitle }}</div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
-                    <NuxtLink target="blank" to="https://docs.google.com/forms/d/e/1FAIpQLScCszcMFVbGvE5Y0bqNapkw1pcvm6fr7V_jvlVI48L87T81CA/viewform" v-for="(job, index) of category.jobs" :key="index">
-                        <Card>
-                            <div class="p-8 flex flex-col justify-between h-full">
-                                <div>
-                                    <div class="font-semibold text-xl">{{ job.name }}</div>
-                                    <div class="mt-2 text-md">{{ job.description }}</div>
-                                    <div v-if="job.requirement" class="mt-2 text-sm text-gray-400 italic">{{ job.requirement }}</div>
-                                </div>
-                                <span class="flex items-center gap-2 font-medium text-primary-500 mt-4">Postuler <img src="/icons/double_chevron.svg" class="w-5 h-5" alt="Double chevron" /></span>
-                            </div>
-                        </Card>
-                    </NuxtLink>
+              </div>
+            </Slider>
+          </div>
+          <div
+            class="absolute left-0 top-0 h-64 w-full bg-gradient-to-b from-primary-500 to-transparent"
+          ></div>
+          <div
+            class="absolute left-0 bottom-0 h-52 w-full scale-x-150 bg-gradient-to-t from-primary-800 to-transparent"
+          ></div>
+        </div>
+      </div>
+    </header>
+    <section class="container mx-auto mt-24 py-8 px-4">
+      <h3 class="max-w-3xl text-3xl">
+        <span class="font-bold">Nous recrutons</span> et il se peut que
+        <span class="font-bold">ton profil</span> nous corresponde!
+      </h3>
+      <p class="mt-4 text-xl leading-relaxed">
+        Nous voulons proposer à notre communauté des outils intéressants pour la
+        conception de leurs communautés mais pour celà, nous avons besoin de
+        personnes ayant différentes compétences.<br />C’est pourquoi, nous
+        recrutons constamment des personnes dans différents domaines afin
+        d’aider à maintenir UMaestro.
+      </p>
+    </section>
+    <section class="container mx-auto py-8 px-4 pb-20" id="postes">
+      <div v-for="(category, index) of categories" :key="index" class="mb-16">
+        <div class="text-lg font-semibold">{{ category.title }}</div>
+        <div class="mt-2">{{ category.subtitle }}</div>
+        <div class="mt-6 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <NuxtLink
+            target="blank"
+            to="https://docs.google.com/forms/d/e/1FAIpQLScCszcMFVbGvE5Y0bqNapkw1pcvm6fr7V_jvlVI48L87T81CA/viewform"
+            v-for="(job, index) of category.jobs"
+            :key="index"
+          >
+            <Card>
+              <div class="flex h-full flex-col justify-between p-8">
+                <div>
+                  <div class="text-xl font-semibold">{{ job.name }}</div>
+                  <div class="text-md mt-2">{{ job.description }}</div>
+                  <div
+                    v-if="job.requirement"
+                    class="mt-2 text-sm italic text-gray-400"
+                  >
+                    {{ job.requirement }}
+                  </div>
                 </div>
-            </div>
-        </section>
-    </div>
+                <span
+                  class="mt-4 flex items-center gap-2 font-medium text-primary-500"
+                  >Postuler
+                  <img
+                    src="/icons/double_chevron.svg"
+                    class="h-5 w-5"
+                    alt="Double chevron"
+                /></span>
+              </div>
+            </Card>
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
 export default {
-    setup() {
-        useHead({
-            title: 'Recrutements',
-        })
-    },
-    data: () => ({
-        headerTall: "0px",
-        categories: [
-            {
-                title: 'Tu as de l\'expérience sur Discord?',
-                subtitle: 'Nous recrutons des personnes qui savent modérer...',
-                jobs: [
-                    {
-                        name: 'Modérateur',
-                        description: "Poste visant à réguler la communauté et à faire de UMaestro un espace sain tout en créant de l'activité.",
-                        requirement: 'Expériences notables attendues'
-                    },
-                    {
-                        name: 'Community Manager',
-                        description: ''
-                    },
-                    {
-                        name: 'Animateur',
-                        description: 'Créateur d\'évènement visant à crée une activité sur le serveur afin de rassemblée la communauté de UMaestro à travers des évènements.'
-                    },
-                ] 
-            },
-            {
-                title: 'Tu as l’âme d’un artiste?',
-                subtitle: 'Nous recrutons des graphistes...',
-                jobs: [
-                    {
-                        name: 'UI Designer',
-                        description: 'Créateur d\'interface utilisateur pour les services de UMaestro.'
-                    },
-                    {
-                        name: 'Illustrateur',
-                        description: 'Créateur de logos, illustrations et images dans l\'objectif d\'embellir les informations et communiqués de UMaestro et Multid.'
-                    },
-                    {
-                        name: 'Modélisateur 3D',
-                        description: 'Créateur d\'objet 3D pour les illustrations de UMaestro'
-                    },
-                ] 
-            },
-            {
-                title: 'Tu aimes développer des systèmes innovants?',
-                subtitle: 'Nous recrutons des développeurs...',
-                jobs: [
-                    {
-                        name: 'Développeur Back-End',
-                        description: 'Développement de(s) API(s) de UMaestro',
-                        requirement: 'Autonomie et grandes connaissances'
-                    },
-                    {
-                        name: 'Développeur Front-End',
-                        description: 'Développement de(s) application(s) web de UMaestro',
-                        requirement: 'Autonomie et grandes connaissances'
-                    },
-                    {
-                        name: 'Développeur Full-Stack',
-                        description: 'Développement de(s) API(s) de UMaestro et le(s) application(s) web de UMaestro',
-                        requirement: 'Autonomie et grandes connaissances'
-                    },
-                    {
-                        name: 'Développeur Bot',
-                        description: 'Développement des bots Discord UMaestro et Multid',
-                        requirement: 'Autonomie et grandes connaissances'
-                    },
-                ] 
-            },
+  setup() {
+    useHead({
+      title: "Recrutements",
+    });
+  },
+  data: () => ({
+    headerTall: "0px",
+    categories: [
+      {
+        title: "Tu as de l'expérience sur Discord?",
+        subtitle: "Nous recrutons des personnes qui savent modérer...",
+        jobs: [
+          {
+            name: "Modérateur",
+            description:
+              "Poste visant à réguler la communauté et à faire de UMaestro un espace sain tout en créant de l'activité.",
+            requirement: "Expériences notables attendues",
+          },
+          {
+            name: "Community Manager",
+            description: "",
+          },
+          {
+            name: "Animateur",
+            description:
+              "Créateur d'évènement visant à crée une activité sur le serveur afin de rassemblée la communauté de UMaestro à travers des évènements.",
+          },
         ],
-        colors: ['bg-red-500', 'bg-yellow-500', 'bg-secondary-600', 'bg-primary-700', 'bg-green-500', 'bg-stone-500']
-    }),
-    mounted() {
-        this.recalculateSize()
-        window.onresize = () => {
-            this.recalculateSize()
-        }
+      },
+      {
+        title: "Tu as l’âme d’un artiste?",
+        subtitle: "Nous recrutons des graphistes...",
+        jobs: [
+          {
+            name: "UI Designer",
+            description:
+              "Créateur d'interface utilisateur pour les services de UMaestro.",
+          },
+          {
+            name: "Illustrateur",
+            description:
+              "Créateur de logos, illustrations et images dans l'objectif d'embellir les informations et communiqués de UMaestro et Multid.",
+          },
+          {
+            name: "Modélisateur 3D",
+            description:
+              "Créateur d'objet 3D pour les illustrations de UMaestro",
+          },
+        ],
+      },
+      {
+        title: "Tu aimes développer des systèmes innovants?",
+        subtitle: "Nous recrutons des développeurs...",
+        jobs: [
+          {
+            name: "Développeur Back-End",
+            description: "Développement de(s) API(s) de UMaestro",
+            requirement: "Autonomie et grandes connaissances",
+          },
+          {
+            name: "Développeur Front-End",
+            description: "Développement de(s) application(s) web de UMaestro",
+            requirement: "Autonomie et grandes connaissances",
+          },
+          {
+            name: "Développeur Full-Stack",
+            description:
+              "Développement de(s) API(s) de UMaestro et le(s) application(s) web de UMaestro",
+            requirement: "Autonomie et grandes connaissances",
+          },
+          {
+            name: "Développeur Bot",
+            description: "Développement des bots Discord UMaestro et Multid",
+            requirement: "Autonomie et grandes connaissances",
+          },
+        ],
+      },
+    ],
+    colors: [
+      "bg-red-500",
+      "bg-yellow-500",
+      "bg-secondary-600",
+      "bg-primary-700",
+      "bg-green-500",
+      "bg-stone-500",
+    ],
+  }),
+  mounted() {
+    this.recalculateSize();
+    window.onresize = () => {
+      this.recalculateSize();
+    };
+  },
+  methods: {
+    recalculateSize() {
+      setTimeout(() => {
+        this.headerTall = this.$refs.header?.clientHeight + "px"; // May be a better way than a timeout to handle this change?
+      }, 550);
     },
-    methods: {
-        recalculateSize() {
-            setTimeout(() => {
-                this.headerTall = this.$refs.header?.clientHeight + "px"; // May be a better way than a timeout to handle this change?
-            }, 550)
-        }
-    }
-}
+  },
+};
 </script>
