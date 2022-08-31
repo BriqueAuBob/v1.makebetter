@@ -29,7 +29,7 @@
             {{ data.author?.name }}
           </div>
           <a
-            v-if="data.title"
+            v-if="data.title && data.url"
             href="#"
             target="_blank"
             class="block font-semibold"
@@ -37,11 +37,15 @@
           >
             {{ data.title }}
           </a>
-          <div
+          <div v-else-if="data.title" class="font-semibold">
+            {{ data.title }}
+          </div>
+          <Markdown
             v-if="data.description"
             class="mt-2 box-border whitespace-pre-wrap break-words text-sm leading-snug"
-            v-html="toHTML(data.description, { embed: true })"
-          ></div>
+            :embed="true"
+            :content="data.description"
+          ></Markdown>
           <div class="grid gap-x-6 gap-y-2">
             <div
               v-for="(field, key) in data.fields"

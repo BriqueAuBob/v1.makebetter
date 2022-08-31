@@ -1,5 +1,15 @@
 <template>
-  <div v-html="toHTML(content, { embed })"></div>
+  <div
+    v-html="
+      toHTML(content, {
+        discordCallback: {
+          user: (node) => '@user',
+          role: (node) => '@role',
+        },
+        embed,
+      })
+    "
+  ></div>
 </template>
 
 <script>
@@ -22,3 +32,19 @@ export default {
   },
 };
 </script>
+
+<style>
+.d-mention {
+  border-radius: 3px;
+  padding: 0 2px;
+  color: hsla(236, 83.3%, 92.9%);
+}
+
+.d-mention.d-user {
+  background: hsla(235, 85.6%, 64.7%, 0.3);
+}
+
+.d-mention.d-role {
+  background: rgba(242, 121, 88, 0.3);
+}
+</style>

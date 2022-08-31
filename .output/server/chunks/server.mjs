@@ -3450,7 +3450,11 @@ const _sfc_main$u = {
   }
 };
 function _sfc_ssrRender$s(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}><input${serverRenderer.exports.ssrRenderAttr("placeholder", $props.placeholder)} type="text" class="${serverRenderer.exports.ssrRenderClass([[$props.big ? "px-6 py-5 text-md" : "px-6 py-4 text-sm", $props.white ? "bg-white text-black" : "bg-transparent focus:bg-white dark:focus:bg-dark-900 border-dark-800 focus:border-primary-500", $props.classes], "text-sm w-full border focus:outline-none rounded-lg"])}"${serverRenderer.exports.ssrRenderAttr("value", $props.modelValue)}${serverRenderer.exports.ssrIncludeBooleanAttr($props.disabled) ? " disabled" : ""}></div>`);
+  _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}><input${serverRenderer.exports.ssrRenderAttr("placeholder", $props.placeholder)} type="text" class="${serverRenderer.exports.ssrRenderClass([[
+    $props.big ? "text-md px-6 py-5" : "px-6 py-4 text-sm",
+    $props.white ? "bg-white text-black" : "border-dark-800 bg-transparent focus:border-primary-500 focus:bg-white dark:focus:bg-dark-900",
+    $props.classes
+  ], "w-full rounded-lg border text-sm focus:outline-none"])}"${serverRenderer.exports.ssrRenderAttr("value", $props.modelValue)}${serverRenderer.exports.ssrIncludeBooleanAttr($props.disabled) ? " disabled" : ""}></div>`);
 }
 const _sfc_setup$u = _sfc_main$u.setup;
 _sfc_main$u.setup = (props, ctx) => {
@@ -3506,7 +3510,11 @@ const _sfc_main$t = {
 };
 function _sfc_ssrRender$r(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<button${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({
-    class: ["rounded-md font-medium text-base flex items-center shadow-xl ease-in duration-300", [$options.colors, $props.small ? "px-5 py-3" : "px-6 py-4", $props.centerText && "justify-center"]]
+    class: ["flex items-center rounded-md text-base font-medium shadow-xl duration-300 ease-in", [
+      $options.colors,
+      $props.small ? "px-5 py-3" : "px-6 py-4",
+      $props.centerText && "justify-center"
+    ]]
   }, _attrs))}>`);
   serverRenderer.exports.ssrRenderSlot(_ctx.$slots, "icon_left", {}, null, _push, _parent);
   _push(`<span class="${serverRenderer.exports.ssrRenderClass(["whitespace-pre-line", $props.centerText ? "text-center" : "text-left"])}">${serverRenderer.exports.ssrInterpolate($props.text)}</span>`);
@@ -3906,7 +3914,7 @@ const _sfc_main$s = {
   }
 };
 function _sfc_ssrRender$q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "bg-gray-200 dark:bg-dark-700 px-4 py-3 rounded-full flex gap-2 items-center text-dark-900 dark:text-white text-md text-medium" }, _attrs))}><img class="w-6 h-6 object-contain"${serverRenderer.exports.ssrRenderAttr("src", `/objects/${$props.reaction}.png`)}> 54 </div>`);
+  _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "text-md text-medium flex items-center gap-2 rounded-full bg-gray-200 px-4 py-3 text-dark-900 dark:bg-dark-700 dark:text-white" }, _attrs))}><img class="h-6 w-6 object-contain"${serverRenderer.exports.ssrRenderAttr("src", `/objects/${$props.reaction}.png`)}> 54 </div>`);
 }
 const _sfc_setup$s = _sfc_main$s.setup;
 _sfc_main$s.setup = (props, ctx) => {
@@ -3926,7 +3934,7 @@ const _sfc_main$r = {
 };
 function _sfc_ssrRender$p(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({
-    class: ["rounded-3xl shadow-lg cursor-pointer ease-in duration-300 hover:shadow-2xl hover:-translate-y-1 h-full", $props.color && "bg-white dark:bg-dark-900 hover:dark:bg-dark-800"]
+    class: ["h-full cursor-pointer rounded-3xl shadow-lg duration-300 ease-in hover:-translate-y-1 hover:shadow-2xl", $props.color && "bg-white dark:bg-dark-900 hover:dark:bg-dark-800"]
   }, _attrs))}>`);
   serverRenderer.exports.ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
   _push(`</div>`);
@@ -3948,19 +3956,19 @@ function _sfc_ssrRender$o(_ctx, _push, _parent, _attrs) {
         _push2(serverRenderer.exports.ssrRenderComponent(_component_Card, { class: "p-6" }, {
           default: vue_cjs_prod.withCtx((_2, _push3, _parent3, _scopeId2) => {
             if (_push3) {
-              _push3(`<header${_scopeId2}><img src="https://freepsdmock-up.com/wp-content/uploads/2020/11/bright-color-ui-featured-image-466x283.png" class="w-full rounded-xl max-h-52 object-cover" alt="Article Image"${_scopeId2}></header><main class="py-4"${_scopeId2}><div class="text-xl font-semibold mb-2"${_scopeId2}>Titre de l&#39;article</div><div class="text-md dark:text-gray-300"${_scopeId2}>Bien que les appels et la mise \xE0 disposition de serveurs restent gratuits, nous avons la possibilit\xE9 d\u2019acheter Discord Nitro </div></main><footer${_scopeId2}><span class="text-sm dark:text-gray-400"${_scopeId2}>le 27/03/2022</span></footer>`);
+              _push3(`<header${_scopeId2}><img src="https://freepsdmock-up.com/wp-content/uploads/2020/11/bright-color-ui-featured-image-466x283.png" class="max-h-52 w-full rounded-xl object-cover" alt="Article Image"${_scopeId2}></header><main class="py-4"${_scopeId2}><div class="mb-2 text-xl font-semibold"${_scopeId2}>Titre de l&#39;article</div><div class="text-md dark:text-gray-300"${_scopeId2}> Bien que les appels et la mise \xE0 disposition de serveurs restent gratuits, nous avons la possibilit\xE9 d\u2019acheter Discord Nitro </div></main><footer${_scopeId2}><span class="text-sm dark:text-gray-400"${_scopeId2}>le 27/03/2022</span></footer>`);
             } else {
               return [
                 vue_cjs_prod.createVNode("header", null, [
                   vue_cjs_prod.createVNode("img", {
                     src: "https://freepsdmock-up.com/wp-content/uploads/2020/11/bright-color-ui-featured-image-466x283.png",
-                    class: "w-full rounded-xl max-h-52 object-cover",
+                    class: "max-h-52 w-full rounded-xl object-cover",
                     alt: "Article Image"
                   })
                 ]),
                 vue_cjs_prod.createVNode("main", { class: "py-4" }, [
-                  vue_cjs_prod.createVNode("div", { class: "text-xl font-semibold mb-2" }, "Titre de l'article"),
-                  vue_cjs_prod.createVNode("div", { class: "text-md dark:text-gray-300" }, "Bien que les appels et la mise \xE0 disposition de serveurs restent gratuits, nous avons la possibilit\xE9 d\u2019acheter Discord Nitro ")
+                  vue_cjs_prod.createVNode("div", { class: "mb-2 text-xl font-semibold" }, "Titre de l'article"),
+                  vue_cjs_prod.createVNode("div", { class: "text-md dark:text-gray-300" }, " Bien que les appels et la mise \xE0 disposition de serveurs restent gratuits, nous avons la possibilit\xE9 d\u2019acheter Discord Nitro ")
                 ]),
                 vue_cjs_prod.createVNode("footer", null, [
                   vue_cjs_prod.createVNode("span", { class: "text-sm dark:text-gray-400" }, "le 27/03/2022")
@@ -3977,13 +3985,13 @@ function _sfc_ssrRender$o(_ctx, _push, _parent, _attrs) {
               vue_cjs_prod.createVNode("header", null, [
                 vue_cjs_prod.createVNode("img", {
                   src: "https://freepsdmock-up.com/wp-content/uploads/2020/11/bright-color-ui-featured-image-466x283.png",
-                  class: "w-full rounded-xl max-h-52 object-cover",
+                  class: "max-h-52 w-full rounded-xl object-cover",
                   alt: "Article Image"
                 })
               ]),
               vue_cjs_prod.createVNode("main", { class: "py-4" }, [
-                vue_cjs_prod.createVNode("div", { class: "text-xl font-semibold mb-2" }, "Titre de l'article"),
-                vue_cjs_prod.createVNode("div", { class: "text-md dark:text-gray-300" }, "Bien que les appels et la mise \xE0 disposition de serveurs restent gratuits, nous avons la possibilit\xE9 d\u2019acheter Discord Nitro ")
+                vue_cjs_prod.createVNode("div", { class: "mb-2 text-xl font-semibold" }, "Titre de l'article"),
+                vue_cjs_prod.createVNode("div", { class: "text-md dark:text-gray-300" }, " Bien que les appels et la mise \xE0 disposition de serveurs restent gratuits, nous avons la possibilit\xE9 d\u2019acheter Discord Nitro ")
               ]),
               vue_cjs_prod.createVNode("footer", null, [
                 vue_cjs_prod.createVNode("span", { class: "text-sm dark:text-gray-400" }, "le 27/03/2022")
@@ -4018,10 +4026,10 @@ function _sfc_ssrRender$n(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, vue_cjs_prod.mergeProps({ to: "/articles/slug" }, _attrs), {
     default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(serverRenderer.exports.ssrRenderComponent(_component_Card, { class: "flex p-6 gap-6" }, {
+        _push2(serverRenderer.exports.ssrRenderComponent(_component_Card, { class: "flex gap-6 p-6" }, {
           default: vue_cjs_prod.withCtx((_2, _push3, _parent3, _scopeId2) => {
             if (_push3) {
-              _push3(`<img src="https://freepsdmock-up.com/wp-content/uploads/2020/11/bright-color-ui-featured-image-466x283.png" class="${serverRenderer.exports.ssrRenderClass([$props.superSmall ? "w-32" : "w-1/3", "rounded-xl object-cover"])}" alt="Article Image"${_scopeId2}><div${_scopeId2}><div class="text-xl font-semibold mb-2"${_scopeId2}>Titre de l&#39;article</div><div class="text-md dark:text-gray-300"${_scopeId2}>Bien que les appels et la mise \xE0 disposition de serveurs restent gratuits, nous avons la possibilit\xE9 d\u2019acheter Discord Nitro </div><span class="block text-sm dark:text-gray-400 mt-4"${_scopeId2}>le 27/03/2022</span></div>`);
+              _push3(`<img src="https://freepsdmock-up.com/wp-content/uploads/2020/11/bright-color-ui-featured-image-466x283.png" class="${serverRenderer.exports.ssrRenderClass([$props.superSmall ? "w-32" : "w-1/3", "rounded-xl object-cover"])}" alt="Article Image"${_scopeId2}><div${_scopeId2}><div class="mb-2 text-xl font-semibold"${_scopeId2}>Titre de l&#39;article</div><div class="text-md dark:text-gray-300"${_scopeId2}> Bien que les appels et la mise \xE0 disposition de serveurs restent gratuits, nous avons la possibilit\xE9 d\u2019acheter Discord Nitro </div><span class="mt-4 block text-sm dark:text-gray-400"${_scopeId2}>le 27/03/2022</span></div>`);
             } else {
               return [
                 vue_cjs_prod.createVNode("img", {
@@ -4030,9 +4038,9 @@ function _sfc_ssrRender$n(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
                   alt: "Article Image"
                 }, null, 2),
                 vue_cjs_prod.createVNode("div", null, [
-                  vue_cjs_prod.createVNode("div", { class: "text-xl font-semibold mb-2" }, "Titre de l'article"),
-                  vue_cjs_prod.createVNode("div", { class: "text-md dark:text-gray-300" }, "Bien que les appels et la mise \xE0 disposition de serveurs restent gratuits, nous avons la possibilit\xE9 d\u2019acheter Discord Nitro "),
-                  vue_cjs_prod.createVNode("span", { class: "block text-sm dark:text-gray-400 mt-4" }, "le 27/03/2022")
+                  vue_cjs_prod.createVNode("div", { class: "mb-2 text-xl font-semibold" }, "Titre de l'article"),
+                  vue_cjs_prod.createVNode("div", { class: "text-md dark:text-gray-300" }, " Bien que les appels et la mise \xE0 disposition de serveurs restent gratuits, nous avons la possibilit\xE9 d\u2019acheter Discord Nitro "),
+                  vue_cjs_prod.createVNode("span", { class: "mt-4 block text-sm dark:text-gray-400" }, "le 27/03/2022")
                 ])
               ];
             }
@@ -4041,7 +4049,7 @@ function _sfc_ssrRender$n(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
         }, _parent2, _scopeId));
       } else {
         return [
-          vue_cjs_prod.createVNode(_component_Card, { class: "flex p-6 gap-6" }, {
+          vue_cjs_prod.createVNode(_component_Card, { class: "flex gap-6 p-6" }, {
             default: vue_cjs_prod.withCtx(() => [
               vue_cjs_prod.createVNode("img", {
                 src: "https://freepsdmock-up.com/wp-content/uploads/2020/11/bright-color-ui-featured-image-466x283.png",
@@ -4049,9 +4057,9 @@ function _sfc_ssrRender$n(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
                 alt: "Article Image"
               }, null, 2),
               vue_cjs_prod.createVNode("div", null, [
-                vue_cjs_prod.createVNode("div", { class: "text-xl font-semibold mb-2" }, "Titre de l'article"),
-                vue_cjs_prod.createVNode("div", { class: "text-md dark:text-gray-300" }, "Bien que les appels et la mise \xE0 disposition de serveurs restent gratuits, nous avons la possibilit\xE9 d\u2019acheter Discord Nitro "),
-                vue_cjs_prod.createVNode("span", { class: "block text-sm dark:text-gray-400 mt-4" }, "le 27/03/2022")
+                vue_cjs_prod.createVNode("div", { class: "mb-2 text-xl font-semibold" }, "Titre de l'article"),
+                vue_cjs_prod.createVNode("div", { class: "text-md dark:text-gray-300" }, " Bien que les appels et la mise \xE0 disposition de serveurs restent gratuits, nous avons la possibilit\xE9 d\u2019acheter Discord Nitro "),
+                vue_cjs_prod.createVNode("span", { class: "mt-4 block text-sm dark:text-gray-400" }, "le 27/03/2022")
               ])
             ]),
             _: 1
@@ -4080,18 +4088,27 @@ const meta$9 = void 0;
 const _sfc_main$o = {
   __name: "Slider",
   __ssrInlineRender: true,
-  props: { barStyle: Object, duration: { type: String, default: "12s" }, direction: { type: String, default: "normal" }, delay: { type: String, default: "0s" } },
+  props: {
+    barStyle: Object,
+    duration: { type: String, default: "12s" },
+    direction: { type: String, default: "normal" },
+    delay: { type: String, default: "0s" }
+  },
   setup(__props) {
     const props = __props;
     const customStyle = vue_cjs_prod.computed(() => {
-      return Object.assign({}, props.barStyle, { "animation-duration": props.duration, "animation-direction": props.direction, "animation-delay": props.delay });
+      return Object.assign({}, props.barStyle, {
+        "animation-duration": props.duration,
+        "animation-direction": props.direction,
+        "animation-delay": props.delay
+      });
     });
     return (_ctx, _push, _parent, _attrs) => {
       _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({
         class: `vifnslb-container-${__props.direction === "vertical" ? "vertical" : "horizontal"}`
-      }, _attrs))} data-v-57332792><div class="${serverRenderer.exports.ssrRenderClass(`vifnslb-element-${__props.direction === "vertical" ? "vertical" : "horizontal"}`)}" style="${serverRenderer.exports.ssrRenderStyle(vue_cjs_prod.unref(customStyle))}" data-v-57332792><!--[-->`);
+      }, _attrs))} data-v-487323f9><div class="${serverRenderer.exports.ssrRenderClass(`vifnslb-element-${__props.direction === "vertical" ? "vertical" : "horizontal"}`)}" style="${serverRenderer.exports.ssrRenderStyle(vue_cjs_prod.unref(customStyle))}" data-v-487323f9><!--[-->`);
       serverRenderer.exports.ssrRenderList(2, (i) => {
-        _push(`<div class="${serverRenderer.exports.ssrRenderClass(`vifnslb-bar-${__props.direction === "vertical" ? "vertical" : "horizontal"}`)}" data-v-57332792>`);
+        _push(`<div class="${serverRenderer.exports.ssrRenderClass(`vifnslb-bar-${__props.direction === "vertical" ? "vertical" : "horizontal"}`)}" data-v-487323f9>`);
         serverRenderer.exports.ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
         _push(`</div>`);
       });
@@ -4105,7 +4122,7 @@ _sfc_main$o.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Slider.vue");
   return _sfc_setup$o ? _sfc_setup$o(props, ctx) : void 0;
 };
-const __nuxt_component_2$2 = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["__scopeId", "data-v-57332792"]]);
+const __nuxt_component_2$2 = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["__scopeId", "data-v-487323f9"]]);
 const __nuxt_component_9 = vue_cjs_prod.defineComponent({
   name: "ClientOnly",
   props: ["fallback", "placeholder", "placeholderTag", "fallbackTag"],
@@ -4145,8 +4162,8 @@ const _sfc_main$n = {
 };
 function _sfc_ssrRender$m(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "text-center" }, _attrs))}>`);
-  serverRenderer.exports.ssrRenderVNode(_push, vue_cjs_prod.createVNode(vue_cjs_prod.resolveDynamicComponent(_ctx.Icons[$props.icon]), { class: "mx-auto w-12 h-12 mb-4" }, null), _parent);
-  _push(`<div class="font-extrabold text-2xl">${serverRenderer.exports.ssrInterpolate($props.value)}</div><div class="text-lg">${serverRenderer.exports.ssrInterpolate($props.name)}</div></div>`);
+  serverRenderer.exports.ssrRenderVNode(_push, vue_cjs_prod.createVNode(vue_cjs_prod.resolveDynamicComponent(_ctx.Icons[$props.icon]), { class: "mx-auto mb-4 h-12 w-12" }, null), _parent);
+  _push(`<div class="text-2xl font-extrabold">${serverRenderer.exports.ssrInterpolate($props.value)}</div><div class="text-lg">${serverRenderer.exports.ssrInterpolate($props.name)}</div></div>`);
 }
 const _sfc_setup$n = _sfc_main$n.setup;
 _sfc_main$n.setup = (props, ctx) => {
@@ -4187,7 +4204,7 @@ const _sfc_main$l = {
 function _sfc_ssrRender$k(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   var _a, _b, _c, _d;
   const _component_Star = __nuxt_component_1;
-  _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "bg-white dark:bg-dark-900 rounded-2xl shadow-sm p-8" }, _attrs))}><div class="flex gap-2 items-center font-medium"><img${serverRenderer.exports.ssrRenderAttr("src", ((_b = (_a = $props.rate) == null ? void 0 : _a.author) == null ? void 0 : _b.avatar) || "/default_avatar.svg")} class="w-8 h-8 rounded-full mr-2" alt="Avatar"> ${serverRenderer.exports.ssrInterpolate(((_d = (_c = $props.rate) == null ? void 0 : _c.author) == null ? void 0 : _d.username) || "Utilisateur supprim\xE9")} <span>-</span><div class="flex items-center gap-1"><!--[-->`);
+  _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "rounded-2xl bg-white p-8 shadow-sm dark:bg-dark-900" }, _attrs))}><div class="flex items-center gap-2 font-medium"><img${serverRenderer.exports.ssrRenderAttr("src", ((_b = (_a = $props.rate) == null ? void 0 : _a.author) == null ? void 0 : _b.avatar) || "/default_avatar.svg")} class="mr-2 h-8 w-8 rounded-full" alt="Avatar"> ${serverRenderer.exports.ssrInterpolate(((_d = (_c = $props.rate) == null ? void 0 : _c.author) == null ? void 0 : _d.username) || "Utilisateur supprim\xE9")} <span>-</span><div class="flex items-center gap-1"><!--[-->`);
   serverRenderer.exports.ssrRenderList(5, (i) => {
     _push(serverRenderer.exports.ssrRenderComponent(_component_Star, {
       class: "w-6",
@@ -4195,7 +4212,7 @@ function _sfc_ssrRender$k(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
       key: i
     }, null, _parent));
   });
-  _push(`<!--]--></div></div><p class="text-gray-800 dark:text-gray-300 mt-4">${serverRenderer.exports.ssrInterpolate($props.rate.message)}</p><span class="block mt-4 text-sm text-gray-400">le ${serverRenderer.exports.ssrInterpolate(new Date($props.rate.created_at).toLocaleDateString("fr-FR"))}</span></div>`);
+  _push(`<!--]--></div></div><p class="mt-4 text-gray-800 dark:text-gray-300">${serverRenderer.exports.ssrInterpolate($props.rate.message)}</p><span class="mt-4 block text-sm text-gray-400">le ${serverRenderer.exports.ssrInterpolate(new Date($props.rate.created_at).toLocaleDateString("fr-FR"))}</span></div>`);
 }
 const _sfc_setup$l = _sfc_main$l.setup;
 _sfc_main$l.setup = (props, ctx) => {
@@ -4218,9 +4235,9 @@ const _sfc_main$k = {
 };
 function _sfc_ssrRender$j(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({
-    class: "relative transition ease-in duration-200 hover:-translate-y-4",
+    class: "relative transition duration-200 ease-in hover:-translate-y-4",
     id: "card"
-  }, _attrs))}><img class="rounded-3xl w-full shadow-lg"${serverRenderer.exports.ssrRenderAttr("src", `/tools/${$props.tool.uuid}_${_ctx.$colorMode.value}.png`)}><div class="absolute rounded-3xl top-0 left-0 bg-gradient-to-t from-dark-950 to-dark-400 dark:to-dark-800 opacity-80 backdrop-blur-md h-full w-full flex flex-col justify-end p-8 gap-2"><div class="text-2xl font-semibold text-white">${serverRenderer.exports.ssrInterpolate($props.tool.name)}</div><div class="text-lg text-white">${serverRenderer.exports.ssrInterpolate($props.tool.description)}</div></div></div>`);
+  }, _attrs))}><img class="w-full rounded-3xl shadow-lg"${serverRenderer.exports.ssrRenderAttr("src", `/tools/${$props.tool.uuid}_${_ctx.$colorMode.value}.png`)}><div class="absolute top-0 left-0 flex h-full w-full flex-col justify-end gap-2 rounded-3xl bg-gradient-to-t from-dark-950 to-dark-400 p-8 opacity-80 backdrop-blur-md dark:to-dark-800"><div class="text-2xl font-semibold text-white">${serverRenderer.exports.ssrInterpolate($props.tool.name)}</div><div class="text-lg text-white">${serverRenderer.exports.ssrInterpolate($props.tool.description)}</div></div></div>`);
 }
 const _sfc_setup$k = _sfc_main$k.setup;
 _sfc_main$k.setup = (props, ctx) => {
@@ -4325,13 +4342,17 @@ const _sfc_main$f = {
   methods: {
     async sendSuggestion() {
       try {
-        await axios2.post("/suggestions", {
-          content: this.suggestion
-        }, {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("access_token")
+        await axios2.post(
+          "/suggestions",
+          {
+            content: this.suggestion
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + localStorage.getItem("access_token")
+            }
           }
-        });
+        );
       } catch (e) {
         this.errors = e.response.data.errors.map((error) => error.message);
       }
@@ -4356,10 +4377,10 @@ function _sfc_ssrRender$e(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, {
     icon_left: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(serverRenderer.exports.ssrRenderComponent(_component_LightBulbIcon, { class: "mr-3 w-8 h-8" }, null, _parent2, _scopeId));
+        _push2(serverRenderer.exports.ssrRenderComponent(_component_LightBulbIcon, { class: "mr-3 h-8 w-8" }, null, _parent2, _scopeId));
       } else {
         return [
-          vue_cjs_prod.createVNode(_component_LightBulbIcon, { class: "mr-3 w-8 h-8" })
+          vue_cjs_prod.createVNode(_component_LightBulbIcon, { class: "mr-3 h-8 w-8" })
         ];
       }
     }),
@@ -4411,7 +4432,7 @@ function _sfc_ssrRender$e(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
               }, {
                 default: vue_cjs_prod.withCtx((_3, _push4, _parent4, _scopeId3) => {
                   if (_push4) {
-                    _push4(serverRenderer.exports.ssrRenderComponent(_component_DialogPanel, { class: "w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-dark-900 p-6 text-left align-middle shadow-xl transition-all" }, {
+                    _push4(serverRenderer.exports.ssrRenderComponent(_component_DialogPanel, { class: "w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-dark-900" }, {
                       default: vue_cjs_prod.withCtx((_4, _push5, _parent5, _scopeId4) => {
                         if (_push5) {
                           _push5(serverRenderer.exports.ssrRenderComponent(_component_DialogTitle, {
@@ -4438,9 +4459,9 @@ function _sfc_ssrRender$e(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
                           }, null, _parent5, _scopeId4));
                           _push5(`<!--[-->`);
                           serverRenderer.exports.ssrRenderList(_ctx.errors, (error, id) => {
-                            _push5(`<div class="text-red-400 text-sm mt-1 mb-4"${_scopeId4}><i${_scopeId4}>${serverRenderer.exports.ssrInterpolate(error)}</i></div>`);
+                            _push5(`<div class="mt-1 mb-4 text-sm text-red-400"${_scopeId4}><i${_scopeId4}>${serverRenderer.exports.ssrInterpolate(error)}</i></div>`);
                           });
-                          _push5(`<!--]--><p class="text-sm text-gray-500 mt-2 leading-loose"${_scopeId4}> Ta suggestion sera envoy\xE9e sur le serveur Discord dans le salon <span class="bg-dark-800 rounded-md p-1"${_scopeId4}>#suggestions</span></p></div><div class="flex gap-2 items-center mt-4 justify-end"${_scopeId4}>`);
+                          _push5(`<!--]--><p class="mt-2 text-sm leading-loose text-gray-500"${_scopeId4}> Ta suggestion sera envoy\xE9e sur le serveur Discord dans le salon <span class="rounded-md bg-dark-800 p-1"${_scopeId4}>#suggestions</span></p></div><div class="mt-4 flex items-center justify-end gap-2"${_scopeId4}>`);
                           _push5(serverRenderer.exports.ssrRenderComponent(_component_Button, {
                             color: "transparent",
                             text: "Annuler",
@@ -4472,18 +4493,18 @@ function _sfc_ssrRender$e(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
                               }, null, 8, ["modelValue", "onUpdate:modelValue"]),
                               (vue_cjs_prod.openBlock(true), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList(_ctx.errors, (error, id) => {
                                 return vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("div", {
-                                  class: "text-red-400 text-sm mt-1 mb-4",
+                                  class: "mt-1 mb-4 text-sm text-red-400",
                                   key: id
                                 }, [
                                   vue_cjs_prod.createVNode("i", null, vue_cjs_prod.toDisplayString(error), 1)
                                 ]);
                               }), 128)),
-                              vue_cjs_prod.createVNode("p", { class: "text-sm text-gray-500 mt-2 leading-loose" }, [
+                              vue_cjs_prod.createVNode("p", { class: "mt-2 text-sm leading-loose text-gray-500" }, [
                                 vue_cjs_prod.createTextVNode(" Ta suggestion sera envoy\xE9e sur le serveur Discord dans le salon "),
-                                vue_cjs_prod.createVNode("span", { class: "bg-dark-800 rounded-md p-1" }, "#suggestions")
+                                vue_cjs_prod.createVNode("span", { class: "rounded-md bg-dark-800 p-1" }, "#suggestions")
                               ])
                             ]),
-                            vue_cjs_prod.createVNode("div", { class: "flex gap-2 items-center mt-4 justify-end" }, [
+                            vue_cjs_prod.createVNode("div", { class: "mt-4 flex items-center justify-end gap-2" }, [
                               vue_cjs_prod.createVNode(_component_Button, {
                                 color: "transparent",
                                 text: "Annuler",
@@ -4502,7 +4523,7 @@ function _sfc_ssrRender$e(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
                     }, _parent4, _scopeId3));
                   } else {
                     return [
-                      vue_cjs_prod.createVNode(_component_DialogPanel, { class: "w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-dark-900 p-6 text-left align-middle shadow-xl transition-all" }, {
+                      vue_cjs_prod.createVNode(_component_DialogPanel, { class: "w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-dark-900" }, {
                         default: vue_cjs_prod.withCtx(() => [
                           vue_cjs_prod.createVNode(_component_DialogTitle, {
                             as: "h3",
@@ -4522,18 +4543,18 @@ function _sfc_ssrRender$e(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
                             }, null, 8, ["modelValue", "onUpdate:modelValue"]),
                             (vue_cjs_prod.openBlock(true), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList(_ctx.errors, (error, id) => {
                               return vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("div", {
-                                class: "text-red-400 text-sm mt-1 mb-4",
+                                class: "mt-1 mb-4 text-sm text-red-400",
                                 key: id
                               }, [
                                 vue_cjs_prod.createVNode("i", null, vue_cjs_prod.toDisplayString(error), 1)
                               ]);
                             }), 128)),
-                            vue_cjs_prod.createVNode("p", { class: "text-sm text-gray-500 mt-2 leading-loose" }, [
+                            vue_cjs_prod.createVNode("p", { class: "mt-2 text-sm leading-loose text-gray-500" }, [
                               vue_cjs_prod.createTextVNode(" Ta suggestion sera envoy\xE9e sur le serveur Discord dans le salon "),
-                              vue_cjs_prod.createVNode("span", { class: "bg-dark-800 rounded-md p-1" }, "#suggestions")
+                              vue_cjs_prod.createVNode("span", { class: "rounded-md bg-dark-800 p-1" }, "#suggestions")
                             ])
                           ]),
-                          vue_cjs_prod.createVNode("div", { class: "flex gap-2 items-center mt-4 justify-end" }, [
+                          vue_cjs_prod.createVNode("div", { class: "mt-4 flex items-center justify-end gap-2" }, [
                             vue_cjs_prod.createVNode(_component_Button, {
                               color: "transparent",
                               text: "Annuler",
@@ -4582,7 +4603,7 @@ function _sfc_ssrRender$e(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
                       "leave-to": "opacity-0 scale-95"
                     }, {
                       default: vue_cjs_prod.withCtx(() => [
-                        vue_cjs_prod.createVNode(_component_DialogPanel, { class: "w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-dark-900 p-6 text-left align-middle shadow-xl transition-all" }, {
+                        vue_cjs_prod.createVNode(_component_DialogPanel, { class: "w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-dark-900" }, {
                           default: vue_cjs_prod.withCtx(() => [
                             vue_cjs_prod.createVNode(_component_DialogTitle, {
                               as: "h3",
@@ -4602,18 +4623,18 @@ function _sfc_ssrRender$e(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
                               }, null, 8, ["modelValue", "onUpdate:modelValue"]),
                               (vue_cjs_prod.openBlock(true), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList(_ctx.errors, (error, id) => {
                                 return vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("div", {
-                                  class: "text-red-400 text-sm mt-1 mb-4",
+                                  class: "mt-1 mb-4 text-sm text-red-400",
                                   key: id
                                 }, [
                                   vue_cjs_prod.createVNode("i", null, vue_cjs_prod.toDisplayString(error), 1)
                                 ]);
                               }), 128)),
-                              vue_cjs_prod.createVNode("p", { class: "text-sm text-gray-500 mt-2 leading-loose" }, [
+                              vue_cjs_prod.createVNode("p", { class: "mt-2 text-sm leading-loose text-gray-500" }, [
                                 vue_cjs_prod.createTextVNode(" Ta suggestion sera envoy\xE9e sur le serveur Discord dans le salon "),
-                                vue_cjs_prod.createVNode("span", { class: "bg-dark-800 rounded-md p-1" }, "#suggestions")
+                                vue_cjs_prod.createVNode("span", { class: "rounded-md bg-dark-800 p-1" }, "#suggestions")
                               ])
                             ]),
-                            vue_cjs_prod.createVNode("div", { class: "flex gap-2 items-center mt-4 justify-end" }, [
+                            vue_cjs_prod.createVNode("div", { class: "mt-4 flex items-center justify-end gap-2" }, [
                               vue_cjs_prod.createVNode(_component_Button, {
                                 color: "transparent",
                                 text: "Annuler",
@@ -4672,7 +4693,7 @@ function _sfc_ssrRender$e(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
                     "leave-to": "opacity-0 scale-95"
                   }, {
                     default: vue_cjs_prod.withCtx(() => [
-                      vue_cjs_prod.createVNode(_component_DialogPanel, { class: "w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-dark-900 p-6 text-left align-middle shadow-xl transition-all" }, {
+                      vue_cjs_prod.createVNode(_component_DialogPanel, { class: "w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-dark-900" }, {
                         default: vue_cjs_prod.withCtx(() => [
                           vue_cjs_prod.createVNode(_component_DialogTitle, {
                             as: "h3",
@@ -4692,18 +4713,18 @@ function _sfc_ssrRender$e(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
                             }, null, 8, ["modelValue", "onUpdate:modelValue"]),
                             (vue_cjs_prod.openBlock(true), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList(_ctx.errors, (error, id) => {
                               return vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("div", {
-                                class: "text-red-400 text-sm mt-1 mb-4",
+                                class: "mt-1 mb-4 text-sm text-red-400",
                                 key: id
                               }, [
                                 vue_cjs_prod.createVNode("i", null, vue_cjs_prod.toDisplayString(error), 1)
                               ]);
                             }), 128)),
-                            vue_cjs_prod.createVNode("p", { class: "text-sm text-gray-500 mt-2 leading-loose" }, [
+                            vue_cjs_prod.createVNode("p", { class: "mt-2 text-sm leading-loose text-gray-500" }, [
                               vue_cjs_prod.createTextVNode(" Ta suggestion sera envoy\xE9e sur le serveur Discord dans le salon "),
-                              vue_cjs_prod.createVNode("span", { class: "bg-dark-800 rounded-md p-1" }, "#suggestions")
+                              vue_cjs_prod.createVNode("span", { class: "rounded-md bg-dark-800 p-1" }, "#suggestions")
                             ])
                           ]),
-                          vue_cjs_prod.createVNode("div", { class: "flex gap-2 items-center mt-4 justify-end" }, [
+                          vue_cjs_prod.createVNode("div", { class: "mt-4 flex items-center justify-end gap-2" }, [
                             vue_cjs_prod.createVNode(_component_Button, {
                               color: "transparent",
                               text: "Annuler",
@@ -4743,17 +4764,20 @@ const __nuxt_component_6$2 = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["ssrRend
 const meta$4 = void 0;
 const _sfc_main$e = {};
 function _sfc_ssrRender$d(_ctx, _push, _parent, _attrs) {
-  _push(`<header${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "py-48 relative text-white overflow-hidden" }, _attrs))}><div class="absolute top-full -translate-y-full w-full h-full bg-[#5C6AF6] -z-10"></div><div class="absolute left-1/2 -translate-x-1/2 top-full -translate-y-full w-1/2 rounded-full h-full -z-1" style="${serverRenderer.exports.ssrRenderStyle({ "background": "radial-gradient(50% 50% at 50% 50%, #5664F9 70.83%, transparent 100%)" })}"></div><svg id="squares" class="absolute -top-48 -left-12 rotate-12 min-h-screen h-[90rem] w-screen scale-125 -z-10"><!--[-->`);
+  _push(`<header${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "relative overflow-hidden py-48 text-white" }, _attrs))}><div class="absolute top-full -z-10 h-full w-full -translate-y-full bg-[#5C6AF6]"></div><div class="absolute left-1/2 top-full -z-1 h-full w-1/2 -translate-x-1/2 -translate-y-full rounded-full" style="${serverRenderer.exports.ssrRenderStyle({ "background": "radial-gradient(" })}"></div><svg id="squares" class="absolute -top-48 -left-12 -z-10 h-[90rem] min-h-screen w-screen rotate-12 scale-125"><!--[-->`);
   serverRenderer.exports.ssrRenderList(16, (n) => {
     _push(`<g><!--[-->`);
     serverRenderer.exports.ssrRenderList(24, (i) => {
-      _push(`<rect${serverRenderer.exports.ssrRenderAttr("x", 100 * (i - 1))}${serverRenderer.exports.ssrRenderAttr("y", 100 * (n - 1))} width="100" height="100"${serverRenderer.exports.ssrRenderAttr("fill", Math.floor(Math.random() * 8) % 3 === 2 ? "#5F6CF7" : "#5664F9")} stroke="#5F6DF9" stroke-width="2"></rect>`);
+      _push(`<rect${serverRenderer.exports.ssrRenderAttr("x", 100 * (i - 1))}${serverRenderer.exports.ssrRenderAttr("y", 100 * (n - 1))} width="100" height="100"${serverRenderer.exports.ssrRenderAttr(
+        "fill",
+        Math.floor(Math.random() * 8) % 3 === 2 ? "#5F6CF7" : "#5664F9"
+      )} stroke="#5F6DF9" stroke-width="2"></rect>`);
     });
     _push(`<!--]--></g>`);
   });
   _push(`<!--]--></svg><div class="container mx-auto px-4 text-center">`);
   serverRenderer.exports.ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
-  _push(`</div><div class="absolute top-0 w-full h-52" style="${serverRenderer.exports.ssrRenderStyle({ "background": "linear-gradient(to bottom, #5865F6, transparent)" })}"></div><div class="absolute top-full -translate-y-full w-full h-52" style="${serverRenderer.exports.ssrRenderStyle({ "background": "linear-gradient(to top, #5865F6, transparent)" })}"></div></header>`);
+  _push(`</div><div class="absolute top-0 h-52 w-full" style="${serverRenderer.exports.ssrRenderStyle({ "background": "linear-gradient(to bottom, #5865f6, transparent)" })}"></div><div class="absolute top-full h-52 w-full -translate-y-full" style="${serverRenderer.exports.ssrRenderStyle({ "background": "linear-gradient(to top, #5865f6, transparent)" })}"></div></header>`);
 }
 const _sfc_setup$e = _sfc_main$e.setup;
 _sfc_main$e.setup = (props, ctx) => {
@@ -4772,7 +4796,7 @@ const _sfc_main$d = {
   }
 };
 function _sfc_ssrRender$c(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}><img class="w-12 h-12 mx-auto mb-4"${serverRenderer.exports.ssrRenderAttr("src", _imports_0)}><div class="text-sm mx-auto text-center max-w-xs leading-6">${serverRenderer.exports.ssrInterpolate($props.text)}</div>`);
+  _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}><img class="mx-auto mb-4 h-12 w-12"${serverRenderer.exports.ssrRenderAttr("src", _imports_0)}><div class="mx-auto max-w-xs text-center text-sm leading-6">${serverRenderer.exports.ssrInterpolate($props.text)}</div>`);
   serverRenderer.exports.ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
   _push(`</div>`);
 }
@@ -4786,7 +4810,7 @@ const __nuxt_component_5$1 = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["ssrRend
 const meta$3 = void 0;
 const _sfc_main$c = {};
 function _sfc_ssrRender$b(_ctx, _push, _parent, _attrs) {
-  _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}><header class="bg-blurple h-32 rounded-t-2xl p-6 relative shadow-xl"><img class="absolute top-1/2 w-24 h-24 rounded-3xl border-4 border-white dark:border-dark-800" src="https://cdn.discordapp.com/avatars/908347266727813160/139394a36c0c1bdd6cec0aaa8db66d6c.png?size=4096"></header><div class="bg-white dark:bg-dark-800 p-6 rounded-b-2xl shadow-xl"><main><div class="font-bold text-lg mt-4">Maky</div><div class="text-md mt-2">Bot de cr\xE9ation de serveur Discord. Il vous permet de cr\xE9er vos channels, vos r\xF4les...</div></main><footer class="flex flex-wrap gap-2 mt-4"><div class="text-xs italic bg-primary-500 bg-opacity-20 px-2 py-1 rounded-lg">Mod\xE9ration</div><div class="text-xs italic bg-primary-500 bg-opacity-20 px-2 py-1 rounded-lg">Mod\xE9ration</div><div class="text-xs italic bg-primary-500 bg-opacity-20 px-2 py-1 rounded-lg">Mod\xE9ration</div></footer></div></div>`);
+  _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}><header class="relative h-32 rounded-t-2xl bg-blurple p-6 shadow-xl"><img class="absolute top-1/2 h-24 w-24 rounded-3xl border-4 border-white dark:border-dark-800" src="https://cdn.discordapp.com/avatars/908347266727813160/139394a36c0c1bdd6cec0aaa8db66d6c.png?size=4096"></header><div class="rounded-b-2xl bg-white p-6 shadow-xl dark:bg-dark-800"><main><div class="mt-4 text-lg font-bold">Maky</div><div class="text-md mt-2"> Bot de cr\xE9ation de serveur Discord. Il vous permet de cr\xE9er vos channels, vos r\xF4les... </div></main><footer class="mt-4 flex flex-wrap gap-2"><div class="rounded-lg bg-primary-500 bg-opacity-20 px-2 py-1 text-xs italic"> Mod\xE9ration </div><div class="rounded-lg bg-primary-500 bg-opacity-20 px-2 py-1 text-xs italic"> Mod\xE9ration </div><div class="rounded-lg bg-primary-500 bg-opacity-20 px-2 py-1 text-xs italic"> Mod\xE9ration </div></footer></div></div>`);
 }
 const _sfc_setup$c = _sfc_main$c.setup;
 _sfc_main$c.setup = (props, ctx) => {
@@ -4850,18 +4874,18 @@ function _sfc_ssrRender$9(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   _push(serverRenderer.exports.ssrRenderComponent(_component_Switch, vue_cjs_prod.mergeProps({
     modelValue: $props.modelValue,
     "onUpdate:modelValue": ($event) => $props.modelValue = $event,
-    class: [$props.modelValue ? "bg-teal-500" : "bg-red-500", "relative inline-flex flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"],
+    class: [$props.modelValue ? "bg-teal-500" : "bg-red-500", "relative inline-flex h-[38px] w-[74px] flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"],
     onChange: $options.handleInput($props.modelValue)
   }, _attrs), {
     default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<span class="sr-only"${_scopeId}>Use setting</span><span aria-hidden="true" class="${serverRenderer.exports.ssrRenderClass([$props.modelValue ? "translate-x-10" : "translate-x-1", "absolute pointer-events-none inline-block h-7 w-7 top-1/2 -translate-y-1/2 rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"])}"${_scopeId}></span>`);
+        _push2(`<span class="sr-only"${_scopeId}>Use setting</span><span aria-hidden="true" class="${serverRenderer.exports.ssrRenderClass([$props.modelValue ? "translate-x-10" : "translate-x-1", "pointer-events-none absolute top-1/2 inline-block h-7 w-7 -translate-y-1/2 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out"])}"${_scopeId}></span>`);
       } else {
         return [
           vue_cjs_prod.createVNode("span", { class: "sr-only" }, "Use setting"),
           vue_cjs_prod.createVNode("span", {
             "aria-hidden": "true",
-            class: [$props.modelValue ? "translate-x-10" : "translate-x-1", "absolute pointer-events-none inline-block h-7 w-7 top-1/2 -translate-y-1/2 rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"]
+            class: [$props.modelValue ? "translate-x-10" : "translate-x-1", "pointer-events-none absolute top-1/2 inline-block h-7 w-7 -translate-y-1/2 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out"]
           }, null, 2)
         ];
       }
@@ -4893,7 +4917,13 @@ const _sfc_main$9 = {
   }
 };
 function _sfc_ssrRender$8(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}>${$setup.toHTML($props.content, { embed: $props.embed })}</div>`);
+  _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}>${$setup.toHTML($props.content, {
+    discordCallback: {
+      user: (node) => "@user",
+      role: (node) => "@role"
+    },
+    embed: $props.embed
+  })}</div>`);
 }
 const _sfc_setup$9 = _sfc_main$9.setup;
 _sfc_main$9.setup = (props, ctx) => {
@@ -4926,7 +4956,7 @@ const _sfc_main$8 = {
 function _sfc_ssrRender$7(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({
     class: $props.bigPadding ? "py-16" : "py-6"
-  }, _attrs))}><div class="flex justify-between items-center"><div class="flex gap-2 text-lg"><span class="font-bold">Etape ${serverRenderer.exports.ssrInterpolate($props.stepId)}</span><span class="font-semibold">-</span><span class="font-medium">${serverRenderer.exports.ssrInterpolate($props.name)}</span></div><div>`);
+  }, _attrs))}><div class="flex items-center justify-between"><div class="flex gap-2 text-lg"><span class="font-bold">Etape ${serverRenderer.exports.ssrInterpolate($props.stepId)}</span><span class="font-semibold">-</span><span class="font-medium">${serverRenderer.exports.ssrInterpolate($props.name)}</span></div><div>`);
   serverRenderer.exports.ssrRenderSlot(_ctx.$slots, "bin", {}, null, _push, _parent);
   _push(`</div></div><p class="text-md">${serverRenderer.exports.ssrInterpolate($props.description)}</p><div class="mt-4">`);
   serverRenderer.exports.ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
@@ -4962,7 +4992,7 @@ const _sfc_main$7 = {
   }
 };
 function _sfc_ssrRender$6(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}><textarea${serverRenderer.exports.ssrRenderAttr("placeholder", $props.placeholder)} type="text" class="${serverRenderer.exports.ssrRenderClass([$props.big ? "px-6 py-5 text-md" : "px-6 py-4 text-sm", "text-sm w-full bg-transparent focus:bg-white dark:focus:bg-dark-900 border border-dark-900 focus:outline-none focus:border-primary-500 rounded-lg"])}">${serverRenderer.exports.ssrInterpolate($props.modelValue)}</textarea></div>`);
+  _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}><textarea${serverRenderer.exports.ssrRenderAttr("placeholder", $props.placeholder)} type="text" class="${serverRenderer.exports.ssrRenderClass([$props.big ? "text-md px-6 py-5" : "px-6 py-4 text-sm", "w-full rounded-lg border border-dark-900 bg-transparent text-sm focus:border-primary-500 focus:bg-white focus:outline-none dark:focus:bg-dark-900"])}">${serverRenderer.exports.ssrInterpolate($props.modelValue)}</textarea></div>`);
 }
 const _sfc_setup$7 = _sfc_main$7.setup;
 _sfc_main$7.setup = (props, ctx) => {
@@ -5012,7 +5042,7 @@ const _sfc_main$5 = {
   }
 };
 function _sfc_ssrRender$4(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "bg-[#2F3136] px-4 py-3 rounded-[4px] border border-[#292B2F] flex gap-4 justify-between items-center dark:fill-white" }, _attrs))} data-v-541bcdbd><div class="flex" data-v-541bcdbd><svg width="28" height="40" viewBox="0 0 28 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-v-541bcdbd><defs data-v-541bcdbd><filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter" data-v-541bcdbd><feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter" data-v-541bcdbd></feOffset><feGaussianBlur stdDeviation="0" in="shadowOffsetOuter" result="shadowBlurOuter" data-v-541bcdbd></feGaussianBlur><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.07 0" in="shadowBlurOuter" type="matrix" result="shadowMatrixOuter" data-v-541bcdbd></feColorMatrix><feMerge data-v-541bcdbd><feMergeNode in="shadowMatrixOuter" data-v-541bcdbd></feMergeNode><feMergeNode in="SourceGraphic" data-v-541bcdbd></feMergeNode></feMerge></filter></defs><g stroke="none" stroke-width="2" fill="none" fill-rule="evenodd" transform="translate(2, 2)" data-v-541bcdbd><path d="M0,3.00741988 C0,1.34646775 1.34252415,0 2.99998588,0 L15.1166483,0 C17.0807354,0 24,6.91885725 24,8.87457593 L24,33.0035574 C24,34.6584469 22.6582294,36 21.0089096,36 L2.99109042,36 C1.33915679,36 0,34.6544607 0,32.9925801 L0,3.00741988 Z" stroke="#7289da" fill="#f4f6fc" data-v-541bcdbd></path><path d="M17,1.09677336 C17,0.542040316 17.3147964,0.407097791 17.7133118,0.80556379 L23.1952031,6.28677654 C23.5891543,6.68067898 23.4552279,7 22.9039575,7 L18.0045574,7 C17.4497557,7 17,6.54676916 17,5.99556698 L17,1.09677336 Z" stroke="#7289da" fill="#f4f6fc" filter="url(#filter)" data-v-541bcdbd></path><path d="M13,3 L4.49710104,3 C3.67027497,3 3,3.66579723 3,4.5 L3,6" stroke="#c9d2f0" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" data-v-541bcdbd></path><text opacity="0.8" font-family="Source Code Pro" font-size="12" font-weight="420" letter-spacing="-0.3" fill="#697ec4" data-v-541bcdbd><tspan x="5.2690141" y="26.4705882" data-v-541bcdbd>||</tspan></text></g></svg><div class="ml-2 flex flex-col justify-between" data-v-541bcdbd><div class="text-md link hover:underline" data-v-541bcdbd>${serverRenderer.exports.ssrInterpolate($props.file.name)}</div><div class="text-xs text-gray-600" data-v-541bcdbd>${serverRenderer.exports.ssrInterpolate($options.fileSize)}</div></div></div><svg class="downloadButton-2HLFWN" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24" data-v-541bcdbd><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M16.293 9.293L17.707 10.707L12 16.414L6.29297 10.707L7.70697 9.293L11 12.586V2H13V12.586L16.293 9.293ZM18 20V18H20V20C20 21.102 19.104 22 18 22H6C4.896 22 4 21.102 4 20V18H6V20H18Z" data-v-541bcdbd></path></svg></div>`);
+  _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "flex items-center justify-between gap-4 rounded-[4px] border border-[#292B2F] bg-[#2F3136] px-4 py-3 dark:fill-white" }, _attrs))} data-v-d55f93ac><div class="flex" data-v-d55f93ac><svg width="28" height="40" viewBox="0 0 28 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-v-d55f93ac><defs data-v-d55f93ac><filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter" data-v-d55f93ac><feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter" data-v-d55f93ac></feOffset><feGaussianBlur stdDeviation="0" in="shadowOffsetOuter" result="shadowBlurOuter" data-v-d55f93ac></feGaussianBlur><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.07 0" in="shadowBlurOuter" type="matrix" result="shadowMatrixOuter" data-v-d55f93ac></feColorMatrix><feMerge data-v-d55f93ac><feMergeNode in="shadowMatrixOuter" data-v-d55f93ac></feMergeNode><feMergeNode in="SourceGraphic" data-v-d55f93ac></feMergeNode></feMerge></filter></defs><g stroke="none" stroke-width="2" fill="none" fill-rule="evenodd" transform="translate(2, 2)" data-v-d55f93ac><path d="M0,3.00741988 C0,1.34646775 1.34252415,0 2.99998588,0 L15.1166483,0 C17.0807354,0 24,6.91885725 24,8.87457593 L24,33.0035574 C24,34.6584469 22.6582294,36 21.0089096,36 L2.99109042,36 C1.33915679,36 0,34.6544607 0,32.9925801 L0,3.00741988 Z" stroke="#7289da" fill="#f4f6fc" data-v-d55f93ac></path><path d="M17,1.09677336 C17,0.542040316 17.3147964,0.407097791 17.7133118,0.80556379 L23.1952031,6.28677654 C23.5891543,6.68067898 23.4552279,7 22.9039575,7 L18.0045574,7 C17.4497557,7 17,6.54676916 17,5.99556698 L17,1.09677336 Z" stroke="#7289da" fill="#f4f6fc" filter="url(#filter)" data-v-d55f93ac></path><path d="M13,3 L4.49710104,3 C3.67027497,3 3,3.66579723 3,4.5 L3,6" stroke="#c9d2f0" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" data-v-d55f93ac></path><text opacity="0.8" font-family="Source Code Pro" font-size="12" font-weight="420" letter-spacing="-0.3" fill="#697ec4" data-v-d55f93ac><tspan x="5.2690141" y="26.4705882" data-v-d55f93ac>||</tspan></text></g></svg><div class="ml-2 flex flex-col justify-between" data-v-d55f93ac><div class="text-md link hover:underline" data-v-d55f93ac>${serverRenderer.exports.ssrInterpolate($props.file.name)}</div><div class="text-xs text-gray-600" data-v-d55f93ac>${serverRenderer.exports.ssrInterpolate($options.fileSize)}</div></div></div><svg class="downloadButton-2HLFWN" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24" data-v-d55f93ac><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M16.293 9.293L17.707 10.707L12 16.414L6.29297 10.707L7.70697 9.293L11 12.586V2H13V12.586L16.293 9.293ZM18 20V18H20V20C20 21.102 19.104 22 18 22H6C4.896 22 4 21.102 4 20V18H6V20H18Z" data-v-d55f93ac></path></svg></div>`);
 }
 const _sfc_setup$5 = _sfc_main$5.setup;
 _sfc_main$5.setup = (props, ctx) => {
@@ -5020,7 +5050,7 @@ _sfc_main$5.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Tools/Discord/EmbedCreator/Attachments/File.vue");
   return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
 };
-const __nuxt_component_7 = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["ssrRender", _sfc_ssrRender$4], ["__scopeId", "data-v-541bcdbd"]]);
+const __nuxt_component_7 = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["ssrRender", _sfc_ssrRender$4], ["__scopeId", "data-v-d55f93ac"]]);
 const _sfc_main$4 = {
   components: { ChevronDownIcon, TrashIcon },
   data: () => ({
@@ -5038,19 +5068,19 @@ const _sfc_main$4 = {
 function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_TrashIcon = vue_cjs_prod.resolveComponent("TrashIcon");
   const _component_ChevronDownIcon = vue_cjs_prod.resolveComponent("ChevronDownIcon");
-  _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "px-6 py-4" }, _attrs))}><div class="flex justify-between items-center font-semibold">${serverRenderer.exports.ssrInterpolate($props.name)} <div class="flex items-center gap-1">`);
+  _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "px-6 py-4" }, _attrs))}><div class="flex items-center justify-between font-semibold">${serverRenderer.exports.ssrInterpolate($props.name)} <div class="flex items-center gap-1">`);
   if ($props.trash) {
     _push(`<button class="p-2">`);
-    _push(serverRenderer.exports.ssrRenderComponent(_component_TrashIcon, { class: "w-6 h-6" }, null, _parent));
+    _push(serverRenderer.exports.ssrRenderComponent(_component_TrashIcon, { class: "h-6 w-6" }, null, _parent));
     _push(`</button>`);
   } else {
     _push(`<!---->`);
   }
   _push(`<button class="p-2">`);
   _push(serverRenderer.exports.ssrRenderComponent(_component_ChevronDownIcon, {
-    class: ["w-6 h-6 ease-in-out duration-300", !_ctx.open && "rotate-90"]
+    class: ["h-6 w-6 duration-300 ease-in-out", !_ctx.open && "rotate-90"]
   }, null, _parent));
-  _push(`</button></div></div><div class="${serverRenderer.exports.ssrRenderClass([!_ctx.open ? "max-h-0 overflow-hidden" : "mt-4 max-h-[300rem] mb-2", "ease-in-out duration-300"])}">`);
+  _push(`</button></div></div><div class="${serverRenderer.exports.ssrRenderClass([!_ctx.open ? "max-h-0 overflow-hidden" : "mt-4 mb-2 max-h-[300rem]", "duration-300 ease-in-out"])}">`);
   serverRenderer.exports.ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
   _push(`</div></div>`);
 }
@@ -5105,7 +5135,7 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   const _component_ClientOnly = __nuxt_component_9;
   const _component_Markdown = __nuxt_component_6$1;
   _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({
-    class: "embed bg-[#F2F3F5] dark:bg-[#2F3136] border-l-4",
+    class: "embed border-l-4 bg-[#F2F3F5] dark:bg-[#2F3136]",
     style: `border-color: ${$props.data.color}; max-width: ${$props.data.image.url ? "432" : "516"}px;`
   }, _attrs))}>`);
   _push(serverRenderer.exports.ssrRenderComponent(_component_ClientOnly, null, {
@@ -5113,11 +5143,11 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
       var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _A, _B;
       if (_push2) {
         if (((_a = $props.data.author) == null ? void 0 : _a.name) || $props.data.title || $props.data.description || $props.data.fields.length > 0 || ((_b = $props.data.thumbnail) == null ? void 0 : _b.url)) {
-          _push2(`<div class="flex justify-between"${_scopeId}><div class="py-2 mr-2"${_scopeId}>`);
+          _push2(`<div class="flex justify-between"${_scopeId}><div class="mr-2 py-2"${_scopeId}>`);
           if (((_c = $props.data.author) == null ? void 0 : _c.icon_url) || ((_d = $props.data.author) == null ? void 0 : _d.name)) {
-            _push2(`<div class="flex items-center font-semibold text-sm mb-2"${_scopeId}>`);
+            _push2(`<div class="mb-2 flex items-center text-sm font-semibold"${_scopeId}>`);
             if ($props.data.author.icon_url) {
-              _push2(`<img class="w-6 h-6 rounded-full mr-2"${serverRenderer.exports.ssrRenderAttr("src", $props.data.author.icon_url)}${_scopeId}>`);
+              _push2(`<img class="mr-2 h-6 w-6 rounded-full"${serverRenderer.exports.ssrRenderAttr("src", $props.data.author.icon_url)}${_scopeId}>`);
             } else {
               _push2(`<!---->`);
             }
@@ -5125,19 +5155,25 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
           } else {
             _push2(`<!---->`);
           }
-          if ($props.data.title) {
+          if ($props.data.title && $props.data.url) {
             _push2(`<a href="#" target="_blank" class="${serverRenderer.exports.ssrRenderClass([$props.data.author.url && "title hover:underline", "block font-semibold"])}"${_scopeId}>${serverRenderer.exports.ssrInterpolate($props.data.title)}</a>`);
+          } else if ($props.data.title) {
+            _push2(`<div class="font-semibold"${_scopeId}>${serverRenderer.exports.ssrInterpolate($props.data.title)}</div>`);
           } else {
             _push2(`<!---->`);
           }
           if ($props.data.description) {
-            _push2(`<div class="text-sm mt-2 box-border leading-snug whitespace-pre-wrap break-words"${_scopeId}>${$setup.toHTML($props.data.description, { embed: true })}</div>`);
+            _push2(serverRenderer.exports.ssrRenderComponent(_component_Markdown, {
+              class: "mt-2 box-border whitespace-pre-wrap break-words text-sm leading-snug",
+              embed: true,
+              content: $props.data.description
+            }, null, _parent2, _scopeId));
           } else {
             _push2(`<!---->`);
           }
           _push2(`<div class="grid gap-x-6 gap-y-2"${_scopeId}><!--[-->`);
           serverRenderer.exports.ssrRenderList($props.data.fields, (field, key) => {
-            _push2(`<div class="text-sm mt-2" style="${serverRenderer.exports.ssrRenderStyle(`grid-column: ${$options.getFieldColumn(field)};`)}"${_scopeId}>`);
+            _push2(`<div class="mt-2 text-sm" style="${serverRenderer.exports.ssrRenderStyle(`grid-column: ${$options.getFieldColumn(field)};`)}"${_scopeId}>`);
             _push2(serverRenderer.exports.ssrRenderComponent(_component_Markdown, {
               content: field.name,
               class: "font-semibold",
@@ -5161,14 +5197,17 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
           _push2(`<!---->`);
         }
         if ((_g = $props.data.image) == null ? void 0 : _g.url) {
-          _push2(`<div${_scopeId}><img class="${serverRenderer.exports.ssrRenderClass([((_h = $props.data.author) == null ? void 0 : _h.name) || $props.data.title || $props.data.description || $props.data.fields.length > 0 ? "mt-1" : "mt-4", "w-full rounded-[4px]"])}"${serverRenderer.exports.ssrRenderAttr("src", $props.data.image.url)}${_scopeId}></div>`);
+          _push2(`<div${_scopeId}><img class="${serverRenderer.exports.ssrRenderClass([
+            ((_h = $props.data.author) == null ? void 0 : _h.name) || $props.data.title || $props.data.description || $props.data.fields.length > 0 ? "mt-1" : "mt-4",
+            "w-full rounded-[4px]"
+          ])}"${serverRenderer.exports.ssrRenderAttr("src", $props.data.image.url)}${_scopeId}></div>`);
         } else {
           _push2(`<!---->`);
         }
         if ($props.data.timestamp || ((_i = $props.data.footer) == null ? void 0 : _i.text) || ((_j = $props.data.footer) == null ? void 0 : _j.icon_url)) {
-          _push2(`<footer class="flex mt-2 items-center"${_scopeId}>`);
+          _push2(`<footer class="mt-2 flex items-center"${_scopeId}>`);
           if ((_k = $props.data.footer) == null ? void 0 : _k.icon_url) {
-            _push2(`<img class="w-5 h-5 rounded-full mr-2"${serverRenderer.exports.ssrRenderAttr("src", $props.data.footer.icon_url)}${_scopeId}>`);
+            _push2(`<img class="mr-2 h-5 w-5 rounded-full"${serverRenderer.exports.ssrRenderAttr("src", $props.data.footer.icon_url)}${_scopeId}>`);
           } else {
             _push2(`<!---->`);
           }
@@ -5198,34 +5237,38 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
             key: 0,
             class: "flex justify-between"
           }, [
-            vue_cjs_prod.createVNode("div", { class: "py-2 mr-2" }, [
+            vue_cjs_prod.createVNode("div", { class: "mr-2 py-2" }, [
               ((_q = $props.data.author) == null ? void 0 : _q.icon_url) || ((_r = $props.data.author) == null ? void 0 : _r.name) ? (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("div", {
                 key: 0,
-                class: "flex items-center font-semibold text-sm mb-2"
+                class: "mb-2 flex items-center text-sm font-semibold"
               }, [
                 $props.data.author.icon_url ? (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("img", {
                   key: 0,
-                  class: "w-6 h-6 rounded-full mr-2",
+                  class: "mr-2 h-6 w-6 rounded-full",
                   src: $props.data.author.icon_url
                 }, null, 8, ["src"])) : vue_cjs_prod.createCommentVNode("", true),
                 vue_cjs_prod.createTextVNode(" " + vue_cjs_prod.toDisplayString((_s = $props.data.author) == null ? void 0 : _s.name), 1)
               ])) : vue_cjs_prod.createCommentVNode("", true),
-              $props.data.title ? (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("a", {
+              $props.data.title && $props.data.url ? (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("a", {
                 key: 1,
                 href: "#",
                 target: "_blank",
                 class: ["block font-semibold", $props.data.author.url && "title hover:underline"]
-              }, vue_cjs_prod.toDisplayString($props.data.title), 3)) : vue_cjs_prod.createCommentVNode("", true),
-              $props.data.description ? (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("div", {
+              }, vue_cjs_prod.toDisplayString($props.data.title), 3)) : $props.data.title ? (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("div", {
                 key: 2,
-                class: "text-sm mt-2 box-border leading-snug whitespace-pre-wrap break-words",
-                innerHTML: $setup.toHTML($props.data.description, { embed: true })
-              }, null, 8, ["innerHTML"])) : vue_cjs_prod.createCommentVNode("", true),
+                class: "font-semibold"
+              }, vue_cjs_prod.toDisplayString($props.data.title), 1)) : vue_cjs_prod.createCommentVNode("", true),
+              $props.data.description ? (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock(_component_Markdown, {
+                key: 3,
+                class: "mt-2 box-border whitespace-pre-wrap break-words text-sm leading-snug",
+                embed: true,
+                content: $props.data.description
+              }, null, 8, ["content"])) : vue_cjs_prod.createCommentVNode("", true),
               vue_cjs_prod.createVNode("div", { class: "grid gap-x-6 gap-y-2" }, [
                 (vue_cjs_prod.openBlock(true), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList($props.data.fields, (field, key) => {
                   return vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("div", {
                     key,
-                    class: "text-sm mt-2",
+                    class: "mt-2 text-sm",
                     style: `grid-column: ${$options.getFieldColumn(field)};`
                   }, [
                     vue_cjs_prod.createVNode(_component_Markdown, {
@@ -5254,17 +5297,20 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
           ])) : vue_cjs_prod.createCommentVNode("", true),
           ((_u = $props.data.image) == null ? void 0 : _u.url) ? (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("div", { key: 1 }, [
             vue_cjs_prod.createVNode("img", {
-              class: ["w-full rounded-[4px]", ((_v = $props.data.author) == null ? void 0 : _v.name) || $props.data.title || $props.data.description || $props.data.fields.length > 0 ? "mt-1" : "mt-4"],
+              class: [
+                "w-full rounded-[4px]",
+                ((_v = $props.data.author) == null ? void 0 : _v.name) || $props.data.title || $props.data.description || $props.data.fields.length > 0 ? "mt-1" : "mt-4"
+              ],
               src: $props.data.image.url
             }, null, 10, ["src"])
           ])) : vue_cjs_prod.createCommentVNode("", true),
           $props.data.timestamp || ((_w = $props.data.footer) == null ? void 0 : _w.text) || ((_x = $props.data.footer) == null ? void 0 : _x.icon_url) ? (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("footer", {
             key: 2,
-            class: "flex mt-2 items-center"
+            class: "mt-2 flex items-center"
           }, [
             ((_y = $props.data.footer) == null ? void 0 : _y.icon_url) ? (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("img", {
               key: 0,
-              class: "w-5 h-5 rounded-full mr-2",
+              class: "mr-2 h-5 w-5 rounded-full",
               src: $props.data.footer.icon_url
             }, null, 8, ["src"])) : vue_cjs_prod.createCommentVNode("", true),
             vue_cjs_prod.createVNode("span", { class: "text-xs text-gray-200" }, [
@@ -5308,9 +5354,9 @@ function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   _push(serverRenderer.exports.ssrRenderComponent(_component_ClientOnly, null, {
     default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<img class="w-10 h-10 rounded-full"${serverRenderer.exports.ssrRenderAttr("src", $props.data.avatar_url)}${_scopeId}><div class="w-full whitney"${_scopeId}><div class="flex gap-1 text-base items-center"${_scopeId}><span class="font-medium"${_scopeId}>${serverRenderer.exports.ssrInterpolate($props.data.username)}</span><span class="bg-blurple px-1 leading-4 font-medium rounded-sm text-white text-[10px]"${_scopeId}>BOT</span><span class="ml-1 rounded-md text-gray-600 dark:text-gray-200 text-xs self-end"${_scopeId}>12/08/2022</span></div><div class="flex flex-col gap-1 w-full mt-1"${_scopeId}>`);
+        _push2(`<img class="h-10 w-10 rounded-full"${serverRenderer.exports.ssrRenderAttr("src", $props.data.avatar_url)}${_scopeId}><div class="whitney w-full"${_scopeId}><div class="flex items-center gap-1 text-base"${_scopeId}><span class="font-medium"${_scopeId}>${serverRenderer.exports.ssrInterpolate($props.data.username)}</span><span class="rounded-sm bg-blurple px-1 text-[10px] font-medium leading-4 text-white"${_scopeId}>BOT</span><span class="ml-1 self-end rounded-md text-xs text-gray-600 dark:text-gray-200"${_scopeId}>12/08/2022</span></div><div class="mt-1 flex w-full flex-col gap-1"${_scopeId}>`);
         _push2(serverRenderer.exports.ssrRenderComponent(_component_Markdown, {
-          class: "font-normal text-base text-gray-300 whitespace-pre-line break-words leading-snug",
+          class: "whitespace-pre-line break-words text-base font-normal leading-snug text-gray-300",
           content: $props.data.content
         }, null, _parent2, _scopeId));
         if ($props.data.files) {
@@ -5338,9 +5384,9 @@ function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
         });
         _push2(`<!--]--></div>`);
         if ($props.data.components[0].components) {
-          _push2(`<div class="flex mt-2"${_scopeId}><!--[-->`);
+          _push2(`<div class="mt-2 flex"${_scopeId}><!--[-->`);
           serverRenderer.exports.ssrRenderList($props.data.components[0].components, (component, id) => {
-            _push2(`<a${serverRenderer.exports.ssrRenderAttr("href", component.url)} target="_blank" class="bg-[#4F545C] hover:bg-[#686D73] ease-in duration-200 rounded-sm flex font-medium ml-0 mr-2 px-4 py-1 relative text-white items-center gap-2"${_scopeId}>${serverRenderer.exports.ssrInterpolate(component.label)} <svg aria-hidden="false" width="16" height="16" viewBox="0 0 24 24"${_scopeId}><path fill="currentColor" d="M10 5V3H5.375C4.06519 3 3 4.06519 3 5.375V18.625C3 19.936 4.06519 21 5.375 21H18.625C19.936 21 21 19.936 21 18.625V14H19V19H5V5H10Z"${_scopeId}></path><path fill="currentColor" d="M21 2.99902H14V4.99902H17.586L9.29297 13.292L10.707 14.706L19 6.41302V9.99902H21V2.99902Z"${_scopeId}></path></svg></a>`);
+            _push2(`<a${serverRenderer.exports.ssrRenderAttr("href", component.url)} target="_blank" class="relative ml-0 mr-2 flex items-center gap-2 rounded-sm bg-[#4F545C] px-4 py-1 font-medium text-white duration-200 ease-in hover:bg-[#686D73]"${_scopeId}>${serverRenderer.exports.ssrInterpolate(component.label)} <svg aria-hidden="false" width="16" height="16" viewBox="0 0 24 24"${_scopeId}><path fill="currentColor" d="M10 5V3H5.375C4.06519 3 3 4.06519 3 5.375V18.625C3 19.936 4.06519 21 5.375 21H18.625C19.936 21 21 19.936 21 18.625V14H19V19H5V5H10Z"${_scopeId}></path><path fill="currentColor" d="M21 2.99902H14V4.99902H17.586L9.29297 13.292L10.707 14.706L19 6.41302V9.99902H21V2.99902Z"${_scopeId}></path></svg></a>`);
           });
           _push2(`<!--]--></div>`);
         } else {
@@ -5350,18 +5396,18 @@ function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
       } else {
         return [
           vue_cjs_prod.createVNode("img", {
-            class: "w-10 h-10 rounded-full",
+            class: "h-10 w-10 rounded-full",
             src: $props.data.avatar_url
           }, null, 8, ["src"]),
-          vue_cjs_prod.createVNode("div", { class: "w-full whitney" }, [
-            vue_cjs_prod.createVNode("div", { class: "flex gap-1 text-base items-center" }, [
+          vue_cjs_prod.createVNode("div", { class: "whitney w-full" }, [
+            vue_cjs_prod.createVNode("div", { class: "flex items-center gap-1 text-base" }, [
               vue_cjs_prod.createVNode("span", { class: "font-medium" }, vue_cjs_prod.toDisplayString($props.data.username), 1),
-              vue_cjs_prod.createVNode("span", { class: "bg-blurple px-1 leading-4 font-medium rounded-sm text-white text-[10px]" }, "BOT"),
-              vue_cjs_prod.createVNode("span", { class: "ml-1 rounded-md text-gray-600 dark:text-gray-200 text-xs self-end" }, "12/08/2022")
+              vue_cjs_prod.createVNode("span", { class: "rounded-sm bg-blurple px-1 text-[10px] font-medium leading-4 text-white" }, "BOT"),
+              vue_cjs_prod.createVNode("span", { class: "ml-1 self-end rounded-md text-xs text-gray-600 dark:text-gray-200" }, "12/08/2022")
             ]),
-            vue_cjs_prod.createVNode("div", { class: "flex flex-col gap-1 w-full mt-1" }, [
+            vue_cjs_prod.createVNode("div", { class: "mt-1 flex w-full flex-col gap-1" }, [
               vue_cjs_prod.createVNode(_component_Markdown, {
-                class: "font-normal text-base text-gray-300 whitespace-pre-line break-words leading-snug",
+                class: "whitespace-pre-line break-words text-base font-normal leading-snug text-gray-300",
                 content: $props.data.content
               }, null, 8, ["content"]),
               $props.data.files ? (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("div", {
@@ -5393,13 +5439,13 @@ function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
             ]),
             $props.data.components[0].components ? (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("div", {
               key: 0,
-              class: "flex mt-2"
+              class: "mt-2 flex"
             }, [
               (vue_cjs_prod.openBlock(true), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList($props.data.components[0].components, (component, id) => {
                 return vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("a", {
                   href: component.url,
                   target: "_blank",
-                  class: "bg-[#4F545C] hover:bg-[#686D73] ease-in duration-200 rounded-sm flex font-medium ml-0 mr-2 px-4 py-1 relative text-white items-center gap-2",
+                  class: "relative ml-0 mr-2 flex items-center gap-2 rounded-sm bg-[#4F545C] px-4 py-1 font-medium text-white duration-200 ease-in hover:bg-[#686D73]",
                   key: id
                 }, [
                   vue_cjs_prod.createTextVNode(vue_cjs_prod.toDisplayString(component.label) + " ", 1),
@@ -5441,137 +5487,137 @@ const routes = [
   {
     name: "account",
     path: "/account",
-    file: "C:/laragon/www/maeyourdiscord/frontend/pages/account/index.vue",
+    file: "D:/umaestro/frontend/pages/account/index.vue",
     children: [],
     meta: meta$e,
     alias: (meta$e == null ? void 0 : meta$e.alias) || [],
-    component: () => import('./index.cefd5f50.mjs').then((m) => m.default || m)
+    component: () => import('./index.b0a48c5b.mjs').then((m) => m.default || m)
   },
   {
     name: "articles-slug",
     path: "/articles/:slug",
-    file: "C:/laragon/www/maeyourdiscord/frontend/pages/articles/[slug].vue",
+    file: "D:/umaestro/frontend/pages/articles/[slug].vue",
     children: [],
     meta: meta$d,
     alias: [],
-    component: () => import('./_slug_.18781634.mjs').then((m) => m.default || m)
+    component: () => import('./_slug_.0376202f.mjs').then((m) => m.default || m)
   },
   {
     name: "articles",
     path: "/articles",
-    file: "C:/laragon/www/maeyourdiscord/frontend/pages/articles/index.vue",
+    file: "D:/umaestro/frontend/pages/articles/index.vue",
     children: [],
     meta: meta$c,
     alias: [],
-    component: () => import('./index.ae1fc7a0.mjs').then((m) => m.default || m)
+    component: () => import('./index.934a7b7e.mjs').then((m) => m.default || m)
   },
   {
     name: "authentification-callback",
     path: "/authentification/callback",
-    file: "C:/laragon/www/maeyourdiscord/frontend/pages/authentification/callback.vue",
+    file: "D:/umaestro/frontend/pages/authentification/callback.vue",
     children: [],
     meta: meta$b,
     alias: (meta$b == null ? void 0 : meta$b.alias) || [],
-    component: () => import('./callback.b6117942.mjs').then((m) => m.default || m)
+    component: () => import('./callback.f17fa27a.mjs').then((m) => m.default || m)
   },
   {
     name: "authentification",
     path: "/authentification",
-    file: "C:/laragon/www/maeyourdiscord/frontend/pages/authentification/index.vue",
+    file: "D:/umaestro/frontend/pages/authentification/index.vue",
     children: [],
     meta: meta$a,
     alias: (meta$a == null ? void 0 : meta$a.alias) || [],
-    component: () => import('./index.568f4098.mjs').then((m) => m.default || m)
+    component: () => import('./index.656a9cbf.mjs').then((m) => m.default || m)
   },
   {
     name: "cgu",
     path: "/cgu",
-    file: "C:/laragon/www/maeyourdiscord/frontend/pages/cgu.vue",
+    file: "D:/umaestro/frontend/pages/cgu.vue",
     children: [],
     meta: meta$9,
     alias: [],
-    component: () => import('./cgu.0cdbb547.mjs').then((m) => m.default || m)
+    component: () => import('./cgu.e0fa6857.mjs').then((m) => m.default || m)
   },
   {
     name: "hire",
     path: "/hire",
-    file: "C:/laragon/www/maeyourdiscord/frontend/pages/hire.vue",
+    file: "D:/umaestro/frontend/pages/hire.vue",
     children: [],
     meta: meta$8,
     alias: [],
-    component: () => import('./hire.e83f9905.mjs').then((m) => m.default || m)
+    component: () => import('./hire.648e0657.mjs').then((m) => m.default || m)
   },
   {
     name: "index",
     path: "/",
-    file: "C:/laragon/www/maeyourdiscord/frontend/pages/index.vue",
+    file: "D:/umaestro/frontend/pages/index.vue",
     children: [],
     meta: meta$7,
     alias: [],
-    component: () => import('./index.48a0f24b.mjs').then((m) => m.default || m)
+    component: () => import('./index.e9cd3974.mjs').then((m) => m.default || m)
   },
   {
     name: "partners",
     path: "/partners",
-    file: "C:/laragon/www/maeyourdiscord/frontend/pages/partners.vue",
+    file: "D:/umaestro/frontend/pages/partners.vue",
     children: [],
     meta: meta$6,
     alias: [],
-    component: () => import('./partners.48ce4715.mjs').then((m) => m.default || m)
+    component: () => import('./partners.cee85e53.mjs').then((m) => m.default || m)
   },
   {
     name: "rates",
     path: "/rates",
-    file: "C:/laragon/www/maeyourdiscord/frontend/pages/rates.vue",
+    file: "D:/umaestro/frontend/pages/rates.vue",
     children: [],
     meta: meta$5,
     alias: [],
-    component: () => import('./rates.868a9cf9.mjs').then((m) => m.default || m)
+    component: () => import('./rates.a56f7089.mjs').then((m) => m.default || m)
   },
   {
     name: "tools-404",
     path: "/tools/404",
-    file: "C:/laragon/www/maeyourdiscord/frontend/pages/tools/404.vue",
+    file: "D:/umaestro/frontend/pages/tools/404.vue",
     children: [],
     meta: meta$4,
     alias: [],
-    component: () => import('./404.ee9be4ad.mjs').then((m) => m.default || m)
+    component: () => import('./404.54d4cadd.mjs').then((m) => m.default || m)
   },
   {
     name: "tools-slug",
     path: "/tools/:slug",
-    file: "C:/laragon/www/maeyourdiscord/frontend/pages/tools/[slug]/index.vue",
+    file: "D:/umaestro/frontend/pages/tools/[slug]/index.vue",
     children: [],
     meta: meta$3,
     alias: [],
-    component: () => import('./index.62ca821f.mjs').then((m) => m.default || m)
+    component: () => import('./index.0d409fc0.mjs').then((m) => m.default || m)
   },
   {
     name: "tools-bots",
     path: "/tools/bots",
-    file: "C:/laragon/www/maeyourdiscord/frontend/pages/tools/bots.vue",
+    file: "D:/umaestro/frontend/pages/tools/bots.vue",
     children: [],
     meta: meta$2,
     alias: [],
-    component: () => import('./bots.60864ed9.mjs').then((m) => m.default || m)
+    component: () => import('./bots.fad43b99.mjs').then((m) => m.default || m)
   },
   {
     name: "tools-discord-badges",
     path: "/tools/discord/badges",
-    file: "C:/laragon/www/maeyourdiscord/frontend/pages/tools/discord/badges.vue",
+    file: "D:/umaestro/frontend/pages/tools/discord/badges.vue",
     children: [],
     meta: meta$1,
     alias: [],
-    component: () => import('./badges.9d244aea.mjs').then((m) => m.default || m)
+    component: () => import('./badges.776e7347.mjs').then((m) => m.default || m)
   },
   {
     name: "tools-discord-embed",
     path: "/tools/discord/embed",
-    file: "C:/laragon/www/maeyourdiscord/frontend/pages/tools/discord/embed.vue",
+    file: "D:/umaestro/frontend/pages/tools/discord/embed.vue",
     children: [],
     meta,
     alias: [],
-    component: () => import('./embed.f8c4674a.mjs').then((m) => m.default || m)
+    component: () => import('./embed.523365d0.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -5594,7 +5640,7 @@ const routerOptions = {
 };
 const globalMiddleware = [];
 const namedMiddleware = {
-  auth: () => import('./auth.73204761.mjs')
+  auth: () => import('./auth.e0da9446.mjs')
 };
 const node_modules_nuxt_dist_pages_runtime_router_mjs_qNv5Ky2ZmB = defineNuxtPlugin(async (nuxtApp) => {
   let __temp, __restore;
@@ -5770,7 +5816,7 @@ const _sfc_main$1 = {
   __name: "nuxt-root",
   __ssrInlineRender: true,
   setup(__props) {
-    const ErrorComponent = vue_cjs_prod.defineAsyncComponent(() => import('./error-component.e31e60df.mjs'));
+    const ErrorComponent = vue_cjs_prod.defineAsyncComponent(() => import('./error-component.0753b78a.mjs'));
     const nuxtApp = useNuxtApp();
     vue_cjs_prod.provide("_route", useRoute());
     nuxtApp.hooks.callHookWith((hooks) => hooks.map((hook) => hook()), "vue:setup");
@@ -5803,9 +5849,9 @@ _sfc_main$1.setup = (props, ctx) => {
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
 const layouts = {
-  default: vue_cjs_prod.defineAsyncComponent(() => import('./default.10c205e6.mjs')),
-  empty: vue_cjs_prod.defineAsyncComponent(() => import('./empty.5f87fa5d.mjs')),
-  footer: vue_cjs_prod.defineAsyncComponent(() => import('./footer.92ec43f4.mjs'))
+  default: vue_cjs_prod.defineAsyncComponent(() => import('./default.495a9783.mjs')),
+  empty: vue_cjs_prod.defineAsyncComponent(() => import('./empty.bcd2f588.mjs')),
+  footer: vue_cjs_prod.defineAsyncComponent(() => import('./footer.09adb016.mjs'))
 };
 const defaultLayoutTransition = { name: "layout", mode: "out-in" };
 const __nuxt_component_0 = vue_cjs_prod.defineComponent({

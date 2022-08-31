@@ -854,6 +854,7 @@ export default {
       });
     },
     updateWebhookState(webhookInfos) {
+      console.log("webhooksinfos", webhookInfos);
       if (!webhookInfos) {
         this.valid_webhook = false;
         this.is_application_webhook = false;
