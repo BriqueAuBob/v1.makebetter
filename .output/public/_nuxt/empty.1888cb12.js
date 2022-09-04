@@ -1,1 +1,0 @@
-import{a as t,o,k as s,H as c}from"./entry.d35adefc.js";const n={},r={id:"content",class:"relative"};function a(e,l){return o(),s("div",r,[c(e.$slots,"default")])}const d=t(n,[["render",a]]);export{d as default};
