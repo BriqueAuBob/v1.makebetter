@@ -134,6 +134,7 @@
 import axios from "@/composables/Axios";
 import { MoonIcon, SunIcon } from "@heroicons/vue/outline/esm/index.js";
 import { useAuthStore } from "@/store/auth";
+import { storeToRefs } from "pinia";
 
 export default {
   components: {
@@ -161,6 +162,10 @@ export default {
         href: "/",
         hash: "#tools",
       },
+      {
+        name: "Suggestions",
+        href: "/suggestions",
+      },
     ],
     authenticated: false,
     user: {},
@@ -175,9 +180,12 @@ export default {
     // nuxt.classList.add('overflow-x-hidden')
     nuxt.appendChild(this.$refs.menu);
 
-    const store = useAuthStore();
-    this.authenticated = store.hasToken();
-    this.user = await store.getUser;
+    useAuthStore().hasToken();
+    await useAuthStore().getUser;
+
+    const store = storeToRefs(useAuthStore());
+    this.authenticated = store.isAuthenticated;
+    this.user = store.user;
   },
   methods: {
     toggleMobileMenu() {

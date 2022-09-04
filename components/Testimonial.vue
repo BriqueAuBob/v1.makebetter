@@ -17,7 +17,7 @@
         />
       </div>
     </div>
-    <p class="mt-4 text-gray-800 dark:text-gray-300">{{ rate.message }}</p>
+    <p class="mt-4 text-gray-700 dark:text-gray-300">{{ rate.message }}</p>
     <span class="mt-4 block text-sm text-gray-400"
       >le {{ new Date(rate.created_at).toLocaleDateString("fr-FR") }}</span
     >

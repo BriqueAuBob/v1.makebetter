@@ -872,17 +872,9 @@ export default {
     sendMessage() {
       sendMessage(this.webhook_url, this.messages);
 
-      axios2.post(
-        "statistics",
-        {
-          tool: "discord_embed",
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-          },
-        }
-      );
+      axios2.post("statistics", {
+        tool: "discord_embed",
+      });
     },
     load(index, loadIndex) {
       this.messages[index] =

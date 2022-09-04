@@ -148,6 +148,7 @@ export default {
         const { data } = await axios.get("testimonials");
         return data.testimonials;
       } catch (e) {
+        console.log(e);
         return [];
       }
     });
@@ -163,24 +164,17 @@ export default {
   methods: {
     async addTestimonial() {
       try {
-        const token = localStorage.getItem("access_token");
-        await axios.post(
-          "testimonials",
-          {
-            message: this.rate,
-            star: this.star,
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        await axios.post("testimonials", {
+          message: this.rate,
+          star: this.star,
+        });
         this.isOpen = false;
         const { data } = await axios.get("testimonials");
         this.testimonials = data.testimonials;
       } catch (e) {
-        this.errors = e.response.data.errors.map((error) => error.message);
+        this.errors = e.response?.data?.errors
+          ? e.response.data.errors.map((error) => error.message)
+          : [];
       }
     },
   },

@@ -94,7 +94,7 @@
         </NuxtLink>
       </div>
 
-      <div class="mb-2 mt-12 mb-4 text-lg font-semibold">Déconnexion</div>
+      <div class="mt-12 mb-4 text-lg font-semibold">Déconnexion</div>
       <Button @click="logout" :small="true" color="red" text="Se déconnecter" />
 
       <div class="mb-2 mt-12 text-lg font-semibold">
@@ -214,6 +214,7 @@ import {
   DialogPanel,
   DialogTitle,
 } from "@headlessui/vue";
+import axios from "~~/composables/Axios";
 
 export default {
   components: {
@@ -248,11 +249,7 @@ export default {
     this.user = await useAuthStore().getUser;
 
     try {
-      const { data } = await axios.get("auth/user/logs", {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("access_token"),
-        },
-      });
+      const { data } = await axios.get("auth/user/logs");
       this.logs = data.usages;
     } catch (e) {
       console.log(e);
@@ -270,19 +267,21 @@ export default {
       )
         return;
       try {
-        await axios.delete("auth/user", {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("access_token"),
-          },
-        });
+        await axios.delete("auth/user");
         this.logout();
       } catch (err) {
         console.log(err);
       }
     },
     logout() {
-      useAuthStore().logout();
-      return (window.location = "https://umaestro.fr/");
+      const store = useAuthStore();
+      this.$toast.show({
+        message: `A bientôt ${this.user.username} !`,
+        icon: false,
+        timeout: 6,
+      });
+      store.logout();
+      return navigateTo("/");
     },
     hideEmail(email) {
       if (!email) return "";

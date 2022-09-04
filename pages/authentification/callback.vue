@@ -30,7 +30,13 @@ export default {
 
     localStorage.setItem("user_guilds", JSON.stringify(data.guilds));
 
-    window.location = "https://umaestro.fr";
+    this.$toast.show({
+      message: `Hey ${data.user.username}!`,
+      timeout: 6,
+      icon: false,
+    });
+
+    return navigateTo("/");
   },
 };
 </script>

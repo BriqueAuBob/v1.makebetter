@@ -81,6 +81,9 @@
       ],
       "#build/*": [
         ".nuxt/*"
+      ],
+      "#components": [
+        ".nuxt/components"
       ]
     }
   },

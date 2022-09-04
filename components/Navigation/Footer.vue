@@ -76,7 +76,13 @@
       umaestro.fr - 2022
     </div>
 
-    <img class="absolute -left-64 -top-64 w-1/3" src="/star_footer.svg" />
-    <img class="absolute -right-64 top-4 w-1/3" src="/star_footer.svg" />
+    <img
+      class="absolute -left-64 -top-64 w-1/3 max-w-xl"
+      src="/star_footer.svg"
+    />
+    <img
+      class="absolute -right-64 top-4 w-1/3 max-w-xl"
+      src="/star_footer.svg"
+    />
   </footer>
 </template>
