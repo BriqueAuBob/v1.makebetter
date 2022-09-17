@@ -65,7 +65,7 @@
                   <MenuButton
                     class="flex cursor-pointer items-center gap-6 rounded-xl bg-white p-8 shadow-lg duration-200 ease-in hover:-translate-y-1 hover:shadow-xl dark:bg-dark-800 dark:hover:bg-dark-700"
                   >
-                    <UploadIcon class="h-8 w-8" />
+                    <ArrowUpTrayIcon class="h-8 w-8" />
                     <div class="flex flex-col gap-2 text-left">
                       <div class="text-md font-semibold">
                         Charger un message
@@ -171,7 +171,7 @@
                   <div
                     class="flex w-full items-center gap-2 rounded-md border-2 border-dashed border-dark-400 bg-white p-6 text-sm font-semibold shadow-lg duration-200 ease-in focus:outline-none dark:border-dark-700 dark:bg-dark-800 dark:text-dark-300"
                   >
-                    <UploadIcon class="h-8 w-8" />
+                    <ArrowUpTrayIcon class="h-8 w-8" />
                     <span class="ml-2">{{
                       message.files?.length > 0
                         ? `${message.files.length} fichiers attachés`
@@ -267,13 +267,7 @@
                         />
                         <div class="mt-3 flex">
                           <ClientOnly>
-                            <ColorPicker
-                              v-model:pureColor="embed.color"
-                              :disableAlpha="true"
-                              shape="circle"
-                              pickerType="chrome"
-                              format="hex"
-                            ></ColorPicker>
+                            <ColorPicker v-model="embed.color"></ColorPicker>
                             <div class="grid grid-cols-10 gap-2">
                               <div
                                 class="flex h-7 w-7 cursor-pointer items-center justify-center rounded-md"
@@ -682,14 +676,12 @@ import {
   DialogTitle,
 } from "@headlessui/vue";
 import {
-  UploadIcon,
+  ArrowUpTrayIcon,
   CubeIcon,
   TrashIcon,
   EyeIcon,
   CheckIcon,
-} from "@heroicons/vue/outline/esm/index.js";
-import { ColorPicker } from "vue3-colorpicker";
-import "vue3-colorpicker/style.css";
+} from "@heroicons/vue/24/outline/esm/index.js";
 import {
   sendMessage,
   checkWebhookValidity,
@@ -710,14 +702,16 @@ export default {
     Dialog,
     DialogPanel,
     DialogTitle,
-    UploadIcon,
+    ArrowUpTrayIcon,
     CubeIcon,
-    ColorPicker,
     TrashIcon,
     EyeIcon,
   },
   head: {
     title: "Créateur d'embed",
+  },
+  mounted: () => {
+    useAutoAnimate("messagesDiv");
   },
   data: () => ({
     is_application_webhook: false,
@@ -854,7 +848,6 @@ export default {
       });
     },
     updateWebhookState(webhookInfos) {
-      console.log("webhooksinfos", webhookInfos);
       if (!webhookInfos) {
         this.valid_webhook = false;
         this.is_application_webhook = false;
@@ -924,36 +917,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.vc-color-wrap {
-  width: 64px !important;
-  height: 64px !important;
-  border-radius: 0.375rem !important;
-}
-
-.vc-hue-slider__bar {
-  background: -webkit-linear-gradient(
-    left,
-    red 0%,
-    yellow 16.66%,
-    lime 33.33%,
-    aqua 50%,
-    blue 66.66%,
-    fuchsia 83.33%,
-    red 100%
-  );
-}
-
-.vc-chrome-colorPicker {
-  background-color: transparent !important;
-}
-
-.vc-chrome-colorPicker-body {
-  background-color: transparent !important;
-}
-
-.dark .vc-colorpicker {
-  background: #36393f;
-}
-</style>

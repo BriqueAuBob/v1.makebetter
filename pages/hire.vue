@@ -22,12 +22,11 @@
               class="absolute -top-48 w-full"
               duration="60s"
               :style="`height: ${headerTall}`"
+              v-if="randomColors"
             >
               <div>
                 <div
-                  v-for="(color, index) in colors.sort(
-                    (a, b) => 0.5 - Math.random()
-                  )"
+                  v-for="(color, index) in randomColors"
                   :key="index"
                   class="my-12 flex shadow-xl"
                 >
@@ -250,6 +249,11 @@ export default {
     window.onresize = () => {
       this.recalculateSize();
     };
+  },
+  computed: {
+    randomColors: function () {
+      return this.colors.sort(() => Math.random() - 0.5) ?? [];
+    },
   },
   methods: {
     recalculateSize() {

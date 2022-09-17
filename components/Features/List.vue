@@ -13,7 +13,7 @@ import {
   CubeIcon,
   EyeIcon,
   HeartIcon,
-} from "@heroicons/vue/outline/esm/index.js";
+} from "@heroicons/vue/24/outline/esm/index.js";
 
 export default {
   data() {

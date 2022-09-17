@@ -116,7 +116,7 @@
 </template>
 
 <script>
-import { CubeIcon } from "@heroicons/vue/outline/esm/index.js";
+import { CubeIcon } from "@heroicons/vue/24/outline/esm/index.js";
 import { useModule, allCards, tools } from "~~/composables/Module";
 
 export default {

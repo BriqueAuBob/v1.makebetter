@@ -12,7 +12,7 @@
                             :small="true"
                         >
                             <template v-slot:icon_left>
-                                <ChipIcon class="mr-3 w-8 h-8" />
+                                <CpuChipIcon class="mr-3 w-8 h-8" />
                             </template>
                         </Button>
                         <Button 
@@ -58,7 +58,7 @@
                         </Switch>
                     </div>
                     <div class="flex gap-4 items-center px-8 py-8 w-full lg:w-auto">
-                        <SortDescendingIcon class="w-6 h-6" />
+                        <ArrowDownIcon class="w-6 h-6" />
                         Trier par
                         <ChevronDownIcon class="w-6 h-6" />
                     </div>
@@ -76,7 +76,7 @@
       <div class="mt-12 flex justify-center gap-4">
         <Button color="white" text="Présenter mon robot" :small="true">
           <template v-slot:icon_left>
-            <ChipIcon class="mr-3 h-8 w-8" />
+            <CpuChipIcon class="mr-3 h-8 w-8" />
           </template>
         </Button>
         <Button
@@ -125,7 +125,7 @@
             </Switch>
           </div>
           <div class="flex w-full items-center gap-4 px-8 py-8 lg:w-auto">
-            <SortDescendingIcon class="h-6 w-6" />
+            <ArrowDownIcon class="h-6 w-6" />
             Trier par
             <ChevronDownIcon class="h-6 w-6" />
           </div>
@@ -152,7 +152,7 @@
             :small="true"
           >
             <template v-slot:icon_left>
-              <ChipIcon class="mr-3 h-8 w-8" />
+              <CpuChipIcon class="mr-3 h-8 w-8" />
             </template>
           </Button>
         </div>
@@ -169,20 +169,20 @@
 import { Switch } from "@headlessui/vue";
 import {
   BookmarkIcon,
-  SortDescendingIcon,
+  ArrowDownIcon,
   ChevronDownIcon,
   CubeIcon,
-  ChipIcon,
-} from "@heroicons/vue/outline/esm/index.js";
+  CpuChipIcon,
+} from "@heroicons/vue/24/outline/esm/index.js";
 
 export default {
   components: {
     Switch,
-    SortDescendingIcon,
+    ArrowDownIcon,
     BookmarkIcon,
     ChevronDownIcon,
     CubeIcon,
-    ChipIcon,
+    CpuChipIcon,
   },
   data: () => ({
     enabled: false,

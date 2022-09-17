@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { LightBulbIcon } from "@heroicons/vue/outline/esm/index.js";
+import { LightBulbIcon } from "@heroicons/vue/24/outline/esm/index.js";
 
 export default {
   components: { LightBulbIcon },

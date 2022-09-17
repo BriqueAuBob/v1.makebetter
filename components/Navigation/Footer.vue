@@ -11,7 +11,7 @@
         il se pourrais que tu sois <span class="font-bold">LA</span> personne
         que l’on recherche alors n’hésite pas à postuler
       </div>
-      <NuxtLink to="hire">
+      <NuxtLink to="/hire">
         <Button
           color="white"
           text="Voir les postes disponible"

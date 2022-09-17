@@ -216,9 +216,9 @@ import axios from "@/composables/Axios";
 import {
   EyeIcon,
   CubeIcon,
-  CodeIcon,
+  CodeBracketIcon,
   PencilIcon,
-} from "@heroicons/vue/outline/esm/index.js";
+} from "@heroicons/vue/24/outline/esm/index.js";
 import { allCards } from "~~/composables/Module";
 
 export default {

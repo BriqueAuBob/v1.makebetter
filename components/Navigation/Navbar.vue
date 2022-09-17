@@ -132,7 +132,7 @@
 
 <script>
 import axios from "@/composables/Axios";
-import { MoonIcon, SunIcon } from "@heroicons/vue/outline/esm/index.js";
+import { MoonIcon, SunIcon } from "@heroicons/vue/24/outline/esm/index.js";
 import { useAuthStore } from "@/store/auth";
 import { storeToRefs } from "pinia";
 

@@ -3,15 +3,10 @@
     <div
       class="absolute top-full -z-10 h-full w-full -translate-y-full bg-[#5C6AF6]"
     ></div>
+    <!-- prettier-ignore -->
     <div
       class="absolute left-1/2 top-full -z-1 h-full w-1/2 -translate-x-1/2 -translate-y-full rounded-full"
-      style="
-        background: radial-gradient(
-          50% 50% at 50% 50%,
-          #5664f9 70.83%,
-          transparent 100%
-        );
-      "
+      style="background: radial-gradient(50% 50% at 50% 50%, #5664f9 70.83%, transparent 100%)"
     ></div>
     <svg
       id="squares"

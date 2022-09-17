@@ -1,5 +1,3 @@
-import { defineNuxtConfig } from "nuxt";
-
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   buildModules: [
@@ -9,6 +7,10 @@ export default defineNuxtConfig({
     "@tailvue/nuxt",
     // '@intlify/nuxt3'
   ],
+
+  build: {
+    transpile: ["@headlessui/vue"],
+  },
 
   app: {
     head: {
@@ -55,7 +57,19 @@ export default defineNuxtConfig({
         content:
           "Site regroupant une multitude d'outils dans de multiples domaines différents.",
       },
-      { name: "twitter:card", content: "summary" },
+      { name: "twitter:card", content: "summary_large_image" },
+      {
+        property: "og:image",
+        content: "https://umaestro.fr/thumbnail.png",
+      },
+      {
+        property: "twitter:image",
+        content: "https://umaestro.fr/thumbnail.png",
+      },
+      {
+        property: "theme-color",
+        content: "#004be0",
+      },
     ],
     link: [{ rel: "icon", type: "image/png", href: "/favicon-32x32.png" }],
   },

@@ -487,13 +487,7 @@
             >
               <ClientOnly>
                 <div class="flex">
-                  <ColorPicker
-                    v-model:pureColor="primaryColor"
-                    :disableAlpha="true"
-                    shape="circle"
-                    pickerType="chrome"
-                    format="hex"
-                  ></ColorPicker>
+                  <ColorPicker v-model="primaryColor"></ColorPicker>
                   <div class="grid grid-cols-10 gap-2">
                     <div
                       class="flex h-7 w-7 cursor-pointer items-center justify-center rounded-md"
@@ -509,13 +503,7 @@
               </ClientOnly>
               <ClientOnly v-if="duo_tone && !uploadedIcon">
                 <div class="flex">
-                  <ColorPicker
-                    v-model:pureColor="secondaryColor"
-                    :disableAlpha="true"
-                    shape="circle"
-                    pickerType="chrome"
-                    format="hex"
-                  ></ColorPicker>
+                  <ColorPicker v-model="secondaryColor"></ColorPicker>
                   <div class="grid grid-cols-10 gap-2">
                     <div
                       class="flex h-7 w-7 cursor-pointer items-center justify-center rounded-md"
@@ -1164,9 +1152,7 @@ import {
   CubeIcon,
   CheckIcon,
   EyeIcon,
-} from "@heroicons/vue/outline/esm/index.js";
-import { ColorPicker } from "vue3-colorpicker";
-import "vue3-colorpicker/style.css";
+} from "@heroicons/vue/24/outline/esm/index.js";
 import pkg from "save-svg-as-png";
 import icons, { shapes } from "~~/composables/DiscordIcons";
 const { saveSvgAsPng, svgAsPngUri } = pkg;
@@ -1179,7 +1165,6 @@ export default {
     TransitionChild,
     CubeIcon,
     CheckIcon,
-    ColorPicker,
     EyeIcon,
   },
   head: {
@@ -1304,31 +1289,6 @@ export default {
 </script>
 
 <style>
-.vc-hue-slider__bar {
-  background: -webkit-linear-gradient(
-    left,
-    red 0%,
-    yellow 16.66%,
-    lime 33.33%,
-    aqua 50%,
-    blue 66.66%,
-    fuchsia 83.33%,
-    red 100%
-  );
-}
-
-.vc-chrome-colorPicker {
-  background-color: transparent !important;
-}
-
-.vc-chrome-colorPicker-body {
-  background-color: transparent !important;
-}
-
-.dark .vc-colorpicker {
-  background: #36393f;
-}
-
 @font-face {
   font-family: "Whitney";
   src: url("/fonts/whitney-300.woff2") format("woff2");
