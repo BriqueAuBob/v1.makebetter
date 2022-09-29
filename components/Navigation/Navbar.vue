@@ -45,19 +45,19 @@
             :small="true"
           />
         </NuxtLink>
-        <div
+        <NuxtLink
           v-else
-          class="flex rounded-xl border-2 border-white px-3 py-2 text-white duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-white hover:text-black hover:shadow-2xl"
+          activeClass="profile"
+          to="/account"
+          class="text-md flex items-center gap-2 font-medium"
         >
-          <NuxtLink
-            activeClass="profile"
-            to="/account"
-            class="text-md flex items-center gap-2 font-medium"
+          <div
+            class="flex rounded-xl border-2 border-white px-3 py-2 text-white duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-white hover:text-black hover:shadow-2xl"
           >
             <img :src="user?.avatar" class="h-6 w-6 rounded-full" />
             {{ user?.username }}
-          </NuxtLink>
-        </div>
+          </div>
+        </NuxtLink>
       </div>
       <!-- Mobile menu -->
       <button class="px-4 py-2 lg:hidden" @click="toggleMobileMenu">
