@@ -27,7 +27,7 @@ export default {
       white: "bg-white hover:bg-gray-100 text-black",
       blurple: "bg-blurple text-white",
       yellow: "bg-yellow-500 text-white hover:bg-white hover:text-black",
-      red: "bg-red-500 text-white",
+      red: "bg-red-500 text-white hover:bg-red-300",
       disabled: "bg-gray-200 text-black opacity-50",
       none: "",
       theme:
