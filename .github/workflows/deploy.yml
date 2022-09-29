@@ -32,7 +32,7 @@ jobs:
 
           # Replace current version with the new one
 
-          cd ../../
+          cd ../
           mv umaestro-frontend umaestro-frontend_old
           mv umaestro-frontend_new umaestro-frontend
 
