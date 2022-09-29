@@ -38,8 +38,9 @@
         </span>
         <NuxtLink to="/authentification" v-if="!authenticated">
           <Button
-            class="bg-white bg-opacity-75 text-black hover:bg-white hover:bg-opacity-100"
+            class="bg-gray-300 text-primary-500 hover:bg-white"
             icon="user"
+            color="none"
             :text="'Accéder à mon compte'"
             :small="true"
           />
@@ -76,9 +77,10 @@
             @click="toggleMobileMenu"
           >
             <Button
-              class="bg-white text-black hover:bg-white"
+              class="bg-gray-300 text-primary-500 hover:bg-white"
               icon="user"
               :text="'Accéder à mon compte'"
+              color="none"
               :small="true"
             />
           </NuxtLink>

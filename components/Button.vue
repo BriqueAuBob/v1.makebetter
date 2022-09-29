@@ -29,6 +29,7 @@ export default {
       yellow: "bg-yellow-500 text-white hover:bg-white hover:text-black",
       red: "bg-red-500 text-white",
       disabled: "bg-gray-200 text-black opacity-50",
+      none: "",
       theme:
         "bg-white hover:bg-gray-100 dark:bg-dark-900 dark:hover:bg-dark-800",
     },
