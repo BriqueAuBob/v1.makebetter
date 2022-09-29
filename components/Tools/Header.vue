@@ -1,12 +1,13 @@
 <template>
   <header class="relative overflow-hidden py-48 text-white">
     <div
-      class="absolute top-full -z-10 h-full w-full -translate-y-full bg-[#5C6AF6]"
+      class="absolute top-full -z-10 h-full w-full -translate-y-full"
+      :style="`background: ${color};`"
     ></div>
     <!-- prettier-ignore -->
     <div
       class="absolute left-1/2 top-full -z-1 h-full w-1/2 -translate-x-1/2 -translate-y-full rounded-full"
-      style="background: radial-gradient(50% 50% at 50% 50%, #5664f9 70.83%, transparent 100%)"
+      :style="`background: radial-gradient(50% 50% at 50% 50%, ${color} 70.83%, transparent 100%);`"
     ></div>
     <svg
       id="squares"
@@ -21,9 +22,9 @@
           width="100"
           height="100"
           :fill="
-            Math.floor(Math.random() * 8) % 3 === 2 ? '#5F6CF7' : '#5664F9'
+            Math.floor(Math.random() * 8) % 3 === 2 ? color : lightColor(-15)
           "
-          stroke="#5F6DF9"
+          :stroke="lightColor(20)"
           stroke-width="2"
         />
       </g>
@@ -33,11 +34,38 @@
     </div>
     <div
       class="absolute top-0 h-52 w-full"
-      style="background: linear-gradient(to bottom, #5865f6, transparent)"
+      :style="`background: linear-gradient(to bottom, ${color}, transparent);`"
     ></div>
     <div
       class="absolute top-full h-52 w-full -translate-y-full"
-      style="background: linear-gradient(to top, #5865f6, transparent)"
+      :style="`background: linear-gradient(to top, ${color}, transparent);`"
     ></div>
   </header>
 </template>
+
+<script>
+export default {
+  props: {
+    color: {
+      type: String,
+      default: "#5865F2",
+    },
+  },
+  methods: {
+    lightColor(magnitude) {
+      const hexColor = this.color.replace("#", "");
+      const decimalColor = parseInt(hexColor, 16);
+      let r = (decimalColor >> 16) + magnitude;
+      r > 255 && (r = 255);
+      r < 0 && (r = 0);
+      let g = (decimalColor & 0x0000ff) + magnitude;
+      g > 255 && (g = 255);
+      g < 0 && (g = 0);
+      let b = ((decimalColor >> 8) & 0x00ff) + magnitude;
+      b > 255 && (b = 255);
+      b < 0 && (b = 0);
+      return `#${(g | (b << 8) | (r << 16)).toString(16)}`;
+    },
+  },
+};
+</script>

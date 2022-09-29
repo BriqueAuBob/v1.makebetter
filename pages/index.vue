@@ -101,7 +101,10 @@
           </NuxtLink>
         </div>
       </div>
-      <NuxtLink to="/tools/discord" class="mt-12">
+      <NuxtLink
+        :to="currentCategory === null ? `/tools/` : `/tools/${currentCategory}`"
+        class="mt-12"
+      >
         <Button
           class="mx-auto"
           color="primary"

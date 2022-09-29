@@ -31,7 +31,7 @@
         <div>
           <ToolsStep :step-id="1" name="Forme du badge">
             <div
-              class="grid items-center gap-12 rounded-lg bg-white p-8 shadow-lg dark:bg-dark-800 lg:grid-cols-4"
+              class="grid grid-cols-3 items-center gap-12 rounded-lg bg-white p-8 shadow-lg dark:bg-dark-800 md:grid-cols-4 lg:grid-cols-5"
             >
               <div
                 class="cursor-pointer p-2"
@@ -375,7 +375,7 @@
                 {{ category }}
               </div>
               <div
-                class="mb-8 grid grid-cols-3 items-center gap-4 md:grid-cols-4 xl:grid-cols-6"
+                class="mb-8 grid grid-cols-3 items-center gap-4 md:grid-cols-4 xl:grid-cols-5"
               >
                 <div
                   class="flex h-24 cursor-pointer items-center justify-center p-2"

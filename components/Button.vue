@@ -10,8 +10,8 @@
     <slot name="icon_left"></slot>
     <span
       :class="['whitespace-pre-line', centerText ? 'text-center' : 'text-left']"
-      >{{ text }}</span
-    >
+      v-html="text"
+    ></span>
     <slot name="icon_right"></slot>
     <slot></slot>
   </button>

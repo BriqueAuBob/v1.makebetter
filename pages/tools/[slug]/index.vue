@@ -17,21 +17,22 @@
         Et oui, on propose des outils pour
         <span class="capitalize">{{ $route.params.slug }}</span> !
       </h1>
-      <h2 class="mx-auto mt-4 max-w-lg text-center text-2xl leading-relaxed">
+      <h2 class="mx-auto mt-4 max-w-xl text-center text-2xl leading-relaxed">
         Ici sont rassemblés nos outils qui intéragissent avec Discord ! Nos
         outils sortent au fil du temps et en fonction de votre attente.
       </h2>
-      <Button
-        class="mx-auto mt-8"
-        text="Voir les outils
-                que l'on propose"
-        color="white"
-        :small="true"
-      >
-        <template v-slot:icon_left>
-          <CubeIcon class="mr-3 h-10 w-10" />
-        </template>
-      </Button>
+      <NuxtLink to="#tools">
+        <Button
+          class="mx-auto mt-8"
+          text="Voir les outils<br/>que l'on propose"
+          color="white"
+          :small="true"
+        >
+          <template v-slot:icon_left>
+            <CubeIcon class="mr-3 h-10 w-10" />
+          </template>
+        </Button>
+      </NuxtLink>
     </ToolsHeader>
     <section
       class="relative bg-white py-12 shadow-sm dark:bg-dark-900 dark:shadow-lg"
@@ -62,7 +63,7 @@
         </div>
       </Slider>
     </section>
-    <section class="container mx-auto py-24 px-4">
+    <section id="tools" class="container mx-auto py-24 px-4">
       <div class="text-center text-xl font-bold">Nos outils</div>
       <div class="mt-4 text-center text-lg">
         Dédiés à <span class="capitalize">{{ $route.params.slug }}</span>
