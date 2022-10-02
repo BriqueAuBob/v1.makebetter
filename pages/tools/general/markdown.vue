@@ -94,7 +94,7 @@
         </div>
         <div>
           <div
-            class="relative max-h-screen-padding rounded-lg bg-white p-8 shadow-sm dark:bg-dark-900 lg:sticky lg:top-12"
+            class="relative max-h-screen-padding overflow-y-auto whitespace-pre-line rounded-lg bg-white p-8 shadow-sm dark:bg-dark-900 lg:sticky lg:top-12"
           >
             <h2 class="text-2xl font-bold underline">Rendu:</h2>
             <div :class="`md-${$colorMode.preference}`" class="mt-5">
