@@ -89,11 +89,14 @@
         <span class="capitalize">{{ $route.params.slug }}</span>
       </div>
       <div class="mt-8 grid gap-8 lg:grid-cols-2 xl:grid-cols-3">
-        <div class="col-span-3 mt-4">
+        <div v-if="toolsRelations?.length <= 0" class="col-span-3 mt-4">
           <Empty text="Nous n'avons pas trouvé d'outils supplémentaires..." />
         </div>
-        <!-- <ToolsCardsEmbed />
-                <ToolsCardsEmbed /> -->
+        <div v-else v-for="(tool, index) of toolsRelations" :key="index">
+          <NuxtLink :to="`/tools/${tool.path}`">
+            <component :is="{ ...tool.card }" />
+          </NuxtLink>
+        </div>
       </div>
     </section>
     <section
@@ -118,15 +121,17 @@
 
 <script>
 import { CubeIcon } from "@heroicons/vue/24/outline/esm/index.js";
-import { useModule, allCards, tools } from "~~/composables/Module";
+import { useModule, allCards, tools, relations } from "~~/composables/Module";
 
 export default {
   components: { CubeIcon },
   data: () => ({
     cards: allCards,
+    module: {},
     moduleTools: [],
+    toolsRelations: [],
   }),
-  created() {
+  mounted() {
     this.module = useModule(this.$route.params.slug);
     if (!this.module) {
       this.$router.replace("/tools/404");
@@ -137,6 +142,8 @@ export default {
         route.path.startsWith(`/tools/${this.$route.params.slug}/`)
       )
       .map((route) => route.name);
+
+    this.toolsRelations = relations[this.$route.params.slug];
   },
   computed: {
     tools() {

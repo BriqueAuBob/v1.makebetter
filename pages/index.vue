@@ -40,7 +40,10 @@
         </h3>
         <div class="flex justify-center">
           <div class="relative mt-4 inline-flex justify-center gap-4">
-            <NuxtLink to="#tools">
+            <NuxtLink
+              to="#tools"
+              class="mt-2 flex items-center justify-center gap-6"
+            >
               <img
                 @click="currentCategory = 'discord'"
                 class="w-12 cursor-pointer"

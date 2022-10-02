@@ -710,9 +710,6 @@ export default {
   head: {
     title: "Créateur d'embed",
   },
-  mounted: () => {
-    useAutoAnimate("messagesDiv");
-  },
   data: () => ({
     is_application_webhook: false,
     valid_webhook: false,

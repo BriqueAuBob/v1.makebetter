@@ -24,6 +24,7 @@
     "aos": "^2.3.4",
     "axios": "^0.27.2",
     "discord-markdown": "^2.5.1",
+    "md-editor-v3": "github:BriqueAuBob/md-editor-v3",
     "pinia": "^2.0.22",
     "save-svg-as-png": "^1.4.17"
   },

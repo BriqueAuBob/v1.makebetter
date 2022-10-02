@@ -35,8 +35,8 @@
     <div class="border-2 border-primary-700 px-24 py-12">
       <div class="font-semibold">Liens utiles</div>
       <ul class="mt-4 flex flex-col gap-2 text-sm text-gray-100">
-        <li><NuxtLink to="partners">Nos partenaires</NuxtLink></li>
-        <li><NuxtLink to="hire">Recrutement</NuxtLink></li>
+        <li><NuxtLink to="/partners">Nos partenaires</NuxtLink></li>
+        <li><NuxtLink to="/hire">Recrutement</NuxtLink></li>
       </ul>
     </div>
     <div class="border-2 border-primary-700 px-24 py-12">
@@ -65,7 +65,7 @@
       <div class="font-semibold">Confidentialité et sécurité</div>
       <ul class="mt-4 flex flex-col gap-2 text-sm text-gray-100">
         <li>
-          <NuxtLink to="cgu">Conditions générales d'utilisation</NuxtLink>
+          <NuxtLink to="/cgu">Conditions générales d'utilisation</NuxtLink>
         </li>
         <li class="text-gray-400">Politique de confidentialité</li>
       </ul>

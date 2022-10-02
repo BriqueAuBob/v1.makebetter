@@ -5,7 +5,7 @@
       <span class="font-semibold">-</span>
       <span class="font-medium">{{ name }}</span>
     </div>
-    <p class="text-md">{{ description }}</p>
+    <p class="text-md mt-1 text-gray-400">{{ description }}</p>
     <div class="mt-4">
       <slot></slot>
     </div>
