@@ -10,7 +10,7 @@
           : "Accueil"
       }}</Title>
     </Head>
-    <ToolsHeader>
+    <ToolsHeader :color="colors[$route.params.slug]">
       <h1
         class="mx-auto max-w-lg text-center text-4xl font-extrabold leading-[3.5rem]"
       >
@@ -121,7 +121,13 @@
 
 <script>
 import { CubeIcon } from "@heroicons/vue/24/outline/esm/index.js";
-import { useModule, allCards, tools, relations } from "~~/composables/Module";
+import {
+  useModule,
+  allCards,
+  tools,
+  relations,
+  colors,
+} from "~~/composables/Module";
 
 export default {
   components: { CubeIcon },
@@ -130,6 +136,7 @@ export default {
     module: {},
     moduleTools: [],
     toolsRelations: [],
+    colors,
   }),
   mounted() {
     this.module = useModule(this.$route.params.slug);

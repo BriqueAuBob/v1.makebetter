@@ -50,3 +50,8 @@ export const useTool = (name) => {
 export const relations = {
   discord: [{ path: "general/markdown", card: Markdown }],
 };
+
+export const colors = {
+  discord: "#5865F2",
+  general: "#0a0a0d",
+};
