@@ -79,7 +79,7 @@
           <ToolsStep step-id="2" name="Texte">
             <ClientOnly>
               <MdEditor
-                :theme="$colorMode.preference"
+                :theme="isDarkMode ? 'dark' : 'light'"
                 v-model="text"
                 language="en-US"
                 :preview="false"
@@ -97,7 +97,7 @@
             class="relative max-h-screen-padding overflow-y-auto whitespace-pre-line rounded-lg bg-white p-8 shadow-sm dark:bg-dark-900 lg:sticky lg:top-12"
           >
             <h2 class="text-2xl font-bold underline">Rendu:</h2>
-            <div :class="`md-${$colorMode.preference}`" class="mt-5">
+            <div :class="`md-${isDarkMode ? 'dark' : 'light'}`" class="mt-5">
               <div
                 v-if="selectedPlatform === 'discord'"
                 v-html="
@@ -117,7 +117,7 @@
                 :class="`${selectedPlatform}-theme`"
               ></div>
             </div>
-            <div class="mt-10 flex justify-end gap-4">
+            <div class="mt-10 flex flex-wrap justify-end gap-4">
               <Button
                 color="none"
                 text="Copier le markdown"
@@ -181,6 +181,15 @@ export default {
   },
   head: {
     title: "Editeur Markdown",
+  },
+  computed: {
+    isDarkMode() {
+      return (
+        this.$colorMode.preference === "dark" ||
+        (this.$colorMode.preference === "system" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      );
+    },
   },
   data: () => ({
     text: "**Bienvenue sur notre outil de rédaction en *markdown* !**\n\nTu peux écrire ton texte et le sauvegarder ou le copier par la suite.",
@@ -252,5 +261,13 @@ export default {
 
 .md-dark {
   --md-bk-color: #16161d;
+}
+
+.md-toolbar-wrapper {
+  height: auto;
+}
+
+.md-toolbar-left {
+  flex-wrap: wrap;
 }
 </style>
