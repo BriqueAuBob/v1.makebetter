@@ -88,22 +88,35 @@
             <img :src="user?.avatar" class="h-8 w-8 rounded-full" />
             {{ user?.username }}
           </NuxtLink>
-          <button
-            class="group flex items-center justify-center rounded-full border-2 border-dark-700 p-4 focus:bg-dark-700 focus:text-white dark:border-dark-700"
-            @click="toggleMobileMenu"
-          >
-            <svg
-              class="h-5 w-5 fill-black group-focus:fill-white dark:fill-dark-700"
-              viewBox="0 0 10 10"
-              xmlns="http://www.w3.org/2000/svg"
+          <div class="flex items-center justify-end gap-6">
+            <span
+              class="cursor-pointer"
+              @click="
+                $colorMode.preference =
+                  $colorMode.value === 'dark' ? 'light' : 'dark'
+              "
+              :small="true"
             >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M9.00001 1.00001C8.60001 0.600012 8.00001 0.600012 7.60001 1.00001L5.00001 3.60001L2.40001 1.00001C2.00001 0.600012 1.40001 0.600012 1.00001 1.00001C0.600012 1.40001 0.600012 2.00001 1.00001 2.40001L3.60001 5.00001L1.00001 7.60001C0.600012 8.00001 0.600012 8.60001 1.00001 9.00001C1.20001 9.20001 1.50001 9.30001 1.70001 9.30001C1.90001 9.30001 2.20001 9.20001 2.40001 9.00001L5.00001 6.40001L7.60001 9.00001C7.80001 9.20001 8.10001 9.30001 8.30001 9.30001C8.50001 9.30001 8.80001 9.20001 9.00001 9.00001C9.40001 8.60001 9.40001 8.00001 9.00001 7.60001L6.40001 5.00001L9.00001 2.40001C9.40001 2.00001 9.40001 1.40001 9.00001 1.00001Z"
-              />
-            </svg>
-          </button>
+              <MoonIcon v-if="$colorMode.value === 'light'" class="h-8 w-8" />
+              <SunIcon v-else class="h-8 w-8" />
+            </span>
+            <button
+              class="group flex items-center justify-center rounded-full border-2 border-dark-700 p-4 focus:bg-dark-700 focus:text-white dark:border-dark-700"
+              @click="toggleMobileMenu"
+            >
+              <svg
+                class="h-5 w-5 fill-black group-focus:fill-white dark:fill-dark-700"
+                viewBox="0 0 10 10"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M9.00001 1.00001C8.60001 0.600012 8.00001 0.600012 7.60001 1.00001L5.00001 3.60001L2.40001 1.00001C2.00001 0.600012 1.40001 0.600012 1.00001 1.00001C0.600012 1.40001 0.600012 2.00001 1.00001 2.40001L3.60001 5.00001L1.00001 7.60001C0.600012 8.00001 0.600012 8.60001 1.00001 9.00001C1.20001 9.20001 1.50001 9.30001 1.70001 9.30001C1.90001 9.30001 2.20001 9.20001 2.40001 9.00001L5.00001 6.40001L7.60001 9.00001C7.80001 9.20001 8.10001 9.30001 8.30001 9.30001C8.50001 9.30001 8.80001 9.20001 9.00001 9.00001C9.40001 8.60001 9.40001 8.00001 9.00001 7.60001L6.40001 5.00001L9.00001 2.40001C9.40001 2.00001 9.40001 1.40001 9.00001 1.00001Z"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
         <div class="mt-8 w-2/3 self-end">
           <ul>
