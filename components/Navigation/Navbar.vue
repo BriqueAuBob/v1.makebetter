@@ -49,7 +49,7 @@
           <div
             class="text-md flex items-center gap-2 rounded-xl border-2 border-white px-3 py-2 font-medium text-white duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-white hover:text-black hover:shadow-2xl"
           >
-            <img :src="user?.avatar" class="h-6 w-6 rounded-full" />
+            <Avatar :src="user?.avatar" :user="user" size="sm" />
             {{ user?.username }}
           </div>
         </NuxtLink>

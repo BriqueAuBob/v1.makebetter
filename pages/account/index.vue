@@ -7,9 +7,12 @@
         class="absolute top-0 left-0 z-0 h-full w-full bg-dark-950 bg-cover bg-center opacity-75 blur-xl"
         :style="`background-image: url(${user?.avatar});`"
       ></div>
-      <img
-        class="z-10 w-48 rounded-full border-8 border-white"
+      <Avatar
+        class="z-10 border-white"
         :src="user?.avatar"
+        :user="user"
+        size="xl"
+        :border="true"
       />
       <div
         class="z-10 mx-auto mt-4 text-center text-2xl font-semibold text-white"

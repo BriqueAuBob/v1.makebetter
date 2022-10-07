@@ -187,7 +187,7 @@ export default {
       return (
         this.$colorMode.preference === "dark" ||
         (this.$colorMode.preference === "system" &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
+          window?.matchMedia("(prefers-color-scheme: dark)")?.matches)
       );
     },
   },
@@ -229,6 +229,7 @@ export default {
     },
     copy() {
       navigator.clipboard.writeText(this.text);
+      this.$toast.show({ message: "Copié dans le presse-papier !" });
     },
     save() {
       const link = document.createElement("a");

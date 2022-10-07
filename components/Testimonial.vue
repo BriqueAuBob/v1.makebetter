@@ -1,10 +1,10 @@
 <template>
   <div class="rounded-2xl bg-white p-8 shadow-sm dark:bg-dark-900">
     <div class="flex items-center gap-2 font-medium">
-      <img
+      <Avatar
+        class="mr-2"
         :src="rate?.author?.avatar || '/default_avatar.svg'"
-        class="mr-2 h-8 w-8 rounded-full"
-        alt="Avatar"
+        :user="rate?.author"
       />
       {{ rate?.author?.username || "Utilisateur supprimé" }}
       <span>-</span>

@@ -26,7 +26,8 @@
     "discord-markdown": "^2.5.1",
     "md-editor-v3": "github:BriqueAuBob/md-editor-v3",
     "pinia": "^2.0.22",
-    "save-svg-as-png": "^1.4.17"
+    "save-svg-as-png": "^1.4.17",
+    "vue-gtag": "^2.0.1"
   },
   "overrides": {
     "vue": "3"

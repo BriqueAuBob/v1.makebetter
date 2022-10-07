@@ -1,5 +1,7 @@
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
+  plugins: [{ src: "~/plugins/analytics.ts", mode: "client" }],
+
   buildModules: [
     "@nuxtjs/tailwindcss",
     "@nuxtjs/color-mode",
