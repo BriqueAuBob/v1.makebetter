@@ -3,6 +3,7 @@ import Badges from "~~/components/Tools/Cards/Badges.vue";
 import Bots from "~~/components/Tools/Cards/Bots.vue";
 import Embed from "~~/components/Tools/Cards/Embed.vue";
 import Emojis from "~~/components/Tools/Cards/Emojis.vue";
+import EmojiSplit from "~~/components/Tools/Cards/EmojiSplit.vue";
 import Markdown from "~/components/Tools/Cards/Markdown.vue";
 import axios from "~~/composables/Axios";
 
@@ -31,6 +32,7 @@ export const tools = {
   Embed: "Créateur d'embeds",
   Emojis: "Référencement d'emojis",
   Markdown: "Editeur Markdown",
+  Emoji_maker: "Créateur d'emojis",
 };
 
 export const allCards = {
@@ -39,6 +41,7 @@ export const allCards = {
   emojis: Emojis,
   embed: Embed,
   markdown: Markdown,
+  emoji_maker: EmojiSplit,
 };
 
 export const useTool = (name) => {

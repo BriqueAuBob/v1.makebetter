@@ -5,14 +5,14 @@
         v-if="!failure"
         :src="src"
         class="rounded-full"
-        :class="[size, border && 'border-8 border-white']"
+        :class="[newSize, border && 'border-8 border-white']"
         alt="Avatar"
         @error="onFail"
     /></ClientOnly>
     <div
       v-if="failure"
       class="flex items-center justify-center rounded-full bg-dark-700 text-sm font-semibold"
-      :class="[size, border && 'border-8 border-white']"
+      :class="[newSize, border && 'border-8 border-white']"
     >
       {{ initial }}
     </div>
@@ -46,7 +46,7 @@ export default {
     initial() {
       return this.user.username.toUpperCase().substr(0, 1);
     },
-    size() {
+    newSize() {
       return {
         sm: "h-6 w-6",
         md: "h-8 w-8",

@@ -164,6 +164,8 @@ import {
   TransitionRoot,
 } from "@headlessui/vue";
 
+import { useTool } from "~~/composables/Module";
+
 export default {
   components: {
     CubeIcon,
@@ -223,6 +225,9 @@ export default {
     ],
     selectedPlatform: "",
   }),
+  mounted() {
+    useTool("md_editor");
+  },
   methods: {
     htmlChanged(html) {
       this.html = html;

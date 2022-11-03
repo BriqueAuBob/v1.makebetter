@@ -30,14 +30,14 @@
       <div class="mt-8 grid gap-8 lg:grid-cols-2">
         <div>
           <ToolsStep :step-id="1" name="Forme du badge">
-            <div
-              class="grid grid-cols-3 items-center gap-12 rounded-lg bg-white p-8 shadow-lg dark:bg-dark-800 md:grid-cols-4 lg:grid-cols-5"
+            <Card
+              class="grid grid-cols-3 items-center gap-12 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
             >
               <div
                 class="cursor-pointer p-2"
                 :class="
                   shape === 0 &&
-                  'rounded-md border-2 border-dark-600 bg-dark-700 bg-opacity-25'
+                  'rounded-md border-2 border-dashed border-dark-700 bg-dark-800 bg-opacity-25'
                 "
                 @click="selectShape(0)"
               >
@@ -54,7 +54,7 @@
                 class="cursor-pointer p-2"
                 :class="
                   shape === 1 &&
-                  'rounded-md border-2 border-dark-600 bg-dark-700 bg-opacity-25'
+                  'rounded-md border-2 border-dashed border-dark-700 bg-dark-800 bg-opacity-25'
                 "
                 @click="selectShape(1)"
               >
@@ -74,7 +74,7 @@
                 class="cursor-pointer p-2"
                 :class="
                   shape === 2 &&
-                  'rounded-md border-2 border-dark-600 bg-dark-700 bg-opacity-25'
+                  'rounded-md border-2 border-dashed border-dark-700 bg-dark-800 bg-opacity-25'
                 "
                 @click="selectShape(2)"
               >
@@ -94,7 +94,7 @@
                 class="cursor-pointer p-2"
                 :class="
                   shape === 3 &&
-                  'rounded-md border-2 border-dark-600 bg-dark-700 bg-opacity-25'
+                  'rounded-md border-2 border-dashed border-dark-700 bg-dark-800 bg-opacity-25'
                 "
                 @click="selectShape(3)"
               >
@@ -114,7 +114,7 @@
                 class="cursor-pointer p-2"
                 :class="
                   shape === 4 &&
-                  'rounded-md border-2 border-dark-600 bg-dark-700 bg-opacity-25'
+                  'rounded-md border-2 border-dashed border-dark-700 bg-dark-800 bg-opacity-25'
                 "
                 @click="selectShape(4)"
               >
@@ -134,7 +134,7 @@
                 class="cursor-pointer p-2"
                 :class="
                   shape === 5 &&
-                  'rounded-md border-2 border-dark-600 bg-dark-700 bg-opacity-25'
+                  'rounded-md border-2 border-dashed border-dark-700 bg-dark-800 bg-opacity-25'
                 "
                 @click="selectShape(5)"
               >
@@ -158,7 +158,7 @@
                 class="cursor-pointer p-2"
                 :class="
                   shape === 6 &&
-                  'rounded-md border-2 border-dark-600 bg-dark-700 bg-opacity-25'
+                  'rounded-md border-2 border-dashed border-dark-700 bg-dark-800 bg-opacity-25'
                 "
                 @click="selectShape(6)"
               >
@@ -182,7 +182,7 @@
                 class="cursor-pointer p-2"
                 :class="
                   shape === 7 &&
-                  'rounded-md border-2 border-dark-600 bg-dark-700 bg-opacity-25'
+                  'rounded-md border-2 border-dashed border-dark-700 bg-dark-800 bg-opacity-25'
                 "
                 @click="selectShape(7)"
               >
@@ -202,7 +202,7 @@
                 class="cursor-pointer p-2"
                 :class="
                   shape === 8 &&
-                  'rounded-md border-2 border-dark-600 bg-dark-700 bg-opacity-25'
+                  'rounded-md border-2 border-dashed border-dark-700 bg-dark-800 bg-opacity-25'
                 "
                 @click="selectShape(8)"
               >
@@ -226,7 +226,7 @@
                 class="cursor-pointer p-2"
                 :class="
                   shape === 9 &&
-                  'rounded-md border-2 border-dark-600 bg-dark-700 bg-opacity-25'
+                  'rounded-md border-2 border-dashed border-dark-700 bg-dark-800 bg-opacity-25'
                 "
                 @click="selectShape(9)"
               >
@@ -250,7 +250,7 @@
                 class="cursor-pointer p-2"
                 :class="
                   shape === 10 &&
-                  'rounded-md border-2 border-dark-600 bg-dark-700 bg-opacity-25'
+                  'rounded-md border-2 border-dashed border-dark-700 bg-dark-800 bg-opacity-25'
                 "
                 @click="selectShape(10)"
               >
@@ -270,7 +270,7 @@
                 class="cursor-pointer p-2"
                 :class="
                   shape === 11 &&
-                  'rounded-md border-2 border-dark-600 bg-dark-700 bg-opacity-25'
+                  'rounded-md border-2 border-dashed border-dark-700 bg-dark-800 bg-opacity-25'
                 "
                 @click="selectShape(11)"
               >
@@ -290,7 +290,7 @@
                 class="cursor-pointer p-2"
                 :class="
                   shape === 12 &&
-                  'rounded-md border-2 border-dark-600 bg-dark-700 bg-opacity-25'
+                  'rounded-md border-2 border-dashed border-dark-700 bg-dark-800 bg-opacity-25'
                 "
                 @click="selectShape(12)"
               >
@@ -310,7 +310,7 @@
                 class="cursor-pointer p-2"
                 :class="
                   shape === 13 &&
-                  'rounded-md border-2 border-dark-600 bg-dark-700 bg-opacity-25'
+                  'rounded-md border-2 border-dashed border-dark-700 bg-dark-800 bg-opacity-25'
                 "
                 @click="selectShape(13)"
               >
@@ -334,7 +334,7 @@
                 class="cursor-pointer p-2"
                 :class="
                   shape === 14 &&
-                  'rounded-md border-2 border-dark-600 bg-dark-700 bg-opacity-25'
+                  'rounded-md border-2 border-dashed border-dark-700 bg-dark-800 bg-opacity-25'
                 "
                 @click="selectShape(14)"
               >
@@ -350,15 +350,15 @@
                   />
                 </svg>
               </div>
-            </div>
+            </Card>
           </ToolsStep>
           <ToolsStep :step-id="2" name="Icone">
-            <div class="rounded-lg bg-white p-8 shadow-lg dark:bg-dark-800">
+            <Card>
               <div class="mb-8 flex flex-wrap gap-2">
                 <button
                   @click="category = cat"
-                  :class="[category === cat && 'bg-gray-400 dark:bg-dark-700']"
-                  class="rounded-sm px-4 py-2 transition duration-100 ease-in hover:bg-gray-400 dark:hover:bg-dark-700"
+                  :class="[category === cat && 'bg-gray-400 dark:bg-dark-800']"
+                  class="rounded-sm px-4 py-2 transition duration-100 ease-in hover:bg-gray-400 dark:hover:bg-dark-800"
                   v-for="(_, cat) of categories"
                   :key="cat"
                 >
@@ -366,7 +366,7 @@
                 </button>
                 <NuxtLink
                   href="#custom_icon"
-                  class="rounded-sm px-4 py-2 transition duration-100 ease-in hover:bg-gray-400 dark:hover:bg-dark-700"
+                  class="rounded-sm px-4 py-2 transition duration-100 ease-in hover:bg-gray-400 dark:hover:bg-dark-800"
                 >
                   Icone personnalisée
                 </NuxtLink>
@@ -375,14 +375,14 @@
                 {{ category }}
               </div>
               <div
-                class="mb-8 grid grid-cols-3 items-center gap-4 md:grid-cols-4 xl:grid-cols-5"
+                class="mb-8 grid grid-cols-4 items-center gap-4 md:grid-cols-6 xl:grid-cols-6"
               >
                 <div
-                  class="flex h-24 cursor-pointer items-center justify-center p-2"
+                  class="flex h-16 cursor-pointer items-center justify-center p-2"
                   :class="
                     icon === ico().index &&
                     !uploadedIcon &&
-                    'rounded-md border-2 border-dark-600 bg-dark-700 bg-opacity-25'
+                    'rounded-md border-2 border-dashed border-dark-700 bg-dark-800 bg-opacity-25'
                   "
                   v-for="(ico, key) of categories[category]"
                   :key="key"
@@ -408,13 +408,13 @@
               </div>
               <div id="custom_icon" class="my-8 w-full">
                 <div class="relative flex items-center">
-                  <div class="flex-grow border-t border-dark-700"></div>
-                  <span class="mx-4 flex-shrink text-dark-700">OU</span>
-                  <div class="flex-grow border-t border-dark-700"></div>
+                  <div class="flex-grow border-t border-dark-800"></div>
+                  <span class="mx-4 flex-shrink text-dark-800">OU</span>
+                  <div class="flex-grow border-t border-dark-800"></div>
                 </div>
               </div>
               <div
-                class="relative col-span-2 mt-4 flex cursor-pointer items-center justify-center rounded-md bg-gray-400 bg-opacity-25 p-4 transition duration-200 ease-in hover:bg-gray-300 dark:bg-dark-700 dark:hover:bg-dark-600"
+                class="relative col-span-2 mt-4 flex cursor-pointer items-center justify-center rounded-md bg-gray-400 bg-opacity-25 p-4 transition duration-200 ease-in hover:bg-gray-300 dark:bg-dark-800 dark:hover:bg-dark-700"
               >
                 Upload icon
                 <input
@@ -424,13 +424,80 @@
                   @change="(e) => uploadFile(e)"
                 />
               </div>
-            </div>
+            </Card>
           </ToolsStep>
-          <ToolsStep :step-id="3" name="Taille de l'icone">
-            <div
-              class="items-center rounded-lg bg-white p-8 shadow-lg dark:bg-dark-800"
-            >
-              <div class="flex w-full flex-col space-y-2 p-2">
+          <ToolsStep :step-id="3" name="Paramètres">
+            <Card class="items-center">
+              <ToolsDiscordEmbedCreatorCollapseCard
+                class="mb-2 rounded-lg bg-gray-200 dark:bg-dark-800"
+                name="Paramètre du fond"
+              >
+                <div class="mb-2 text-sm font-medium">Couleur du fond</div>
+                <ClientOnly>
+                  <div class="flex">
+                    <ColorPicker v-model="primaryColor"></ColorPicker>
+                    <div class="grid grid-cols-10 gap-2">
+                      <div
+                        class="flex h-7 w-7 cursor-pointer items-center justify-center rounded-md"
+                        v-for="(color, index) in defaultColors"
+                        :key="index"
+                        :style="`background: ${color};`"
+                        @click="primaryColor = color"
+                      >
+                        <CheckIcon
+                          v-if="primaryColor == color"
+                          class="h-6 w-6"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </ClientOnly>
+
+                <div class="mt-3 flex items-center justify-between gap-4">
+                  <div class="text-sm font-medium">Dégradé</div>
+                  <Toggle v-model="shapeGradient" />
+                </div>
+                <ClientOnly>
+                  <div class="relative mt-2">
+                    <div class="mb-2 flex">
+                      <ColorPicker v-model="shapeGradientColor"></ColorPicker>
+                      <div class="grid grid-cols-10 gap-2">
+                        <div
+                          class="flex h-7 w-7 cursor-pointer items-center justify-center rounded-md"
+                          v-for="(color, index) in defaultColors"
+                          :key="index"
+                          :style="`background: ${color};`"
+                          @click="shapeGradientColor = color"
+                        >
+                          <CheckIcon
+                            v-if="shapeGradientColor == color"
+                            class="h-6 w-6"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <label for="gradient_angle">Angle du dégradé</label>
+                    <input
+                      id="gradient_angle"
+                      v-model="shapeGradientAngle"
+                      type="range"
+                      class="mt-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-300 dark:bg-dark-700"
+                      min="0"
+                      max="180"
+                      step="0.1"
+                    />
+                    <div
+                      :class="shapeGradient && 'pointer-events-none opacity-0'"
+                      class="absolute left-0 top-0 h-full w-full bg-gray-200 bg-opacity-75 backdrop-blur-sm duration-200 ease-in dark:bg-dark-800 dark:bg-opacity-75"
+                    ></div>
+                  </div>
+                </ClientOnly>
+              </ToolsDiscordEmbedCreatorCollapseCard>
+              <ToolsDiscordEmbedCreatorCollapseCard
+                class="mb-2 rounded-lg bg-gray-200 dark:bg-dark-800"
+                name="Paramètres de l'icone"
+              >
+                <div class="mb-2 text-sm font-medium">Taille de l'icone</div>
                 <input
                   v-model="multiply"
                   type="range"
@@ -439,97 +506,121 @@
                   max="6"
                   step="0.1"
                 />
-              </div>
-            </div>
-          </ToolsStep>
-          <ToolsStep :step-id="4" name="Position de l'icone">
-            <div
-              class="items-center rounded-lg bg-white p-8 shadow-lg dark:bg-dark-800"
-            >
-              <div class="flex w-full flex-col p-2">
-                <div class="mb-8 flex items-center justify-center gap-2">
-                  <label for="offset_x">X</label>
-                  <input
-                    id="offset_x"
-                    v-model="offset_x"
-                    type="range"
-                    class="w-full cursor-pointer appearance-none rounded-lg bg-gray-300 dark:bg-dark-700"
-                    min="-100"
-                    max="100"
-                    step="0.1"
-                  />
-                  <label for="offset_y">Y</label>
-                  <input
-                    id="offset_y"
-                    v-model="offset_y"
-                    type="range"
-                    class="w-full cursor-pointer appearance-none rounded-lg bg-gray-300 dark:bg-dark-700"
-                    min="-100"
-                    max="100"
-                    step="0.1"
-                  />
-                </div>
-                <Button
-                  text="Centrer l'icone"
-                  @click="
-                    offset_x = 0;
-                    offset_y = 0;
-                  "
-                  color="primary"
-                  :centerText="true"
-                />
-              </div>
-            </div>
-          </ToolsStep>
-          <ToolsStep :step-id="5" name="Couleurs">
-            <div
-              class="flex flex-col items-start gap-12 rounded-lg bg-white p-8 shadow-lg dark:bg-dark-800"
-            >
-              <ClientOnly>
-                <div class="flex">
-                  <ColorPicker v-model="primaryColor"></ColorPicker>
-                  <div class="grid grid-cols-10 gap-2">
-                    <div
-                      class="flex h-7 w-7 cursor-pointer items-center justify-center rounded-md"
-                      v-for="(color, index) in defaultColors"
-                      :key="index"
-                      :style="`background: ${color};`"
-                      @click="primaryColor = color"
-                    >
-                      <CheckIcon v-if="primaryColor == color" class="h-6 w-6" />
-                    </div>
+
+                <div class="mt-3 text-sm font-medium">Position de l'icone</div>
+                <div class="flex w-full flex-col p-2">
+                  <div class="mb-8 flex items-center justify-center gap-2">
+                    <label for="offset_x">X</label>
+                    <input
+                      id="offset_x"
+                      v-model="offset_x"
+                      type="range"
+                      class="w-full cursor-pointer appearance-none rounded-lg bg-gray-300 dark:bg-dark-700"
+                      min="-100"
+                      max="100"
+                      step="0.1"
+                    />
+                    <label for="offset_y">Y</label>
+                    <input
+                      id="offset_y"
+                      v-model="offset_y"
+                      type="range"
+                      class="w-full cursor-pointer appearance-none rounded-lg bg-gray-300 dark:bg-dark-700"
+                      min="-100"
+                      max="100"
+                      step="0.1"
+                    />
                   </div>
+                  <Button
+                    text="Centrer l'icone"
+                    @click="
+                      offset_x = 0;
+                      offset_y = 0;
+                    "
+                    color="primary"
+                    :centerText="true"
+                  />
                 </div>
-              </ClientOnly>
-              <ClientOnly v-if="duo_tone && !uploadedIcon">
-                <div class="flex">
-                  <ColorPicker v-model="secondaryColor"></ColorPicker>
-                  <div class="grid grid-cols-10 gap-2">
-                    <div
-                      class="flex h-7 w-7 cursor-pointer items-center justify-center rounded-md"
-                      v-for="(color, index) in defaultColors"
-                      :key="index"
-                      :style="`background: ${color};`"
-                      @click="secondaryColor = color"
-                    >
-                      <CheckIcon
-                        v-if="secondaryColor == color"
-                        class="h-6 w-6"
+
+                <div class="mt-3 flex items-center justify-between gap-4">
+                  <div class="text-sm font-medium">Couleur de l'icone</div>
+                  <Toggle v-model="duo_tone" />
+                </div>
+                <ClientOnly>
+                  <div class="relative mt-2">
+                    <div class="flex">
+                      <ColorPicker v-model="secondaryColor"></ColorPicker>
+                      <div class="grid grid-cols-10 gap-2">
+                        <div
+                          class="flex h-7 w-7 cursor-pointer items-center justify-center rounded-md"
+                          v-for="(color, index) in defaultColors"
+                          :key="index"
+                          :style="`background: ${color};`"
+                          @click="secondaryColor = color"
+                        >
+                          <CheckIcon
+                            v-if="secondaryColor == color"
+                            class="h-6 w-6"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mt-3 flex items-center justify-between gap-4">
+                      <div class="text-sm font-medium">Dégradé</div>
+                      <Toggle v-model="iconGradient" />
+                    </div>
+
+                    <div class="relative">
+                      <div class="mb-2 flex">
+                        <ColorPicker v-model="iconGradientColor"></ColorPicker>
+                        <div class="grid grid-cols-10 gap-2">
+                          <div
+                            class="flex h-7 w-7 cursor-pointer items-center justify-center rounded-md"
+                            v-for="(color, index) in defaultColors"
+                            :key="index"
+                            :style="`background: ${color};`"
+                            @click="iconGradientColor = color"
+                          >
+                            <CheckIcon
+                              v-if="iconGradientColor == color"
+                              class="h-6 w-6"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <label for="gradient_angle">Angle du dégradé</label>
+                      <input
+                        id="gradient_angle"
+                        v-model="iconGradientAngle"
+                        type="range"
+                        class="mt-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-300 dark:bg-dark-700"
+                        min="0"
+                        max="180"
+                        step="0.1"
                       />
+                      <div
+                        :class="iconGradient && 'pointer-events-none opacity-0'"
+                        class="absolute left-0 top-0 h-full w-full bg-gray-200 bg-opacity-75 backdrop-blur-sm duration-200 ease-in dark:bg-dark-800 dark:bg-opacity-75"
+                      ></div>
                     </div>
+                    <div
+                      :class="
+                        duo_tone &&
+                        !uploadedIcon &&
+                        'pointer-events-none opacity-0'
+                      "
+                      class="absolute left-0 top-0 h-full w-full bg-gray-200 bg-opacity-75 backdrop-blur-sm duration-200 ease-in dark:bg-dark-800 dark:bg-opacity-75"
+                    ></div>
                   </div>
-                </div>
-              </ClientOnly>
-              <div class="flex items-center gap-4">
-                <Toggle v-model="duo_tone" />
-                Bicolore
-              </div>
-            </div>
+                </ClientOnly>
+              </ToolsDiscordEmbedCreatorCollapseCard>
+            </Card>
           </ToolsStep>
         </div>
         <div>
           <div
-            class="relative hidden w-full flex-col gap-4 overflow-y-auto bg-white p-8 shadow-xl dark:bg-dark-800 lg:sticky lg:top-12 lg:flex lg:max-h-screen-padding lg:rounded-2xl"
+            class="relative hidden w-full flex-col gap-4 overflow-y-auto bg-white p-8 shadow-xl dark:bg-dark-900 lg:sticky lg:top-12 lg:flex lg:max-h-screen-padding lg:rounded-2xl"
           >
             <div
               class="flex gap-3 bg-[#FAFAFA] p-8 dark:bg-[#36393F] lg:rounded-2xl"
@@ -554,45 +645,78 @@
                       :viewBox="`0 0 ${shapeWidth} ${shapeHeight}`"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      <mask id="mask" v-if="!duo_tone">
-                        <rect
-                          x="0"
-                          y="0"
-                          width="250"
-                          height="250"
-                          fill="white"
-                        />
-                        <g
-                          v-if="!uploadedIcon"
-                          :style="`filter: brightness(0); transform: translate(${
-                            shapeWidth / 2 -
-                            (icons[icon]().width * multiply) / 2 +
-                            Number(offset_x)
-                          }px, ${
-                            shapeHeight / 2 -
-                            (icons[icon]().height * multiply) / 2 +
-                            Number(offset_y)
-                          }px) scale(${multiply});`"
-                          v-html="icons[icon]('#000').svg"
-                        ></g>
-                        <image
-                          v-else
-                          width="64"
-                          height="64"
-                          :href="uploadedIcon"
-                          :style="`filter: brightness(0); transform: translate(${
-                            shapeWidth / 2 -
-                            (64 * multiply) / 2 +
-                            Number(offset_x)
-                          }px, ${
-                            shapeHeight / 2 -
-                            (64 * multiply) / 2 +
-                            Number(offset_y)
-                          }px) scale(${multiply});`"
-                        />
-                      </mask>
+                      <defs>
+                        <linearGradient
+                          id="gradient"
+                          :gradientTransform="`rotate(${shapeGradientAngle})`"
+                        >
+                          <stop
+                            offset="0%"
+                            :style="`stop-color: ${primaryColor}`"
+                          ></stop>
+                          <stop
+                            offset="100%"
+                            :style="`stop-color: ${shapeGradientColor}`"
+                          ></stop>
+                        </linearGradient>
+                        <linearGradient
+                          id="gradientIcon"
+                          :gradientTransform="`rotate(${iconGradientAngle})`"
+                        >
+                          <stop
+                            offset="0%"
+                            :style="`stop-color: ${secondaryColor}`"
+                          ></stop>
+                          <stop
+                            offset="100%"
+                            :style="`stop-color: ${iconGradientColor}`"
+                          ></stop>
+                        </linearGradient>
+                        <mask id="mask" v-if="!duo_tone">
+                          <rect
+                            x="0"
+                            y="0"
+                            width="250"
+                            height="250"
+                            fill="white"
+                          />
+                          <g
+                            v-if="!uploadedIcon"
+                            :style="`filter: brightness(0); transform: translate(${
+                              shapeWidth / 2 -
+                              (icons[icon]().width * multiply) / 2 +
+                              Number(offset_x)
+                            }px, ${
+                              shapeHeight / 2 -
+                              (icons[icon]().height * multiply) / 2 +
+                              Number(offset_y)
+                            }px) scale(${multiply});`"
+                            v-html="icons[icon]('#000').svg"
+                          ></g>
+                          <image
+                            v-else
+                            width="64"
+                            height="64"
+                            :href="uploadedIcon"
+                            :style="`filter: brightness(0); transform: translate(${
+                              shapeWidth / 2 -
+                              (64 * multiply) / 2 +
+                              Number(offset_x)
+                            }px, ${
+                              shapeHeight / 2 -
+                              (64 * multiply) / 2 +
+                              Number(offset_y)
+                            }px) scale(${multiply});`"
+                          />
+                        </mask>
+                      </defs>
                       <g
-                        v-html="shapes[shape](primaryColor)[0]"
+                        v-html="
+                          shapes[shape](
+                            shapeGradient ? 'url(#gradient)' : primaryColor,
+                            primaryColor
+                          )[0]
+                        "
                         ref="shapeDraw"
                       ></g>
                       <g
@@ -606,7 +730,11 @@
                           (icons[icon]().height * multiply) / 2 +
                           Number(offset_y)
                         }px) scale(${multiply});`"
-                        v-html="icons[icon](secondaryColor).svg"
+                        v-html="
+                          icons[icon](
+                            iconGradient ? 'url(#gradientIcon)' : secondaryColor
+                          ).svg
+                        "
                       ></g>
                       <image
                         v-else-if="duo_tone && uploadedIcon"
@@ -656,34 +784,70 @@
                 :viewBox="`0 0 ${shapeWidth} ${shapeHeight}`"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <mask id="mask" v-if="!duo_tone">
-                  <rect x="0" y="0" width="250" height="250" fill="white" />
-                  <g
-                    v-if="!uploadedIcon"
-                    :style="`filter: brightness(0); transform: translate(${
-                      shapeWidth / 2 -
-                      (icons[icon]().width * multiply) / 2 +
-                      Number(offset_x)
-                    }px, ${
-                      shapeHeight / 2 -
-                      (icons[icon]().height * multiply) / 2 +
-                      Number(offset_y)
-                    }px) scale(${multiply});`"
-                    v-html="icons[icon]('#000').svg"
-                  ></g>
-                  <image
-                    v-else
-                    width="64"
-                    height="64"
-                    :href="uploadedIcon"
-                    :style="`filter: brightness(0); transform: translate(${
-                      shapeWidth / 2 - (64 * multiply) / 2 + Number(offset_x)
-                    }px, ${
-                      shapeHeight / 2 - (64 * multiply) / 2 + Number(offset_y)
-                    }px) scale(${multiply});`"
-                  />
-                </mask>
-                <g v-html="shapes[shape](primaryColor)[0]" ref="shapeDraw"></g>
+                <defs>
+                  <linearGradient
+                    id="gradient"
+                    :gradientTransform="`rotate(${shapeGradientAngle})`"
+                  >
+                    <stop
+                      offset="0%"
+                      :style="`stop-color: ${primaryColor}`"
+                    ></stop>
+                    <stop
+                      offset="100%"
+                      :style="`stop-color: ${shapeGradientColor}`"
+                    ></stop>
+                  </linearGradient>
+                  <linearGradient
+                    id="gradientIcon"
+                    :gradientTransform="`rotate(${iconGradientAngle})`"
+                  >
+                    <stop
+                      offset="0%"
+                      :style="`stop-color: ${secondaryColor}`"
+                    ></stop>
+                    <stop
+                      offset="100%"
+                      :style="`stop-color: ${iconGradientColor}`"
+                    ></stop>
+                  </linearGradient>
+                  <mask id="mask" v-if="!duo_tone">
+                    <rect x="0" y="0" width="250" height="250" fill="white" />
+                    <g
+                      v-if="!uploadedIcon"
+                      :style="`filter: brightness(0); transform: translate(${
+                        shapeWidth / 2 -
+                        (icons[icon]().width * multiply) / 2 +
+                        Number(offset_x)
+                      }px, ${
+                        shapeHeight / 2 -
+                        (icons[icon]().height * multiply) / 2 +
+                        Number(offset_y)
+                      }px) scale(${multiply});`"
+                      v-html="icons[icon]('#000').svg"
+                    ></g>
+                    <image
+                      v-else
+                      width="64"
+                      height="64"
+                      :href="uploadedIcon"
+                      :style="`filter: brightness(0); transform: translate(${
+                        shapeWidth / 2 - (64 * multiply) / 2 + Number(offset_x)
+                      }px, ${
+                        shapeHeight / 2 - (64 * multiply) / 2 + Number(offset_y)
+                      }px) scale(${multiply});`"
+                    />
+                  </mask>
+                </defs>
+                <g
+                  v-html="
+                    shapes[shape](
+                      shapeGradient ? 'url(#gradient)' : primaryColor,
+                      primaryColor
+                    )[0]
+                  "
+                  ref="shapeDraw"
+                ></g>
                 <g
                   v-if="duo_tone && !uploadedIcon"
                   :style="`transform: translate(${
@@ -695,7 +859,11 @@
                     (icons[icon]().height * multiply) / 2 +
                     Number(offset_y)
                   }px) scale(${multiply});`"
-                  v-html="icons[icon](secondaryColor).svg"
+                  v-html="
+                    icons[icon](
+                      iconGradient ? 'url(#gradientIcon)' : secondaryColor
+                    ).svg
+                  "
                 ></g>
                 <image
                   v-else-if="duo_tone && uploadedIcon"
@@ -732,7 +900,7 @@
               <div
                 v-for="(guild, key) of guilds"
                 :key="key"
-                class="mb-2 flex items-center justify-between gap-2 rounded-lg bg-gray-200 py-2 pl-4 pr-2 dark:bg-dark-700"
+                class="mb-2 flex items-center justify-between gap-2 rounded-lg bg-gray-200 py-2 pl-4 pr-2 dark:bg-dark-800"
               >
                 <div class="flex items-center gap-4">
                   <img
@@ -759,7 +927,7 @@
                 liste.
               </div>
               <div
-                class="flex items-center justify-between gap-2 rounded-lg bg-gray-200 p-4 dark:bg-dark-700"
+                class="flex items-center justify-between gap-2 rounded-lg bg-gray-200 p-4 dark:bg-dark-800"
               >
                 <div class="flex items-center gap-4">
                   <img
@@ -783,7 +951,7 @@
               <div
                 v-for="(role, id) of roles"
                 :key="id"
-                class="mb-2 flex items-center justify-between rounded-md bg-gray-200 p-4 dark:bg-dark-700"
+                class="mb-2 flex items-center justify-between rounded-md bg-gray-200 p-4 dark:bg-dark-800"
               >
                 <div class="flex items-center gap-2">
                   <img
@@ -1211,6 +1379,15 @@ export default {
     offset_y: 0,
     category: "",
     mobile_preview_open: false,
+
+    shapeGradient: false,
+    shapeGradientColor: "#FFFFFF",
+    shapeGradientAngle: 0,
+    iconGradient: false,
+    iconGradientColor: "#FFFFFF",
+    iconGradientAngle: 0,
+
+    angle: 180,
   }),
   async mounted() {
     this.guilds = localStorage.getItem("user_guilds")

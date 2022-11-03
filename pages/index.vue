@@ -68,7 +68,11 @@
       >
         <div
           @click="currentCategory = null"
-          :class="currentCategory === null && 'bg-primary-500 text-white'"
+          :class="
+            currentCategory === null
+              ? 'bg-primary-500 text-white'
+              : 'hover:bg-gray-200 hover:dark:bg-dark-800'
+          "
           class="flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition duration-200 ease-in"
         >
           Tout les outils
@@ -77,7 +81,11 @@
           @click="currentCategory = category"
           v-for="(category, index) of categories"
           :key="index"
-          :class="currentCategory === category && 'bg-primary-500 text-white'"
+          :class="
+            currentCategory === category
+              ? 'bg-primary-500 text-white'
+              : 'hover:bg-gray-200 hover:dark:bg-dark-800'
+          "
           class="flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold capitalize transition duration-200 ease-in dark:text-white"
         >
           {{ category }}
@@ -112,7 +120,7 @@
           class="mx-auto"
           color="primary"
           :small="true"
-          text="Voir les autres outils"
+          text="Voir d'autres outils dans cette catégorie"
         />
       </NuxtLink>
     </section>

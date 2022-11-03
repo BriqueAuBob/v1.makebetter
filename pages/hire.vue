@@ -126,8 +126,8 @@
             v-for="(job, index) of category.jobs"
             :key="index"
           >
-            <Card>
-              <div class="flex h-full flex-col justify-between p-8">
+            <Card class="h-full" :hover="true">
+              <div class="flex h-full flex-col justify-between">
                 <div>
                   <div class="text-xl font-semibold">{{ job.name }}</div>
                   <div class="text-md mt-2">{{ job.description }}</div>

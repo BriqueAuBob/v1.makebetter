@@ -9,6 +9,7 @@
       ></div>
       <Avatar
         class="z-10 border-white"
+        v-if="user"
         :src="user?.avatar"
         :user="user"
         size="xl"
@@ -70,6 +71,10 @@
             <span class="font-medium">{{
               log.tool === "discord_embed"
                 ? "Créateur d'embeds"
+                : log.tool === "md_editor"
+                ? "Editeur Markdown"
+                : log.tool === "emoji_maker"
+                ? "Créateur d'emojis"
                 : "Créateur de badges"
             }}</span>
           </div>
@@ -92,7 +97,7 @@
         <div class="mt-4 mb-2 font-medium text-gray-400">
           Tu n'as jamais utilisé nos outils...
         </div>
-        <NuxtLink to="/#tools">
+        <NuxtLink to="/tools">
           <Button text="Trouver un outil" :small="true" color="secondary" />
         </NuxtLink>
       </div>
@@ -245,7 +250,8 @@ export default {
   },
   computed: {
     logsFilter() {
-      return this.logs.splice(0, this.length);
+      const copy = [...this.logs];
+      return copy.slice(0, this.length);
     },
   },
   async mounted() {
@@ -253,7 +259,7 @@ export default {
 
     try {
       const { data } = await axios.get("auth/user/logs");
-      this.logs = data.usages;
+      this.logs = data.usages.sort((a, b) => b.id - a.id);
     } catch (e) {
       console.log(e);
     }

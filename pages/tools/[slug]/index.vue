@@ -89,11 +89,18 @@
         <span class="capitalize">{{ $route.params.slug }}</span>
       </div>
       <div class="mt-8 grid gap-8 lg:grid-cols-2 xl:grid-cols-3">
-        <div v-if="toolsRelations?.length <= 0" class="col-span-3 mt-4">
+        <div
+          v-if="toolsRelations === undefined || toolsRelations?.length <= 0"
+          class="col-span-3 mt-4"
+        >
           <Empty text="Nous n'avons pas trouvé d'outils supplémentaires..." />
         </div>
-        <div v-else v-for="(tool, index) of toolsRelations" :key="index">
-          <NuxtLink :to="`/tools/${tool.path}`">
+        <div v-else>
+          <NuxtLink
+            v-for="(tool, index) of toolsRelations"
+            :key="index"
+            :to="`/tools/${tool.path}`"
+          >
             <component :is="{ ...tool.card }" />
           </NuxtLink>
         </div>

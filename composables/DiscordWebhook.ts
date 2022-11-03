@@ -19,7 +19,6 @@ export const checkWebhookValidity = async (webhook: string) => {
 };
 
 export const sendMessage = async (webhook: string, data: any) => {
-  console.log(data);
   for (const message of data) {
     const form = new FormData();
     form.append(

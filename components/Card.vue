@@ -1,7 +1,13 @@
 <template>
   <div
-    class="h-full cursor-pointer rounded-3xl shadow-lg duration-300 ease-in hover:-translate-y-1 hover:shadow-2xl"
-    :class="color && 'bg-white dark:bg-dark-900 hover:dark:bg-dark-800'"
+    class="rounded-lg shadow-lg"
+    :class="[
+      hover &&
+        'cursor-pointer duration-300 ease-in hover:-translate-y-1 hover:shadow-2xl',
+      color && 'bg-white dark:bg-dark-900',
+      hover && color && 'hover:dark:bg-dark-800',
+      padding && 'p-8',
+    ]"
   >
     <slot></slot>
   </div>
@@ -11,6 +17,14 @@
 export default {
   props: {
     color: {
+      type: Boolean,
+      default: true,
+    },
+    hover: {
+      type: Boolean,
+      default: false,
+    },
+    padding: {
       type: Boolean,
       default: true,
     },

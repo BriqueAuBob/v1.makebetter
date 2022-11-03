@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    :to="`https://discord.com/channels/905842698626428928/1015968524923052083/${id}`"
+    :to="`https://discord.com/channels/977507903307145216/1011729746062737560/${id}`"
     target="_blank"
   >
     <div
@@ -17,7 +17,7 @@
         <div
           v-for="(reaction, index) of reactions"
           :key="index"
-          class="mt-4 flex gap-1 rounded-md bg-gray-200 bg-opacity-50 px-2 py-1 dark:bg-dark-800"
+          class="mt-4 flex gap-1 rounded-md bg-gray-200 bg-opacity-50 px-2 py-1 dark:bg-dark-700"
         >
           {{ reaction.emoji.name }}
           {{ reaction.count }}

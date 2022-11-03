@@ -169,8 +169,7 @@ export default {
       },
       {
         name: "Outils",
-        href: "/",
-        hash: "#tools",
+        href: "/tools",
       },
       {
         name: "Suggestions",

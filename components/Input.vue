@@ -7,7 +7,7 @@
         big ? 'text-md px-6 py-5' : 'px-6 py-4 text-sm',
         white
           ? 'bg-white text-black'
-          : 'border-dark-800 bg-transparent focus:border-primary-500 focus:bg-white dark:focus:bg-dark-900',
+          : 'border-dark-500 bg-transparent focus:border-primary-500 focus:bg-white dark:focus:bg-dark-900',
         classes,
       ]"
       class="w-full rounded-lg border text-sm focus:outline-none"
