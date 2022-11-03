@@ -462,6 +462,9 @@ export default {
     CheckIcon,
     ColorPicker,
   },
+  head: {
+    title: "Créateur d'emojis",
+  },
   data: () => ({
     type: "text",
     image: null,
