@@ -51,6 +51,32 @@
               <template #bin>
                 <button
                   @click="
+                    () =>
+                      messages.splice(
+                        msgIndex + 1,
+                        0,
+                        messages.splice(msgIndex, 1)[0]
+                      )
+                  "
+                  class="p-2"
+                >
+                  <ArrowDownIcon class="h-6 w-6" />
+                </button>
+                <button
+                  @click="
+                    () =>
+                      messages.splice(
+                        msgIndex - 1,
+                        0,
+                        messages.splice(msgIndex, 1)[0]
+                      )
+                  "
+                  class="p-2"
+                >
+                  <ArrowUpIcon class="h-6 w-6" />
+                </button>
+                <button
+                  @click="
                     () => {
                       messages.splice(msgIndex, 1);
                     }
@@ -63,7 +89,7 @@
               <div>
                 <Menu as="div" class="relative inline-block text-left">
                   <MenuButton
-                    class="flex cursor-pointer items-center gap-6 rounded-xl bg-white p-8 shadow-lg duration-200 ease-in hover:-translate-y-1 hover:shadow-xl dark:bg-dark-800 dark:hover:bg-dark-700"
+                    class="flex cursor-pointer items-center gap-6 rounded-xl bg-white p-8 shadow-lg duration-200 ease-in hover:-translate-y-1 hover:shadow-xl dark:bg-dark-900 dark:hover:bg-dark-800"
                   >
                     <ArrowUpTrayIcon class="h-8 w-8" />
                     <div class="flex flex-col gap-2 text-left">
@@ -86,7 +112,7 @@
                     leave-to-class="transform scale-95 opacity-0"
                   >
                     <MenuItems
-                      class="absolute left-0 z-10 mt-2 w-full origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-dark-800"
+                      class="absolute left-0 z-10 mt-2 w-full origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-dark-900"
                     >
                       <div class="flex flex-col gap-1 p-2">
                         <div>
@@ -169,7 +195,7 @@
                   class="relative shadow-sm duration-200 ease-in hover:-translate-y-1 hover:shadow-xl"
                 >
                   <div
-                    class="flex w-full items-center gap-2 rounded-md border-2 border-dashed border-dark-400 bg-white p-6 text-sm font-semibold shadow-lg duration-200 ease-in focus:outline-none dark:border-dark-700 dark:bg-dark-800 dark:text-dark-300"
+                    class="flex w-full items-center gap-2 rounded-md border-2 border-dashed border-dark-400 bg-white p-6 text-sm font-semibold shadow-lg duration-200 ease-in focus:outline-none dark:border-dark-700 dark:bg-dark-900 dark:text-dark-300"
                   >
                     <ArrowUpTrayIcon class="h-8 w-8" />
                     <span class="ml-2">{{
@@ -223,16 +249,32 @@
               >
                 <div class="flex flex-col gap-4">
                   <ToolsDiscordEmbedCreatorCollapseCard
-                    class="rounded-l-md rounded-r-lg border-l-4 bg-white shadow-xl dark:bg-dark-800"
+                    class="rounded-l-md rounded-r-lg border-l-4 bg-white shadow-xl dark:bg-dark-900"
                     v-for="(embed, id) in message.embeds"
                     :key="id"
                     :name="`Embed n°${id + 1}`"
                     :trash="() => message.embeds.splice(id, 1)"
+                    :up="
+                      () =>
+                        message.embeds.splice(
+                          id - 1,
+                          0,
+                          message.embeds.splice(id, 1)[0]
+                        )
+                    "
+                    :down="
+                      () =>
+                        message.embeds.splice(
+                          id + 1,
+                          0,
+                          message.embeds.splice(id, 1)[0]
+                        )
+                    "
                     :style="`border-color: ${embed.color}`"
                   >
                     <div class="flex flex-col gap-4">
                       <ToolsDiscordEmbedCreatorCollapseCard
-                        class="rounded-lg bg-gray-100 dark:bg-dark-700"
+                        class="rounded-lg bg-gray-100 dark:bg-dark-800"
                         name="Auteur"
                       >
                         <Input
@@ -251,7 +293,7 @@
                         />
                       </ToolsDiscordEmbedCreatorCollapseCard>
                       <ToolsDiscordEmbedCreatorCollapseCard
-                        class="rounded-lg bg-gray-100 dark:bg-dark-700"
+                        class="rounded-lg bg-gray-100 dark:bg-dark-800"
                         name="Corps de l'embed"
                       >
                         <Input placeholder="Titre..." v-model="embed.title" />
@@ -286,7 +328,7 @@
                         </div>
                       </ToolsDiscordEmbedCreatorCollapseCard>
                       <ToolsDiscordEmbedCreatorCollapseCard
-                        class="rounded-lg bg-gray-100 dark:bg-dark-700"
+                        class="rounded-lg bg-gray-100 dark:bg-dark-800"
                         name="Fields"
                       >
                         <ToolsDiscordEmbedCreatorCollapseCard
@@ -314,7 +356,7 @@
                         />
                       </ToolsDiscordEmbedCreatorCollapseCard>
                       <ToolsDiscordEmbedCreatorCollapseCard
-                        class="rounded-lg bg-gray-100 dark:bg-dark-700"
+                        class="rounded-lg bg-gray-100 dark:bg-dark-800"
                         name="Images"
                       >
                         <Input
@@ -341,7 +383,7 @@
                         </div>
                       </ToolsDiscordEmbedCreatorCollapseCard>
                       <ToolsDiscordEmbedCreatorCollapseCard
-                        class="rounded-lg bg-gray-100 dark:bg-dark-700"
+                        class="rounded-lg bg-gray-100 dark:bg-dark-800"
                         name="Footer"
                       >
                         <Input
@@ -379,7 +421,7 @@
                 <div>
                   <div class="flex flex-col gap-4">
                     <ToolsDiscordEmbedCreatorCollapseCard
-                      class="rounded-l-md rounded-r-lg bg-white shadow-xl dark:bg-dark-700"
+                      class="rounded-l-md rounded-r-lg bg-white shadow-xl dark:bg-dark-800"
                       v-for="(button, id) in message?.components[0]?.components"
                       :key="id"
                       :name="`Bouton n°${id + 1}`"
@@ -652,7 +694,7 @@
             </TransitionChild>
           </TransitionRoot>
           <div
-            class="fixed bottom-8 right-12 flex h-24 w-24 items-center justify-center rounded-full bg-dark-800 duration-200 ease-in hover:scale-125 hover:bg-dark-700 lg:hidden"
+            class="fixed bottom-8 right-12 flex h-24 w-24 items-center justify-center rounded-full bg-dark-900 duration-200 ease-in hover:scale-125 hover:bg-dark-700 lg:hidden"
             @click="toggleMobilePreview"
           >
             <EyeIcon class="h-12 w-12" />
@@ -681,6 +723,8 @@ import {
   TrashIcon,
   EyeIcon,
   CheckIcon,
+  ArrowDownIcon,
+  ArrowUpIcon,
 } from "@heroicons/vue/24/outline/esm/index.js";
 import {
   sendMessage,
@@ -706,6 +750,8 @@ export default {
     CubeIcon,
     TrashIcon,
     EyeIcon,
+    ArrowDownIcon,
+    ArrowUpIcon,
   },
   head: {
     title: "Créateur d'embed",

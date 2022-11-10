@@ -3,6 +3,12 @@
     <div class="flex items-center justify-between font-semibold">
       {{ name }}
       <div class="flex items-center gap-1">
+        <button v-if="down" @click="down" class="p-2">
+          <ArrowDownIcon class="h-6 w-6" />
+        </button>
+        <button v-if="up" @click="up" class="p-2">
+          <ArrowUpIcon class="h-6 w-6" />
+        </button>
         <button v-if="trash" @click="trash" class="p-2">
           <TrashIcon class="h-6 w-6" />
         </button>
@@ -27,10 +33,12 @@
 import {
   ChevronDownIcon,
   TrashIcon,
+  ArrowDownIcon,
+  ArrowUpIcon,
 } from "@heroicons/vue/24/outline/esm/index.js";
 
 export default {
-  components: { ChevronDownIcon, TrashIcon },
+  components: { ChevronDownIcon, TrashIcon, ArrowDownIcon, ArrowUpIcon },
   data: () => ({
     open: false,
   }),
@@ -39,6 +47,12 @@ export default {
       type: String,
     },
     trash: {
+      type: Function,
+    },
+    up: {
+      type: Function,
+    },
+    down: {
       type: Function,
     },
   },
