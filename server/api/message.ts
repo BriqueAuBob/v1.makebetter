@@ -5,7 +5,7 @@ export default defineEventHandler(async (event) => {
 const query = getQuery(event)
 const url = query.url
 const elements = url.split("/")
-const urlApi = ˋhttps://discord.com/api/v9/channels/${elements[5]}/messages/${elements[6]}`
+const urlApi = `https://discord.com/api/v9/channels/${elements[5]}/messages/${elements[6]}`
     const { data } = await axios.get(urlApi, {
         headers: {
             Authorization: 'Bot ' + bot_token,
