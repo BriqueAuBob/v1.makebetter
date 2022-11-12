@@ -9,5 +9,5 @@ const url = query.url
             Authorization: 'Bot ' + bot_token
         }
     });
-    return {...data, ...data.author};
+    return data;
 })
