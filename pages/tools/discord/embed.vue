@@ -946,7 +946,7 @@ export default {
         !value ||
         (!value.match &&
           !value.match(
-            /^(https:\/\/discord.com\/channels\/\d{18}\/\d{18}\/messages\/\d{18})$/
+            /^(https:\/\/discord.com\/channels\/\d{18}\/\d{18}\/\d{18})$/
           ))
       )
         return false;
