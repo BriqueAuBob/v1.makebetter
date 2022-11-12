@@ -45,6 +45,6 @@ export const sendMessage = async (webhook: string, data: any) => {
 };
 
 export const fetchMessage = async (url: string) => {
-  const { data } = await axios.get("/api/message", { params: { url } });
+  const { data } = await axios.get("/api/message?url=" + url);
   return data;
 };
