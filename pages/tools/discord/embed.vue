@@ -942,14 +942,14 @@ export default {
     },
     loadMessageFromUrl(e) {
       const value = typeof e === "string" ? e : e.target.value;
-      if (
+    /*  if (
         !value ||
         (!value.match &&
           !value.match(
             /^(https:\/\/discord.com\/channels\/\d{18}\/\d{18}\/\d{18})$/
           ))
       )
-        return false;
+        return false;*/
       fetchMessage(value).then((message) => {
         this.message = message;
       });
