@@ -118,7 +118,7 @@
                         <div>
                           <Input
                             placeholder="URL du message..."
-                            @change="loadMessageFromUrl"
+                            @change="(e) => loadMessageFromUrl(e, msgIndex)"
                           />
                         </div>
                         <div class="w-full">
@@ -940,7 +940,7 @@ export default {
         JSON.parse(localStorage.getItem("discord_embed_creator_messages")) || {}
       );
     },
-    loadMessageFromUrl(e) {
+    loadMessageFromUrl(e, msgIndex) {
       const value = typeof e === "string" ? e : e.target.value;
     /*  if (
         !value ||
@@ -951,7 +951,7 @@ export default {
       )
         return false;*/
       fetchMessage(value).then((message) => {
-        this.message = message;
+        this.messages[msgIndex] = message;
       });
     },
     setClipboardText(message) {
