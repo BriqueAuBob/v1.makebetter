@@ -6,8 +6,9 @@ const query = getQuery(event)
 const url = query.url
     const { data } = await axios.get(url, {
         headers: {
-            Authorization: 'Bot ' + bot_token
+            Authorization: 'Bot ' + bot_token,
+"Content-Type": "application/json"
         }
     });
-    return data;
+    return {data};
 })
