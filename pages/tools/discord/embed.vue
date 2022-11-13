@@ -150,7 +150,7 @@
                             ></div>
                           </div>
                         </div>
-                        <div v-if="getSavedMessages().length > 0">
+                        <div v-if="Object.keys(getSavedMessages()).length > 0">
                           <MenuItem
                             v-slot="{ active }"
                             v-for="(message, index) in getSavedMessages()"
