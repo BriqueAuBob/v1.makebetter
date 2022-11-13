@@ -120,8 +120,24 @@
                             placeholder="URL du message..."
                             @change="(e) => loadMessageFromUrl(e, msgIndex)"
                           />
+
+                          <div
+                            class="hover:shadow-x relative mt-4 shadow-sm duration-200 ease-in hover:-translate-y-1"
+                          >
+                            <div
+                              class="flex w-full items-center gap-2 rounded-md border-2 border-dashed border-dark-400 bg-white p-6 text-sm font-semibold shadow-lg duration-200 ease-in focus:outline-none dark:border-dark-700 dark:bg-dark-900 dark:text-dark-300"
+                            >
+                              <ArrowUpTrayIcon class="h-8 w-8" />
+                              <span class="ml-2">A partir d'un fichier </span>
+                            </div>
+                            <input
+                              class="absolute top-0 left-0 h-full w-full cursor-pointer opacity-0"
+                              type="file"
+                              @input="(e) => uploadMessageFile(e, msgIndex)"
+                            />
+                          </div>
                         </div>
-                        <div class="w-full">
+                        <div class="mt-4 w-full">
                           <div class="relative flex items-center">
                             <div
                               class="flex-grow border-t border-dark-700"
@@ -134,23 +150,31 @@
                             ></div>
                           </div>
                         </div>
-                        <MenuItem
-                          v-slot="{ active }"
-                          v-for="(message, index) in getSavedMessages()"
-                          :key="index"
-                        >
-                          <button
-                            :class="[
-                              active
-                                ? 'bg-blurple text-white'
-                                : 'text-gray-900 dark:text-white',
-                              'group flex w-full items-center rounded-md px-2 py-2 text-sm',
-                            ]"
-                            @click="load(msgIndex, index)"
+                        <div v-if="getSavedMessages().length > 0">
+                          <MenuItem
+                            v-slot="{ active }"
+                            v-for="(message, index) in getSavedMessages()"
+                            :key="index"
                           >
-                            {{ index }}
-                          </button>
-                        </MenuItem>
+                            <button
+                              :class="[
+                                active
+                                  ? 'bg-blurple text-white'
+                                  : 'text-gray-900 dark:text-white',
+                                'group flex w-full items-center rounded-md px-2 py-2 text-sm',
+                              ]"
+                              @click="load(msgIndex, index)"
+                            >
+                              {{ index }}
+                            </button>
+                          </MenuItem>
+                        </div>
+                        <div
+                          v-else
+                          class="p-4 text-center text-sm text-gray-400"
+                        >
+                          Vous n'avez pas encore sauvegardé de message.
+                        </div>
                       </div>
                     </MenuItems>
                   </transition>
@@ -338,8 +362,11 @@
                           :name="`Field n°${id + 1}`"
                           :trash="() => embed.fields.splice(id, 1)"
                         >
-                          <Input placeholder="Titre..." v-model="field.name" />
-                          <Input
+                          <Textarea
+                            placeholder="Titre..."
+                            v-model="field.name"
+                          />
+                          <Textarea
                             class="mt-3 mb-3"
                             placeholder="Valeur..."
                             v-model="field.value"
@@ -822,6 +849,29 @@ export default {
         ],
       },
     ],
+    defaultEmbed: {
+      color: "#F20F20",
+      title: "",
+      url: "",
+      author: {
+        name: "",
+        icon_url: "",
+        url: "",
+      },
+      description: "",
+      thumbnail: {
+        url: "",
+      },
+      fields: [],
+      image: {
+        url: "",
+      },
+      timestamp: "",
+      footer: {
+        text: "",
+        icon_url: "",
+      },
+    },
   }),
   watch: {
     webhook_url: async function (value) {
@@ -919,7 +969,15 @@ export default {
     },
     uploadFile(e, message) {
       message.files = Array.from(e.target.files);
-      console.log(message.files);
+    },
+    uploadMessageFile(e, msgIndex) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const content = new FileReader();
+      content.onload = (e) => {
+        this.messages[msgIndex] = JSON.parse(e.target.result);
+      };
+      content.readAsText(file);
     },
     save(message) {
       if (!this.savename) return;
@@ -942,16 +1000,34 @@ export default {
     },
     loadMessageFromUrl(e, msgIndex) {
       const value = typeof e === "string" ? e : e.target.value;
-    /*  if (
+      if (
         !value ||
-        (!value.match &&
-          !value.match(
-            /^(https:\/\/discord.com\/channels\/\d{18}\/\d{18}\/\d{18})$/
-          ))
+        (value.match &&
+          !value.match(/^(https:\/\/discord.com\/channels\/\d+\/\d+\/\d+)/))
       )
-        return false;*/
+        return false;
       fetchMessage(value).then((message) => {
+        message.avatar_url = `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.png?size=256`;
+        let id = 0;
+        for (let embed of message.embeds) {
+          embed = {
+            ...this.defaultEmbed,
+            ...embed,
+          };
+          if (embed.color) {
+            embed.color = "#" + embed.color.toString(16);
+          }
+          message.embeds[id] = embed;
+          id++;
+        }
+        message.components = [
+          {
+            type: 1,
+            components: [],
+          },
+        ];
         this.messages[msgIndex] = message;
+        console.log(this.messages[msgIndex]);
       });
     },
     setClipboardText(message) {
