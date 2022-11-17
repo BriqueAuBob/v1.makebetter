@@ -1026,6 +1026,13 @@ export default {
             components: [],
           },
         ];
+        // remove fields that are not needed
+        delete message.edited_timestamp;
+        delete message.flags;
+        delete message.guild_id;
+        delete message.attachments;
+        delete message.mention_everyone;
+        delete message.mention_roles;
         this.messages[msgIndex] = message;
         console.log(this.messages[msgIndex]);
       });
