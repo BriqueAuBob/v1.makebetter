@@ -423,6 +423,7 @@
                           v-model="embed.footer.icon_url"
                         />
                         <Input
+                          type="datetime-local"
                           class="mt-3"
                           placeholder="Timestamp..."
                           v-model="embed.timestamp"
@@ -947,8 +948,8 @@ export default {
         return;
       }
       for (const message of this.messages) {
-        message.username = webhookInfos.name;
-        message.avatar_url = webhookInfos.avatar
+        message.username = webhookInfos?.name;
+        message.avatar_url = webhookInfos?.avatar
           ? `https://cdn.discordapp.com/avatars/${webhookInfos.id}/${webhookInfos.avatar}.png?size=128`
           : "https://external-preview.redd.it/4PE-nlL_PdMD5PrFNLnjurHQ1QKPnCvg368LTDnfM-M.png?auto=webp&s=ff4c3fbc1cce1a1856cff36b5d2a40a6d02cc1c3";
       }
@@ -963,9 +964,17 @@ export default {
       });
     },
     load(index, loadIndex) {
-      this.messages[index] =
+      const message =
         (JSON.parse(localStorage.getItem("discord_embed_creator_messages")) ||
           [])[loadIndex] || this.messages[index];
+
+      for (const [key, embed] of Object.entries(message.embeds)) {
+        message.embeds[key] = {
+          ...this.defaultEmbed,
+          ...embed,
+        };
+      }
+      this.messages[index] = message;
     },
     uploadFile(e, message) {
       message.files = Array.from(e.target.files);

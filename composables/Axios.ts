@@ -47,6 +47,7 @@ client.interceptors.response.use(
             (error) => error.message
           );
           for (const error of errors) {
+            if (error === "E_TOO_MANY_REQUESTS: Too many requests") continue;
             $toast.show({
               type: "danger",
               message: error,

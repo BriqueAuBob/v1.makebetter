@@ -2,7 +2,7 @@
   <div>
     <input
       :placeholder="placeholder"
-      type="text"
+      :type="type"
       :class="[
         big ? 'text-md px-6 py-5' : 'px-6 py-4 text-sm',
         white
@@ -44,6 +44,10 @@ export default {
     classes: {
       type: String,
       default: "",
+    },
+    type: {
+      type: String,
+      default: "text",
     },
   },
   methods: {
