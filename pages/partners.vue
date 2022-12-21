@@ -81,11 +81,6 @@ export default {
   data: () => ({
     partners: [
       {
-        name: "Trouve Ton Staff",
-        link: "https://discord.gg/gcWzeg7kQP",
-        icon: "https://cdn.discordapp.com/attachments/932195461668950036/996444263955050516/App_Icon_3.png",
-      },
-      {
         name: "Discord Analytics",
         link: "https://discordanalytics.fr/",
         icon: "https://media.discordapp.net/attachments/717855648997441576/994001523065487360/imageonline-co-roundcorner_3.png?width=676&height=676",
