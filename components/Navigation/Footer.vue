@@ -43,7 +43,7 @@
       <div class="font-semibold">Nos réseaux</div>
       <ul class="mt-4 flex items-center gap-8 text-gray-100">
         <li>
-          <a href="https://discord.gg/umaestro" target="_blank"
+          <a href="https://discord.com/invite/aHmPAaVjHG" target="_blank"
             ><img class="w-10" src="/icons/discord.svg"
           /></a>
         </li>
