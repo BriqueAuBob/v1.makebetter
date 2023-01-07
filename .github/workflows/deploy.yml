@@ -17,9 +17,9 @@ jobs:
           fetch-depth: 0
       - run: |
           cd ..
-          rm -rf makebetter-frontend_new
-          cp -r makebetter-frontend makebetter-frontend_new
-          cd makebetter-frontend_new
+          rm -rf makebetter_new
+          cp -r makebetter makebetter_new
+          cd makebetter_new
           git checkout main
           git reset --hard origin/main
           git pull
@@ -33,15 +33,15 @@ jobs:
           # Replace current version with the new one
 
           cd ../
-          mv makebetter-frontend makebetter-frontend_old
-          mv makebetter-frontend_new makebetter-frontend
+          mv makebetter makebetter_old
+          mv makebetter_new makebetter
 
           # Restart server
 
-          cd makebetter-frontend
-          pm2 delete makebetter-frontend
-          pm2 start .output/server/index.mjs --name makebetter-frontend
-          rm -rf ../makebetter-frontend_old
+          cd makebetter
+          pm2 delete makebetter
+          pm2 start .output/server/index.mjs --name makebetter
+          rm -rf ../makebetter_old
       - uses: rjstone/discord-webhook-notify@v1
         if: success()
         with:
