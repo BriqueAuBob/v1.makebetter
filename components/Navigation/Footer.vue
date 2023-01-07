@@ -11,7 +11,7 @@
         il se pourrais que tu sois <span class="font-bold">LA</span> personne
         que l’on recherche alors n’hésite pas à postuler
       </div>
-      <NuxtLink to="/hire">
+      <NuxtLink to="https://umaestro.fr/recrutements">
         <Button
           color="white"
           text="Voir les postes disponible"
@@ -21,10 +21,9 @@
       </NuxtLink>
     </div>
     <div class="border-2 border-primary-700 px-24 py-12">
-      <div class="font-semibold">umaestro.fr</div>
+      <div class="font-semibold">createbetter.app</div>
       <p class="text-md mt-2 max-w-2xl leading-relaxed">
-        Nous sommes un groupe sur Internet, plus communément appelé Network,
-        nous proposons plusieurs projets en rapport avec le net.
+        Nous proposons divers outils pour les différentes plateformes d'Internet
         <br /><br />
         <span class="text-sm font-light text-gray-200"
           >Nous ne sommes pas affiliés avec les services pour lesquels nous
@@ -36,7 +35,6 @@
       <div class="font-semibold">Liens utiles</div>
       <ul class="mt-4 flex flex-col gap-2 text-sm text-gray-100">
         <li><NuxtLink to="/partners">Nos partenaires</NuxtLink></li>
-        <li><NuxtLink to="/hire">Recrutement</NuxtLink></li>
       </ul>
     </div>
     <div class="border-2 border-primary-700 px-24 py-12">
@@ -73,7 +71,7 @@
     <div
       class="col-span-2 flex justify-end border-2 border-primary-700 px-24 py-8"
     >
-      umaestro.fr - 2022
+      createbetter.app 2023
     </div>
 
     <img

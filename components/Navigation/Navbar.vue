@@ -9,14 +9,14 @@
           class="flex items-center gap-4 font-bold tracking-widest"
         >
           <img class="h-10" src="/logo.svg" />
-          umaestro.fr
+          createbetter.app
         </NuxtLink>
       </div>
       <ul class="hidden items-center gap-12 lg:flex">
         <NuxtLink
           v-for="(link, index) of navigation"
           :key="index"
-          :to="{ path: link.href, hash: link.hash }"
+          :to="link.href"
           class="text-gray-400"
         >
           <li class="duration-300 ease-in hover:text-white">
@@ -159,22 +159,22 @@ export default {
       //     name: 'Articles',
       //     href: '/articles'
       // },
-      {
-        name: "Partenaires",
-        href: "/partners",
-      },
+      // {
+      //   name: "Partenaires",
+      //   href: "/partners",
+      // },
       {
         name: "Recrutements",
-        href: "/hire",
+        href: "https://umaestro.fr/recrutements",
       },
       {
         name: "Outils",
         href: "/tools",
       },
-      {
-        name: "Suggestions",
-        href: "/suggestions",
-      },
+      // {
+      //   name: "Suggestions",
+      //   href: "/suggestions",
+      // },
     ],
     authenticated: false,
     user: {},
