@@ -16,7 +16,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      titleTemplate: "UMaestro - %s",
+      titleTemplate: "CreateBetter - %s",
       bodyAttrs: {
         class:
           "bg-background dark:bg-dark-950 dark:text-white transition ease-in duration-100",
@@ -33,7 +33,7 @@ export default defineNuxtConfig({
     meta: [
       {
         property: "og:title",
-        content: "UMaestro - Créer ton meilleur projet avec nous !",
+        content: "CreateBetter - Créer ton meilleur projet avec nous !",
       },
       { property: "og:type", content: "product" },
       {
@@ -43,7 +43,7 @@ export default defineNuxtConfig({
       },
       {
         property: "twitter:title",
-        content: "UMaestro - Créer ton meilleur projet avec nous !",
+        content: "CreateBetter - Créer ton meilleur projet avec nous !",
       },
       {
         property: "twitter:description",
@@ -52,7 +52,7 @@ export default defineNuxtConfig({
       },
       {
         property: "og:title",
-        content: "UMaestro - Créer ton meilleur projet avec nous !",
+        content: "CreateBetter - Créer ton meilleur projet avec nous !",
       },
       {
         property: "description",
@@ -62,11 +62,11 @@ export default defineNuxtConfig({
       { name: "twitter:card", content: "summary_large_image" },
       {
         property: "og:image",
-        content: "https://umaestro.fr/thumbnail.png",
+        content: "https://createbetter.fr/thumbnail.png",
       },
       {
         property: "twitter:image",
-        content: "https://umaestro.fr/thumbnail.png",
+        content: "https://createbetter.fr/thumbnail.png",
       },
       {
         property: "theme-color",

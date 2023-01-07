@@ -17,9 +17,9 @@ jobs:
           fetch-depth: 0
       - run: |
           cd ..
-          rm -rf umaestro-frontend_new
-          cp -r umaestro-frontend umaestro-frontend_new
-          cd umaestro-frontend_new
+          rm -rf makebetter-frontend_new
+          cp -r makebetter-frontend makebetter-frontend_new
+          cd makebetter-frontend_new
           git checkout main
           git reset --hard origin/main
           git pull
@@ -33,15 +33,15 @@ jobs:
           # Replace current version with the new one
 
           cd ../
-          mv umaestro-frontend umaestro-frontend_old
-          mv umaestro-frontend_new umaestro-frontend
+          mv makebetter-frontend makebetter-frontend_old
+          mv makebetter-frontend_new makebetter-frontend
 
           # Restart server
 
-          cd umaestro-frontend
-          pm2 delete umaestro-frontend
-          pm2 start .output/server/index.mjs --name umaestro-frontend
-          rm -rf ../umaestro-frontend_old
+          cd makebetter-frontend
+          pm2 delete makebetter-frontend
+          pm2 start .output/server/index.mjs --name makebetter-frontend
+          rm -rf ../makebetter-frontend_old
       - uses: rjstone/discord-webhook-notify@v1
         if: success()
         with:
