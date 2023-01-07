@@ -21,7 +21,7 @@
       </NuxtLink>
     </div>
     <div class="border-2 border-primary-700 px-24 py-12">
-      <div class="font-semibold">createbetter.app</div>
+      <div class="font-semibold">makebetter.app</div>
       <p class="text-md mt-2 max-w-2xl leading-relaxed">
         Nous proposons divers outils pour les différentes plateformes d'Internet
         <br /><br />
@@ -71,7 +71,7 @@
     <div
       class="col-span-2 flex justify-end border-2 border-primary-700 px-24 py-8"
     >
-      createbetter.app 2023
+      makebetter.app 2023
     </div>
 
     <img

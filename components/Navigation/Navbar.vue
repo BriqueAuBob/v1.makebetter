@@ -9,7 +9,7 @@
           class="flex items-center gap-4 font-bold tracking-widest"
         >
           <img class="h-10" src="/logo.svg" />
-          createbetter.app
+          makebetter.app
         </NuxtLink>
       </div>
       <ul class="hidden items-center gap-12 lg:flex">

@@ -61,7 +61,7 @@
       class="container mx-auto flex flex-col justify-center py-32"
     >
       <div class="text-center text-xl font-semibold">
-        Les outils que l'on propose sur CreateBetter
+        Les outils que l'on propose sur MakeBetter
       </div>
       <div
         class="mx-auto mt-8 flex w-fit gap-2 rounded-full bg-white p-2 shadow-sm dark:bg-dark-900"
@@ -131,7 +131,7 @@
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          CreateBetter, c'est
+          MakeBetter, c'est
         </div>
         <div
           class="mt-16 grid grid-cols-2 gap-12 px-4 text-dark-950 md:px-16 lg:grid-cols-4 lg:px-48"
