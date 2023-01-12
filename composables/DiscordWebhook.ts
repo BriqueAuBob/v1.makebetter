@@ -26,7 +26,9 @@ export const sendMessage = async (webhook: string, data: any) => {
       JSON.stringify({
         ...message,
         components:
-          message.components[0].components.length !== 0 && message.components,
+          message.components[0].components.length !== 0
+            ? message.components
+            : [],
         embeds: message.embeds.map((embed) => ({
           ...embed,
           color: parseInt(embed.color.substr(1), 16),
