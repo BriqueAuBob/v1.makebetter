@@ -36,15 +36,17 @@
           <MoonIcon v-if="$colorMode.value === 'light'" class="h-8 w-8" />
           <SunIcon v-else class="h-8 w-8" />
         </span>
-        <NuxtLink to="/authentification" v-if="!authenticated">
-          <Button
-            class="bg-gray-300 text-primary-500 hover:bg-white"
-            icon="user"
-            color="none"
-            :text="'Accéder à mon compte'"
-            :small="true"
-          />
-        </NuxtLink>
+        <ClientOnly v-if="!authenticated">
+          <NuxtLink :to="authUrl" v-if="!authenticated">
+            <Button
+              class="bg-gray-300 text-primary-500 hover:bg-white"
+              icon="user"
+              color="none"
+              :text="'Accéder à mon compte'"
+              :small="true"
+            />
+          </NuxtLink>
+        </ClientOnly>
         <NuxtLink v-else activeClass="profile" to="/account">
           <div
             class="text-md flex items-center gap-2 rounded-xl border-2 border-white px-3 py-2 font-medium text-white duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-white hover:text-black hover:shadow-2xl"
@@ -66,19 +68,17 @@
         ]"
       >
         <div class="flex justify-between">
-          <NuxtLink
-            to="/authentification"
-            v-if="!authenticated"
-            @click="toggleMobileMenu"
-          >
-            <Button
-              class="bg-gray-300 text-primary-500 hover:bg-white"
-              icon="user"
-              :text="'Accéder à mon compte'"
-              color="none"
-              :small="true"
-            />
-          </NuxtLink>
+          <ClientOnly v-if="!authenticated">
+            <NuxtLink :to="authUrl" @click="toggleMobileMenu">
+              <Button
+                class="bg-gray-300 text-primary-500 hover:bg-white"
+                icon="user"
+                :text="'Accéder à mon compte'"
+                color="none"
+                :small="true"
+              />
+            </NuxtLink>
+          </ClientOnly>
           <NuxtLink
             v-else
             to="/account"
@@ -195,6 +195,14 @@ export default {
     const store = storeToRefs(useAuthStore());
     this.authenticated = store.isAuthenticated;
     this.user = store.user;
+  },
+  computed: {
+    authUrl() {
+      return (
+        "https://auth.umaestro.fr?redirect_uri=" +
+        encodeURIComponent(window.location.href)
+      );
+    },
   },
   methods: {
     toggleMobileMenu() {
