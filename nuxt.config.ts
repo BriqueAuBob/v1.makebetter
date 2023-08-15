@@ -62,11 +62,11 @@ export default defineNuxtConfig({
       { name: "twitter:card", content: "summary_large_image" },
       {
         property: "og:image",
-        content: "https://makebetter.fr/thumbnail.png",
+        content: "https://makebetter.app/thumbnail.png",
       },
       {
         property: "twitter:image",
-        content: "https://makebetter.fr/thumbnail.png",
+        content: "https://makebetter.app/thumbnail.png",
       },
       {
         property: "theme-color",
