@@ -123,7 +123,7 @@
             <NuxtLink
               v-for="(link, index) of navigation"
               :key="index"
-              :to="{ path: link.href, hash: link.hash }"
+              :to="link.href"
               class="text-gray-400 dark:text-gray-500"
               @click="toggleMobileMenu"
             >
