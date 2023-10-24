@@ -1,5 +1,5 @@
 <template>
-  <nav class="absolute top-0 z-10 w-full">
+  <nav class="absolute top-8 z-10 w-full md:top-4">
     <div
       class="container mx-auto flex items-center justify-between py-6 px-4 text-white"
     >
@@ -18,6 +18,7 @@
           :key="index"
           :to="link.href"
           class="text-gray-400"
+          :target="link.newTab ? '_blank' : ''"
         >
           <li class="duration-300 ease-in hover:text-white">
             {{ link.name }}
@@ -126,6 +127,7 @@
               :to="link.href"
               class="text-gray-400 dark:text-gray-500"
               @click="toggleMobileMenu"
+              :target="link.newTab ? '_blank' : ''"
             >
               <li
                 class="py-4 text-xl font-medium duration-300 ease-in hover:text-gray-900 dark:hover:text-dark-100"
@@ -166,6 +168,7 @@ export default {
       {
         name: "Recrutements",
         href: "https://umaestro.fr/recrutements",
+        newTab: true,
       },
       {
         name: "Outils",
